@@ -5,7 +5,6 @@ import React, { useState } from 'react';
 const socialLinks = [
   { label: 'WhatsApp', href: 'https://wa.me/972537086545', icon: '💬' },
   { label: 'Telegram', href: 'https://t.me/mailovaja', icon: '✈️' },
-  { label: 'Телефон', href: 'tel:+972537086545', icon: '☎️' },
   { label: 'Instagram', href: '#instagram', icon: '◎' },
   { label: 'YouTube', href: '#youtube', icon: '▶️' },
   { label: 'Facebook', href: '#facebook', icon: 'f' },
@@ -132,27 +131,36 @@ const reviews = [
   {
     author: 'Салон красоты',
     text: '“До работы заявки приходили нестабильно. После запуска и настройки системы появился стабильный поток клиентов, стало проще планировать работу и доход.”',
-    image: "/beauty-salon-client-review-results.jpg",
+    image: '/beauty-salon-client-review-results.jpg',
     href: '/reviews/salon-krasoty',
   },
   {
     author: 'Бьюти-эксперт',
     text: '“Раньше не было понимания, как привлекать клиентов. Сейчас есть система, реклама работает, и записи идут регулярно.”',
-    image: "/beauty-expert-client-attraction-review.jpg",
+    image: '/beauty-expert-client-attraction-review.jpg',
     href: '/reviews/byuti-ekspert',
   },
   {
     author: 'Фитнес-тренер',
     text: '“Стало гораздо больше заявок, при этом снизилась стоимость клиента. Появилось ощущение контроля над ситуацией.”',
-    image: "/fitness-master-more-clients-review.jpg",
+    image: '/fitness-master-more-clients-review.jpg',
     href: '/reviews/master',
   },
 ];
 
 const articles = [
-  'Как привлекать клиентов в салон красоты в 2026 году',
-  'Почему реклама не даёт результата и как это исправить',
-  'Ошибки в рекламе, из-за которых вы теряете клиентов',
+  {
+    title: 'Как заполнить запись в новом салоне красоты в США за 6 недель без демпинга',
+    href: '/blog/kak-zapolnit-zapis',
+  },
+  {
+    title: 'Почему реклама не даёт результата и как это исправить',
+    href: '/blog',
+  },
+  {
+    title: 'Ошибки в рекламе, из-за которых вы теряете клиентов',
+    href: '/blog',
+  },
 ];
 
 const PrimaryButton = ({ children, onClick, className = '' }: any) => (
@@ -475,9 +483,16 @@ export default function Home() {
             <h2 className="mb-4 text-4xl font-black">Полезные статьи</h2>
             <p className="mb-16 text-xl text-gray-400">Разбираю, как привлекать клиентов, снижать стоимость заявки и выстраивать систему продвижения в бьюти-бизнесе</p>
             <div className="grid gap-8 md:grid-cols-3">
-              {articles.map((art, i) => (
-                <a key={i} href={`/blog/article-${i + 1}`} className="group flex h-full cursor-pointer flex-col justify-between rounded-[40px] border border-[#f6dcc5] bg-[#fff8f1] p-10 transition duration-500 hover:bg-[#e8a16b]">
-                  <h4 className="text-xl font-black leading-snug transition group-hover:text-white">Статья {i + 1}: <br />{art}</h4>
+              {articles.map((article, i) => (
+                <a
+                  key={i}
+                  href={article.href}
+                  className="group flex h-full cursor-pointer flex-col justify-between rounded-[40px] border border-[#f6dcc5] bg-[#fff8f1] p-10 transition duration-500 hover:bg-[#e8a16b]"
+                >
+                  <h4 className="text-xl font-black leading-snug transition group-hover:text-white">
+                    Статья {i + 1}: <br />
+                    {article.title}
+                  </h4>
                   <div className="mt-8 text-sm font-bold uppercase tracking-widest text-[#e8a16b] transition group-hover:text-white/80">Читать далее →</div>
                 </a>
               ))}
