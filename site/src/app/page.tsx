@@ -1,94 +1,59 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-// --- ДАННЫЕ ИЗ ВАШИХ ИСТОЧНИКОВ ---
-
-const socialLinks = [ 
-  { label: 'WhatsApp', href: 'https://wa.me/972537086545', icon: '💬' }, 
-  { label: 'Telegram', href: 'https://t.me/mailovaja', icon: '✈️' }, 
-  { label: 'Instagram', href: '#instagram', icon: '◎' }, 
-  { label: 'YouTube', href: '#youtube', icon: '▶️' }, 
-  { label: 'Facebook', href: '#facebook', icon: 'f' }, 
-  { label: 'TikTok', href: '#tiktok', icon: '♪' }, 
-];
-
-const problems = [ 
-  'заявки приходят нестабильно: сегодня есть, завтра нет', 
-  'стоимость клиента слишком высокая и съедает прибыль', 
-  'реклама работает “вручную” и требует постоянного контроля', 
-  'нет понятной системы: всё держится на отдельных запусках', 
-  'сложно масштабироваться без увеличения расходов', 
-  'есть заявки, но они не превращаются в записи', 
-];
+// --- ДАННЫЕ ИЗ ИСТОЧНИКОВ И ИСТОРИИ ---
 
 const cases = [ 
   { 
-    niche: 'салон красоты (Premium)', 
-    problem: 'Заполнение записи в новом филиале в США за 6 недель', 
-    action: 'Потрачено на рекламу: $2 500. Стоимость работы: $1 500. Всего 309 обращений.', 
-    result: '78 новых клиентов (чек $200). Выручка: $15 450. CPL: $8.', 
+    niche: 'салон красоты (США)', 
+    problem: 'Заполнение записи в новом филиале за 6 недель', 
+    action: 'Потрачено: $2 500. Работа: $1 500. 309 обращений.', 
+    result: '78 клиентов. Выручка: $15 450. CPL: $8.', 
     href: '/cases/salon-krasoty', 
   }, 
   { 
     niche: 'масштабирование бьюти', 
     problem: 'Заполнение записи на 2.5 месяца вперед', 
-    action: 'Оптимизация воронки и запуск системного трафика.', 
-    result: '794 обращения, 160 новых клиентов. Средний CAC — $45.', 
+    action: '794 обращения, 160 новых клиентов за 2,5 месяца.', 
+    result: 'Рост дохода на 30%. CAC — $45.', 
     href: '/cases/master-byuti-ekspert', 
   }, 
   { 
     niche: 'массаж (Израиль)', 
     problem: '740 заявок на ручной массаж по $1.8', 
-    action: 'Запуск направления с нуля через таргетированную рекламу.', 
-    result: 'Чистая прибыль мастера: $9 946 (30 762 ₪).', 
+    action: 'Запуск с нуля. 30 762 ₪ ($9 946) чистой прибыли.', 
+    result: 'Мастер с полной записью с первой недели.', 
     href: '/cases/byuti-biznes', 
   }, 
 ];
 
-// ОТЗЫВЫ С ФОТО КЛИЕНТОВ ИЗ ИСТОЧНИКОВ [1]
 const reviews = [ 
-  { author: 'Салон красоты', text: '“До работы заявки приходили нестабильно. После запуска и настройки системы появился стабильный поток клиентов.”', image: '/beauty-salon-client-review-results.jpg' }, 
-  { author: 'Бьюти-эксперт', text: '“Раньше не было понимания, как привлекать клиентов. Сейчас есть система, реклама работает, и записи идут регулярно.”', image: '/beauty-expert-client-attraction-review.jpg' }, 
-  { author: 'Фитнес-тренер', text: '“Стало гораздо больше заявок, при этом снизилась стоимость клиента. Появилось ощущение контроля.”', image: '/fitness-master-more-clients-review.jpg' }, 
-];
-
-const articles = [ 
-  { title: 'Как заполнить запись в новом салоне красоты в США за 6 недель без демпинга', href: '/blog/kak-zapolnit-zapis' }, 
-  { title: 'Почему реклама не даёт результата и как это исправить', href: '/blog' }, 
-  { title: 'Ошибки в рекламе, из-за которых вы теряете клиентов', href: '/blog' }, 
-];
-
-const steps = [ 
-  { step: '01', title: 'Шаг 1. Разбор ситуации', text: 'Анализирую текущую ситуацию: рекламу, воронку, обработку заявок.' }, 
-  { step: '02', title: 'Шаг 2. Стратегия', text: 'Формирую план: каналы трафика и систему привлечения без скидок.' }, 
-  { step: '03', title: 'Шаг 3. Запуск', text: 'Настраиваю рекламу, подключаю сайт или посадочные страницы.' }, 
-  { step: '04', title: 'Шаг 4. Настройка системы', text: 'Подключаю CRM и автоматизацию, чтобы заявки не терялись.' }, 
-  { step: '05', title: 'Шаг 5. Оптимизация', text: 'Работаю до результата, зафиксированного в договоре.' }, 
+  { author: 'Салон красоты', text: '“До работы заявки приходили нестабильно. После запуска системы появился стабильный поток клиентов.”', image: '/beauty-salon-client-review-results.jpg' }, 
+  { author: 'Бьюти-эксперт', text: '“Раньше не было понимания, как привлекать клиентов. Сейчас есть система и записи идут регулярно.”', image: '/beauty-expert-client-attraction-review.jpg' }, 
+  { author: 'Фитнес-тренер', text: '“Стало гораздо больше заявок, стоимость клиента упала. Появилось ощущение контроля.”', image: '/fitness-master-more-clients-review.jpg' }, 
 ];
 
 const faqs = [ 
-  { q: 'Как понять, что реклама будет приносить прибыль?', a: 'Перед запуском разбираем цифры: стоимость клиента, ценность и работу воронки.' }, 
+  { q: 'Как понять, что реклама будет приносить прибыль?', a: 'Перед запуском разбираем цифры: стоимость клиента, ценность и работу воронки. Мы строим систему на окупаемость.' }, 
   { q: 'Что делать, если заявки есть, но записи слабые?', a: 'Это вопрос воронки и обработки. Настраиваем систему так, чтобы лиды превращались в записи.' }, 
+];
+
+const articles = [ 
+  { title: 'Как заполнить запись в новом салоне в США за 6 недель без демпинга', href: '/blog/kak-zapolnit-zapis' }, 
+  { title: 'Ошибки в рекламе, из-за которых вы теряете клиентов', href: '/blog' }, 
 ];
 
 // --- ВСПОМОГАТЕЛЬНЫЕ КОМПОНЕНТЫ ---
 
-const PrimaryButton = ({ children, onClick, className = '' }: any) => (
-  <button
-    onClick={onClick}
-    className={`inline-flex items-center justify-center gap-2 rounded-full bg-[#e8a16b] px-8 py-4 font-bold text-white shadow-lg transition hover:scale-[1.02] hover:bg-[#d78d57] ${className}`}
+const WhatsAppButton = ({ children, className = '' }: any) => (
+  <a
+    href="https://wa.me/972537086545"
+    target="_blank"
+    rel="noreferrer"
+    className={`inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-8 py-4 font-bold text-white shadow-xl transition hover:scale-105 ${className}`}
   >
-    {children}
-  </button>
-);
-
-const SecondaryButton = ({ children, onClick, className = '' }: any) => (
-  <button
-    onClick={onClick}
-    className={`inline-flex items-center justify-center gap-2 rounded-full border border-gray-300 bg-white px-8 py-4 font-bold transition hover:border-[#e8a16b] hover:text-[#e8a16b] ${className}`}
-  >
-    {children}
-  </button>
+    💬 {children}
+  </a>
 );
 
 // --- ГЛАВНАЯ СТРАНИЦА ---
@@ -99,12 +64,7 @@ export default function Home() {
   const scrollToId = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      const offset = 80;
-      const bodyRect = document.body.getBoundingClientRect().top;
-      const elementRect = element.getBoundingClientRect().top;
-      const elementPosition = elementRect - bodyRect;
-      const offsetPosition = elementPosition - offset;
-      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+      window.scrollTo({ top: element.offsetTop - 80, behavior: 'smooth' });
     }
   };
 
@@ -112,149 +72,115 @@ export default function Home() {
     <div className="min-h-screen bg-white font-sans text-gray-900 selection:bg-[#fff1e4] selection:text-[#e8a16b]">
       {/* Header */}
       <nav className="fixed top-0 z-50 w-full bg-white/90 backdrop-blur-md border-b px-6 py-4 flex justify-between items-center">
-        <div className="text-xl font-black text-[#e8a16b]">БЬЮТИ.СТРАТЕГИЯ</div>
-        <div className="hidden md:flex gap-8 font-medium">
-          <button onClick={() => scrollToId('cases')} className="hover:text-[#e8a16b]">Кейсы</button>
-          <button onClick={() => scrollToId('about')} className="hover:text-[#e8a16b]">Об эксперте</button>
-          <button onClick={() => scrollToId('faq')} className="hover:text-[#e8a16b]">FAQ</button>
-          <button onClick={() => scrollToId('blog')} className="hover:text-[#e8a16b]">Блог</button>
+        <div className="text-xl font-black text-[#e8a16b] tracking-tighter">БЬЮТИ.СТРАТЕГИЯ</div>
+        <div className="hidden md:flex gap-8 font-bold text-sm uppercase tracking-widest">
+          <button onClick={() => scrollToId('cases')}>Кейсы</button>
+          <button onClick={() => scrollToId('faq')}>FAQ</button>
+          <button onClick={() => scrollToId('contact')}>Контакты</button>
         </div>
+        <a href="https://wa.me/972537086545" className="hidden md:block font-black text-[#25D366]">WHATSAPP →</a>
       </nav>
 
-      {/* HERO + ЛИЧНОЕ ФОТО №1 [2] */}
+      {/* HERO SECTION — УСИЛЕННЫЙ ОФФЕР */}
       <section className="pt-40 pb-20 px-6 max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
         <div className="flex-1 text-left">
-          <h1 className="text-5xl md:text-7xl font-black leading-tight">
+          <div className="inline-block bg-[#fff1e4] text-[#e8a16b] px-4 py-2 rounded-lg font-bold text-sm mb-6">
+            🔥 ОСТАЛОСЬ 2 СЛОТА НА АУДИТ В ЭТОМ МЕСЯЦЕ
+          </div>
+          <h1 className="text-5xl md:text-8xl font-black leading-none tracking-tighter">
             Увеличим доход салона на <span className="text-[#e8a16b]">30% за 2 месяца</span>
           </h1>
-          <p className="mt-8 text-xl text-gray-600">Системный маркетинг для бьюти-индустрии. Работа до результата.</p>
-          <PrimaryButton onClick={() => scrollToId('contact')} className="mt-10">Получить аудит воронки</PrimaryButton>
+          <p className="mt-8 text-xl text-gray-600 font-medium">
+            Бесплатно разберу вашу воронку и покажу, где вы теряете клиентов прямо сейчас.
+          </p>
+          <div className="mt-10 flex flex-col sm:flex-row gap-4">
+            <WhatsAppButton>Получить разбор в WhatsApp</WhatsAppButton>
+          </div>
         </div>
-        <div className="flex-1">
-          {/* ВАШЕ ПЕРВОЕ ФОТО */}
+        <div className="flex-1 relative">
           <div className="w-full aspect-[4/5] bg-gray-100 rounded-[40px] overflow-hidden border-8 border-gray-50 shadow-2xl">
-             <img src="/beauty-business-marketing-specialist.jpg" alt="Татьяна Новикова" className="w-full h-full object-cover" />
+             <img src="/beauty-marketing-strategy.jpg" alt="Татьяна Новикова" className="w-full h-full object-cover" />
+          </div>
+          <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-3xl shadow-2xl border hidden md:block">
+            <p className="text-3xl font-black text-[#e8a16b]">$15 450</p>
+            <p className="text-xs font-bold text-gray-400 uppercase">Выручка за 6 недель [США]</p>
           </div>
         </div>
       </section>
 
-      {/* ПРОБЛЕМЫ [3] */}
-      <section className="bg-gray-50 py-24 px-6">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold mb-16 text-center text-gray-400 uppercase tracking-widest">Проблемы, которые мы решаем</h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            {problems.map((p, i) => (
-              <div key={i} className="bg-white p-8 rounded-2xl border hover:shadow-lg transition">
-                <span className="text-[#e8a16b] text-2xl font-bold block mb-4">0{i+1}</span>
-                <p className="font-medium text-gray-700">{p}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* STICKY CTA ДЛЯ МОБИЛЬНЫХ */}
+      <div className="fixed bottom-6 left-0 w-full z-50 px-6 md:hidden">
+        <WhatsAppButton className="w-full py-5 text-lg shadow-2xl">Написать и получить разбор</WhatsAppButton>
+      </div>
 
-      {/* ОБ ЭКСПЕРТЕ + ЛИЧНОЕ ФОТО №2 */}
+      {/* ОБ ЭКСПЕРТЕ — ЛИЧНОЕ ФОТО №2 */}
       <section id="about" className="py-24 px-6 max-w-7xl mx-auto flex flex-col md:flex-row-reverse items-center gap-16">
         <div className="flex-1">
-          <h2 className="text-4xl font-bold mb-8 italic">"Я не просто настраиваю рекламу — я строю систему привлечения"</h2>
-          <p className="text-lg text-gray-600 mb-6 italic">В бьюти-бизнесе 2026 года скидки убивают бренд. Моя задача — показать вашу уникальность и довести клиента до кресла без демпинга.</p>
+          <h2 className="text-4xl md:text-6xl font-black mb-8 tracking-tighter italic">«Я не просто настраиваю рекламу — я строю систему прибыли»</h2>
+          <p className="text-xl text-gray-600 mb-8 italic">
+            В 2026 году скидки убивают бьюти-бренд. Я создаю ценность, которая заставляет клиентов записываться без демпинга. Беру только те проекты, в результат которых верю.
+          </p>
+          <div className="bg-gray-50 p-8 rounded-3xl border">
+            <p className="font-bold text-gray-400 uppercase text-xs mb-4 tracking-widest">Мои стандарты:</p>
+            <ul className="space-y-4 font-bold">
+              <li>✔️ Работа до финансового результата</li>
+              <li>✔️ Прозрачная аналитика в CRM</li>
+              <li>✔️ Окупаемость рекламы от 300%</li>
+            </ul>
+          </div>
         </div>
         <div className="flex-1">
-          {/* ВАШЕ ВТОРОЕ ФОТО */}
-          <div className="w-full aspect-square bg-gray-100 rounded-full overflow-hidden border-8 border-white shadow-xl">
-             <img src="/beauty-client-acquisition-strategy-funnel.jpg" alt="Бьюти Стратегия" className="w-full h-full object-cover" />
+          <div className="w-full aspect-square bg-gray-100 rounded-full overflow-hidden border-8 border-white shadow-2xl">
+             <img src="/beauty-business-marketing-specialist.jpg" alt="Бьюти Стратег" className="w-full h-full object-cover" />
           </div>
         </div>
       </section>
 
-      {/* КЕЙСЫ + ЦИФРЫ [4] */}
+      {/* КЕЙСЫ — ТВЕРДЫЕ ЦИФРЫ */}
       <section id="cases" className="py-24 bg-gray-900 text-white px-6">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold mb-16 text-center uppercase tracking-tighter">Твердые результаты в цифрах</h2>
+          <h2 className="text-5xl md:text-7xl font-black mb-16 text-center tracking-tighter">Твердые результаты</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {cases.map((c, i) => (
-              <div key={i} className="bg-white/5 p-10 rounded-3xl border border-white/10 backdrop-blur-md hover:bg-white/10 transition">
+              <div key={i} className="bg-white/5 p-10 rounded-[40px] border border-white/10 backdrop-blur-md hover:bg-white/10 transition">
                 <div className="text-[#e8a16b] font-bold mb-4 uppercase text-xs tracking-widest">{c.niche}</div>
                 <h3 className="text-2xl font-bold mb-6 italic">"{c.problem}"</h3>
-                <p className="text-gray-400 text-sm mb-4">{c.action}</p>
-                <div className="text-xl font-black text-white">{c.result}</div>
+                <p className="text-gray-400 text-sm mb-6">{c.action}</p>
+                <div className="text-2xl font-black text-[#e8a16b]">{c.result}</div>
               </div>
             ))}
           </div>
-          {/* ПРИЗЫВ К ДЕЙСТВИЮ + ЛИЧНОЕ ФОТО №3 */}
-          <div className="mt-20 flex flex-col md:flex-row items-center gap-12 bg-[#e8a16b] rounded-[40px] p-12">
+
+          {/* ПРИЗЫВ К ДЕЙСТВИЮ — ЛИЧНОЕ ФОТО №3 */}
+          <div className="mt-20 flex flex-col md:flex-row items-center gap-12 bg-white rounded-[40px] p-12 text-gray-900">
              <div className="flex-1 text-center md:text-left">
-                <h3 className="text-3xl font-black mb-6">Готовы к такому же росту?</h3>
-                <p className="text-white/90 text-lg mb-8">Запишитесь на экспертный аудит вашей воронки продаж.</p>
-                <PrimaryButton onClick={() => scrollToId('contact')} className="bg-white text-[#e8a16b] hover:bg-gray-100">Записаться на аудит</PrimaryButton>
+                <h3 className="text-4xl md:text-6xl font-black mb-6 tracking-tighter">Нужна полная запись?</h3>
+                <p className="text-xl text-gray-500 mb-8 italic">Напишите мне в WhatsApp. Разберем ваши точки роста за 15 минут — это бесплатно и ни к чему не обязывает.</p>
+                <WhatsAppButton>Записаться на разбор</WhatsAppButton>
              </div>
              <div className="flex-1 flex justify-center">
-                {/* ВАШЕ ТРЕТЬЕ ФОТО */}
-                <img src="/beauty-client-acquisition-strategy-funnel.jpg" alt="Консультация" className="w-64 h-64 rounded-full border-4 border-white shadow-2xl object-cover" />
+                <img src="/beauty-client-acquisition-strategy-funnel.jpg" alt="Разбор воронки" className="w-72 h-72 rounded-full border-8 border-gray-50 shadow-2xl object-cover" />
              </div>
           </div>
         </div>
       </section>
 
-      {/* ЭТАПЫ [5] */}
-      <section id="steps" className="py-24 px-6 max-w-4xl mx-auto">
-        <h2 className="text-4xl font-bold mb-20 text-center uppercase tracking-widest text-gray-300">Этапы работы</h2>
-        {steps.map((s, i) => (
-          <div key={i} className="flex gap-12 mb-16 relative">
-            <span className="text-7xl font-black text-gray-100 absolute -left-20 top-0 -z-10">{s.step}</span>
-            <div>
-              <h3 className="text-2xl font-bold mb-4">{s.title}</h3>
-              <p className="text-gray-600 text-lg">{s.text}</p>
-            </div>
-          </div>
-        ))}
-      </section>
-
-      {/* FAQ [6] */}
+      {/* FAQ */}
       <section id="faq" className="py-24 bg-gray-50 px-6">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-4xl font-bold mb-12 text-center">Частые вопросы</h2>
           <div className="space-y-4">
             {faqs.map((f, i) => (
-              <div key={i} className="bg-white border rounded-2xl overflow-hidden">
+              <div key={i} className="bg-white border rounded-2xl overflow-hidden shadow-sm">
                 <button 
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                  className="w-full text-left p-6 font-bold flex justify-between items-center hover:bg-gray-50 transition"
+                  className="w-full text-left p-6 font-bold flex justify-between items-center"
                 >
-                  <span>{f.q}</span>
+                  <span className="pr-4">{f.q}</span>
                   <span className="text-[#e8a16b] text-2xl">{openFaq === i ? '−' : '+'}</span>
                 </button>
-                {openFaq === i && <div className="p-6 pt-0 text-gray-600 border-t bg-gray-50/30">{f.a}</div>}
+                {openFaq === i && <div className="p-6 pt-0 text-gray-600 border-t bg-gray-50/50">{f.a}</div>}
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ОТЗЫВЫ + ФОТО КЛИЕНТОВ [1] */}
-      <section id="reviews" className="py-24 px-6 max-w-7xl mx-auto">
-        <h2 className="text-4xl font-bold mb-16 text-center italic">Что говорят владельцы бизнеса</h2>
-        <div className="grid md:grid-cols-3 gap-8">
-          {reviews.map((r, i) => (
-            <div key={i} className="bg-gray-50 p-8 rounded-3xl flex flex-col items-center text-center">
-              <img src={r.image} alt={r.author} className="w-full h-48 object-cover rounded-2xl mb-6 shadow-md" />
-              <p className="italic text-gray-600 mb-6">{r.text}</p>
-              <div className="font-bold text-[#e8a16b] uppercase tracking-widest text-sm">{r.author}</div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* БЛОГ [7] */}
-      <section id="blog" className="py-24 px-6 bg-gray-900 text-white">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold mb-12">Полезные статьи</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {articles.map((a, i) => (
-              <a key={i} href={a.href} className="p-10 border border-white/10 rounded-3xl hover:bg-white/5 transition block group">
-                <h3 className="text-xl font-bold mb-4 group-hover:text-[#e8a16b] transition">{a.title}</h3>
-                <span className="text-[#e8a16b] font-medium">Читать полностью →</span>
-              </a>
             ))}
           </div>
         </div>
@@ -262,14 +188,12 @@ export default function Home() {
 
       {/* FOOTER */}
       <footer id="contact" className="py-20 border-t text-center text-gray-400">
-        <div className="flex justify-center gap-6 mb-8 text-2xl">
-          {socialLinks.map((s, i) => (
-            <a key={i} href={s.href} target="_blank" rel="noreferrer" className="hover:text-[#e8a16b] transition">
-              {s.icon}
-            </a>
-          ))}
+        <h2 className="text-2xl font-black text-gray-900 mb-8">БЬЮТИ.СТРАТЕГИЯ</h2>
+        <div className="flex justify-center gap-8 mb-12 text-2xl">
+          <a href="https://wa.me/972537086545" className="hover:text-[#25D366]">💬</a>
+          <a href="https://t.me/mailovaja" className="hover:text-[#0088cc]">✈️</a>
         </div>
-        <p className="text-sm">© 2026 БЬЮТИ.СТРАТЕГИЯ — Системный маркетинг для салонов красоты. Работа до результата.</p>
+        <p className="text-sm font-bold uppercase tracking-widest">© 2026 РАБОТА ДО РЕЗУЛЬТАТА. ВСЕ ПРАВА ЗАЩИЩЕНЫ.</p>
       </footer>
     </div>
   );
