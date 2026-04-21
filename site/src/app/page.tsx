@@ -271,12 +271,27 @@ export default function Home() {
             <button type="button" onClick={() => scrollToId('about')} className="text-left text-2xl font-bold">Обо мне</button>
             <a href="/blog" className="text-left text-2xl font-bold">Статьи</a>
             <button type="button" onClick={() => scrollToId('contact')} className="w-full rounded-full bg-[#e8a16b] py-4 font-bold text-white">👉 Обсудить проект</button>
+
+            <div className="flex flex-wrap gap-3 pt-2">
+              {socialLinks.map((item) => (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="rounded-full border border-[#f6dcc5] bg-white px-4 py-2 text-sm font-bold text-gray-700 transition hover:border-[#e8a16b] hover:text-[#e8a16b]"
+                >
+                  <span className="mr-2">{item.icon}</span>
+                  {item.label}
+                </a>
+              ))}
+            </div>
           </div>
         )}
       </nav>
 
       <main className="pt-20">
-        <header className="relative overflow-hidden bg-gradient-to-br from-[#fff8f1] via-white to-[#f8f2ea] px-6 pb-16 pt-12 lg:pb-24 lg:pt-20">
+        <header className="relative overflow-hidden bg-gradient-to-br from-[#fff8f1] via-white to-[#f8f2ea] px-6 pb-20 pt-14 lg:pb-32 lg:pt-24">
           <div className="mx-auto flex max-w-6xl flex-col items-center gap-12 lg:flex-row">
             <div className="lg:w-3/5">
               <div className="mb-6 flex flex-wrap gap-3 text-xs font-bold uppercase tracking-widest text-[#e8a16b]">
@@ -321,7 +336,7 @@ export default function Home() {
           </div>
         </header>
 
-        <section className="border-y border-gray-100 bg-white py-16">
+        <section className="border-y border-gray-100 bg-white py-20 lg:py-28">
           <div className="mx-auto max-w-6xl px-6">
             <h2 className="mb-12 text-center text-lg font-bold uppercase tracking-widest text-gray-400">
               Работаю с бьюти-бизнесом и выстраиваю систему привлечения клиентов, которая даёт результат
@@ -342,7 +357,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="problems" className="bg-gray-50 py-24">
+        <section id="problems" className="bg-gray-50 py-20 lg:py-28">
           <div className="mx-auto max-w-5xl px-6">
             <h2 className="mb-4 text-center text-3xl font-black md:text-4xl">Почему реклама не даёт стабильного потока клиентов</h2>
             <p className="mb-16 text-center text-lg italic text-gray-500">
@@ -358,7 +373,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="overflow-hidden bg-white py-24">
+        <section className="overflow-hidden bg-white py-20 lg:py-28">
           <div className="mx-auto flex max-w-6xl flex-col items-center gap-16 px-6 lg:flex-row">
             <div className="lg:w-1/2">
               <h2 className="mb-8 text-4xl font-black leading-tight">Выстраиваю систему привлечения клиентов, а не просто запускаю рекламу</h2>
@@ -387,7 +402,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="services" className="bg-gray-50 py-24">
+        <section id="services" className="bg-gray-50 py-20 lg:py-28">
           <div className="mx-auto max-w-6xl px-6">
             <h2 className="mb-16 text-center text-4xl font-black tracking-tight">Форматы работы</h2>
             <div className="grid gap-8 md:grid-cols-2">
@@ -403,6 +418,7 @@ export default function Home() {
                 </div>
               ))}
             </div>
+
             <div className="mt-16 text-center">
               <PrimaryButton onClick={() => scrollToId('contact')}>👉 Обсудить задачу</PrimaryButton>
               <div className="mt-6">
@@ -412,7 +428,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="cases" className="bg-white py-24">
+        <section id="cases" className="bg-white py-20 lg:py-28">
           <div className="mx-auto max-w-6xl px-6">
             <h2 className="mb-2 text-4xl font-black">Результаты клиентов</h2>
             <p className="mb-16 text-xl text-gray-400">Реальные кейсы из бьюти-бизнеса: от проблемы к результату</p>
@@ -431,6 +447,7 @@ export default function Home() {
                 </a>
               ))}
             </div>
+
             <div className="mt-12 flex flex-wrap gap-4">
               <SecondaryButton onClick={() => (window.location.href = '/cases')}>Смотреть все кейсы</SecondaryButton>
               <PrimaryButton onClick={() => scrollToId('contact')}>Обсудить проект</PrimaryButton>
@@ -438,7 +455,43 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="workflow" className="bg-white py-24">
+        <section className="bg-[#fff8f1] py-20 lg:py-28">
+          <div className="mx-auto max-w-5xl rounded-[40px] bg-white px-6 py-12 shadow-sm lg:px-12">
+            <div className="text-center">
+              <h2 className="mb-4 text-4xl font-black">Нужна консультация по вашему проекту?</h2>
+              <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-gray-500">
+                Можно написать мне в WhatsApp, Telegram или перейти в соцсети. Если у вас уже есть реклама, сайт или воронка — разберём, что усилить и где теряются деньги.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap justify-center gap-4">
+              <a
+                href="https://wa.me/972537086545"
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-full bg-black px-8 py-4 font-bold text-white transition hover:bg-gray-800"
+              >
+                WhatsApp
+              </a>
+              <a
+                href="https://t.me/mailovaja"
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-full border border-gray-300 px-8 py-4 font-bold text-gray-900 transition hover:border-[#e8a16b] hover:text-[#e8a16b]"
+              >
+                Telegram
+              </a>
+              <a
+                href="#instagram"
+                className="rounded-full border border-gray-300 px-8 py-4 font-bold text-gray-900 transition hover:border-[#e8a16b] hover:text-[#e8a16b]"
+              >
+                Instagram
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section id="workflow" className="bg-white py-20 lg:py-28">
           <div className="mx-auto max-w-3xl px-6">
             <h2 className="mb-16 text-center text-4xl font-black">Как проходит работа</h2>
             <div className="space-y-12">
@@ -457,7 +510,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="about" className="overflow-hidden bg-gray-50 py-24">
+        <section id="about" className="overflow-hidden bg-gray-50 py-20 lg:py-28">
           <div className="mx-auto flex max-w-6xl flex-col items-center gap-16 px-6 lg:flex-row">
             <div className="aspect-[3/4] w-full overflow-hidden rounded-[48px] border-8 border-white bg-gray-200 shadow-xl lg:w-1/3">
               <img
@@ -473,6 +526,7 @@ export default function Home() {
                 <p>Не ограничиваемся запуском рекламы — выстраиваем весь путь клиента: подключаем сайты, внедряем CRM, настраиваю автоматизацию и работу с заявками. Работаем с салонами красоты, мастерами и экспертами, помогая выстроить понятную и управляемую систему.</p>
                 <p className="font-bold text-gray-900">Мой подход — не просто запуск рекламы, а работа на результат: рост дохода, прибыли и стабильности бизнеса.</p>
               </div>
+
               <div className="mt-12 flex flex-wrap gap-4">
                 <PrimaryButton onClick={() => scrollToId('contact')}>Обсудить проект</PrimaryButton>
                 <SecondaryButton onClick={() => (window.location.href = '/cases')}>Смотреть кейсы</SecondaryButton>
@@ -481,7 +535,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="faq" className="bg-gray-50 py-24">
+        <section id="faq" className="bg-gray-50 py-20 lg:py-28">
           <div className="mx-auto max-w-3xl px-6">
             <h2 className="mb-16 text-center text-4xl font-black">Частые вопросы</h2>
             <div className="space-y-4">
@@ -498,7 +552,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="bg-white py-24">
+        <section className="bg-white py-20 lg:py-28">
           <div className="mx-auto max-w-6xl px-6">
             <h2 className="mb-4 text-4xl font-black">Полезные статьи</h2>
             <p className="mb-16 text-xl text-gray-400">Разбираю, как привлекать клиентов, снижать стоимость заявки и выстраивать систему продвижения в бьюти-бизнесе</p>
@@ -523,7 +577,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="bg-[#fff8f1] py-24">
+        <section className="bg-[#fff8f1] py-20 lg:py-28">
           <div className="mx-auto max-w-6xl px-6 text-center">
             <h2 className="mb-16 text-4xl font-black">Что говорят клиенты</h2>
             <div className="grid gap-8 md:grid-cols-3">
@@ -543,7 +597,7 @@ export default function Home() {
           </div>
         </section>
 
-        <footer id="contact" className="border-t border-gray-100 bg-white px-6 py-32 text-center">
+        <footer id="contact" className="border-t border-gray-100 bg-white px-6 py-28 text-center lg:py-36">
           <div className="mx-auto max-w-4xl">
             <h2 className="mb-8 text-5xl font-black leading-[1.1] tracking-tighter md:text-7xl">
               Готовы выстроить систему
