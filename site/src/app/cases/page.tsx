@@ -8,22 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function CasesPage() {
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'CollectionPage',
-    name: 'Кейсы продвижения бьюти-бизнеса',
-    description:
-      'Страница с кейсами продвижения бьюти-бизнеса: заявки, стоимость лида, вложения, выручка и прибыль.',
-    url: 'https://beauty.adsnew.org/cases',
-  };
-
-  return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      <CasesClient />
-    </>
-  );
+  return <CasesClient />;
 }
