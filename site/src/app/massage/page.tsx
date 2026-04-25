@@ -1,174 +1,152 @@
-import type { Metadata } from 'next';
+'use client';
+import React, { useState } from 'react';
 
-export const metadata: Metadata = {
-  title:
-    'Реклама для массажистов и спа-салонов | Клиенты на массаж',
-  description:
-    'Привлечение клиентов на массаж через рекламу: система заявок, CRM, стратегия и кейсы. Бесплатный разбор и план роста.',
+// Данные для страницы массажа из ваших источников
+const massageCase = {
+  niche: 'Студия ручного массажа (Израиль)',
+  problem: 'Мастер с нуля, 0 базы, пустой профиль',
+  result: '30 762 ₪ ($9 946) чистой прибыли за 3 месяца',
+  stats: '740 заявок по $1.8 (5,7 ₪)',
+  action: 'Внедрена система: Упаковка профиля + ТЗ для контента "руки мастера" + Таргет + Скрипты в WhatsApp'
 };
 
+const faqs = [
+  { q: 'ЧТО ЕСЛИ ЛЮДИ БУДУТ ТОЛЬКО СПРАШИВАТЬ ЦЕНУ?', a: 'Это решается на этапе воронки. Мы даем вам готовые скрипты ответов для WhatsApp, которые переводят вопрос "сколько стоит" в запись на сеанс.' },
+  { q: 'КАКОЙ МИНИМАЛЬНЫЙ БЮДЖЕТ НУЖЕН?', a: 'Мы считаем финансовую модель до старта. Обычно для окупаемого запуска в нише массажа достаточно бюджета от $200-300 в месяц.' }
+];
+
+// Компонент WhatsApp кнопки
+const WhatsAppButton = ({ children, className = '' }: any) => (
+  <a href="https://wa.me/972537086545" target="_blank" rel="noreferrer" 
+     className={`inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-8 py-4 font-bold text-white shadow-2xl transition hover:scale-105 ${className}`}>
+    💬 {children}
+  </a>
+);
+
 export default function MassagePage() {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
   return (
-    <main className="bg-white text-[#1f1a17]">
-
-      {/* HERO */}
-      <section className="px-6 py-20 max-w-5xl mx-auto">
-        <p className="text-sm text-[#9b6b43] font-semibold mb-4">
-          🔥 Беру только 2 новых проекта в месяц
-        </p>
-
-        <h1 className="text-3xl md:text-5xl font-semibold leading-tight">
-          Реклама для массажистов и спа-салонов — поток клиентов и полная запись
-        </h1>
-
-        <p className="mt-6 text-lg text-[#5f5148]">
-          Бесплатно разберу вашу ситуацию и покажу, как получить стабильный поток клиентов через рекламу и систему.
-        </p>
-
-        <div className="mt-8 flex gap-4 flex-wrap">
-          <a href="https://wa.me/972537086545" className="bg-black text-white px-6 py-3 rounded-full text-sm font-semibold">
-            WhatsApp
-          </a>
-          <a href="https://t.me/mailovaja" className="border px-6 py-3 rounded-full text-sm font-semibold">
-            Telegram
-          </a>
+    <main className="bg-white text-[#1f1a17] selection:bg-[#fff1e4] selection:text-[#e8a16b]">
+      {/* Шапка */}
+      <nav className="fixed top-0 z-50 w-full bg-white/90 backdrop-blur-md border-b px-6 py-4 flex justify-between items-center">
+        <div className="text-sm md:text-xl font-black text-[#e8a16b] tracking-tighter uppercase">
+          МАРКЕТИНГ ДЛЯ МАССАЖНОГО БИЗНЕСА
         </div>
-      </section>
+        <WhatsAppButton className="px-6 py-2 text-xs">КОНСУЛЬТАЦИЯ</WhatsAppButton>
+      </nav>
 
-      {/* ПРОБЛЕМЫ */}
-      <section className="px-6 py-16 bg-[#f7f2ea]">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-semibold">
-            Почему нет стабильных клиентов на массаж
-          </h2>
-
-          <ul className="mt-6 space-y-4 text-[#5f5148]">
-            <li>— заявки приходят нестабильно</li>
-            <li>— люди спрашивают цену и пропадают</li>
-            <li>— реклама требует постоянного контроля</li>
-            <li>— нет повторных клиентов</li>
-          </ul>
+      {/* 1. HERO — Агрессивный захват */}
+      <section className="pt-40 pb-32 px-6 max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
+        <div className="flex-1">
+          <div className="inline-block bg-[#fff1e4] text-[#e8a16b] px-4 py-2 rounded-lg font-bold text-sm mb-6 uppercase tracking-widest">
+            🔥 СВОБОДНО 2 СЛОТА ДЛЯ МАСТЕРОВ МАССАЖА
+          </div>
+          <h1 className="text-5xl md:text-8xl font-black leading-none tracking-tighter mb-8">
+            Полная запись на <span className="text-[#e8a16b]">2 месяца</span> вперед
+          </h1>
+          <p className="text-xl md:text-2xl text-gray-600 font-medium mb-10 max-w-xl">
+            Бесплатно разберу вашу воронку и покажу, как мы получили 740 заявок по $1.8 для мастера с нуля.
+          </p>
+          <WhatsAppButton>ПОЛУЧИТЬ ПЛАН РОСТА В WHATSAPP</WhatsAppButton>
         </div>
-      </section>
-
-      {/* ПОДХОД */}
-      <section className="px-6 py-20 max-w-5xl mx-auto">
-        <h2 className="text-2xl md:text-3xl font-semibold">
-          Система привлечения клиентов на массаж
-        </h2>
-
-        <div className="mt-8 space-y-6 text-[#5f5148]">
-          <p>Реклама (Meta Ads + TikTok)</p>
-          <p>Сайт или посадочная страница</p>
-          <p>CRM и автоматизация заявок</p>
-          <p>Скрипты и конверсия в запись</p>
-        </div>
-      </section>
-
-      {/* КЕЙСЫ */}
-      <section className="px-6 py-20 bg-[#f7f2ea]">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-semibold">
-            Кейсы продвижения массажа
-          </h2>
-
-          <div className="mt-8 space-y-6">
-
-            <div>
-              <h3 className="font-semibold">
-                740 заявок по $1.8 и 30 762 ₪ прибыли
-              </h3>
-              <p className="text-[#5f5148] mt-2">
-                Массаж с нуля: без базы, без клиентов → полная запись за 3 месяца
-              </p>
-            </div>
-
-            <div>
-              <h3 className="font-semibold">
-                183 заявки по $5.7 и 40 клиентов
-              </h3>
-              <p className="text-[#5f5148] mt-2">
-                Массаж для женщин: выстроена система заявок и записи
-              </p>
-            </div>
-
-            <div>
-              <h3 className="font-semibold">
-                256 клиентов через систему онлайн-записи
-              </h3>
-              <p className="text-[#5f5148] mt-2">
-                Спа-салон: автоматизация записи без администратора
-              </p>
-            </div>
-
+        <div className="flex-1 relative">
+          <div className="w-full aspect-[4/5] bg-gray-100 rounded-[40px] overflow-hidden border-8 border-gray-50 shadow-2xl">
+            <img src="/beauty-marketing-strategy.jpg" alt="Реклама для массажа" className="w-full h-full object-cover" />
+          </div>
+          {/* Плашка с результатом кейса */}
+          <div className="absolute -bottom-8 -left-8 bg-white p-8 rounded-3xl shadow-2xl border hidden md:block">
+            <p className="text-4xl font-black text-[#e8a16b]">{massageCase.result}</p>
+            <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mt-2">Чистая прибыль нашего клиента</p>
           </div>
         </div>
       </section>
 
-      {/* ОБО МНЕ */}
-      <section className="px-6 py-20 max-w-5xl mx-auto">
-        <h2 className="text-2xl md:text-3xl font-semibold">
-          Эксперт по рекламе в бьюти-сфере
-        </h2>
+      {/* STICKY CTA ДЛЯ МОБИЛЬНЫХ (Критично для конверсии) */}
+      <div className="fixed bottom-6 left-0 w-full z-50 px-6 md:hidden">
+        <WhatsAppButton className="w-full py-5 text-lg shadow-3xl">ЗАПИСАТЬСЯ НА РАЗБОР (WA)</WhatsAppButton>
+      </div>
 
-        <p className="mt-6 text-[#5f5148]">
-          С 2018 года помогаю массажистам и салонам выстраивать систему привлечения клиентов.
-          Работаю с проектами в США, Европе и Израиле.
-        </p>
-
-        <div className="mt-6 flex gap-4">
-          <a href="https://wa.me/972537086545">WhatsApp</a>
-          <a href="https://t.me/mailovaja">Telegram</a>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className="px-6 py-20 bg-[#f7f2ea]">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-semibold">
-            Вопросы по рекламе массажа
-          </h2>
-
-          <div className="mt-8 space-y-6 text-[#5f5148]">
-
-            <p><b>С каким бюджетом можно стартовать?</b><br/>От $200 до $10 000</p>
-
-            <p><b>Почему есть заявки, но нет записей?</b><br/>Проблема в обработке — мы это исправляем</p>
-
-            <p><b>Сколько стоит клиент?</b><br/>Зависит от города и конкуренции</p>
-
-            <p><b>Когда будет результат?</b><br/>Первые заявки — уже в начале работы</p>
-
-            <p><b>Вы только рекламу делаете?</b><br/>Нет, выстраиваем систему полностью</p>
-
+      {/* 2. БЛОК ПРОБЛЕМ — "Узнавание" */}
+      <section className="py-32 bg-gray-50 px-6">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-5xl font-black mb-16 tracking-tighter uppercase">Почему ваш кабинет пустует?</h2>
+          <div className="grid md:grid-cols-2 gap-8 text-left">
+            {[
+              'Заявки приходят волнами: то густо, то пусто',
+              'Люди спрашивают цену и пропадают после ответа',
+              'Реклама съедает бюджет, не принося реальных записей',
+              'Нет системы: всё держится на "сарафанке"'
+            ].map((text, i) => (
+              <div key={i} className="flex gap-4 items-start bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                <span className="text-[#e8a16b] font-bold">✕</span>
+                <p className="font-bold text-gray-700">{text}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="px-6 py-20 text-center">
-        <h2 className="text-2xl md:text-3xl font-semibold">
-          Получите разбор вашего проекта
-        </h2>
-
-        <div className="mt-6 flex justify-center gap-4">
-          <a href="https://wa.me/972537086545" className="bg-black text-white px-6 py-3 rounded-full">
-            WhatsApp
-          </a>
-          <a href="https://t.me/mailovaja" className="border px-6 py-3 rounded-full">
-            Telegram
-          </a>
+      {/* 3. ГЛАВНЫЙ КЕЙС — Модель "Сценарий" */}
+      <section className="py-40 px-6 max-w-7xl mx-auto">
+        <div className="flex flex-col md:flex-row gap-16 items-center">
+          <div className="flex-1 order-2 md:order-1">
+             <img src="/beauty-client-acquisition-strategy-funnel.jpg" alt="Кейс массаж Израиль" className="rounded-[40px] shadow-2xl" />
+          </div>
+          <div className="flex-1 order-1 md:order-2">
+            <h2 className="text-[#e8a16b] font-black text-sm tracking-widest mb-4 uppercase">Кейс: Израиль</h2>
+            <h3 className="text-4xl md:text-6xl font-black mb-8 leading-tight tracking-tighter italic">
+              «{massageCase.stats}»
+            </h3>
+            <div className="space-y-8">
+              <div>
+                <p className="text-xs font-bold text-gray-400 uppercase mb-2">Ситуация:</p>
+                <p className="text-xl font-medium text-gray-600 italic">{massageCase.problem}</p>
+              </div>
+              <div>
+                <p className="text-xs font-bold text-gray-400 uppercase mb-2">Что внедрили:</p>
+                <p className="text-xl font-medium text-gray-600">{massageCase.action}</p>
+              </div>
+              <div className="p-8 bg-[#fff1e4] rounded-3xl border-2 border-[#e8a16b]">
+                <p className="text-xs font-bold text-[#e8a16b] uppercase mb-2">Результат:</p>
+                <p className="text-3xl font-black text-gray-900">{massageCase.result}</p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* FIXED BUTTON */}
-      <a
-        href="https://wa.me/972537086545"
-        className="fixed bottom-4 left-4 right-4 bg-black text-white text-center py-4 rounded-full"
-      >
-        Написать в WhatsApp
-      </a>
+      {/* 4. FAQ — Отработка страхов */}
+      <section className="py-32 bg-gray-900 text-white px-6">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-4xl font-black mb-16 text-center tracking-tighter uppercase italic">Вопросы по окупаемости</h2>
+          <div className="space-y-4">
+            {faqs.map((f, i) => (
+              <div key={i} className="bg-white/5 border border-white/10 rounded-3xl overflow-hidden">
+                <button onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  className="w-full text-left p-8 font-bold flex justify-between items-center hover:bg-white/5 transition">
+                  <span className="uppercase text-sm tracking-widest">{f.q}</span>
+                  <span className="text-[#e8a16b] text-2xl">{openFaq === i ? '−' : '+'}</span>
+                </button>
+                {openFaq === i && <div className="p-8 pt-0 text-gray-400 border-t border-white/5 leading-relaxed">{f.a}</div>}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
+      {/* 5. ФИНАЛЬНЫЙ ПРИЗЫВ */}
+      <section className="py-40 px-6 text-center">
+        <h2 className="text-5xl md:text-8xl font-black tracking-tighter mb-10">НУЖНА ПОЛНАЯ ЗАПИСЬ?</h2>
+        <p className="text-xl text-gray-500 mb-12 italic max-w-2xl mx-auto">
+          Разберем вашу ситуацию за 15 минут в WhatsApp — это бесплатно и покажет вам точки роста прибыли.
+        </p>
+        <WhatsAppButton className="py-6 px-12 text-xl">ЗАПИСАТЬСЯ НА РАЗБОР</WhatsAppButton>
+      </section>
+
+      <footer className="py-12 border-t text-center text-gray-400 font-bold text-xs uppercase tracking-widest">
+        © 2026 БЬЮТИ.СТРАТЕГИЯ — РАБОТА НА ФИНАНСОВЫЙ РЕЗУЛЬТАТ
+      </footer>
     </main>
   );
 }
