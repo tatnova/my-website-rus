@@ -176,10 +176,7 @@ export default function MassagePage() {
         </div>
       </section>
 
-      {/* STICKY КНОПКИ ДЛЯ МОБИЛЬНЫХ */}
-      <div className="fixed bottom-6 left-0 w-full z-50 px-6 md:hidden flex flex-col gap-2">
-        <DualContactButtons />
-      </div>
+      
 
     
     </main>
