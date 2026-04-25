@@ -41,23 +41,23 @@ const cases: CaseItem[] = [
     profit: '30 762 ₪',
     href: '/cases/massazh-israel-740-zayavok',
   },
-  {
-    country: 'США',
-    city: 'США',
-    niche: 'Парикмахерская',
-    goal: 'Стабильный поток заявок',
-    title:
-      'Продвижение парикмахерской в США через Meta Ads: стабильный поток заявок',
-    investment: '—',
-    leads: 'стабильно',
-    leadPrice: '—',
-    revenue: '—',
-    profit: '—',
-    href: '/cases/parikmaherskaya-usa-meta-ads',
-  },
+ {
+  country: 'Канада',
+  city: 'Канада',
+  niche: 'Массаж',
+  goal: 'Заполнение записи',
+  title:
+    '183 заявки по 5,7$ и 40 клиентов с чеком $120 для массажа в Канаде',
+  investment: '1073$',
+  leads: '183',
+  leadPrice: '5,7$',
+  revenue: '4 800$',
+  profit: '—',
+  href: '/cases/massage-canada-body',
+},
 ];
 
-const countries = ['Все страны', 'Израиль', 'США', 'ОАЭ'];
+const countries = ['Все страны', 'Израиль', 'Канада', 'США', 'ОАЭ'];
 const niches = [
   'Все ниши',
   'Массаж',
