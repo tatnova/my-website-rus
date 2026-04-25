@@ -3,39 +3,65 @@ import React, { useState } from 'react';
 
 // --- ДАННЫЕ ДЛЯ БЛОКОВ ---
 
-const cases = [ 
-  { 
-    niche: 'Массаж (Израиль)', 
-    title: '740 заявок по $1.8', 
-    result: '30 762 ₪ ($9 946) чистой прибыли', 
+const cases = [
+  {
+    niche: 'Массаж (Израиль)',
+    title: '740 заявок по $1.8',
+    result: '30 762 ₪ ($9 946) чистой прибыли',
     desc: 'Запуск с нуля: от пустых стен до полной записи за 3 месяца.',
-    image: '/beauty-client-acquisition-strategy-funnel.jpg' 
+    image: '/beauty-client-acquisition-strategy-funnel.jpg',
+    href: '/cases/massazh-israel-740-zayavok',
   },
-  { 
-    niche: 'Салон красоты (США)', 
-    title: 'Выручка $15 450 за 6 недель', 
-    result: '78 новых клиентов (чек $200)', 
-    desc: 'Заполнение записи в новом филиале без демпинга и скидок.',
-    image: '/beauty-salon-client-review-results.jpg' 
+  {
+    niche: 'Массаж (Канада)',
+    title: '183 заявки по $5.7',
+    result: '40 клиентов с чеком $120',
+    desc: 'Продвижение массажа для женщин при ограниченном бюджете.',
+    image: '/beauty-salon-client-review-results.jpg',
+    href: '/cases/massage-canada-body',
   },
-  { 
-    niche: 'Масштабирование эксперта', 
-    title: 'Запись на 2.5 месяца вперед', 
-    result: 'Рост дохода на 30%', 
-    desc: 'Оптимизация воронки и внедрение CRM-автоматизации.',
-    image: '/beauty-business-marketing-specialist.jpg' 
-  }
+  {
+    niche: 'Спа-салон (США)',
+    title: '256 клиентов по $19',
+    result: '$17 920 выручки',
+    desc: 'Масштабирование через рекламу, CRM и онлайн-запись.',
+    image: '/beauty-business-marketing-specialist.jpg',
+    href: '/cases/spa-salon-california-256-clients',
+  },
 ];
 
 const reviews = [ 
   { author: 'Елена, владелица студии', text: '“Результат превзошел ожидания. Раньше заявки были случайными, теперь это управляемая система. Окупили вложения в первый же месяц.”' }, 
-  { author: 'Мастер массажа', text: '“Татьяна помогла не только с рекламой, но и с тем, как отвечать клиентам. Теперь 1 из 4 обращений закрывается в запись.”' } 
+  { author: 'Мастер массажа', text: '“Татьяна помогла не только с рекламой, но и с тем, как отвечать клиентам. Теперь 2 из 4 обращений закрывается в запись.”' } 
 ];
 
 const faqs = [ 
-  { q: 'ПОЧЕМУ ДВЕ КНОПКИ СВЯЗИ?', a: 'Мы даем клиенту выбор: WhatsApp для быстрых ответов или Telegram для удобного изучения материалов. Это повышает конверсию на 15-20%.' },
-  { q: 'КАК БЫСТРО Я ПОЛУЧУ ПЕРВЫЕ ЗАПИСИ?', a: 'Обычно первые лиды приходят уже в первые 48 часов после запуска рекламы.' }
+  { 
+    q: 'КАК Я МОГУ БЫТЬ УВЕРЕНА, ЧТО РЕКЛАМА ОКУПИТСЯ?', 
+    a: 'Мы не просто запускаем «таргет», а строим финансовую модель. Перед стартом анализируем стоимость вашего сеанса и ценность клиента (LTV). Наша задача — чтобы каждый вложенный доллар приносил вам от $3 до $5 выручки. Все показатели фиксируем в стратегии.' 
+  }, 
+  { 
+    q: 'ЧТО ДЕЛАТЬ, ЕСЛИ ЛЮДИ БУДУТ ТОЛЬКО СПРАШИВАТЬ ЦЕНУ И ПРОПАДАТЬ?', 
+    a: 'Это проблема «холодного» трафика, которую мы решаем двумя способами: во-первых, фильтруем лидов еще на этапе объявления, во-вторых — даем вам готовые скрипты ответов для WhatsApp. Они переводят вопрос «сколько стоит» в реальную запись на сеанс.' 
+  }, 
+  { 
+    q: 'КАКОЙ РЕКЛАМНЫЙ БЮДЖЕТ НУЖЕН ДЛЯ СТАРТА?', 
+    a: 'Для тестового запуска и получения первых 50–100 заявок в месяц обычно достаточно от $300 до $500 (в зависимости от города и конкуренции). Мы начинаем с малых сумм и увеличиваем бюджет только тогда, когда видим реальные деньги в вашей кассе.' 
+  }, 
+  { 
+    q: 'НУЖНО ЛИ МНЕ ИМЕТЬ ИДЕАЛЬНЫЙ INSTAGRAM И СЛОЖНЫЕ СЪЕМКИ?', 
+    a: 'Нет. Для работающей рекламы часто лучше подходят «живые» фото процесса (те самые «руки мастера») и искренние видеоотзывы. Мы дадим вам четкое ТЗ, что именно нужно снять на телефон, чтобы реклама выглядела естественно и вызывала доверие.' 
+  }, 
+  { 
+    q: 'СКОЛЬКО МОЕГО ВРЕМЕНИ БУДЕТ ЗАНИМАТЬ УПРАВЛЕНИЕ ПРОЦЕССОМ?', 
+    a: 'Мы берем на себя всю техническую часть: настройку, аналитику и оптимизацию. От вас или вашего администратора потребуется только вовремя отвечать на заявки в WhatsApp по нашим шаблонам. Раз в неделю мы присылаем отчет с понятными цифрами.' 
+  },
+  { 
+    q: 'ПОЧЕМУ МНЕ ВЫГОДНО РАБОТАТЬ С ВАМИ, А НЕ С ОБЫЧНЫМ ТАРГЕТОЛОГОМ?', 
+    a: 'Обычный таргетолог настраивает кнопки. Мы внедряем систему именно для массажного бизнеса: знаем рабочие офферы, умеем снижать цену лида до $1.8 и понимаем, как превратить разового клиента в постоянного гостя студии.' 
+  }
 ];
+
 
 // --- КОМПОНЕНТЫ КНОПОК ---
 
@@ -58,19 +84,27 @@ export default function MassagePage() {
   return (
     <main className="bg-white text-[#1f1a17] font-sans selection:bg-[#fff1e4] selection:text-[#e8a16b]">
       {/* 1. HERO — Две кнопки и оффер */}
-      <section className="pt-40 pb-32 px-6 max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
+       <section className="pt-40 pb-32 px-6 max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
         <div className="flex-1">
+          <div className="inline-block bg-[#fff1e4] text-[#e8a16b] px-4 py-2 rounded-lg font-bold text-sm mb-6 uppercase tracking-widest">
+            🔥 СВОБОДНО 2 СЛОТА ДЛЯ МАСТЕРОВ МАССАЖА
+          </div>
           <h1 className="text-5xl md:text-8xl font-black leading-none tracking-tighter mb-8">
-            Полная запись на <span className="text-[#e8a16b]">массаж</span>
+            Полная запись на <span className="text-[#e8a16b]">2 месяца</span> вперед
           </h1>
           <p className="text-xl md:text-2xl text-gray-600 font-medium mb-10 max-w-xl">
-            Бесплатно разберем вашу воронку и составим план роста прибыли.
+            Бесплатно разберу вашу воронку и покажу, как мы получили 740 заявок по $1.8 для мастера с нуля.
           </p>
-          <DualContactButtons />
+          <WhatsAppButton>ПОЛУЧИТЬ ПЛАН РОСТА В WHATSAPP</WhatsAppButton>
         </div>
-        <div className="flex-1">
+        <div className="flex-1 relative">
           <div className="w-full aspect-[4/5] bg-gray-100 rounded-[40px] overflow-hidden border-8 border-gray-50 shadow-2xl">
-            <img src="/beauty-marketing-strategy.jpg" alt="Маркетинг" className="w-full h-full object-cover" />
+            <img src="/beauty-marketing-strategy.jpg" alt="Реклама для массажа" className="w-full h-full object-cover" />
+          </div>
+          {/* Плашка с результатом кейса */}
+          <div className="absolute -bottom-8 -left-8 bg-white p-8 rounded-3xl shadow-2xl border hidden md:block">
+            <p className="text-4xl font-black text-[#e8a16b]">{massageCase.result}</p>
+            <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mt-2">Чистая прибыль нашего клиента</p>
           </div>
         </div>
       </section>
@@ -144,9 +178,7 @@ export default function MassagePage() {
         <DualContactButtons />
       </div>
 
-      <footer className="py-20 border-t text-center text-gray-400 font-bold text-xs tracking-widest">
-        © 2026 РАБОТА ДО РЕЗУЛЬТАТА. ВСЕ ПРАВА ЗАЩИЩЕНЫ.
-      </footer>
+    
     </main>
   );
 }
