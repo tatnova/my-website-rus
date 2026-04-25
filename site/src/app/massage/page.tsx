@@ -94,7 +94,8 @@ export default function MassagePage() {
   Полная запись <span className="text-[#e8a16b]"> на 2 месяца вперед </span> с окупаемостью рекламы от 300% 
 </h1>
           <p className="text-xl md:text-2xl text-gray-600 font-medium mb-10 max-w-xl">
-            Бесплатно разберу вашу воронку и покажу, как мы получили 740 заявок по $1.8 для мастера с нуля.
+            Работаю с проектами с рекламным бюджетом от <b>$200 до $10 000 в месяц</b>. 
+  Подбираю стратегию под ваш город, нишу и текущую загрузку.
           </p>
           <DualContactButtons className="mt-6" />
   
