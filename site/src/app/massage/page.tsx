@@ -96,7 +96,23 @@ export default function MassagePage() {
           <p className="text-xl md:text-2xl text-gray-600 font-medium mb-10 max-w-xl">
             Бесплатно разберу вашу воронку и покажу, как мы получили 740 заявок по $1.8 для мастера с нуля.
           </p>
-          <WhatsAppButton>ПОЛУЧИТЬ ПЛАН РОСТА В WHATSAPP</WhatsAppButton>
+          <div className="mt-6 flex flex-wrap gap-3">
+  <a
+    href="https://wa.me/972537086545"
+    target="_blank"
+    className="inline-flex items-center justify-center rounded-full bg-black px-6 py-3 text-sm font-bold text-white"
+  >
+    WhatsApp
+  </a>
+
+  <a
+    href="https://t.me/mailovaja"
+    target="_blank"
+    className="inline-flex items-center justify-center rounded-full border border-black px-6 py-3 text-sm font-bold text-black"
+  >
+    Telegram
+  </a>
+</div>
         </div>
         <div className="flex-1 relative">
           <div className="w-full aspect-[4/5] bg-gray-100 rounded-[40px] overflow-hidden border-8 border-gray-50 shadow-2xl">
