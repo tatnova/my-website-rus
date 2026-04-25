@@ -91,7 +91,7 @@ export default function MassagePage() {
             🔥 СВОБОДНО 2 СЛОТА ДЛЯ МАСТЕРОВ МАССАЖА
           </div>
           <h1 className="text-5xl md:text-8xl font-black leading-none tracking-tighter mb-8">
-  Клиенты на массаж: запись на <span className="text-[#e8a16b]">1–2 месяца вперед</span> и рост дохода через рекламу
+  Полная запись <span className="text-[#e8a16b]"> на 2 месяца вперед </span> с окупаемостью рекламы от 300% 
 </h1>
           <p className="text-xl md:text-2xl text-gray-600 font-medium mb-10 max-w-xl">
             Бесплатно разберу вашу воронку и покажу, как мы получили 740 заявок по $1.8 для мастера с нуля.
