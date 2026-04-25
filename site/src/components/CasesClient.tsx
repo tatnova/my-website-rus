@@ -55,6 +55,19 @@ const cases: CaseItem[] = [
   profit: '—',
   href: '/cases/massage-canada-body',
 },
+{
+  country: 'США',
+  city: 'Калифорния',
+  niche: 'Спа / массаж',
+  goal: 'Масштабирование',
+  title: '256 клиентов по $19 и $17 920 выручки для спа-салона в Калифорнии',
+  investment: '$5 040',
+  leads: '256',
+  leadPrice: '$19',
+  revenue: '$17 920',
+  profit: '—',
+  href: '/cases/spa-salon-california-256-clients',
+},
 ];
 
 const countries = ['Все страны', 'Израиль', 'Канада', 'США', 'ОАЭ'];

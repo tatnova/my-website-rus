@@ -242,7 +242,15 @@ export default function Home() {
           <div className="hidden items-center gap-8 text-sm font-semibold md:flex">
             <button onClick={() => scrollToId('problems')} className="hover:text-[#e8a16b]">Проблемы</button>
             <button onClick={() => scrollToId('services')} className="hover:text-[#e8a16b]">Услуги</button>
-            <a href="/cases" className="hover:text-[#e8a16b]">Кейсы</a>
+           <button
+  type="button"
+  onClick={() => {
+    window.location.href = '/cases';
+  }}
+  className="hover:text-[#e8a16b]"
+>
+  Кейсы
+</button>
             <button onClick={() => scrollToId('about')} className="hover:text-[#e8a16b]">Обо мне</button>
             <a href="/blog" className="hover:text-[#e8a16b]">Статьи</a>
             <button onClick={() => scrollToId('contact')} className="rounded-full bg-black px-5 py-2 text-white transition hover:bg-gray-800">Обсудить проект</button>
@@ -267,7 +275,16 @@ export default function Home() {
           <div className="absolute left-0 top-full z-50 flex w-full flex-col gap-6 border-b border-gray-100 bg-white p-8 shadow-2xl md:hidden">
             <button type="button" onClick={() => scrollToId('problems')} className="text-left text-2xl font-bold">Проблемы</button>
             <button type="button" onClick={() => scrollToId('services')} className="text-left text-2xl font-bold">Услуги</button>
-            <a href="/cases" className="text-left text-2xl font-bold">Кейсы</a>
+            <button
+  type="button"
+  onClick={() => {
+    setIsMenuOpen(false);
+    window.location.href = '/cases';
+  }}
+  className="text-left text-2xl font-bold"
+>
+  Кейсы
+</button>
             <button type="button" onClick={() => scrollToId('about')} className="text-left text-2xl font-bold">Обо мне</button>
             <a href="/blog" className="text-left text-2xl font-bold">Статьи</a>
             <button type="button" onClick={() => scrollToId('contact')} className="w-full rounded-full bg-[#e8a16b] py-4 font-bold text-white">👉 Обсудить проект</button>
@@ -428,7 +445,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="cases" className="bg-white py-20 lg:py-28">
+        <section id="home-results" className="bg-white py-20 lg:py-28">
           <div className="mx-auto max-w-6xl px-6">
             <h2 className="mb-2 text-4xl font-black">Результаты клиентов</h2>
             <p className="mb-16 text-xl text-gray-400">Реальные кейсы из бьюти-бизнеса: от проблемы к результату</p>
