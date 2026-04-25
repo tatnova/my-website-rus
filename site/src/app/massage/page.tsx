@@ -120,7 +120,7 @@ export default function MassagePage() {
           </div>
           {/* Плашка с результатом кейса */}
           <div className="absolute -bottom-8 -left-8 bg-white p-8 rounded-3xl shadow-2xl border hidden md:block">
-            <p className="text-4xl font-black text-[#e8a16b]">{massageCase.result}</p>
+            <p className="text-4xl font-black text-[#e8a16b]">$9 946</p>
             <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mt-2">Чистая прибыль нашего клиента</p>
           </div>
         </div>
