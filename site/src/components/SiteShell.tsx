@@ -5,9 +5,9 @@ import { usePathname } from 'next/navigation';
 const socialLinks = [
   { label: 'WhatsApp', href: 'https://wa.me/972537086545' },
   { label: 'Telegram', href: 'https://t.me/mailovaja' },
-  { label: 'Instagram', href: '#instagram' },
+  { label: 'Instagram', href: 'https://www.instagram.com/ads_target_pr/' },
   { label: 'YouTube', href: '#youtube' },
-  { label: 'Facebook', href: '#facebook' },
+  { label: 'Facebook', href: 'https://www.facebook.com/newadstarget' },
   { label: 'TikTok', href: '#tiktok' },
 ];
 
@@ -30,9 +30,7 @@ export default function SiteShell({ children }: { children: React.ReactNode }) {
           </a>
 
           <div className="flex items-center gap-4 text-[14px] font-bold md:gap-7 md:text-sm">
-            <a href="/services" className="hover:text-[#e8a16b]">
-              Услуги
-            </a>
+            
             <a href="/cases" className="hover:text-[#e8a16b]">
               Кейсы
             </a>

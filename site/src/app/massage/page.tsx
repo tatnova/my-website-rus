@@ -66,18 +66,31 @@ const faqs = [
 
 // --- КОМПОНЕНТЫ КНОПОК ---
 
-const DualContactButtons = ({ className = "" }) => (
-  <div className={`flex flex-col sm:flex-row gap-4 ${className}`}>
-    <a href="https://wa.me/972537086545" target="_blank" rel="noreferrer" 
-       className="inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-8 py-4 font-bold text-white shadow-xl transition hover:scale-105">
-      💬 WhatsApp
-    </a>
-    <a href="https://t.me/mailovaja" target="_blank" rel="noreferrer" 
-       className="inline-flex items-center justify-center gap-2 rounded-full bg-[#0088cc] px-8 py-4 font-bold text-white shadow-xl transition hover:scale-105">
-      ✈️ Telegram
-    </a>
-  </div>
-);
+const DualContactButtons = ({ className = "" }) => {
+  const message = encodeURIComponent('Здравствуйте! Хочу запустить рекламу. Что для этого нужно?');
+
+  return (
+    <div className={`flex flex-col sm:flex-row gap-4 ${className}`}>
+      <a
+        href={`https://wa.me/972537086545?text=${message}`}
+        target="_blank"
+        rel="noreferrer"
+        className="inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-8 py-4 font-bold text-white shadow-xl transition hover:scale-105"
+      >
+        💬 WhatsApp
+      </a>
+
+      <a
+        href={`https://t.me/mailovaja?text=${message}`}
+        target="_blank"
+        rel="noreferrer"
+        className="inline-flex items-center justify-center gap-2 rounded-full bg-[#0088cc] px-8 py-4 font-bold text-white shadow-xl transition hover:scale-105"
+      >
+        ✈️ Telegram
+      </a>
+    </div>
+  );
+};
 
 export default function MassagePage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
