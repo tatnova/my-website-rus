@@ -2,638 +2,321 @@ import React from 'react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title:
-    'Почему реклама салона красоты не даёт результата: 7 причин и что исправить',
-
-  description:
-    'Почему реклама в Instagram, Meta Ads и TikTok не приносит стабильных клиентов салону красоты. Разбираем 7 причин и систему привлечения клиентов.',
-
-  keywords: [
-    'реклама салона красоты',
-    'маркетинг для бьюти бизнеса',
-    'meta ads салон красоты',
-    'crm для салона красоты',
-    'реклама массажа',
-    'beauty salon marketing',
-    'spa marketing',
-    'beauty salon advertising',
-    'маркетинг для массажа',
-    'система привлечения клиентов',
-    'crm для бьюти бизнеса',
-    'instagram ads beauty salon',
-    'tiktok ads beauty business',
-  ],
-
-  openGraph: {
-    title:
-      'Почему реклама салона красоты не даёт результата: 7 причин и что исправить',
-
-    description:
-      'Почему заявки из Instagram, Meta Ads и TikTok не превращаются в клиентов — и как выстроить систему стабильного потока записей.',
-
-    images: [
-      {
-        url: '/beauty-marketing-strategy.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Почему реклама салона красоты не работает',
-      },
-    ],
-  },
-
-  alternates: {
-    canonical:
-      'https://beauty.adsnew.org/blog/pochemu-reklama-ne-daet-rezultata-i-kak-eto-ispravit',
-  },
+  title: 'Почему реклама салона красоты не даёт результата: 7 причин и что исправить',
+  description: 'Почему реклама в Instagram, Meta Ads и TikTok не приносит стабильных клиентов салону красоты. Разбираем 7 причин и систему привлечения клиентов.',
+  keywords: ['реклама салона красоты', 'маркетинг для бьюти бизнеса', 'система привлечения клиентов'],
+  alternates: { canonical: 'https://beauty.adsnew.org/blog/pochemu-reklama-ne-daet-rezultata-i-kak-eto-ispravit' },
 };
-
-const faqs = [
-  {
-    q: 'Почему реклама салона красоты не окупается?',
-    a: 'Чаще всего проблема не в рекламе, а в воронке: слабый оффер, неудобная запись, отсутствие CRM, плохая обработка заявок или отсутствие аналитики.',
-  },
-  {
-    q: 'Что важнее: реклама или CRM?',
-    a: 'Одно без другого работает плохо. Реклама приводит людей, CRM помогает не терять их и превращать в постоянных клиентов.',
-  },
-  {
-    q: 'Сколько нужно бюджета для рекламы салона красоты?',
-    a: 'Это зависит от города, конкуренции и ниши, но для тестового запуска часто достаточно бюджета от $300–500.',
-  },
-  {
-    q: 'Почему заявки не превращаются в записи?',
-    a: 'Обычно проблема в скорости ответа, отсутствии скриптов, неудобной записи или слабом доверии.',
-  },
-  {
-    q: 'Можно ли масштабировать рекламу без роста хаоса?',
-    a: 'Да, если есть система: CRM, аналитика, автоматизация, понятный путь клиента и контроль обработки заявок.',
-  },
-];
 
 export default function BlogArticle() {
   return (
-    <main className="bg-white text-[#1f1a17] selection:bg-[#fff1e4] selection:text-[#e8a16b]">
-      {/* HERO */}
-      <section className="relative overflow-hidden border-b border-[#f3e3d6] bg-gradient-to-br from-[#fff8f1] via-white to-[#f8efe6] px-6 pb-32 pt-40 md:pb-40">
-        <div className="mx-auto max-w-7xl">
-          <div className="mb-10 flex flex-wrap items-center gap-4 text-xs font-bold uppercase tracking-[0.3em] text-[#e8a16b]">
-            <span>Beauty Marketing</span>
-            <span>•</span>
-            <span>CRM</span>
-            <span>•</span>
-            <span>Meta Ads</span>
-            <span>•</span>
-            <span>Instagram Ads</span>
+    <div className="min-h-screen bg-[#fafafa] text-[#1f1a17] selection:bg-[#fff1e4] selection:text-[#e8a16b] font-sans antialiased pb-24 md:pb-0">
+      
+      {/* 1. MINIMAL NAVIGATION */}
+      <nav className="fixed top-0 z-50 w-full border-b border-gray-100 bg-white/80 backdrop-blur-md">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+          <div className="text-base font-bold tracking-tighter uppercase">Adsnew.Beauty</div>
+          <div className="hidden space-x-8 text-[13px] font-medium text-gray-500 md:flex">
+            <a href="#" className="hover:text-black transition-colors">Кейсы</a>
+            <a href="#" className="hover:text-black transition-colors">Статьи</a>
           </div>
+          <button className="rounded-full bg-[#1f1a17] px-5 py-2 text-[12px] font-semibold text-white hover:bg-black transition-all">
+            Обсудить проект
+          </button>
+        </div>
+      </nav>
 
-          <div className="grid items-center gap-20 lg:grid-cols-2">
-            <div>
-              <h1 className="max-w-5xl text-5xl font-black leading-[0.95] tracking-tighter md:text-7xl">
-                Почему реклама салона красоты не даёт результата:
-                <span className="text-[#e8a16b]"> 7 причин </span>
-                и что исправить
-              </h1>
+      {/* 2. RESTRAINED HERO SECTION */}
+      <header className="pt-32 pb-12 md:pt-44 md:pb-20 px-6 bg-white border-b border-gray-50">
+        <div className="mx-auto max-w-3xl">
+          <div className="mb-6 flex items-center gap-3 text-[10px] font-bold uppercase tracking-wider text-[#e8a16b]">
+            <span className="w-6 h-[1px] bg-[#e8a16b]"></span>
+            Analysis Strategy
+          </div>
+          
+          <h1 className="text-3xl font-bold leading-[1.15] md:text-5xl lg:text-6xl tracking-tight text-[#1f1a17] mb-10">
+            Почему реклама салона красоты не даёт результата: 7 причин и что исправить
+          </h1>
 
-              <p className="mt-10 max-w-2xl text-2xl leading-relaxed text-gray-600">
-                Почему заявки из Instagram, Meta Ads и TikTok не превращаются
-                в клиентов — и как выстроить систему, которая делает поток
-                записей стабильным.
-              </p>
-
-              <div className="mt-12 flex flex-wrap gap-4">
-                <a
-                  href="https://wa.me/972537086545?text=Здравствуйте!%20Хочу%20разобраться,%20почему%20реклама%20не%20дает%20результат."
-                  target="_blank"
-                  rel="noreferrer"
-                  className="rounded-full bg-[#25D366] px-8 py-4 font-bold text-white shadow-xl transition hover:scale-105"
-                >
-                  💬 Обсудить в WhatsApp
-                </a>
-
-                <a
-                  href="https://t.me/mailovaja?text=Здравствуйте!%20Хочу%20разобраться,%20почему%20реклама%20не%20дает%20результат."
-                  target="_blank"
-                  rel="noreferrer"
-                  className="rounded-full bg-[#0088cc] px-8 py-4 font-bold text-white shadow-xl transition hover:scale-105"
-                >
-                  ✈️ Telegram
-                </a>
-              </div>
-
-              <div className="mt-12 flex flex-wrap gap-8 text-sm font-bold uppercase tracking-widest text-gray-400">
-                <span>Автор: Татьяна Новикова</span>
-                <span>12 минут чтения</span>
-                <span>2026</span>
+          <div className="flex items-center justify-between border-t border-gray-100 pt-8">
+            <div className="flex items-center gap-4">
+              <div className="h-10 w-10 rounded-full bg-[#e8a16b]/10 flex items-center justify-center text-[#e8a16b] text-xs font-bold">TN</div>
+              <div className="text-[13px]">
+                <span className="block font-bold">Татьяна Новикова</span>
+                <span className="text-gray-400 font-medium tracking-tight">Author • 8 min read</span>
               </div>
             </div>
+            <div className="hidden md:flex gap-10 text-[11px] font-bold text-gray-300 uppercase tracking-widest">
+              <div>Updated May 2026</div>
+            </div>
+          </div>
+        </div>
+      </header>
 
-            <div className="relative">
-              <div className="overflow-hidden rounded-[48px] border-8 border-white shadow-2xl">
-                <img
-                  src="/beauty-marketing-strategy.jpg"
-                  alt="Почему реклама салона красоты не работает"
-                  className="h-full w-full object-cover"
-                />
-              </div>
+      {/* 3. CINEMATIC CROP IMAGE */}
+      <div className="mx-auto max-w-5xl px-6 -mt-8 md:-mt-12 mb-20">
+        <div className="relative aspect-[21/9] overflow-hidden rounded-xl bg-gray-50">
+          <img 
+            src="/luxury-salon-editorial.jpg" 
+            className="h-full w-full object-cover grayscale-[15%] transition-all duration-1000"
+            alt="Beauty Industry System"
+          />
+        </div>
+      </div>
 
-              <div className="absolute -bottom-10 -left-10 hidden rounded-[32px] bg-white p-8 shadow-2xl lg:block">
-                <div className="text-5xl font-black text-[#e8a16b]">
-                  40%
-                </div>
-
-                <p className="mt-2 max-w-[180px] text-sm font-bold uppercase tracking-widest text-gray-400">
-                  лидов теряются без CRM и автоматизации
+      {/* 4. CONTENT FRAMEWORK */}
+      <main className="mx-auto max-w-6xl px-6 pb-40">
+        <div className="grid grid-cols-1 gap-20 lg:grid-cols-[1fr_280px]">
+          
+          {/* ARTICLE CONTENT — 100% Text, No Summaries */}
+          <article className="max-w-[65ch] mx-auto lg:mx-0">
+            <div className="space-y-16 md:space-y-24">
+              
+              {/* INTRO */}
+              <section className="space-y-8">
+                <p className="text-xl md:text-2xl font-medium leading-[1.6] text-[#1f1a17]">
+                  Многие владельцы салонов красоты, массажных студий и бьюти-бизнесов в США, Канаде и Европе сталкиваются с одной и той же проблемой: деньги в рекламу вкладываются регулярно, но стабильного потока клиентов всё равно нет [3].
                 </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+                <div className="text-lg leading-[1.85] md:leading-[1.78] text-gray-600 space-y-6">
+                  <p>Meta Ads, Instagram и TikTok могут приносить заявки, но при этом:</p>
+                  <ul className="space-y-3 list-none pl-0 font-medium">
+                    {['запись остаётся нестабильной', 'мастера простаивают', 'стоимость клиента слишком высокая', 'а часть обращений вообще теряется'].map((item) => (
+                      <li key={item} className="flex items-start gap-4">
+                        <span className="mt-3 h-1 w-1 flex-shrink-0 rounded-full bg-[#e8a16b]" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="text-[#1f1a17] font-bold">
+                    Проблема чаще всего не в самой рекламе. В большинстве случаев причина — в отсутствии системы: между рекламой, записью, CRM, обработкой заявок и повторными продажами [3].
+                  </p>
+                </div>
+              </section>
 
-      {/* ARTICLE */}
-      <article className="px-6 py-40">
-        <div className="mx-auto max-w-3xl">
-          <p className="text-[22px] leading-[1.9] text-gray-700">
-            Многие владельцы салонов красоты, массажных студий и
-            бьюти-бизнесов в США, Канаде и Европе сталкиваются с одной и той
-            же проблемой: деньги в рекламу вкладываются регулярно, но
-            стабильного потока клиентов всё равно нет.
-          </p>
+              {/* WHY NO RESULTS */}
+              <section className="space-y-8">
+                <h2 className="text-2xl md:text-3xl font-bold tracking-tight">Почему реклама салона красоты не работает</h2>
+                <p className="text-lg leading-[1.85] md:leading-[1.78] text-gray-600">
+                  Реклама может давать клики и сообщения, но если клиенту неудобно записаться, ему долго отвечают или нет понятного пути до покупки — деньги начинают “сливаться” [6].
+                </p>
+                <div className="py-8 border-y border-gray-100 text-xl text-[#1f1a17] font-medium leading-relaxed">
+                  “Сегодня заявки есть — завтра их нет”. Такой подход делает поток клиентов непредсказуемым и мешает масштабироваться [6].
+                </div>
+                <p className="text-lg leading-[1.85] md:leading-[1.78] text-gray-600">
+                  Многие бьюти-бизнесы запускают рекламу хаотично: тестируют разные объявления, меняют креативы, пробуют новые офферы, увеличивают бюджеты, но при этом не выстраивают саму систему продаж [6].
+                </p>
+              </section>
 
-          <p className="mt-10 text-[22px] leading-[1.9] text-gray-700">
-            Meta Ads, Instagram и TikTok могут приносить заявки, но при этом:
-          </p>
-
-          <ul className="mt-12 space-y-6 border-l-4 border-[#e8a16b] pl-8 text-[22px] leading-[1.8] text-gray-700">
-            <li>• запись остаётся нестабильной,</li>
-            <li>• мастера простаивают,</li>
-            <li>• стоимость клиента слишком высокая,</li>
-            <li>• а часть обращений вообще теряется.</li>
-          </ul>
-
-          <div className="my-32 border-l-4 border-[#e8a16b] pl-10">
-            <p className="text-4xl font-black italic leading-tight md:text-6xl">
-              “Сегодня заявки есть —
-              <br />
-              завтра их нет.”
-            </p>
-          </div>
-
-          <p className="text-[22px] leading-[1.9] text-gray-700">
-            Проблема чаще всего не в самой рекламе. В большинстве случаев
-            причина — в отсутствии системы: между рекламой, записью, CRM,
-            обработкой заявок и повторными продажами.
-          </p>
-
-          <p className="mt-10 text-[22px] leading-[1.9] text-gray-700">
-            Реклама может давать клики и сообщения, но если клиенту неудобно
-            записаться, ему долго отвечают или нет понятного пути до покупки —
-            деньги начинают “сливаться”.
-          </p>
-        </div>
-
-        {/* STATS */}
-        <section className="my-40">
-          <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-3">
-            <div className="rounded-[40px] bg-[#fff8f1] p-12">
-              <div className="text-6xl font-black text-[#e8a16b]">5–7x</div>
-
-              <p className="mt-6 text-lg leading-relaxed text-gray-600">
-                дороже привлекать нового клиента, чем удерживать текущего
-              </p>
-            </div>
-
-            <div className="rounded-[40px] bg-black p-12 text-white">
-              <div className="text-6xl font-black text-[#e8a16b]">40%</div>
-
-              <p className="mt-6 text-lg leading-relaxed text-gray-300">
-                клиентов ищут услуги вне рабочего времени администратора
-              </p>
-            </div>
-
-            <div className="rounded-[40px] bg-[#fff8f1] p-12">
-              <div className="text-6xl font-black text-[#e8a16b]">24/7</div>
-
-              <p className="mt-6 text-lg leading-relaxed text-gray-600">
-                онлайн-запись увеличивает конверсию из рекламы
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* SECTION */}
-        <div className="mx-auto max-w-3xl">
-          <h2 className="text-4xl font-black leading-tight md:text-6xl">
-            Почему реклама салона красоты не работает
-          </h2>
-
-          <p className="mt-12 text-[22px] leading-[1.9] text-gray-700">
-            Многие бьюти-бизнесы запускают рекламу хаотично:
-          </p>
-
-          <ul className="mt-12 space-y-6 text-[22px] leading-[1.8] text-gray-700">
-            <li>• тестируют разные объявления,</li>
-            <li>• меняют креативы,</li>
-            <li>• пробуют новые офферы,</li>
-            <li>• увеличивают бюджеты,</li>
-          </ul>
-
-          <p className="mt-12 text-[22px] leading-[1.9] text-gray-700">
-            но при этом не выстраивают саму систему продаж.
-          </p>
-
-          <div className="my-32 rounded-[48px] bg-black p-16 text-white">
-            <h3 className="text-4xl font-black leading-tight">
-              Реклама отдельно = хаос
-            </h3>
-
-            <p className="mt-8 text-xl leading-relaxed text-gray-300">
-              Одна из самых больших ошибок:
-              <br />
-              реклама работает отдельно,
-              <br />
-              CRM отдельно,
-              <br />
-              администратор отдельно,
-              <br />
-              сайт отдельно.
-            </p>
-
-            <div className="mt-10 flex flex-wrap gap-4">
-              <a
-                href="https://wa.me/972537086545?text=Здравствуйте!%20Хочу%20разобраться,%20почему%20реклама%20не%20дает%20результат."
-                target="_blank"
-                rel="noreferrer"
-                className="rounded-full bg-[#25D366] px-8 py-4 font-bold text-white"
-              >
-                💬 Обсудить проект
-              </a>
-
-              <a
-                href="https://t.me/mailovaja?text=Здравствуйте!%20Хочу%20разобраться,%20почему%20реклама%20не%20дает%20результат."
-                target="_blank"
-                rel="noreferrer"
-                className="rounded-full bg-[#0088cc] px-8 py-4 font-bold text-white"
-              >
-                ✈️ Telegram
-              </a>
-            </div>
-          </div>
-
-          {/* REASONS */}
-          <div className="space-y-40">
-            <section>
-              <div className="mb-10 text-sm font-black uppercase tracking-[0.3em] text-[#e8a16b]">
-                Причина #1
-              </div>
-
-              <h3 className="text-4xl font-black leading-tight">
-                Нет системы обработки заявок
-              </h3>
-
-              <p className="mt-10 text-[22px] leading-[1.9] text-gray-700">
-                Даже хорошие лиды могут не превращаться в записи, если клиенту
-                отвечают слишком долго, нет CRM, заявки теряются между
-                Instagram, WhatsApp и Telegram, а администратор отвечает
-                по-разному каждому клиенту.
-              </p>
-            </section>
-
-            <section>
-              <div className="mb-10 text-sm font-black uppercase tracking-[0.3em] text-[#e8a16b]">
-                Причина #2
-              </div>
-
-              <h3 className="text-4xl font-black leading-tight">
-                Сложная или неудобная запись
-              </h3>
-
-              <p className="mt-10 text-[22px] leading-[1.9] text-gray-700">
-                Современный клиент хочет записаться быстро: без долгих
-                переписок, без ожидания ответа администратора и без сложных
-                действий.
-              </p>
-
-              <p className="mt-10 text-[22px] leading-[1.9] text-gray-700">
-                Особенно это критично для мобильного трафика из Instagram и
-                TikTok.
-              </p>
-            </section>
-
-            <section>
-              <div className="mb-10 text-sm font-black uppercase tracking-[0.3em] text-[#e8a16b]">
-                Причина #3
-              </div>
-
-              <h3 className="text-4xl font-black leading-tight">
-                Нет понятного оффера
-              </h3>
-
-              <p className="mt-10 text-[22px] leading-[1.9] text-gray-700">
-                Фраза “Качественные услуги массажа” не продаёт.
-              </p>
-
-              <div className="mt-16 rounded-[40px] bg-[#fff8f1] p-12">
-                <h4 className="text-2xl font-black">
-                  Что работает лучше:
-                </h4>
-
-                <ul className="mt-8 space-y-4 text-xl leading-relaxed text-gray-700">
-                  <li>• “Антистресс-массаж после сидячей работы”</li>
-                  <li>• “Лимфодренаж для женщин после беременности”</li>
-                  <li>• “Массаж спины для офисных сотрудников”</li>
-                </ul>
-              </div>
-            </section>
-
-            <section>
-              <div className="mb-10 text-sm font-black uppercase tracking-[0.3em] text-[#e8a16b]">
-                Причина #4
-              </div>
-
-              <h3 className="text-4xl font-black leading-tight">
-                Высокая стоимость клиента (CAC)
-              </h3>
-
-              <p className="mt-10 text-[22px] leading-[1.9] text-gray-700">
-                Многие смотрят только на цену заявки. Но дешёвый лид не всегда
-                означает прибыль.
-              </p>
-
-              <p className="mt-10 text-[22px] leading-[1.9] text-gray-700">
-                Иногда более дорогая заявка оказывается намного выгоднее,
-                потому что клиент приходит повторно.
-              </p>
-            </section>
-
-            <section>
-              <div className="mb-10 text-sm font-black uppercase tracking-[0.3em] text-[#e8a16b]">
-                Причина #5
-              </div>
-
-              <h3 className="text-4xl font-black leading-tight">
-                Нет повторных продаж и системы удержания
-              </h3>
-
-              <p className="mt-10 text-[22px] leading-[1.9] text-gray-700">
-                Большинство салонов теряют деньги не потому, что не могут
-                привлечь клиента, а потому что:
-              </p>
-
-              <ul className="mt-10 space-y-4 text-[22px] leading-[1.8] text-gray-700">
-                <li>• клиент не возвращается,</li>
-                <li>• нет напоминаний,</li>
-                <li>• нет повторной записи,</li>
-                <li>• нет автоматизации.</li>
-              </ul>
-
-              <p className="mt-10 text-[22px] leading-[1.9] text-gray-700">
-                При этом повторная продажа почти всегда дешевле нового
-                привлечения.
-              </p>
-            </section>
-
-            <section>
-              <div className="mb-10 text-sm font-black uppercase tracking-[0.3em] text-[#e8a16b]">
-                Причина #6
-              </div>
-
-              <h3 className="text-4xl font-black leading-tight">
-                Нет аналитики
-              </h3>
-
-              <p className="mt-10 text-[22px] leading-[1.9] text-gray-700">
-                Очень многие бьюти-бизнесы не знают:
-              </p>
-
-              <ul className="mt-10 space-y-4 text-[22px] leading-[1.8] text-gray-700">
-                <li>• сколько стоит клиент,</li>
-                <li>• какая реклама окупается,</li>
-                <li>• какие объявления реально приводят записи,</li>
-                <li>• где теряются деньги.</li>
-              </ul>
-
-              <p className="mt-10 text-[22px] leading-[1.9] text-gray-700">
-                Без аналитики реклама превращается в угадайку.
-              </p>
-            </section>
-
-            <section>
-              <div className="mb-10 text-sm font-black uppercase tracking-[0.3em] text-[#e8a16b]">
-                Причина #7
-              </div>
-
-              <h3 className="text-4xl font-black leading-tight">
-                Реклама существует отдельно от бизнеса
-              </h3>
-
-              <p className="mt-10 text-[22px] leading-[1.9] text-gray-700">
-                Клиент воспринимает рекламу, сайт, CRM и запись как один путь.
-                Если хотя бы один этап слабый — конверсия падает.
-              </p>
-            </section>
-          </div>
-
-          {/* EXTRA SEO BLOCKS */}
-          <div className="mt-40 space-y-32">
-            <section>
-              <h2 className="text-4xl font-black leading-tight md:text-6xl">
-                Что делать, если заявки есть, но нет записей
-              </h2>
-
-              <p className="mt-12 text-[22px] leading-[1.9] text-gray-700">
-                Это одна из самых распространённых ситуаций.
-              </p>
-
-              <p className="mt-10 text-[22px] leading-[1.9] text-gray-700">
-                Реклама приводит людей. Сообщения приходят. Но до оплаты
-                доходит слишком мало клиентов.
-              </p>
-
-              <div className="mt-16 rounded-[40px] bg-[#fff8f1] p-12">
-                <h3 className="text-3xl font-black">
-                  Что помогает исправить ситуацию
-                </h3>
-
-                <div className="mt-10 space-y-10">
-                  <div>
-                    <h4 className="text-2xl font-black">
-                      Быстрые ответы
-                    </h4>
-
-                    <p className="mt-4 text-xl leading-relaxed text-gray-700">
-                      Чем быстрее человек получает ответ, тем выше вероятность
-                      записи.
+              {/* 7 REASONS DETAIL */}
+              <section id="reasons" className="space-y-16 md:space-y-24">
+                <h2 className="text-2xl md:text-3xl font-bold tracking-tight">Самые частые причины неудачи</h2>
+                
+                <div className="space-y-16 md:space-y-20">
+                  <div className="space-y-4">
+                    <h3 className="text-xl font-bold">1. Нет системы обработки заявок</h3>
+                    <p className="text-lg leading-[1.85] md:leading-[1.78] text-gray-600">
+                      Даже хорошие лиды могут не превращаться в записи, если клиенту отвечают слишком долго, нет CRM, заявки теряются между Instagram, WhatsApp и Telegram, а администратор отвечает по-разному каждому клиенту. Очень часто проблема находится не в рекламе, а в скорости и качестве коммуникации [8].
                     </p>
                   </div>
 
-                  <div>
-                    <h4 className="text-2xl font-black">
-                      CRM и автоматизация
-                    </h4>
-
-                    <p className="mt-4 text-xl leading-relaxed text-gray-700">
-                      CRM помогает не терять заявки, видеть путь клиента,
-                      контролировать повторные записи и понимать эффективность
-                      рекламы.
+                  <div className="space-y-4">
+                    <h3 className="text-xl font-bold">2. Сложная или неудобная запись</h3>
+                    <p className="text-lg leading-[1.85] md:leading-[1.78] text-gray-600 font-medium">
+                      Современный клиент хочет записаться быстро: без долгих переписок, без “напишите завтра”, без ожидания ответа администратора. Если путь от рекламы до записи занимает слишком много шагов, часть клиентов уходит к конкурентам. Особенно это критично для мобильного трафика [4, 8].
                     </p>
                   </div>
 
-                  <div>
-                    <h4 className="text-2xl font-black">
-                      Онлайн-запись 24/7
-                    </h4>
+                  <div className="space-y-6">
+                    <h3 className="text-xl font-bold">3. Нет понятного оффера</h3>
+                    <p className="text-lg leading-[1.85] md:leading-[1.78] text-gray-600">
+                      Фраза: <span className="font-bold text-black italic">“Качественные услуги массажа”</span> не продаёт. Реклама работает лучше, когда человек сразу понимает проблему, которую решают, результат и почему стоит записаться сейчас [4].
+                    </p>
+                    <div className="flex flex-wrap gap-3">
+                       {['Антистресс-массаж', 'Лимфодренаж', 'Массаж спины'].map(label => (
+                         <span key={label} className="px-4 py-2 bg-white border border-gray-100 rounded-lg text-xs font-bold text-gray-400 uppercase tracking-wider">{label}</span>
+                       ))}
+                    </div>
+                  </div>
 
-                    <p className="mt-4 text-xl leading-relaxed text-gray-700">
-                      Если человек не может сразу записаться — он уходит.
-                      Онлайн-бронирование сильно повышает конверсию из рекламы.
+                  <div className="space-y-4">
+                    <h3 className="text-xl font-bold">4. Высокая стоимость клиента (CAC)</h3>
+                    <p className="text-lg leading-[1.85] md:leading-[1.78] text-gray-600">
+                      Многие смотрят только на цену заявки. Но дешёвый лид не всегда означает прибыль. Важно понимать, сколько клиентов реально доходят до записи, сколько возвращаются повторно и сколько приносит клиент за всё время. Иногда более дорогая заявка оказывается намного выгоднее [9].
                     </p>
                   </div>
+
+                  <div className="space-y-4">
+                    <h3 className="text-xl font-bold">5. Нет повторных продаж и системы удержания</h3>
+                    <p className="text-lg leading-[1.85] md:leading-[1.78] text-gray-600">
+                      Большинство салонов теряют деньги не потому, что не могут привлечь клиента, а потому что клиент не возвращается, нет напоминаний, нет повторной записи и автоматизации. Повторная продажа почти всегда дешевле нового привлечения [9, 10].
+                    </p>
+                  </div>
+
+                  <div className="grid gap-12 pt-4">
+                    <div className="space-y-4">
+                      <h3 className="text-xl font-bold">6. Нет аналитики</h3>
+                      <p className="text-lg leading-[1.85] md:leading-[1.78] text-gray-600">
+                        Бьюти-бизнесы часто не знают, сколько стоит клиент, какая реклама окупается и какие объявления реально приводят записи. Без аналитики реклама превращается в угадайку [10].
+                      </p>
+                    </div>
+                    <div className="space-y-4">
+                      <h3 className="text-xl font-bold">7. Реклама существует отдельно от бизнеса</h3>
+                      <p className="text-lg leading-[1.85] md:leading-[1.78] text-gray-600">
+                        Одна из самых больших ошибок: реклама работает отдельно, CRM отдельно, администратор отдельно. Но клиент видит это как один путь. Если один этап слабый — конверсия падает [1, 10].
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              {/* WHAT TO DO SECTION — Functional Whitespace Design */}
+              <section id="solutions" className="pt-20 border-t border-gray-100 space-y-12">
+                <h2 className="text-2xl md:text-3xl font-bold tracking-tight">Что делать, если заявки есть, но нет записей</h2>
+                <div className="space-y-12 text-lg leading-[1.85] md:leading-[1.78] text-gray-600">
+                   <div className="space-y-4">
+                      <h4 className="text-lg font-bold text-black">Быстрые ответы</h4>
+                      <p>Чем быстрее человек получает ответ, тем выше вероятность записи. Особенно в нишах массажа, косметологии, спа и уходовых процедур [1, 5].</p>
+                   </div>
+                   <div className="space-y-4">
+                      <h4 className="text-lg font-bold text-black">Скрипты для WhatsApp и Instagram</h4>
+                      <p>Администратор, отвечающий <span className="font-bold text-black">“Здравствуйте, цена 80$”</span>, теряет клиента. Нужен сценарий, который выявляет потребность, создаёт доверие и переводит в запись [5].</p>
+                   </div>
+                   <div className="space-y-4">
+                      <h4 className="text-lg font-bold text-black">CRM и автоматизация</h4>
+                      <p>CRM помогает не терять заявки, видеть путь клиента и контролировать повторные записи. Автоматизация критична, когда заявок становится больше [5].</p>
+                   </div>
+                   <div className="space-y-4">
+                      <h4 className="text-lg font-bold text-black">Онлайн-запись 24/7</h4>
+                      <p>Если клиент ищет услуги вечером и не может сразу записаться — он уходит. Онлайн-бронирование сильно повышает конверсию из рекламы [5, 11].</p>
+                   </div>
+                </div>
+              </section>
+
+              {/* SYSTEM ELEMENTS — Light Editorial Look */}
+              <section id="system" className="pt-20 border-t border-gray-100 space-y-12">
+                <h2 className="text-2xl md:text-3xl font-bold tracking-tight">Что должно быть в современной системе</h2>
+                <div className="grid gap-8 md:grid-cols-2">
+                   {[
+                     { t: 'Реклама', d: 'Meta Ads, Instagram, TikTok, локальный таргетинг' },
+                     { t: 'Посадочная страница', d: 'Понятный оффер, кейсы, отзывы, быстрый CTA' },
+                     { t: 'CRM Аналитика', d: 'Контроль заявок, стоимости клиента и окупаемости' },
+                     { t: 'Автоматизация', d: 'Напоминания, повторные записи, обработка лидов' }
+                   ].map(item => (
+                     <div key={item.t} className="p-6 bg-white border border-gray-100 rounded-xl">
+                        <span className="block font-bold mb-2">{item.t}</span>
+                        <span className="text-sm text-gray-500 font-medium leading-relaxed">{item.d} [2].</span>
+                     </div>
+                   ))}
+                </div>
+                <p className="text-lg leading-[1.85] text-gray-600">Когда реклама становится частью системы, бизнес получает стабильный поток, рост повторных записей и возможность масштабироваться без хаоса [7].</p>
+              </section>
+
+              {/* FAQ — Minimalist List */}
+              <section id="faq" className="pt-20 border-t border-gray-100 space-y-12">
+                <h2 className="text-2xl md:text-3xl font-bold tracking-tight">Частые вопросы</h2>
+                <div className="space-y-12">
+                   {[
+                     { q: 'Почему реклама не окупается?', a: 'Проблема чаще не в рекламе, а в воронке: слабый оффер, неудобная запись, отсутствие CRM или аналитики [7].' },
+                     { q: 'Что важнее: реклама или CRM?', a: 'Одно без другого работает плохо. Реклама приводит людей, CRM помогает не терять их и превращать в постоянных клиентов [13].' },
+                     { q: 'Какой нужен бюджет?', a: 'Зависит от города и ниши, но для тестового запуска часто достаточно от $300–500 [13].' }
+                   ].map(item => (
+                     <div key={item.q} className="space-y-4">
+                        <h4 className="text-lg font-bold">{item.q}</h4>
+                        <p className="text-gray-500 leading-[1.8] font-medium">{item.a}</p>
+                     </div>
+                   ))}
+                </div>
+              </section>
+
+              {/* CONCLUSION */}
+              <section className="pt-20 border-t border-gray-100">
+                <p className="text-xl md:text-2xl font-medium leading-[1.6] text-[#1f1a17] mb-12">
+                  Бьюти-бизнес — это система. Когда реклама, сайт, CRM и обработка заявок работают вместе — поток клиентов становится стабильнее, а бизнес растет предсказуемо [14].
+                </p>
+                <div className="flex items-center gap-5 p-8 bg-white border border-gray-100 rounded-xl">
+                   <div className="h-14 w-14 rounded-full bg-gray-50 flex items-center justify-center text-[#e8a16b] font-bold text-sm">TN</div>
+                   <div>
+                      <p className="font-bold text-[#1f1a17]">Татьяна Новикова</p>
+                      <p className="text-xs text-gray-400 font-medium">Стратег по системам привлечения клиентов для бьюти-бизнеса [14].</p>
+                   </div>
+                </div>
+              </section>
+
+            </div>
+          </article>
+
+          {/* 5. FUNCTIONAL SIDEBAR */}
+          <aside className="hidden lg:block">
+            <div className="sticky top-24 space-y-10">
+              <div className="border-l border-gray-100 pl-8 space-y-10">
+                <div className="space-y-6">
+                  <div className="text-[10px] font-bold text-gray-300 uppercase tracking-widest">Contents</div>
+                  <ul className="space-y-4 text-[13px] font-bold text-gray-400">
+                    <li className="text-black flex items-center gap-3">
+                      <div className="h-4 w-[2px] bg-[#e8a16b]"></div> 7 причин
+                    </li>
+                    <li className="hover:text-black transition-colors"><a href="#solutions">Решения</a></li>
+                    <li className="hover:text-black transition-colors"><a href="#system">Система</a></li>
+                    <li className="hover:text-black transition-colors"><a href="#faq">FAQ</a></li>
+                  </ul>
+                </div>
+
+                <div className="space-y-4">
+                   <div className="text-[10px] font-bold text-gray-300 uppercase tracking-widest">Reading time</div>
+                   <div className="text-xs font-bold">~8 minutes</div>
                 </div>
               </div>
-            </section>
 
-            <section>
-              <h2 className="text-4xl font-black leading-tight md:text-6xl">
-                Как снизить стоимость клиента в бьюти-бизнесе
-              </h2>
-
-              <p className="mt-12 text-[22px] leading-[1.9] text-gray-700">
-                Снижение стоимости клиента — это не только вопрос рекламы.
-              </p>
-
-              <div className="mt-16 grid gap-8 md:grid-cols-2">
-                <div className="rounded-[40px] bg-[#faf7f3] p-10">
-                  <h3 className="text-2xl font-black">
-                    Узкий оффер
-                  </h3>
-
-                  <p className="mt-6 text-lg leading-relaxed text-gray-700">
-                    Реклама “для всех” почти всегда работает хуже.
-                  </p>
-                </div>
-
-                <div className="rounded-[40px] bg-[#faf7f3] p-10">
-                  <h3 className="text-2xl font-black">
-                    Гиперлокальный таргетинг
-                  </h3>
-
-                  <p className="mt-6 text-lg leading-relaxed text-gray-700">
-                    Для салонов красоты и массажа особенно хорошо работает
-                    реклама по району и по радиусу рядом с салоном.
-                  </p>
-                </div>
-
-                <div className="rounded-[40px] bg-[#faf7f3] p-10">
-                  <h3 className="text-2xl font-black">
-                    Повторные клиенты
-                  </h3>
-
-                  <p className="mt-6 text-lg leading-relaxed text-gray-700">
-                    Повторная запись снижает стоимость привлечения в долгую.
-                  </p>
-                </div>
-
-                <div className="rounded-[40px] bg-[#faf7f3] p-10">
-                  <h3 className="text-2xl font-black">
-                    Оптимизация сайта
-                  </h3>
-
-                  <p className="mt-6 text-lg leading-relaxed text-gray-700">
-                    Даже хорошая реклама может не работать, если сайт долго
-                    грузится и нет понятного CTA.
-                  </p>
-                </div>
+              <div className="rounded-xl bg-[#1f1a17] p-8 text-white">
+                <h5 className="text-base font-bold mb-4 leading-tight">Разбор вашей ситуации</h5>
+                <a href="https://wa.me/972537086545" className="text-[11px] font-bold uppercase text-[#e8a16b] hover:text-white transition-colors">
+                  WhatsApp Direct →
+                </a>
               </div>
-            </section>
+            </div>
+          </aside>
+        </div>
+      </main>
 
-            <section className="rounded-[56px] bg-black p-16 text-white">
-              <h2 className="text-5xl font-black leading-tight">
-                Бьюти-бизнес —
-                <br />
-                это система,
-                <br />
-                а не спринт
-              </h2>
-
-              <p className="mt-10 max-w-3xl text-2xl leading-relaxed text-gray-300">
-                Когда реклама, сайт, CRM, обработка заявок и повторные продажи
-                работают вместе — поток клиентов становится стабильнее, а
-                бизнес начинает расти предсказуемо.
-              </p>
-            </section>
+      {/* 6. RESTRAINED FOOTER */}
+      <footer className="bg-white border-t border-gray-100 pt-24 pb-12 px-6">
+        <div className="mx-auto max-w-6xl">
+          <div className="flex flex-col md:flex-row justify-between items-start gap-16 mb-20">
+            <div className="max-w-xs">
+              <div className="text-base font-bold tracking-tighter uppercase mb-6">Adsnew.Beauty</div>
+              <p className="text-[13px] text-gray-400 leading-relaxed font-medium">Специализированные маркетинговые системы и CRM-автоматизация для салонов красоты в США, Европе и Израиле.</p>
+            </div>
+            <div className="grid grid-cols-2 gap-16 text-[11px] font-bold uppercase tracking-wider">
+              <div className="space-y-4">
+                <span className="text-gray-300 text-[9px] tracking-widest">Navigation</span>
+                <a href="#" className="block hover:text-[#e8a16b] transition-colors">Кейсы</a>
+                <a href="#" className="block hover:text-[#e8a16b] transition-colors">Статьи</a>
+              </div>
+              <div className="space-y-4">
+                <span className="text-gray-300 text-[9px] tracking-widest">Contact</span>
+                <a href="#" className="block hover:text-[#e8a16b] transition-colors">WhatsApp</a>
+                <a href="#" className="block hover:text-[#e8a16b] transition-colors">Telegram</a>
+              </div>
+            </div>
+          </div>
+          <div className="pt-8 border-t border-gray-50 flex justify-between items-center text-[9px] font-bold text-gray-300 uppercase tracking-widest">
+            <span>© 2026 Adsnew.Beauty</span>
+            <div className="flex gap-6">
+              <span className="hover:text-black cursor-pointer">Privacy</span>
+              <span className="hover:text-black cursor-pointer">Terms</span>
+            </div>
           </div>
         </div>
+      </footer>
 
-        {/* FAQ */}
-        <section className="mt-40 bg-[#faf7f3] py-40">
-          <div className="mx-auto max-w-4xl px-6">
-            <h2 className="text-center text-5xl font-black tracking-tighter">
-              Частые вопросы
-            </h2>
+      {/* 7. PRODUCTION MOBILE CTA */}
+      <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-48px)] md:hidden">
+        <a href="https://wa.me/972537086545" className="flex items-center justify-between rounded-full bg-[#1f1a17] p-1.5 pl-6 shadow-2xl">
+          <span className="text-[10px] font-bold uppercase tracking-widest text-white">Обсудить проект</span>
+          <div className="bg-[#e8a16b] h-9 w-9 rounded-full flex items-center justify-center text-white text-lg">💬</div>
+        </a>
+      </div>
 
-            <div className="mt-20 space-y-6">
-              {faqs.map((faq, i) => (
-                <details
-                  key={i}
-                  className="rounded-[40px] bg-white p-10 shadow-sm"
-                >
-                  <summary className="cursor-pointer list-none text-2xl font-black">
-                    {faq.q}
-                  </summary>
-
-                  <p className="mt-8 text-xl leading-relaxed text-gray-600">
-                    {faq.a}
-                  </p>
-                </details>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* FINAL CTA */}
-        <section className="bg-black px-6 py-40 text-white">
-          <div className="mx-auto max-w-5xl text-center">
-            <h2 className="text-5xl font-black leading-[1] tracking-tighter md:text-7xl">
-              Реклама должна
-              <br />
-              приносить прибыль,
-              <br />
-              а не хаос
-            </h2>
-
-            <p className="mx-auto mt-12 max-w-3xl text-2xl leading-relaxed text-gray-400">
-              Помогу найти слабые места в вашей системе привлечения клиентов:
-              реклама, CRM, обработка заявок, повторные продажи и автоматизация.
-            </p>
-
-            <div className="mt-16 flex flex-col items-center justify-center gap-6 sm:flex-row">
-              <a
-                href="https://wa.me/972537086545?text=Здравствуйте!%20Хочу%20разобраться,%20почему%20реклама%20не%20дает%20результат."
-                target="_blank"
-                rel="noreferrer"
-                className="rounded-full bg-[#25D366] px-10 py-5 text-xl font-black text-white transition hover:scale-105"
-              >
-                💬 WhatsApp
-              </a>
-
-              <a
-                href="https://t.me/mailovaja?text=Здравствуйте!%20Хочу%20разобраться,%20почему%20реклама%20не%20дает%20результат."
-                target="_blank"
-                rel="noreferrer"
-                className="rounded-full bg-[#0088cc] px-10 py-5 text-xl font-black text-white transition hover:scale-105"
-              >
-                ✈️ Telegram
-              </a>
-            </div>
-
-            <p className="mt-20 text-sm uppercase tracking-[0.4em] text-gray-500">
-              Автор: Татьяна Новикова — стратег по маркетингу и системам
-              привлечения клиентов для бьюти-бизнеса
-            </p>
-          </div>
-        </section>
-      </article>
-    </main>
+    </div>
   );
 }
