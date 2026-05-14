@@ -10,7 +10,7 @@ export const revalidate = 86400;
 const SLUG = 'blog/oshibki-v-reklame-iz-za-kotoryh-vy-teryaete-klientov';
 const URL = `https://beauty.adsnew.org/${SLUG}`;
 const WHATSAPP_LINK = "https://wa.me/972537086545?text=Здравствуйте!%20Хочу%20обсудить%20рекламу%20для%20салона";
-const TELEGRAM_LINK = "https://t.me/tatiana_novikova?text=Здравствуйте!%20Хочу%20обсудить%20запуск%20рекламы";
+const TELEGRAM_LINK = "https://t.me/mailovaja?text=Здравствуйте!%20Хочу%20обсудить%20запуск%20рекламы";
 
 export const metadata: Metadata = {
   title: 'Ошибки в рекламе, из-за которых вы теряете клиентов: главные ловушки бьюти-бизнеса',
