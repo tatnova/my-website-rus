@@ -55,14 +55,15 @@ export default function BlogArticle() {
 
       {/* 3. CINEMATIC CROP IMAGE */}
       <div className="mx-auto max-w-5xl px-6 -mt-8 md:-mt-12 mb-20">
-        <div className="relative aspect-[21/9] overflow-hidden rounded-xl bg-gray-50">
-          <img 
-            src="/luxury-salon-editorial.jpg" 
-            className="h-full w-full object-cover grayscale-[15%] transition-all duration-1000"
-            alt="Beauty Industry System"
-          />
-        </div>
-      </div>
+  <div className="overflow-hidden rounded-xl bg-gray-50">
+    <img
+      src="/luxury-salon-editorial.jpg"
+      alt="Beauty Industry System"
+      className="w-full h-auto object-cover"
+    />
+  </div>
+</div>
+
 
       {/* 4. CONTENT FRAMEWORK */}
       <main className="mx-auto max-w-6xl px-6 pb-40">
