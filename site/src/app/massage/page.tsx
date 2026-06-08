@@ -143,11 +143,11 @@ export default function MassagePage() {
         </div>
       </section>
 
-      {/* 3. ОБ ЭКСПЕРТЕ — Татьяна Новикова */}
+      {/* 3. ОБ ЭКСПЕРТЕ — Татьяна Ричманн */}
       <section className="py-32 px-6 max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
         <div className="flex-1">
           <h2 className="text-4xl md:text-6xl font-black mb-8 tracking-tighter">Кто ведет ваш проект</h2>
-          <p className="text-xl text-gray-600 mb-6 font-bold uppercase tracking-widest text-[#e8a16b]">Татьяна Новикова</p>
+          <p className="text-xl text-gray-600 mb-6 font-bold uppercase tracking-widest text-[#e8a16b]">Татьяна Ричманн</p>
           <p className="text-lg text-gray-500 mb-8 leading-relaxed">
             10+ лет в маркетинге. Специализируюсь на бьюти-индустрии и сложных воронках продаж. 
             Я не просто настраиваю рекламу, а внедряю систему, которая приносит деньги, а не просто клики.
@@ -155,7 +155,7 @@ export default function MassagePage() {
           <DualContactButtons />
         </div>
         <div className="flex-1">
-          <img src="/beauty-business-marketing-specialist.jpg" alt="Татьяна Новикова" className="rounded-full w-80 h-80 object-cover border-8 border-[#fff1e4] mx-auto shadow-2xl" />
+          <img src="/beauty-business-marketing-specialist.jpg" alt="Татьяна Ричманн" className="rounded-full w-80 h-80 object-cover border-8 border-[#fff1e4] mx-auto shadow-2xl" />
         </div>
       </section>
 
