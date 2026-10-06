@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import SiteShell from "@/components/SiteShell";
+import MetaPixelEvents from "@/components/MetaPixelEvents";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -54,6 +55,7 @@ export default function RootLayout({
             fbq('track', 'PageView');
           `}
         </Script>
+        <MetaPixelEvents />
 
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-1KF8DCZKLR"
