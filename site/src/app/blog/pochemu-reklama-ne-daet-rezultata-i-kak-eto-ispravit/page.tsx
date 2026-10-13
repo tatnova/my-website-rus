@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Metadata } from 'next';
+import ResponsiveImage from '@/components/ResponsiveImage';
 
 export const metadata: Metadata = {
   title: 'Почему реклама салона красоты не даёт результата: 7 причин и что исправить',
@@ -43,7 +44,9 @@ export default function BlogArticle() {
       {/* 3. CINEMATIC CROP IMAGE */}
       <div className="mx-auto max-w-5xl px-6 -mt-8 md:-mt-12 mb-20">
   <div className="overflow-hidden rounded-xl bg-gray-50">
-    <img
+    <ResponsiveImage
+      priority
+      sizes="(min-width: 1024px) 1024px, 100vw"
       src="/luxury-salon-editorial.jpg"
       alt="Beauty Industry System"
       className="w-full h-auto object-cover"

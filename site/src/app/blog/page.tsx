@@ -1,3 +1,5 @@
+import ResponsiveImage from '@/components/ResponsiveImage';
+
 const articles = [
   {
     title: 'Как заполнить запись в новом салоне красоты в США за 6 недель без демпинга',
@@ -64,7 +66,8 @@ export default function BlogPage() {
                   className="group overflow-hidden rounded-[32px] border border-[#f6dcc5] bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl"
                 >
                   <div className="aspect-[16/10] overflow-hidden bg-[#fff1e4]">
-                    <img
+                    <ResponsiveImage
+                      sizes="(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw"
                       src={article.image}
                       alt={article.title}
                       className="h-full w-full object-cover transition duration-500 group-hover:scale-105"

@@ -1,3 +1,5 @@
+import ResponsiveImage from '@/components/ResponsiveImage';
+
 export const metadata = {
   title: 'Как заполнить запись в новом салоне красоты в США за 6 недель без демпинга',
   description:
@@ -30,7 +32,9 @@ export default function ArticlePage() {
               </div>
 
               <div className="overflow-hidden rounded-[40px] border border-[#f6dcc5] bg-[#fff1e4] shadow-sm">
-                <img
+                <ResponsiveImage
+                  priority
+                  sizes="(min-width: 1024px) 50vw, 100vw"
                   src="/beauty-client-acquisition-strategy-funnel.jpg"
                   alt="Маркетинг и стратегия привлечения клиентов для нового салона красоты в США"
                   className="h-full w-full object-cover"

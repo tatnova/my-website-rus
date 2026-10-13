@@ -1,8 +1,8 @@
 
 import React from 'react';
 import type { Metadata } from 'next';
-import Image from 'next/image';
 import Script from 'next/script';
+import ResponsiveImage from '@/components/ResponsiveImage';
 
 // 7, 9. SEO & MASTER TEMPLATE CONSISTENCY
 export const revalidate = 86400;
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     description: 'Анализ рынка и системные решения для бьюти-бизнеса. Как избежать потери прибыли и неявок клиентов.',
     url: URL,
     type: 'article',
-    images: [{ url: '/beauty-marketing-traps.jpg', width: 1200, height: 675 }]
+    images: [{ url: '/beauty-marketing-traps.jpg', width: 479, height: 267 }]
   },
   twitter: {
     card: 'summary_large_image',
@@ -101,12 +101,11 @@ export default function BlogArticle() {
       {/* 1, 5. OPTIMIZED HERO IMAGE */}
       <div className="mx-auto max-w-5xl px-6 -mt-8 md:-mt-12 mb-20">
         <div className="relative aspect-[21/9] overflow-hidden rounded-xl bg-gray-50">
-          <Image 
-            src="/beauty-marketing-traps.jpg" 
+          <ResponsiveImage
+            src="/beauty-marketing-traps.jpg"
             alt="Ошибки в рекламе салона красоты"
-            fill
-            sizes="100vw"
-            className="object-cover object-center grayscale-[15%] transition-all duration-1000"
+            sizes="(min-width: 1024px) 1024px, 100vw"
+            className="absolute inset-0 h-full w-full object-cover object-center grayscale-[15%] transition-all duration-1000"
             priority
           />
         </div>
