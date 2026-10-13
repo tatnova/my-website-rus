@@ -6,9 +6,9 @@ seo_title: "Быстрый старт для новой клиники косм�
 description: "![](/uploads/wp/2024/11/d09dd0b0d182d0b0d0bbd18cd18f-d093d180d183d0b7d0b8d18f-d181d182d0bed180d0b8d181-d0bad0bed0bfd0b8d18f-d0bad0bed0bfd0b8d18f-d09fd183d0b1d0bbd0b8d0bad0b0d186d0b8d18f-d0b2-instagram-3.png)"
 lead: ""
 niche_label: "клиника эстетической медицины"
-summary_problem: ""
-summary_action: ""
-summary_result: ""
+summary_problem: "новая клиника без рекламного опыта и с минимально оформленными соцсетями"
+summary_action: "анализ аудитории и конкурентов, 20 креативов, оформление профиля, реклама на сообщения"
+summary_result: "123 обращения на увеличение губ за 7 дней по $1,13"
 niches:
   - medspa
   - cosmetology

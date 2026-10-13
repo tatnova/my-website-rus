@@ -310,8 +310,8 @@ export default function HomeClient({
                 <a key={i} href={c.href} className="group flex h-full flex-col rounded-[48px] border border-gray-100 bg-white p-10 shadow-sm transition hover:border-[#e8a16b]">
                   <div className="mb-6 text-xs font-black uppercase tracking-widest text-[#e8a16b]">Ниша: {c.niche}</div>
                   <div className="flex-grow space-y-6">
-                    <p className="text-sm"><strong>Проблема:</strong> <br /><span className="text-gray-500">{c.problem}</span></p>
-                    <p className="text-sm"><strong>Что сделали:</strong> <br /><span className="text-gray-500">{c.action}</span></p>
+                    {c.problem && <p className="text-sm"><strong>Проблема:</strong> <br /><span className="text-gray-500">{c.problem}</span></p>}
+                    {c.action && <p className="text-sm"><strong>Что сделали:</strong> <br /><span className="text-gray-500">{c.action}</span></p>}
                   </div>
                   <div className="mt-10 border-t border-gray-50 pt-6">
                     <div className="mb-2 text-xs font-bold uppercase text-gray-400">Результат:</div>
