@@ -1,9 +1,10 @@
 
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
-import Script from "next/script";
 import SiteShell from "@/components/SiteShell";
 import MetaPixelEvents from "@/components/MetaPixelEvents";
+import CookieConsent from "@/components/CookieConsent";
+import { consentScript } from "@/lib/consent-script";
 import "./globals.css";
 
 // display: "optional" — шрифт не подменяется на лету, поэтому текст
@@ -90,64 +91,12 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
-        <Script id="google-tag-manager" strategy="afterInteractive">
-  {`
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-PLXVW2VV');
-  `}
-</Script>
-        <Script id="meta-pixel" strategy="afterInteractive">
-          {`
-            !function(f,b,e,v,n,t,s)
-            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-            n.queue=[];t=b.createElement(e);t.async=!0;
-            t.src=v;s=b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t,s)}(window, document,'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', '1630705058143577');
-            fbq('track', 'PageView');
-          `}
-        </Script>
+        {/* Согласие на cookie: решает, загружать ли GTM, Google Analytics, Meta Pixel и TikTok Pixel. */}
+        <script dangerouslySetInnerHTML={{ __html: consentScript }} />
         <MetaPixelEvents />
 
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-1KF8DCZKLR"
-          strategy="afterInteractive"
-        />
-
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-1KF8DCZKLR');
-          `}
-        </Script>
-
-        <Script id="tiktok-pixel" strategy="afterInteractive">
-          {`
-            !function (w, d, t) {
-              w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];
-              ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"];
-              ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};
-              for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);
-              ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";
-              var o=document.createElement("script");
-              o.type="text/javascript";o.async=!0;o.src=i+"?sdkid="+e+"&lib="+t;
-              var a=document.getElementsByTagName("script")[0];
-              a.parentNode.insertBefore(o,a)};
-              ttq.load('D1CJDVJC77U8IVAAI6MG');
-              ttq.page();
-            }(window, document, 'ttq');
-          `}
-        </Script>
-
         <SiteShell>{children}</SiteShell>
+        <CookieConsent />
       </body>
     </html>
   );

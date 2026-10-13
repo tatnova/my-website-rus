@@ -2,6 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import SiteNav from '@/components/SiteNav';
+import { CookieSettingsLink } from '@/components/CookieConsent';
 
 const socialLinks = [
   { label: 'WhatsApp', href: 'https://wa.me/972537086545' },
@@ -56,9 +57,12 @@ export default function SiteShell({ children }: { children: React.ReactNode }) {
             ))}
           </div>
 
-          <a href="/privacy-policy" className="mt-6 inline-block text-xs text-gray-400 underline hover:text-black">
-            Политика конфиденциальности
-          </a>
+          <div className="mt-6 flex flex-wrap justify-center gap-4 text-xs text-gray-400">
+            <a href="/privacy-policy" className="underline hover:text-black">
+              Политика конфиденциальности
+            </a>
+            <CookieSettingsLink className="underline hover:text-black" />
+          </div>
 
           <div className="mt-8 text-[10px] uppercase tracking-[0.3em] text-gray-300">
             © 2026 Татьяна Ричманн
