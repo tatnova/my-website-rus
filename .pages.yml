@@ -342,6 +342,48 @@ content:
         label: Текст финального блока
         type: text
 
+  - name: faq
+    label: Вопросы и ответы
+    type: file
+    path: site/content/faq.yml
+    format: yaml
+    fields:
+      - name: faq
+        label: Вопросы
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{q}"
+        fields:
+          - name: topic
+            label: Тема
+            type: select
+            options:
+              values:
+                - { name: start, label: Как начать работу }
+                - { name: results, label: Реклама и результат }
+          - { name: show_on_home, label: Показывать на главной, type: boolean }
+          - { name: q, label: Вопрос, type: string }
+          - { name: a, label: Ответ, type: text, description: "Ссылка: [текст](/cases)" }
+
+  - name: services
+    label: Услуги
+    type: file
+    path: site/content/services.yml
+    format: yaml
+    fields:
+      - name: services
+        label: Услуги
+        type: object
+        list:
+          collapsible: true
+        fields:
+          - { name: title, label: Название, type: string }
+          - { name: text, label: Описание, type: text }
+          - { name: includes, label: "Что входит (только на странице «Услуги»)", type: string, list: true }
+          - { name: featured, label: Выделить, type: boolean }
+
   - name: settings
     label: Настройки
     type: file

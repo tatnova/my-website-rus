@@ -5,9 +5,9 @@ import { useState } from 'react';
 
 // Единое меню для всех страниц сайта. Пункты — обычные ссылки, чтобы по ним переходили и поисковики.
 const navLinks = [
-  { label: 'Услуги', href: '/#services' },
+  { label: 'Услуги', href: '/services' },
   { label: 'Кейсы', href: '/cases' },
-  { label: 'Обо мне', href: '/#about' },
+  { label: 'Обо мне', href: '/about' },
   { label: 'Статьи', href: '/blog' },
 ];
 

@@ -292,3 +292,35 @@ const NICHE_NAMES: Record<string, string> = {
   education: 'Обучение',
   other: 'Другие ниши',
 };
+
+function yamlFile(name: string): Record<string, unknown> {
+  return (parse(readFileSync(path.join(CONTENT, name), 'utf8')) ?? {}) as Record<string, unknown>;
+}
+
+// Общие вопросы и ответы (главная и /faq).
+export type FaqItem = { q: string; a: string; topic: string; show_on_home: boolean };
+
+export function getFaq(): FaqItem[] {
+  const d = yamlFile('faq.yml');
+  return (Array.isArray(d.faq) ? d.faq : [])
+    .map((f: { q?: unknown; a?: unknown; topic?: unknown; show_on_home?: unknown }) => ({
+      q: str(f?.q),
+      a: str(f?.a),
+      topic: str(f?.topic) || 'results',
+      show_on_home: f?.show_on_home === true,
+    }))
+    .filter((f) => f.q && f.a);
+}
+
+// Услуги (главная и /services).
+export function getServices(): { title: string; text: string; includes: string[]; featured: boolean }[] {
+  const d = yamlFile('services.yml');
+  return (Array.isArray(d.services) ? d.services : [])
+    .map((x: { title?: unknown; text?: unknown; includes?: unknown; featured?: unknown }) => ({
+      title: str(x?.title),
+      text: str(x?.text),
+      includes: list(x?.includes),
+      featured: x?.featured === true,
+    }))
+    .filter((x) => x.title);
+}

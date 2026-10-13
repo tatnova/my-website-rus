@@ -5,8 +5,7 @@ import { getCases } from '@/lib/content';
 
 import { SITE_URL } from '@/lib/site';
 
-// Только страницы с содержанием. Незаполненные страницы (about, contact, faq, reviews, services)
-// добавим сюда, когда они будут готовы.
+// Только страницы с содержанием.
 const pages = [
   '/',
   '/massage',
@@ -17,6 +16,11 @@ const pages = [
   '/blog/oshibki-v-reklame-iz-za-kotoryh-vy-teryaete-klientov',
   '/privacy-policy',
   '/links',
+  '/about',
+  '/services',
+  '/reviews',
+  '/faq',
+  '/contact',
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
