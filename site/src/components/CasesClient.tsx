@@ -20,10 +20,10 @@ type CaseItem = {
 const contacts = [
   { label: 'WhatsApp', href: 'https://wa.me/972537086545' },
   { label: 'Telegram', href: 'https://t.me/mailovaja' },
-  { label: 'Instagram', href: '#instagram' },
-  { label: 'YouTube', href: '#youtube' },
-  { label: 'Facebook', href: '#facebook' },
-  { label: 'TikTok', href: '#tiktok' },
+  { label: 'Instagram', href: 'https://www.instagram.com/ads_target_pr/' },
+  { label: 'Facebook', href: 'https://www.facebook.com/newadstarget' },
+  { label: 'TikTok', href: 'https://www.tiktok.com/@tatyana.ads' },
+  { label: 'Threads', href: 'https://www.threads.net/@ads_target_pr' },
 ];
 
 const cases: CaseItem[] = [
@@ -70,21 +70,11 @@ const cases: CaseItem[] = [
 },
 ];
 
-const countries = ['Все страны', 'Израиль', 'Канада', 'США', 'ОАЭ'];
-const niches = [
-  'Все ниши',
-  'Массаж',
-  'Парикмахерская',
-  'Салон красоты',
-  'Косметология',
-  'Брови',
-];
-const goals = [
-  'Все цели',
-  'Заполнение записи',
-  'Стабильный поток заявок',
-  'Снижение стоимости лида',
-];
+// Варианты фильтров берутся из самих кейсов, чтобы не было пустых результатов.
+const unique = (values: string[]) => Array.from(new Set(values));
+const countries = ['Все страны', ...unique(cases.map((c) => c.country))];
+const niches = ['Все ниши', ...unique(cases.map((c) => c.niche))];
+const goals = ['Все цели', ...unique(cases.map((c) => c.goal))];
 
 export default function CasesClient() {
   const [country, setCountry] = useState('Все страны');
