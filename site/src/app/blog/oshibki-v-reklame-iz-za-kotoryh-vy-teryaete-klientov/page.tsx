@@ -37,7 +37,7 @@ export default function BlogArticle() {
     "@type": "BlogPosting",
     "headline": "Ошибки в рекламе, из-за которых вы теряете клиентов",
     "image": `https://beauty.adsnew.org/beauty-marketing-traps.jpg`,
-    "author": { "@type": "Person", "name": "Татьяна Новикова" },
+    "author": { "@type": "Person", "name": "Татьяна Ричманн" },
     "datePublished": "2026-05-14",
     "publisher": { "@type": "Organization", "name": "Adsnew.Beauty" }
   };
@@ -70,27 +70,9 @@ export default function BlogArticle() {
       <Script id="article-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <Script id="faq-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
-      {/* NAVIGATION */}
-      <nav className="fixed top-0 z-50 w-full border-b border-gray-100 bg-white/80 backdrop-blur-md">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <div className="text-base font-bold tracking-tighter uppercase">Adsnew.Beauty</div>
-          <div className="hidden space-x-8 text-[13px] font-medium text-gray-500 md:flex">
-            <a href="/cases" className="hover:text-black transition-colors">Кейсы</a>
-            <a href="/blog" className="hover:text-black transition-colors">Статьи</a>
-          </div>
-          <a 
-            href={WHATSAPP_LINK} 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="rounded-full bg-[#1f1a17] px-5 py-2 text-[12px] font-semibold text-white hover:bg-black transition-all"
-          >
-            Обсудить проект
-          </a>
-        </div>
-      </nav>
 
       {/* HERO SECTION */}
-      <header className="pt-32 pb-12 md:pt-44 md:pb-20 px-6 bg-white border-b border-gray-50">
+      <header className="pt-12 pb-12 md:pt-20 md:pb-20 px-6 bg-white border-b border-gray-50">
         <div className="mx-auto max-w-3xl text-left">
           <div className="mb-6 flex items-center gap-3 text-[10px] font-bold uppercase tracking-wider text-[#e8a16b]">
             <span className="w-6 h-[1px] bg-[#e8a16b]"></span>
@@ -105,7 +87,7 @@ export default function BlogArticle() {
             <div className="flex items-center gap-4">
               <div className="h-10 w-10 rounded-full bg-[#e8a16b]/10 flex items-center justify-center text-[#e8a16b] text-xs font-bold font-serif italic">TN</div>
               <div className="text-[13px]">
-                <span className="block font-bold">Татьяна Новикова</span>
+                <span className="block font-bold">Татьяна Ричманн</span>
                 <span className="text-gray-400 font-medium tracking-tight">Expert Analysis • 8 min read</span>
               </div>
             </div>
@@ -241,14 +223,14 @@ export default function BlogArticle() {
                 <div className="flex items-center gap-5 p-8 bg-white border border-gray-100 rounded-xl">
                    <div className="h-14 w-14 rounded-full bg-gray-50 flex items-center justify-center text-[#e8a16b] font-bold text-sm">TN</div>
                    <div>
-                      <p className="font-bold text-[#1f1a17]">Татьяна Новикова</p>
+                      <p className="font-bold text-[#1f1a17]">Татьяна Ричманн</p>
                       <p className="text-xs text-gray-400 font-medium leading-relaxed">Стратег по маркетингу и CRM-автоматизации для бьюти-бизнеса.</p>
                    </div>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-4 pt-4">
-                  <a href="/blog/pochemu-reklama-ne-daet-rezultata" className="p-4 border border-gray-100 rounded-lg text-xs font-bold hover:bg-gray-50 transition-all tracking-tight">← Читать: Почему реклама не дает результат</a>
-                  <a href="/blog/zapolnit-zapis-za-6-nedel" className="p-4 border border-gray-100 rounded-lg text-xs font-bold hover:bg-gray-50 transition-all text-right tracking-tight">Как заполнить запись за 6 недель →</a>
+                  <a href="/blog/pochemu-reklama-ne-daet-rezultata-i-kak-eto-ispravit" className="p-4 border border-gray-100 rounded-lg text-xs font-bold hover:bg-gray-50 transition-all tracking-tight">← Читать: Почему реклама не дает результат</a>
+                  <a href="/blog/kak-zapolnit-zapis" className="p-4 border border-gray-100 rounded-lg text-xs font-bold hover:bg-gray-50 transition-all text-right tracking-tight">Как заполнить запись за 6 недель →</a>
                 </div>
               </section>
 

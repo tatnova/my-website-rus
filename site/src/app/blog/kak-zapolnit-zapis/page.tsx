@@ -9,29 +9,7 @@ export const metadata = {
 export default function ArticlePage() {
   return (
     <div className="min-h-screen bg-white font-sans text-gray-900 selection:bg-[#fff1e4] selection:text-[#e8a16b]">
-      <nav className="fixed top-0 z-[100] w-full border-b border-gray-100 bg-white/90 backdrop-blur-md">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <a href="/" className="text-xl font-black tracking-tighter text-[#e8a16b]">
-            МАРКЕТИНГ ДЛЯ БЬЮТИ-БИЗНЕСА
-          </a>
-
-          <div className="hidden items-center gap-8 text-sm font-semibold md:flex">
-            <a href="/#problems" className="hover:text-[#e8a16b]">Проблемы</a>
-            <a href="/#services" className="hover:text-[#e8a16b]">Услуги</a>
-            <a href="/#cases" className="hover:text-[#e8a16b]">Кейсы</a>
-            <a href="/#about" className="hover:text-[#e8a16b]">Обо мне</a>
-            <a href="/blog" className="text-[#e8a16b]">Статьи</a>
-            <a
-              href="/#contact"
-              className="rounded-full bg-black px-5 py-2 text-white transition hover:bg-gray-800"
-            >
-              Обсудить проект
-            </a>
-          </div>
-        </div>
-      </nav>
-
-      <main className="pt-20">
+      <main>
         <section className="bg-gradient-to-br from-[#fff8f1] via-white to-[#f8f2ea] px-6 py-12 lg:py-16">
           <div className="mx-auto max-w-6xl">
             <a href="/blog" className="text-sm font-bold uppercase tracking-widest text-[#e8a16b]">
@@ -301,36 +279,6 @@ export default function ArticlePage() {
         </section>
       </main>
 
-      <footer id="contact" className="border-t border-gray-100 bg-white px-6 py-32 text-center">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="mb-8 text-5xl font-black leading-[1.1] tracking-tighter md:text-7xl">
-            Готовы выстроить систему
-            <br className="hidden md:block" /> привлечения клиентов?
-          </h2>
-          <p className="mx-auto mb-16 max-w-2xl text-2xl leading-relaxed text-gray-400">
-            Давайте обсудим ваш проект и определим точки роста вашего бьюти-бизнеса прямо сейчас.
-          </p>
-          <div className="flex flex-col items-center gap-8">
-            <a
-              href="https://wa.me/972537086545"
-              className="transform rounded-full bg-black px-16 py-6 text-2xl font-black text-white shadow-2xl transition hover:scale-105 hover:shadow-[#e8a16b]/20"
-            >
-              Написать в WhatsApp 💬
-            </a>
-            <div className="flex flex-wrap justify-center gap-4 text-sm font-bold uppercase tracking-widest text-gray-400">
-              <a href="#instagram" className="hover:text-black">Instagram</a>
-              <a href="#youtube" className="hover:text-black">YouTube</a>
-              <a href="#facebook" className="hover:text-black">Facebook</a>
-              <a href="#tiktok" className="hover:text-black">TikTok</a>
-              <a href="https://t.me/mailovaja" className="hover:text-black">Telegram</a>
-              <a href="https://wa.me/972537086545" className="hover:text-black">WhatsApp</a>
-            </div>
-          </div>
-        </div>
-        <div className="mt-32 text-[10px] uppercase tracking-[0.5em] text-gray-300">
-          © 2026 Beauty Strategy Marketing. Все права защищены.
-        </div>
-      </footer>
     </div>
   );
 }
