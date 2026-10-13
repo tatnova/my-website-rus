@@ -149,7 +149,7 @@ export default function MassagePage() {
           <h2 className="text-4xl md:text-6xl font-black mb-8 tracking-tighter">Кто ведет ваш проект</h2>
           <p className="text-xl text-gray-600 mb-6 font-bold uppercase tracking-widest text-[#e8a16b]">Татьяна Ричманн</p>
           <p className="text-lg text-gray-500 mb-8 leading-relaxed">
-            10+ лет в маркетинге. Специализируюсь на бьюти-индустрии и сложных воронках продаж. 
+            Занимаюсь таргетированной рекламой с 2018 года. Специализируюсь на бьюти-индустрии и сложных воронках продаж. 
             Я не просто настраиваю рекламу, а внедряю систему, которая приносит деньги, а не просто клики.
           </p>
           <DualContactButtons />

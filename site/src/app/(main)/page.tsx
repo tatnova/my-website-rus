@@ -15,5 +15,5 @@ export default function Home() {
   const reviews = getReviews()
     .filter((r) => r.show_on_home)
     .map((r) => ({ author: r.author, text: r.text, image: r.image }));
-  return <HomeClient cases={cases} reviews={reviews} faqs={getFaq()} services={getServices()} />;
+  return <HomeClient cases={cases} reviews={reviews} faqs={getFaq().filter((f) => f.show_on_home)} services={getServices()} />;
 }

@@ -5,7 +5,7 @@ import { getCases } from '@/lib/content';
 
 import { SITE_URL } from '@/lib/site';
 
-// Только страницы с содержанием. /about добавим, когда будет готов текст.
+// Только страницы с содержанием.
 const pages = [
   '/',
   '/massage',
@@ -16,6 +16,7 @@ const pages = [
   '/blog/oshibki-v-reklame-iz-za-kotoryh-vy-teryaete-klientov',
   '/privacy-policy',
   '/links',
+  '/about',
   '/services',
   '/reviews',
   '/faq',

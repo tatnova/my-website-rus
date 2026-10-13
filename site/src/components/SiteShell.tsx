@@ -2,7 +2,18 @@
 
 import { usePathname } from 'next/navigation';
 import SiteNav from '@/components/SiteNav';
+import Link from 'next/link';
 import { CookieSettingsLink } from '@/components/CookieConsent';
+
+const sectionLinks = [
+  { label: 'Услуги', href: '/services' },
+  { label: 'Кейсы', href: '/cases' },
+  { label: 'Отзывы', href: '/reviews' },
+  { label: 'Обо мне', href: '/about' },
+  { label: 'Вопросы и ответы', href: '/faq' },
+  { label: 'Статьи', href: '/blog' },
+  { label: 'Контакты', href: '/contact' },
+];
 
 const socialLinks = [
   { label: 'WhatsApp', href: 'https://wa.me/972537086545' },
@@ -56,6 +67,14 @@ export default function SiteShell({ children }: { children: React.ReactNode }) {
               </a>
             ))}
           </div>
+
+          <nav aria-label="Разделы сайта" className="mt-8 flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm font-semibold text-gray-600">
+            {sectionLinks.map((item) => (
+              <Link key={item.href} href={item.href} className="hover:text-black">
+                {item.label}
+              </Link>
+            ))}
+          </nav>
 
           <div className="mt-6 flex flex-wrap justify-center gap-4 text-xs text-gray-400">
             <a href="/privacy-policy" className="underline hover:text-black">
