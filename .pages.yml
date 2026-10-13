@@ -1,0 +1,364 @@
+# Настройки визуального редактора Pages CMS (app.pagescms.org).
+# Редактор показывает разделы «Кейсы», «Отзывы», «Ниши», «Настройки» и сохраняет правки
+# в папку site/content/. После сохранения сайт пересобирается сам.
+
+media:
+  input: site/public/uploads
+  output: /uploads
+  rename: safe
+  categories: [image]
+
+content:
+  - name: cases
+    label: Кейсы
+    type: collection
+    path: site/content/cases
+    format: yaml-frontmatter
+    filename:
+      template: "{slug}.md"
+      field: create
+    view:
+      primary: title
+      fields: [title, country, draft]
+      sort: order
+      order: asc
+    fields:
+      - name: slug
+        label: Адрес страницы
+        type: string
+        required: true
+        pattern:
+          regex: "^[a-z0-9-]+$"
+          message: "Только латинские буквы, цифры и дефис, например nails-abu-dhabi-238"
+        description: "Станет адресом adsnew.org/cases/<адрес>. После публикации не меняйте."
+      - name: draft
+        label: Черновик (не показывать на сайте)
+        type: boolean
+      - name: title
+        label: Заголовок страницы кейса
+        type: string
+        required: true
+      - name: card_title
+        label: Короткий заголовок для каталога
+        type: string
+      - name: seo_title
+        label: Заголовок для Google (title)
+        type: string
+        description: "Если пусто, берётся заголовок страницы."
+      - name: description
+        label: Описание для Google (до 160 символов)
+        type: text
+      - name: lead
+        label: Подзаголовок под заголовком
+        type: text
+      - name: niches
+        label: Ниши
+        type: select
+        description: "Кейс покажется на лендингах всех отмеченных ниш."
+        options:
+          multiple: true
+          values:
+            - { name: massage, label: Массаж }
+            - { name: cosmetology, label: Косметология }
+            - { name: hair, label: Салоны и парикмахерские }
+            - { name: nails, label: Маникюр }
+            - { name: fitness, label: Фитнес }
+            - { name: medspa, label: Медспа }
+            - { name: education, label: Обучение }
+            - { name: other, label: Другие ниши }
+      - name: niche_label
+        label: Подпись ниши в карточке
+        type: string
+        description: "Например: массаж, спа-салон, ногтевая студия."
+      - name: country
+        label: Страна
+        type: string
+      - name: city
+        label: Город или штат
+        type: string
+      - name: goal
+        label: Задача (для фильтра в каталоге)
+        type: string
+        description: "Например: Заполнение записи, Запуск с нуля, Масштабирование."
+      - name: period
+        label: Срок
+        type: string
+      - name: ad_budget
+        label: Рекламный бюджет
+        type: string
+        description: "Пишите как на сайте, с валютой: $1 073 или 4 224 ₪. Пустые поля на сайте не показываются."
+      - name: fee
+        label: Гонорар
+        type: string
+      - name: total_spend
+        label: Вложения всего (бюджет + гонорар)
+        type: string
+      - name: leads
+        label: Заявки
+        type: string
+      - name: cpl
+        label: Цена заявки
+        type: string
+      - name: conversion
+        label: Конверсия в запись
+        type: string
+      - name: clients
+        label: Клиенты
+        type: string
+      - name: avg_check
+        label: Средний чек
+        type: string
+      - name: revenue
+        label: Выручка
+        type: string
+      - name: profit
+        label: Чистая прибыль
+        type: string
+      - name: summary_problem
+        label: "Кратко: проблема"
+        type: text
+      - name: summary_action
+        label: "Кратко: что сделали"
+        type: text
+      - name: summary_result
+        label: "Кратко: результат"
+        type: string
+        description: "Показывается крупно в карточке на главной и на лендинге."
+      - name: cover
+        label: Обложка (для соцсетей)
+        type: image
+      - name: creatives
+        label: Рекламные макеты
+        type: object
+        list:
+          collapsible: true
+        fields:
+          - { name: image, label: Картинка, type: image }
+          - { name: caption, label: Подпись, type: string }
+      - name: proof
+        label: Скриншоты из рекламного кабинета
+        type: object
+        list:
+          collapsible: true
+        fields:
+          - { name: image, label: Скриншот, type: image }
+          - { name: caption, label: Подпись, type: string }
+      - name: old_urls
+        label: Старые адреса (WordPress)
+        type: string
+        list: true
+        description: "Например /2026/02/15/case-massage-israel-target/. С них будет переадресация на этот кейс."
+      - name: show_on_home
+        label: Показывать на главной
+        type: boolean
+      - name: order
+        label: Порядок (меньше — выше)
+        type: number
+      - name: body
+        label: Текст кейса
+        type: rich-text
+        options:
+          format: markdown
+
+  - name: reviews
+    label: Отзывы
+    type: collection
+    path: site/content/reviews
+    format: yaml-frontmatter
+    filename:
+      template: "{primary}.md"
+      field: create
+    view:
+      primary: author
+      fields: [author, draft]
+      sort: order
+      order: asc
+    fields:
+      - name: author
+        label: Подпись автора
+        type: string
+        required: true
+        description: "Например: Елена, владелица студии. Имя — только с согласия клиента."
+      - name: draft
+        label: Черновик (не показывать на сайте)
+        type: boolean
+      - name: text
+        label: Текст отзыва
+        type: text
+        required: true
+      - name: niches
+        label: Ниши
+        type: select
+        options:
+          multiple: true
+          values:
+            - { name: massage, label: Массаж }
+            - { name: cosmetology, label: Косметология }
+            - { name: hair, label: Салоны и парикмахерские }
+            - { name: nails, label: Маникюр }
+            - { name: fitness, label: Фитнес }
+            - { name: medspa, label: Медспа }
+            - { name: education, label: Обучение }
+            - { name: other, label: Другие ниши }
+      - name: country
+        label: Страна
+        type: string
+      - name: image
+        label: Фото к отзыву (главная)
+        type: image
+      - name: screenshot
+        label: Скриншот исходного отзыва
+        type: image
+        description: "Телефоны, фамилии и аватары без согласия клиента нужно закрыть."
+      - name: case
+        label: Связанный кейс (адрес кейса)
+        type: string
+      - name: date
+        label: Дата
+        type: date
+      - name: show_on_home
+        label: Показывать на главной
+        type: boolean
+      - name: order
+        label: Порядок (меньше — выше)
+        type: number
+
+  - name: niches
+    label: Ниши (лендинги)
+    type: collection
+    path: site/content/niches
+    format: yaml
+    filename:
+      template: "{subdomain}.yml"
+      field: create
+    view:
+      primary: name
+      fields: [name, published]
+    fields:
+      - name: name
+        label: Название ниши
+        type: string
+        required: true
+      - name: published
+        label: Лендинг опубликован
+        type: boolean
+        description: "Пока выключено, лендинг закрыт от поисковиков."
+      - name: subdomain
+        label: Поддомен
+        type: string
+        required: true
+        pattern:
+          regex: "^[a-z0-9-]+$"
+          message: "Только латиница, например nails"
+        description: "nails → nails.adsnew.org"
+      - name: seo_title
+        label: Заголовок для Google (title)
+        type: string
+      - name: description
+        label: Описание для Google
+        type: text
+      - name: accent
+        label: Цвет-акцент
+        type: string
+        description: "Например #e8a16b"
+      - name: badge
+        label: Плашка над заголовком
+        type: string
+      - name: hero_title
+        label: Главный заголовок
+        type: text
+      - name: hero_accent
+        label: Часть заголовка, выделенная цветом
+        type: string
+        description: "Должна точно совпадать с куском главного заголовка."
+      - name: hero_text
+        label: Текст под заголовком
+        type: text
+        description: "Жирный текст: **так**."
+      - name: hero_image
+        label: Картинка первого экрана
+        type: image
+      - name: hero_image_alt
+        label: Описание картинки
+        type: string
+      - name: hero_stat_value
+        label: Цифра на картинке
+        type: string
+      - name: hero_stat_label
+        label: Подпись цифры
+        type: string
+      - name: stats
+        label: Три цифры из кейсов
+        type: object
+        list:
+          max: 3
+          collapsible: true
+        fields:
+          - { name: value, label: Цифра, type: string }
+          - { name: label, label: Подпись, type: string }
+          - { name: case, label: Адрес кейса, type: string }
+      - name: contact_message
+        label: Текст, который подставится в WhatsApp и Telegram
+        type: text
+      - name: whatsapp_label
+        label: Надпись на кнопке WhatsApp
+        type: string
+      - name: telegram_label
+        label: Надпись на кнопке Telegram
+        type: string
+      - name: cases_title
+        label: Заголовок блока кейсов
+        type: string
+      - name: about_text
+        label: Текст «Кто ведёт проект»
+        type: text
+        description: "Если пусто, берётся общий текст из Настроек."
+      - name: reviews_title
+        label: Заголовок блока отзывов
+        type: string
+      - name: faq
+        label: Вопросы и ответы
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{q}"
+        fields:
+          - { name: q, label: Вопрос, type: string }
+          - { name: a, label: Ответ, type: text }
+      - name: prices
+        label: Цены «от»
+        type: object
+        list:
+          collapsible: true
+        fields:
+          - { name: service, label: Услуга, type: string }
+          - { name: price, label: Цена, type: string }
+          - { name: note, label: Примечание, type: string }
+      - name: final_title
+        label: Заголовок финального блока
+        type: string
+      - name: final_text
+        label: Текст финального блока
+        type: text
+
+  - name: settings
+    label: Настройки
+    type: file
+    path: site/content/settings.yml
+    format: yaml
+    fields:
+      - { name: name, label: Имя, type: string }
+      - { name: whatsapp_phone, label: "WhatsApp: номер без + и пробелов", type: string }
+      - { name: whatsapp_display, label: "WhatsApp: как показывать номер", type: string }
+      - { name: telegram_username, label: "Telegram: имя пользователя без @", type: string }
+      - { name: main_domain, label: Основной домен, type: string, readonly: true }
+      - name: socials
+        label: Соцсети
+        type: object
+        list: true
+        fields:
+          - { name: label, label: Название, type: string }
+          - { name: url, label: Ссылка, type: string }
+      - { name: about_photo, label: Фото для блока «Кто ведёт проект», type: image }
+      - { name: about_text, label: Текст «Кто ведёт проект» по умолчанию, type: text }

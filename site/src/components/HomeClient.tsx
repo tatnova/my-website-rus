@@ -55,30 +55,6 @@ const services = [
   },
 ];
 
-const cases = [
-  {
-    niche: 'массаж · Израиль',
-    problem: 'мастер после курсов: пустой Instagram, нет клиентской базы, ограниченный бюджет',
-    action: 'упаковали профиль, сделали локальный оффер, запустили рекламу и скрипты ответов',
-    result: '740 заявок по 5,7 ₪ за 3 месяца',
-    href: '/cases/massazh-israel-740-zayavok',
-  },
-  {
-    niche: 'массаж · Канада',
-    problem: 'ограниченный бюджет, сложная аудитория, много спама, проблемы с записью',
-    action: 'проработали оффер, запустили рекламу, внедрили скрипты обработки заявок',
-    result: '183 заявки по 5,7$ и 40 клиентов',
-    href: '/cases/massage-canada-body',
-  },
-  {
-    niche: 'спа-салон · США, Калифорния',
-    problem: 'нужно было масштабировать поток клиентов без перегрузки администратора',
-    action: 'онлайн-запись с CRM, реклама по сегментам аудитории, тесты макетов',
-    result: '256 клиентов и $17 920 выручки',
-    href: '/cases/spa-salon-california-256-clients',
-  },
-];
-
 const steps = [
   {
     step: '01',
@@ -150,24 +126,6 @@ const faqs = [
   },
 ];
 
-const reviews = [
-  {
-    author: 'Салон красоты',
-    text: '“До работы заявки приходили нестабильно. После запуска и настройки системы появился стабильный поток клиентов, стало проще планировать работу и доход.”',
-    image: '/beauty-salon-client-review-results.jpg',
-  },
-  {
-    author: 'Бьюти-эксперт',
-    text: '“Раньше не было понимания, как привлекать клиентов. Сейчас есть система, реклама работает, и записи идут регулярно.”',
-    image: '/beauty-expert-client-attraction-review.jpg',
-  },
-  {
-    author: 'Фитнес-тренер',
-    text: '“Стало гораздо больше заявок, при этом снизилась стоимость клиента. Появилось ощущение контроля над ситуацией.”',
-    image: '/fitness-master-more-clients-review.jpg',
-  },
-];
-
 const articles = [
   {
     title: 'Как заполнить запись в новом салоне красоты в США за 6 недель без демпинга',
@@ -183,7 +141,9 @@ const articles = [
   },
 ];
 
-const PrimaryButton = ({ children, onClick, className = '' }: any) => (
+type ButtonProps = { children: React.ReactNode; onClick?: () => void; className?: string };
+
+const PrimaryButton = ({ children, onClick, className = '' }: ButtonProps) => (
   <button
     onClick={onClick}
     className={`inline-flex items-center justify-center gap-2 rounded-full bg-[#e8a16b] px-8 py-4 font-bold text-white shadow-lg transition hover:scale-[1.02] hover:bg-[#d78d57] ${className}`}
@@ -192,7 +152,7 @@ const PrimaryButton = ({ children, onClick, className = '' }: any) => (
   </button>
 );
 
-const SecondaryButton = ({ children, onClick, className = '' }: any) => (
+const SecondaryButton = ({ children, onClick, className = '' }: ButtonProps) => (
   <button
     onClick={onClick}
     className={`inline-flex items-center justify-center gap-2 rounded-full border border-gray-300 bg-white px-8 py-4 font-bold transition hover:border-[#e8a16b] hover:text-[#e8a16b] ${className}`}
@@ -201,7 +161,11 @@ const SecondaryButton = ({ children, onClick, className = '' }: any) => (
   </button>
 );
 
-export default function Home() {
+export type HomeCase = { niche: string; problem: string; action: string; result: string; href: string };
+export type HomeReview = { author: string; text: string; image: string };
+
+// Кейсы и отзывы приходят из content/ (см. app/page.tsx).
+export default function HomeClient({ cases, reviews }: { cases: HomeCase[]; reviews: HomeReview[] }) {
   const scrollToId = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -519,9 +483,11 @@ export default function Home() {
             <div className="grid gap-8 md:grid-cols-3">
               {reviews.map((t, i) => (
                 <div key={i} className="rounded-[40px] bg-white p-6 shadow-sm">
-                  <div className="mb-6 aspect-[16/10] overflow-hidden rounded-[28px] bg-gray-100">
-                    <ResponsiveImage src={t.image} alt={t.author} sizes="(min-width: 768px) 33vw, 100vw" className="h-full w-full object-cover" />
-                  </div>
+                  {t.image && (
+                    <div className="mb-6 aspect-[16/10] overflow-hidden rounded-[28px] bg-gray-100">
+                      <ResponsiveImage src={t.image} alt={t.author} sizes="(min-width: 768px) 33vw, 100vw" className="h-full w-full object-cover" />
+                    </div>
+                  )}
                   <p className="mb-6 text-2xl italic leading-relaxed text-gray-800">{t.text}</p>
                   <p className="text-sm font-black uppercase tracking-[0.3em] text-[#e8a16b]">— {t.author}</p>
                 </div>
