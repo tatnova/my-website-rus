@@ -81,6 +81,10 @@ export default function SiteShell({ children }: { children: React.ReactNode }) {
             ))}
           </div>
 
+          <a href="/privacy-policy" className="mt-6 inline-block text-xs text-gray-400 underline hover:text-black">
+            Политика конфиденциальности
+          </a>
+
           <div className="mt-8 text-[10px] uppercase tracking-[0.3em] text-gray-300">
             © 2026 Татьяна Ричманн
           </div>

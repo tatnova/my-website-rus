@@ -663,7 +663,11 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="mt-32 text-[10px] uppercase tracking-[0.5em] text-gray-300">
+          <Link href="/privacy-policy" className="mt-16 inline-block text-xs text-gray-400 underline hover:text-black">
+            Политика конфиденциальности
+          </Link>
+
+          <div className="mt-16 text-[10px] uppercase tracking-[0.5em] text-gray-300">
             © 2026 Татьяна Ричманн. Реклама для бьюти-бизнеса.
           </div>
         </footer>
