@@ -3,6 +3,7 @@ import Link from 'next/link';
 import ContactCta from '@/components/ContactCta';
 import ResponsiveImage from '@/components/ResponsiveImage';
 import { getCases, getNiches, getSettings } from '@/lib/content';
+import { LANDINGS_LIVE, nicheUrl } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Обо мне',
@@ -29,7 +30,7 @@ const countries = ['Израиль', 'США', 'Канада', 'Турция', '
 
 export default function AboutPage() {
   const s = getSettings();
-  const niches = getNiches().map((n) => n.name);
+  const niches = getNiches().map((n) => ({ name: n.name, url: LANDINGS_LIVE && n.published ? `${nicheUrl(n.subdomain)}/` : '' }));
   const cases = getCases().slice(0, 3);
   return (
     <main className="bg-white pb-24 text-gray-900">
@@ -82,11 +83,17 @@ export default function AboutPage() {
         <div>
           <h2 className="text-2xl font-black md:text-3xl">С кем работаю</h2>
           <div className="mt-6 flex flex-wrap gap-2">
-            {niches.map((n) => (
-              <span key={n} className="rounded-full bg-[#fff1e4] px-4 py-2 text-sm font-bold text-[#a35f2c]">
-                {n}
-              </span>
-            ))}
+            {niches.map((n) =>
+              n.url ? (
+                <a key={n.name} href={n.url} className="rounded-full bg-[#fff1e4] px-4 py-2 text-sm font-bold text-[#a35f2c] underline">
+                  {n.name}
+                </a>
+              ) : (
+                <span key={n.name} className="rounded-full bg-[#fff1e4] px-4 py-2 text-sm font-bold text-[#a35f2c]">
+                  {n.name}
+                </span>
+              ),
+            )}
           </div>
         </div>
         <div>

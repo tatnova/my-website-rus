@@ -105,17 +105,20 @@ export type HomeReview = { author: string; text: string; image: string };
 // Кейсы и отзывы приходят из content/ (см. app/page.tsx).
 export type HomeFaq = { q: string; a: string };
 export type HomeService = { title: string; text: string; featured: boolean };
+export type HomeNiche = { name: string; badge: string; url: string };
 
 export default function HomeClient({
   cases,
   reviews,
   faqs,
   services,
+  niches,
 }: {
   cases: HomeCase[];
   reviews: HomeReview[];
   faqs: HomeFaq[];
   services: HomeService[];
+  niches: HomeNiche[];
 }) {
   const scrollToId = (id: string) => {
     const element = document.getElementById(id);
@@ -275,6 +278,29 @@ export default function HomeClient({
             </div>
           </div>
         </section>
+
+        {/* Отдельные лендинги ниш. Появляется только когда лендинги опубликованы (см. lib/site.ts). */}
+        {niches.length > 0 && (
+          <section id="niches" className="bg-white pt-20 lg:pt-28">
+            <div className="mx-auto max-w-6xl px-6">
+              <h2 className="mb-2 text-4xl font-black">Реклама для вашей ниши</h2>
+              <p className="mb-10 text-xl text-gray-400">Отдельные страницы с кейсами и ответами для каждой ниши</p>
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {niches.map((n) => (
+                  <a
+                    key={n.url}
+                    href={n.url}
+                    className="group rounded-[32px] border border-gray-100 bg-white p-8 shadow-sm transition hover:border-[#e8a16b]"
+                  >
+                    <p className="text-2xl font-black group-hover:text-[#e8a16b]">{n.name}</p>
+                    {n.badge && <p className="mt-2 text-sm text-gray-500">{n.badge}</p>}
+                    <span className="mt-4 inline-block text-sm font-bold text-[#a35f2c]">Перейти →</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
 
         <section id="home-results" className="bg-white py-20 lg:py-28">
           <div className="mx-auto max-w-6xl px-6">
