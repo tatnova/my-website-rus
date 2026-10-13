@@ -23,3 +23,14 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Текст кейса из content/cases/*.md (markdown → HTML). */
+.case-body > * + * { margin-top: 1rem; }
+.case-body h2 { margin-top: 2.5rem; font-size: 1.5rem; line-height: 2rem; font-weight: 900; }
+.case-body h3 { margin-top: 1.5rem; font-size: 1.25rem; line-height: 1.75rem; font-weight: 900; }
+.case-body h2 + *, .case-body h3 + * { margin-top: 0.5rem; }
+.case-body ul { list-style: disc; padding-left: 1.25rem; }
+.case-body ol { list-style: decimal; padding-left: 1.25rem; }
+.case-body li + li { margin-top: 0.5rem; }
+.case-body a { color: #c97d45; font-weight: 700; text-decoration: underline; }
+.case-body img { max-width: 100%; height: auto; border-radius: 1rem; }

@@ -1,0 +1,17 @@
+# Общие настройки для основного сайта и всех нишевых лендингов.
+name: "Татьяна Ричманн"
+whatsapp_phone: "972537086545"
+whatsapp_display: "+972 53-708-6545"
+telegram_username: "mailovaja"
+main_domain: "adsnew.org"
+socials:
+  - label: "Instagram"
+    url: "https://www.instagram.com/ads_target_pr/"
+  - label: "Facebook"
+    url: "https://www.facebook.com/newadstarget"
+  - label: "TikTok"
+    url: "https://www.tiktok.com/@tatyana.ads"
+  - label: "Threads"
+    url: "https://www.threads.net/@ads_target_pr"
+about_photo: "/beauty-business-marketing-specialist.jpg"
+about_text: "10+ лет в маркетинге. Специализируюсь на бьюти-индустрии и сложных воронках продаж. Я не просто настраиваю рекламу, а внедряю систему, которая приносит деньги, а не просто клики."

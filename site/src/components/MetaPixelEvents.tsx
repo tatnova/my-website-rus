@@ -14,14 +14,6 @@ declare global {
   }
 }
 
-// Страницы кейсов, на которых отправляется ViewContent. Новый кейс нужно добавить сюда:
-// адрес без списка не учитывается, чтобы несуществующие страницы (404) не давали ложный просмотр.
-const CASE_NAMES: Record<string, string> = {
-  'massazh-israel-740-zayavok': 'Массаж, Израиль: 740 заявок',
-  'massage-canada-body': 'Массаж, Канада: 183 заявки',
-  'spa-salon-california-256-clients': 'Спа-салон, Калифорния: 256 клиентов',
-};
-
 // Пиксель может появиться чуть позже компонента, поэтому событие ждёт fbq до 5 секунд.
 function track(...args: unknown[]) {
   let attempts = 0;
@@ -35,7 +27,9 @@ function track(...args: unknown[]) {
   send();
 }
 
-export default function MetaPixelEvents() {
+// caseNames: адрес кейса → название, строится из content/cases/ в layout.tsx.
+// ViewContent уходит только для адресов из этого списка, чтобы 404 не давали ложный просмотр.
+export default function MetaPixelEvents({ caseNames }: { caseNames: Record<string, string> }) {
   const pathname = usePathname();
   const lastPath = useRef<string | null>(null);
 
@@ -48,14 +42,14 @@ export default function MetaPixelEvents() {
     if (!isFirstLoad) track('track', 'PageView');
 
     const slug = pathname.match(/^\/cases\/([^/]+)\/?$/)?.[1];
-    if (slug && CASE_NAMES[slug]) {
+    if (slug && caseNames[slug]) {
       track('track', 'ViewContent', {
         content_type: 'case',
         content_ids: [slug],
-        content_name: CASE_NAMES[slug],
+        content_name: caseNames[slug],
       });
     }
-  }, [pathname]);
+  }, [pathname, caseNames]);
 
   useEffect(() => {
     const onClick = (e: MouseEvent) => {
@@ -70,7 +64,8 @@ export default function MetaPixelEvents() {
       if (channel) {
         track('track', 'Contact', {
           content_name: channel,
-          content_category: window.location.pathname,
+          // Адрес с доменом: так видно, с какого сайта клик (основной или лендинг ниши).
+          content_category: window.location.hostname + window.location.pathname,
         });
       }
     };

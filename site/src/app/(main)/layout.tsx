@@ -1,21 +1,12 @@
 
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
 import SiteShell from "@/components/SiteShell";
-import MetaPixelEvents from "@/components/MetaPixelEvents";
-import CookieConsent from "@/components/CookieConsent";
-import { consentScript } from "@/lib/consent-script";
-import "./globals.css";
+import { TrackingBanner, TrackingHead } from "@/components/Tracking";
+import { SITE_URL } from "@/lib/site";
+import { geistSans } from "@/lib/fonts";
+import "../globals.css";
 
-// display: "optional" — шрифт не подменяется на лету, поэтому текст
-// первого экрана не «прыгает» при загрузке (CLS на /massage был 0,21).
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-  display: "optional",
-});
 
-const SITE_URL = "https://beauty.adsnew.org";
 const SITE_NAME = "Татьяна Ричманн";
 const SITE_DESCRIPTION =
   "Таргетированная реклама в Instagram, Facebook и TikTok для массажистов, косметологов и салонов красоты в Израиле, США и Канаде. Кейсы с цифрами.";
@@ -91,12 +82,10 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
-        {/* Согласие на cookie: решает, загружать ли GTM, Google Analytics, Meta Pixel и TikTok Pixel. */}
-        <script dangerouslySetInnerHTML={{ __html: consentScript }} />
-        <MetaPixelEvents />
+        <TrackingHead />
 
         <SiteShell>{children}</SiteShell>
-        <CookieConsent />
+        <TrackingBanner />
       </body>
     </html>
   );

@@ -3,80 +3,39 @@
 import Link from 'next/link';
 import { useMemo, useState } from 'react';
 
-type CaseItem = {
+export type CaseItem = {
   country: string;
   city: string;
   niche: string;
+  nicheNames: string[];
   goal: string;
   title: string;
   investment: string;
   leads: string;
+  clients: string;
   leadPrice: string;
   revenue: string;
   profit: string;
   href: string;
 };
 
-const contacts = [
-  { label: 'WhatsApp', href: 'https://wa.me/972537086545' },
-  { label: 'Telegram', href: 'https://t.me/mailovaja' },
-  { label: 'Instagram', href: 'https://www.instagram.com/ads_target_pr/' },
-  { label: 'Facebook', href: 'https://www.facebook.com/newadstarget' },
-  { label: 'TikTok', href: 'https://www.tiktok.com/@tatyana.ads' },
-  { label: 'Threads', href: 'https://www.threads.net/@ads_target_pr' },
-];
-
-const cases: CaseItem[] = [
-  {
-    country: 'Израиль',
-    city: 'Петах-Тиква',
-    niche: 'Массаж',
-    goal: 'Заполнение записи',
-    title:
-      '740 заявок по 5,7 ₪ и 30 762 ₪ прибыли для мастера массажа в Израиле',
-    investment: '6 174 ₪',
-    leads: '740',
-    leadPrice: '5,7 ₪',
-    revenue: '37 000 ₪',
-    profit: '30 762 ₪',
-    href: '/cases/massazh-israel-740-zayavok',
-  },
- {
-  country: 'Канада',
-  city: 'Канада',
-  niche: 'Массаж',
-  goal: 'Заполнение записи',
-  title:
-    '183 заявки по 5,7$ и 40 клиентов с чеком $120 для массажа в Канаде',
-  investment: '1073$',
-  leads: '183',
-  leadPrice: '5,7$',
-  revenue: '4 800$',
-  profit: '—',
-  href: '/cases/massage-canada-body',
-},
-{
-  country: 'США',
-  city: 'Калифорния',
-  niche: 'Спа / массаж',
-  goal: 'Масштабирование',
-  title: '256 клиентов по $19 и $17 920 выручки для спа-салона в Калифорнии',
-  investment: '$5 040',
-  leads: '256',
-  leadPrice: '$19',
-  revenue: '$17 920',
-  profit: '—',
-  href: '/cases/spa-salon-california-256-clients',
-},
-];
 
 // Варианты фильтров берутся из самих кейсов, чтобы не было пустых результатов.
-const unique = (values: string[]) => Array.from(new Set(values));
-const countries = ['Все страны', ...unique(cases.map((c) => c.country))];
-const niches = ['Все ниши', ...unique(cases.map((c) => c.niche))];
-const goals = ['Все цели', ...unique(cases.map((c) => c.goal))];
+const unique = (values: string[]) => Array.from(new Set(values.filter(Boolean)));
 
-export default function CasesClient() {
+// Кейсы приходят из content/cases/ (см. app/cases/page.tsx).
+export default function CasesClient({
+  cases,
+  contacts,
+}: {
+  cases: CaseItem[];
+  contacts: { label: string; href: string }[];
+}) {
+  const countries = ['Все страны', ...unique(cases.map((c) => c.country))];
+  const niches = ['Все ниши', ...unique(cases.flatMap((c) => c.nicheNames))];
+  const goals = ['Все цели', ...unique(cases.map((c) => c.goal))];
+  const wa = contacts.find((c) => c.label === 'WhatsApp')?.href ?? '';
+  const tg = contacts.find((c) => c.label === 'Telegram')?.href ?? '';
   const [country, setCountry] = useState('Все страны');
   const [niche, setNiche] = useState('Все ниши');
   const [goal, setGoal] = useState('Все цели');
@@ -84,12 +43,12 @@ export default function CasesClient() {
   const filteredCases = useMemo(() => {
     return cases.filter((item) => {
       const countryOk = country === 'Все страны' || item.country === country;
-      const nicheOk = niche === 'Все ниши' || item.niche === niche;
+      const nicheOk = niche === 'Все ниши' || item.nicheNames.includes(niche);
       const goalOk = goal === 'Все цели' || item.goal === goal;
 
       return countryOk && nicheOk && goalOk;
     });
-  }, [country, niche, goal]);
+  }, [cases, country, niche, goal]);
 
   return (
     <main className="min-h-screen bg-[#f7f2ea] pb-24 text-[#1f1a17]">
@@ -111,7 +70,7 @@ export default function CasesClient() {
 
           <div className="mt-8 flex flex-wrap gap-3">
             <a
-              href="https://wa.me/972537086545"
+              href={wa}
               target="_blank"
               className="rounded-full bg-[#1f1a17] px-6 py-3 text-sm font-semibold text-white transition hover:opacity-80"
             >
@@ -119,7 +78,7 @@ export default function CasesClient() {
             </a>
 
             <a
-              href="https://t.me/mailovaja"
+              href={tg}
               target="_blank"
               className="rounded-full border border-[#1f1a17] px-6 py-3 text-sm font-semibold transition hover:bg-[#1f1a17] hover:text-white"
             >
@@ -152,12 +111,13 @@ export default function CasesClient() {
 
       <section className="px-5 py-12 md:px-10 lg:px-20">
         <div className="mx-auto max-w-7xl overflow-hidden rounded-[28px] bg-white shadow-sm">
-          <div className="hidden grid-cols-[1.6fr_0.7fr_0.7fr_0.8fr_0.7fr_0.8fr_0.8fr_0.8fr] gap-4 bg-[#1f1a17] px-6 py-4 text-sm font-semibold text-white lg:grid">
+          <div className="hidden grid-cols-[1.6fr_0.7fr_0.7fr_0.8fr_0.6fr_0.6fr_0.7fr_0.8fr_0.8fr] gap-4 bg-[#1f1a17] px-6 py-4 text-sm font-semibold text-white lg:grid">
             <div>Кейс</div>
             <div>Страна</div>
             <div>Ниша</div>
             <div>Вложили</div>
             <div>Заявки</div>
+            <div>Клиенты</div>
             <div>Цена лида</div>
             <div>Выручка</div>
             <div>Прибыль</div>
@@ -168,35 +128,47 @@ export default function CasesClient() {
               <article key={item.href}>
                 <Link
                   href={item.href}
-                  className="hidden grid-cols-[1.6fr_0.7fr_0.7fr_0.8fr_0.7fr_0.8fr_0.8fr_0.8fr] gap-4 px-6 py-5 text-sm transition hover:bg-[#f7f2ea] lg:grid"
+                  className="hidden grid-cols-[1.6fr_0.7fr_0.7fr_0.8fr_0.6fr_0.6fr_0.7fr_0.8fr_0.8fr] gap-4 px-6 py-5 text-sm transition hover:bg-[#f7f2ea] lg:grid"
                 >
                   <div>
                     <h2 className="font-semibold">{item.title}</h2>
                     <p className="mt-1 text-xs text-[#5f5148]">
-                      {item.city} · {item.goal} · читать кейс →
+                      {[item.city, item.goal].filter(Boolean).join(' · ')} · читать кейс →
                     </p>
                   </div>
                   <div>{item.country}</div>
                   <div>{item.niche}</div>
-                  <div>{item.investment}</div>
-                  <div>{item.leads}</div>
-                  <div>{item.leadPrice}</div>
-                  <div>{item.revenue}</div>
-                  <div>{item.profit}</div>
+                  <div>{item.investment || '—'}</div>
+                  <div>{item.leads || '—'}</div>
+                  <div>{item.clients || '—'}</div>
+                  <div>{item.leadPrice || '—'}</div>
+                  <div>{item.revenue || '—'}</div>
+                  <div>{item.profit || '—'}</div>
                 </Link>
 
                 <div className="p-5 lg:hidden">
                   <Link href={item.href} className="block">
                     <h2 className="text-lg font-semibold">{item.title}</h2>
                     <p className="mt-1 text-sm text-[#5f5148]">
-                      {item.country} · {item.city} · {item.niche}
+                      {[item.country, item.city, item.niche].filter(Boolean).join(' · ')}
                     </p>
 
                     <div className="mt-4 grid grid-cols-2 gap-3 text-sm">
-                      <Info label="Вложили" value={item.investment} />
-                      <Info label="Заявки" value={item.leads} />
-                      <Info label="Цена лида" value={item.leadPrice} />
-                      <Info label="Прибыль" value={item.profit} />
+                      {(
+                        [
+                          ['Вложили', item.investment],
+                          ['Заявки', item.leads],
+                          ['Клиенты', item.clients],
+                          ['Цена лида', item.leadPrice],
+                          ['Выручка', item.revenue],
+                          ['Прибыль', item.profit],
+                        ] as const
+                      )
+                        .filter(([, value]) => value)
+                        .slice(0, 4)
+                        .map(([label, value]) => (
+                          <Info key={label} label={label} value={value} />
+                        ))}
                     </div>
 
                     <p className="mt-4 text-sm font-semibold text-[#9b6b43]">
@@ -241,7 +213,7 @@ export default function CasesClient() {
       </section>
 
       <a
-        href="https://wa.me/972537086545"
+        href={wa}
         target="_blank"
         className="fixed bottom-4 left-4 right-4 z-50 rounded-full bg-[#1f1a17] px-5 py-4 text-center text-sm font-semibold text-white shadow-xl md:left-auto md:right-6 md:w-auto"
       >

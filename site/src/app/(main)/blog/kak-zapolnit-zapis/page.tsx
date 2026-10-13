@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import ResponsiveImage from '@/components/ResponsiveImage';
 
 export const metadata = {
@@ -132,9 +133,9 @@ export default function ArticlePage() {
 
                 <div className="my-10 rounded-[32px] border border-[#f6dcc5] bg-white p-6 shadow-sm">
                   <div className="mb-4 text-xs font-bold uppercase tracking-widest text-[#e8a16b]">Читайте также</div>
-                  <a href="/cases" className="text-xl font-black hover:text-[#e8a16b]">
+                  <Link href="/cases" className="text-xl font-black hover:text-[#e8a16b]">
                     Смотреть кейсы по привлечению клиентов →
-                  </a>
+                  </Link>
                 </div>
 
                 <section id="visual">
@@ -238,12 +239,12 @@ export default function ArticlePage() {
                   >
                     Написать в WhatsApp 💬
                   </a>
-                  <a
+                  <Link
                     href="/cases"
                     className="inline-flex items-center justify-center rounded-full border border-white/20 px-8 py-4 font-bold text-white transition hover:border-[#e8a16b] hover:text-[#f3c7a0]"
                   >
                     Смотреть кейсы
-                  </a>
+                  </Link>
                 </div>
               </div>
             </article>

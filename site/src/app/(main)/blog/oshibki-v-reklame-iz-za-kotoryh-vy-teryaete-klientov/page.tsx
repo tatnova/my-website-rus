@@ -5,7 +5,6 @@ import Script from 'next/script';
 import ResponsiveImage from '@/components/ResponsiveImage';
 
 // 7, 9. SEO & MASTER TEMPLATE CONSISTENCY
-export const revalidate = 86400;
 
 const SLUG = 'blog/oshibki-v-reklame-iz-za-kotoryh-vy-teryaete-klientov';
 const URL = `https://beauty.adsnew.org/${SLUG}`;
