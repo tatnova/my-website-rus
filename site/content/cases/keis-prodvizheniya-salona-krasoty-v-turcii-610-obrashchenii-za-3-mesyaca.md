@@ -31,7 +31,7 @@ creatives: []
 old_urls:
   - "/2026/01/08/keis-prodvizheniya-salona-krasoty-v-turcii-610-obrashchenii-za-3-mesyaca/"
 date: "2026-01-08"
-show_on_home: false
+show_on_home: true
 draft: false
 order: 11
 ---
