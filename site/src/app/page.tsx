@@ -664,7 +664,11 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="mt-32 text-[10px] uppercase tracking-[0.5em] text-gray-300">
+          <a href="/privacy-policy" className="mt-16 inline-block text-xs text-gray-400 underline hover:text-black">
+            Политика конфиденциальности
+          </a>
+
+          <div className="mt-16 text-[10px] uppercase tracking-[0.5em] text-gray-300">
             © 2026 Beauty Strategy Marketing. Все права защищены. SEO-ready структура подготовлена для дальнейшей оптимизации мета-тегов, страниц услуг, кейсов и статей.
           </div>
         </footer>
