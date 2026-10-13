@@ -1,6 +1,7 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
+import SiteNav from '@/components/SiteNav';
 
 const socialLinks = [
   { label: 'WhatsApp', href: 'https://wa.me/972537086545' },
@@ -20,33 +21,7 @@ export default function SiteShell({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="min-h-screen bg-white font-sans text-gray-900">
-      <nav className="fixed top-0 z-[100] w-full border-b border-gray-100 bg-white/95 backdrop-blur-md">
-        <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 md:px-6">
-          <a
-            href="/"
-            className="max-w-[130px] text-[13px] font-black uppercase leading-tight tracking-tight text-[#e8a16b] md:max-w-none md:text-lg"
-          >
-            Beauty Marketing
-          </a>
-
-          <div className="flex items-center gap-4 text-[14px] font-bold md:gap-7 md:text-sm">
-            
-            <a href="/cases" className="hover:text-[#e8a16b]">
-              Кейсы
-            </a>
-            <a href="/blog" className="hover:text-[#e8a16b]">
-              Статьи
-            </a>
-            <a
-              href="https://wa.me/972537086545"
-              target="_blank"
-              className="hidden rounded-full bg-black px-5 py-2 text-white transition hover:bg-gray-800 md:inline-block"
-            >
-              Обсудить проект
-            </a>
-          </div>
-        </div>
-      </nav>
+      <SiteNav />
 
       <div className="pt-[58px] md:pt-[68px]">{children}</div>
 

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import SiteNav from '@/components/SiteNav';
 
 const socialLinks = [
   { label: 'WhatsApp', href: 'https://wa.me/972537086545', icon: '💬' },
@@ -202,10 +202,7 @@ const SecondaryButton = ({ children, onClick, className = '' }: any) => (
 );
 
 export default function Home() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   const scrollToId = (id: string) => {
-    setIsMenuOpen(false);
     const element = document.getElementById(id);
     if (element) {
       const offset = 80;
@@ -235,77 +232,7 @@ export default function Home() {
         />
       </head>
 
-      <nav className="fixed top-0 z-[100] w-full border-b border-gray-100 bg-white/90 backdrop-blur-md">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <div className="text-xl font-black tracking-tighter text-[#e8a16b]">МАРКЕТИНГ ДЛЯ БЬЮТИ-БИЗНЕСА</div>
-
-          <div className="hidden items-center gap-8 text-sm font-semibold md:flex">
-            <button onClick={() => scrollToId('problems')} className="hover:text-[#e8a16b]">Проблемы</button>
-            <button onClick={() => scrollToId('services')} className="hover:text-[#e8a16b]">Услуги</button>
-           <button
-  type="button"
-  onClick={() => {
-    window.location.href = '/cases';
-  }}
-  className="hover:text-[#e8a16b]"
->
-  Кейсы
-</button>
-            <button onClick={() => scrollToId('about')} className="hover:text-[#e8a16b]">Обо мне</button>
-            <a href="/blog" className="hover:text-[#e8a16b]">Статьи</a>
-            <button onClick={() => scrollToId('contact')} className="rounded-full bg-black px-5 py-2 text-white transition hover:bg-gray-800">Обсудить проект</button>
-          </div>
-
-          <button
-            type="button"
-            aria-label={isMenuOpen ? 'Закрыть меню' : 'Открыть меню'}
-            aria-expanded={isMenuOpen}
-            className="md:hidden"
-            onClick={() => setIsMenuOpen((prev) => !prev)}
-          >
-            <div className="space-y-1.5">
-              <div className={`h-0.5 w-6 bg-gray-900 transition ${isMenuOpen ? 'translate-y-2 rotate-45' : ''}`}></div>
-              <div className={`h-0.5 w-6 bg-gray-900 ${isMenuOpen ? 'opacity-0' : ''}`}></div>
-              <div className={`h-0.5 w-6 bg-gray-900 transition ${isMenuOpen ? '-translate-y-2 -rotate-45' : ''}`}></div>
-            </div>
-          </button>
-        </div>
-
-        {isMenuOpen && (
-          <div className="absolute left-0 top-full z-50 flex w-full flex-col gap-6 border-b border-gray-100 bg-white p-8 shadow-2xl md:hidden">
-            <button type="button" onClick={() => scrollToId('problems')} className="text-left text-2xl font-bold">Проблемы</button>
-            <button type="button" onClick={() => scrollToId('services')} className="text-left text-2xl font-bold">Услуги</button>
-            <button
-  type="button"
-  onClick={() => {
-    setIsMenuOpen(false);
-    window.location.href = '/cases';
-  }}
-  className="text-left text-2xl font-bold"
->
-  Кейсы
-</button>
-            <button type="button" onClick={() => scrollToId('about')} className="text-left text-2xl font-bold">Обо мне</button>
-            <a href="/blog" className="text-left text-2xl font-bold">Статьи</a>
-            <button type="button" onClick={() => scrollToId('contact')} className="w-full rounded-full bg-[#e8a16b] py-4 font-bold text-white">👉 Обсудить проект</button>
-
-            <div className="flex flex-wrap gap-3 pt-2">
-              {socialLinks.map((item) => (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="rounded-full border border-[#f6dcc5] bg-white px-4 py-2 text-sm font-bold text-gray-700 transition hover:border-[#e8a16b] hover:text-[#e8a16b]"
-                >
-                  <span className="mr-2">{item.icon}</span>
-                  {item.label}
-                </a>
-              ))}
-            </div>
-          </div>
-        )}
-      </nav>
+      <SiteNav />
 
       <main className="pt-20">
         <header className="relative overflow-hidden bg-gradient-to-br from-[#fff8f1] via-white to-[#f8f2ea] px-6 pb-20 pt-14 lg:pb-32 lg:pt-24">
