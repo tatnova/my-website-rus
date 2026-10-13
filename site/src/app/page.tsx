@@ -438,9 +438,6 @@ export default function Home() {
 
             <div className="mt-16 text-center">
               <PrimaryButton onClick={() => scrollToId('contact')}>👉 Обсудить задачу</PrimaryButton>
-              <div className="mt-6">
-                <a href="/services" className="font-bold text-[#e8a16b] hover:text-[#d78d57]">Подробнее об услугах</a>
-              </div>
             </div>
           </div>
         </section>
