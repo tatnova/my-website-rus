@@ -3,7 +3,8 @@
 import { readdirSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 import { parse } from 'yaml';
-import { marked } from 'marked';
+import { Marked, marked } from 'marked';
+import manifest from '@/lib/image-manifest.json';
 
 const CONTENT = path.join(process.cwd(), 'content');
 
@@ -37,6 +38,7 @@ export type CaseMeta = {
   proof: { image: string; caption?: string }[];
   creatives: { image: string; caption?: string }[];
   old_urls: string[];
+  date: string;
   show_on_home: boolean;
   draft: boolean;
   order: number;
@@ -134,6 +136,41 @@ const images = (v: unknown) =>
     .map((x) => ({ image: str(x?.image), caption: str(x?.caption) }))
     .filter((x) => x.image);
 
+type ImageMeta = { base: string; width: number; height: number; widths: number[] };
+
+// Картинки внутри текста кейса или статьи: лёгкие WebP-копии нужного размера и ленивая загрузка
+// (так же, как ResponsiveImage). Если копий ещё нет, остаётся оригинал.
+function optimizeImages(html: string) {
+  return html.replace(/<img\s+src="([^"]+)"/g, (tag, src: string) => {
+    const meta = (manifest as Record<string, ImageMeta>)[src];
+    const lazy = ' loading="lazy" decoding="async"';
+    if (!meta) return `${tag}${lazy}`;
+    const largest = meta.widths[meta.widths.length - 1];
+    const srcset = meta.widths.map((w) => `${meta.base}-${w}.webp ${w}w`).join(', ');
+    return `<img src="${meta.base}-${largest}.webp" srcset="${srcset}" sizes="(min-width: 768px) 720px, 100vw" width="${meta.width}" height="${meta.height}"${lazy}`;
+  });
+}
+
+// Картинка отдельным абзацем — это рисунок: подпись берётся из title, ![описание](адрес "подпись").
+const bodyMarked = new Marked({
+  renderer: {
+    paragraph({ tokens }) {
+      const only = tokens.filter((t) => !(t.type === 'text' && !t.raw.trim()));
+      if (only.length === 1 && only[0].type === 'image') {
+        const img = only[0];
+        const attr = (v: string) => v.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+        const caption = img.title ? `<figcaption>${attr(img.title)}</figcaption>` : '';
+        return `<figure><img src="${attr(img.href)}" alt="${attr(img.text)}">${caption}</figure>\n`;
+      }
+      return false;
+    },
+  },
+});
+
+function markdownToHtml(body: string) {
+  return optimizeImages(bodyMarked.parse(body, { async: false }) as string);
+}
+
 let casesCache: Case[] | null = null;
 
 // Все опубликованные кейсы (черновики не попадают на сайт).
@@ -172,10 +209,11 @@ export function getCases(): Case[] {
         proof: images(data.proof),
         creatives: images(data.creatives),
         old_urls: list(data.old_urls),
+        date: str(data.date),
         show_on_home: data.show_on_home === true,
         draft: data.draft === true,
         order: Number(data.order) || 999,
-        html: marked.parse(body, { async: false }) as string,
+        html: markdownToHtml(body),
       };
       return c;
     })
@@ -323,4 +361,47 @@ export function getServices(): { title: string; text: string; includes: string[]
       featured: x?.featured === true,
     }))
     .filter((x) => x.title);
+}
+
+// Статьи блога из content/articles/ (перенесены из WordPress, правятся в Pages CMS).
+// Адрес статьи: /blog/<имя файла>.
+export type Article = {
+  slug: string;
+  title: string;
+  seo_title: string;
+  description: string;
+  category: string;
+  cover: string;
+  date: string;
+  old_urls: string[];
+  html: string;
+};
+
+let articlesCache: Article[] | null = null;
+
+export function getArticles(): Article[] {
+  if (articlesCache) return articlesCache;
+  articlesCache = files('articles', /\.md$/)
+    .map((file) => {
+      const { data, body } = frontmatter(readFileSync(path.join(CONTENT, 'articles', file), 'utf8'));
+      if (data.draft === true) return null;
+      return {
+        slug: file.replace(/\.md$/, ''),
+        title: str(data.title),
+        seo_title: str(data.seo_title) || str(data.title),
+        description: str(data.description),
+        category: str(data.category) || 'Статья',
+        cover: str(data.cover),
+        date: str(data.date),
+        old_urls: list(data.old_urls),
+        html: markdownToHtml(body),
+      };
+    })
+    .filter((a): a is Article => !!a && !!a.title)
+    .sort((a, b) => b.date.localeCompare(a.date));
+  return articlesCache;
+}
+
+export function getArticle(slug: string) {
+  return getArticles().find((a) => a.slug === slug);
 }

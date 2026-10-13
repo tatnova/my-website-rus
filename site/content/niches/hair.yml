@@ -16,10 +16,13 @@ hero_stat_label: ''
 stats:
 - value: 78 клиентов
   label: новая парикмахерская, США
+  case: keys-prodvizhenie-parikmaherskoj-v-ssha-meta-ads
 - value: 794 обращения
   label: салон красоты, Иллинойс
+  case: keis-salon-krasoty-illinois-794-obrashcheniya-160-klientov
 - value: 610 обращений
   label: салон красоты, Турция
+  case: keis-prodvizheniya-salona-krasoty-v-turcii-610-obrashchenii-za-3-mesyaca
 contact_message: Здравствуйте! Я по поводу рекламы для салона. Что нужно для запуска?
 whatsapp_label: WhatsApp
 telegram_label: Telegram

@@ -13,9 +13,9 @@ export default function ArticlePage() {
       <main>
         <section className="bg-gradient-to-br from-[#fff8f1] via-white to-[#f8f2ea] px-6 py-12 lg:py-16">
           <div className="mx-auto max-w-6xl">
-            <a href="/blog" className="text-sm font-bold uppercase tracking-widest text-[#e8a16b]">
+            <Link href="/blog" className="text-sm font-bold uppercase tracking-widest text-[#e8a16b]">
               ← Назад к статьям
-            </a>
+            </Link>
 
             <div className="mt-6 grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
               <div>
@@ -193,9 +193,9 @@ export default function ArticlePage() {
 
                 <div className="my-10 rounded-[32px] border border-[#f6dcc5] bg-white p-6 shadow-sm">
                   <div className="mb-4 text-xs font-bold uppercase tracking-widest text-[#e8a16b]">Читайте также</div>
-                  <a href="/blog/oshibki-v-reklame-iz-za-kotoryh-vy-teryaete-klientov" className="text-xl font-black hover:text-[#e8a16b]">
+                  <Link href="/blog/oshibki-v-reklame-iz-za-kotoryh-vy-teryaete-klientov" className="text-xl font-black hover:text-[#e8a16b]">
                     Ошибки в рекламе, из-за которых вы теряете клиентов →
-                  </a>
+                  </Link>
                 </div>
 
                 <section id="result">

@@ -1,6 +1,6 @@
 // Маршрутизатор доменов для Cloudflare Pages. Один проект отдаёт основной сайт и все лендинги:
 //
-//   adsnew.org/...               основной сайт (+ 301 со старых адресов WordPress на кейсы)
+//   adsnew.org/...               основной сайт (+ 301 со старых адресов WordPress на кейсы и статьи)
 //   adsnew.org/massage           301 на massage.adsnew.org/
 //   <ниша>.adsnew.org/           лендинг ниши (страница /l/<ниша>), свои robots.txt и sitemap.xml
 //   <ниша>.adsnew.org/другое     301 на adsnew.org/другое
@@ -29,8 +29,9 @@ const normalize = (path) => {
 
 /**
  * @param {Request} request
- * @param {{ niches: Record<string, string>, redirects: Record<string, string> }} data
- *   niches: поддомен → id ниши; redirects: старый путь (normalize) → новый путь.
+ * @param {{ niches: Record<string, string>, redirects: Record<string, string>, prefixes?: [string, string][] }} data
+ *   niches: поддомен → id ниши; redirects: старый путь (normalize) → новый путь;
+ *   prefixes: [начало старого пути, новый путь], длинные первыми (например все /tag/... → /cases).
  * @param {(path: string) => Promise<Response>} serveAsset отдать файл сайта по пути.
  * @returns {Promise<Response | null>} null — отдать запрошенный адрес как есть.
  */
@@ -66,8 +67,11 @@ export async function route(request, data, serveAsset) {
   }
 
   if (host === MAIN_HOST) {
-    const target = data.redirects[normalize(path)];
+    const old = normalize(path);
+    const target = data.redirects[old];
     if (target) return redirect(main + target);
+    const prefix = (data.prefixes ?? []).find(([p]) => old === p || old.startsWith(`${p}/`));
+    if (prefix) return redirect(main + prefix[1]);
     // Старая страница массажа на основном домене заменена лендингом massage.adsnew.org.
     if ((path === '/massage' || path.startsWith('/massage/')) && Object.values(data.niches).includes('massage')) {
       const sub = Object.keys(data.niches).find((k) => data.niches[k] === 'massage');

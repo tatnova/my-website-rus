@@ -142,12 +142,22 @@ export default async function NicheLandingPage({ params }: Props) {
         {n.stats.length > 0 && (
           <section className="border-y border-gray-100 bg-[#fff8f1] px-6 py-12">
             <div className="mx-auto grid max-w-7xl gap-8 text-center sm:grid-cols-3">
-              {n.stats.map((st) => (
-                <div key={st.value + st.label}>
-                  <p className="text-4xl font-black text-[var(--accent)] md:text-5xl">{st.value}</p>
-                  <p className="mt-2 text-sm font-bold uppercase tracking-widest text-gray-500">{st.label}</p>
-                </div>
-              ))}
+              {n.stats.map((st) => {
+                const inner = (
+                  <>
+                    <p className="text-4xl font-black text-[var(--accent)] md:text-5xl">{st.value}</p>
+                    <p className="mt-2 text-sm font-bold uppercase tracking-widest text-gray-500">{st.label}</p>
+                  </>
+                );
+                // Цифра со ссылкой на кейс, из которого она взята.
+                return st.case ? (
+                  <a key={st.value + st.label} href={`${SITE_URL}/cases/${st.case}`} className="block transition hover:opacity-80">
+                    {inner}
+                  </a>
+                ) : (
+                  <div key={st.value + st.label}>{inner}</div>
+                );
+              })}
             </div>
           </section>
         )}
