@@ -221,17 +221,6 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-white font-sans text-gray-900 selection:bg-[#fff1e4] selection:text-[#e8a16b]">
-      <head>
-        <title>Стабильный поток клиентов в бьюти-бизнес через рекламу и стратегию</title>
-        <meta
-          name="description"
-          content="Помогаю бьюти-бизнесу выстроить систему привлечения клиентов: реклама, стратегия, CRM, автоматизация, кейсы, отзывы и рост дохода."
-        />
-        <meta
-          name="keywords"
-          content="привлечение клиентов для салона красоты, реклама для бьюти-бизнеса, маркетинг для мастеров, CRM для салона красоты, продвижение бьюти-услуг"
-        />
-      </head>
 
       <nav className="fixed top-0 z-[100] w-full border-b border-gray-100 bg-white/90 backdrop-blur-md">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
