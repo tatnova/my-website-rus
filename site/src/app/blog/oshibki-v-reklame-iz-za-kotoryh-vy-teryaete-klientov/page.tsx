@@ -248,8 +248,8 @@ export default function BlogArticle() {
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-4 pt-4">
-                  <a href="/blog/pochemu-reklama-ne-daet-rezultata" className="p-4 border border-gray-100 rounded-lg text-xs font-bold hover:bg-gray-50 transition-all tracking-tight">← Читать: Почему реклама не дает результат</a>
-                  <a href="/blog/zapolnit-zapis-za-6-nedel" className="p-4 border border-gray-100 rounded-lg text-xs font-bold hover:bg-gray-50 transition-all text-right tracking-tight">Как заполнить запись за 6 недель →</a>
+                  <a href="/blog/pochemu-reklama-ne-daet-rezultata-i-kak-eto-ispravit" className="p-4 border border-gray-100 rounded-lg text-xs font-bold hover:bg-gray-50 transition-all tracking-tight">← Читать: Почему реклама не дает результат</a>
+                  <a href="/blog/kak-zapolnit-zapis" className="p-4 border border-gray-100 rounded-lg text-xs font-bold hover:bg-gray-50 transition-all text-right tracking-tight">Как заполнить запись за 6 недель →</a>
                 </div>
               </section>
 
