@@ -6,7 +6,7 @@ import { getCases, getServices } from '@/lib/content';
 
 export const metadata: Metadata = {
   title: 'Услуги: реклама и система привлечения клиентов для бьюти-бизнеса',
-  description: 'Аудит и стратегия, запуск рекламы в Instagram, Facebook и TikTok, CRM и автоматизация заявок, сопровождение и масштабирование.',
+  description: 'Аудит и стратегия, запуск рекламы в Instagram, Facebook и TikTok, работа с заявками, ведение и оптимизация рекламы.',
 };
 
 const steps = [
@@ -24,7 +24,7 @@ export default function ServicesPage() {
       <PageIntro
         eyebrow="Услуги"
         title="Чем я помогаю бьюти-бизнесу"
-        text="Можно начать с разбора текущей рекламы, с запуска с нуля или сразу выстроить систему, где реклама, сайт и CRM работают вместе."
+        text="Можно начать с разбора текущей рекламы, с запуска с нуля или с ведения уже работающей рекламы."
       />
 
       <div className="mx-auto grid max-w-6xl gap-6 px-5 md:grid-cols-2 md:px-10">
