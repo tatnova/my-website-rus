@@ -1,6 +1,7 @@
 'use client';
 import Link from 'next/link';
 import React, { useState } from 'react';
+import ResponsiveImage from '@/components/ResponsiveImage';
 
 // --- ДАННЫЕ ДЛЯ БЛОКОВ ---
 
@@ -116,7 +117,7 @@ export default function MassagePage() {
         </div>
         <div className="flex-1 relative">
           <div className="w-full aspect-[4/5] bg-gray-100 rounded-[40px] overflow-hidden border-8 border-gray-50 shadow-2xl">
-            <img src="/beauty-marketing-strategy.jpg" alt="Реклама для массажа" className="w-full h-full object-cover" />
+            <ResponsiveImage priority sizes="(min-width: 768px) 50vw, 100vw" src="/beauty-marketing-strategy.jpg" alt="Реклама для массажа" className="w-full h-full object-cover" />
           </div>
           {/* Плашка с результатом кейса */}
           <div className="absolute -bottom-8 -left-8 bg-white p-8 rounded-3xl shadow-2xl border hidden md:block">
@@ -155,7 +156,7 @@ export default function MassagePage() {
           <DualContactButtons />
         </div>
         <div className="flex-1">
-          <img src="/beauty-business-marketing-specialist.jpg" alt="Татьяна Ричманн" className="rounded-full w-80 h-80 object-cover border-8 border-[#fff1e4] mx-auto shadow-2xl" />
+          <ResponsiveImage sizes="320px" src="/beauty-business-marketing-specialist.jpg" alt="Татьяна Ричманн" className="rounded-full w-80 h-80 object-cover border-8 border-[#fff1e4] mx-auto shadow-2xl" />
         </div>
       </section>
 

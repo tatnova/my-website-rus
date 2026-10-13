@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import ResponsiveImage from '@/components/ResponsiveImage';
 
 const socialLinks = [
   { label: 'WhatsApp', href: 'https://wa.me/972537086545', icon: '💬' },
@@ -344,7 +345,9 @@ export default function Home() {
             </div>
 
             <div className="w-full overflow-hidden rounded-[40px] border-2 border-[#f6dcc5] bg-gray-100 aspect-[4/5] lg:w-2/5">
-              <img
+              <ResponsiveImage
+                priority
+                sizes="(min-width: 1024px) 40vw, 100vw"
                 src="/beauty-marketing-strategy.jpg"
                 alt="Специалист по продвижению и рекламе в бьюти-бизнесе"
                 className="h-full w-full object-cover"
@@ -409,7 +412,8 @@ export default function Home() {
             </div>
             <div className="relative w-full lg:w-1/2">
               <div className="aspect-square overflow-hidden rounded-[60px] border-4 border-white bg-[#fff1e4] shadow-2xl">
-                <img
+                <ResponsiveImage
+                  sizes="(min-width: 1024px) 50vw, 100vw"
                   src="/beauty-client-acquisition-strategy-funnel.jpg"
                   alt="Система привлечения клиентов и маркетинговая воронка"
                   className="h-full w-full object-cover"
@@ -530,7 +534,8 @@ export default function Home() {
         <section id="about" className="overflow-hidden bg-gray-50 py-20 lg:py-28">
           <div className="mx-auto flex max-w-6xl flex-col items-center gap-16 px-6 lg:flex-row">
             <div className="aspect-[3/4] w-full overflow-hidden rounded-[48px] border-8 border-white bg-gray-200 shadow-xl lg:w-1/3">
-              <img
+              <ResponsiveImage
+                sizes="(min-width: 1024px) 33vw, 100vw"
                 src="/beauty-business-marketing-specialist.jpg"
                 alt="Фото специалиста по маркетингу и продвижению в бьюти-сфере"
                 className="h-full w-full object-cover"
@@ -601,7 +606,7 @@ export default function Home() {
               {reviews.map((t, i) => (
                 <a key={i} href={t.href} className="block rounded-[40px] bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
                   <div className="mb-6 aspect-[16/10] overflow-hidden rounded-[28px] bg-gray-100">
-                    <img src={t.image} alt={t.author} className="h-full w-full object-cover" />
+                    <ResponsiveImage src={t.image} alt={t.author} sizes="(min-width: 768px) 33vw, 100vw" className="h-full w-full object-cover" />
                   </div>
                   <p className="mb-6 text-2xl italic leading-relaxed text-gray-800">{t.text}</p>
                   <p className="text-sm font-black uppercase tracking-[0.3em] text-[#e8a16b]">— {t.author}</p>

@@ -1,0 +1,78 @@
+{
+  "/beauty-business-marketing-specialist.jpg": {
+    "base": "/img/beauty-business-marketing-specialist",
+    "width": 1200,
+    "height": 1600,
+    "widths": [
+      480,
+      800,
+      1200
+    ]
+  },
+  "/beauty-client-acquisition-strategy-funnel.jpg": {
+    "base": "/img/beauty-client-acquisition-strategy-funnel",
+    "width": 1200,
+    "height": 1200,
+    "widths": [
+      480,
+      800,
+      1200
+    ]
+  },
+  "/beauty-expert-client-attraction-review.jpg": {
+    "base": "/img/beauty-expert-client-attraction-review",
+    "width": 1200,
+    "height": 800,
+    "widths": [
+      480,
+      800,
+      1200
+    ]
+  },
+  "/beauty-marketing-strategy.jpg": {
+    "base": "/img/beauty-marketing-strategy",
+    "width": 1200,
+    "height": 1500,
+    "widths": [
+      480,
+      800,
+      1200
+    ]
+  },
+  "/beauty-marketing-traps.jpg": {
+    "base": "/img/beauty-marketing-traps",
+    "width": 479,
+    "height": 267,
+    "widths": [
+      479
+    ]
+  },
+  "/beauty-salon-client-review-results.jpg": {
+    "base": "/img/beauty-salon-client-review-results",
+    "width": 1200,
+    "height": 800,
+    "widths": [
+      480,
+      800,
+      1200
+    ]
+  },
+  "/fitness-master-more-clients-review.jpg": {
+    "base": "/img/fitness-master-more-clients-review",
+    "width": 1200,
+    "height": 800,
+    "widths": [
+      480,
+      800,
+      1200
+    ]
+  },
+  "/luxury-salon-editorial.jpg": {
+    "base": "/img/luxury-salon-editorial",
+    "width": 479,
+    "height": 267,
+    "widths": [
+      479
+    ]
+  }
+}
