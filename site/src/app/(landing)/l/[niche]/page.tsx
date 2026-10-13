@@ -5,6 +5,7 @@ import ResponsiveImage from '@/components/ResponsiveImage';
 import { CookieSettingsLink } from '@/components/CookieConsent';
 import { getCases, getNiche, getNiches, getReviews, getSettings, inlineMarkdown } from '@/lib/content';
 import { LANDINGS_LIVE, SITE_URL, nicheUrl } from '@/lib/site';
+import manifest from '@/lib/image-manifest.json';
 
 // Один шаблон для всех нишевых лендингов. Тексты, цифры и вопросы берутся из content/niches/<ниша>.yml,
 // кейсы и отзывы — из content/cases и content/reviews по полю «ниши».
@@ -49,6 +50,9 @@ export default async function NicheLandingPage({ params }: Props) {
   const tg = `https://t.me/${s.telegram_username}${message}`;
   const about = n.about_text || s.about_text;
   const style = { '--accent': n.accent } as CSSProperties;
+  // Горизонтальное фото показываем в горизонтальной рамке, чтобы не обрезать людей по краям.
+  const heroMeta = (manifest as Record<string, { width: number; height: number }>)[n.hero_image];
+  const heroLandscape = heroMeta ? heroMeta.width > heroMeta.height : false;
 
   const [beforeAccent, afterAccent] =
     n.hero_accent && n.hero_title.includes(n.hero_accent)
@@ -115,7 +119,7 @@ export default async function NicheLandingPage({ params }: Props) {
           </div>
           {n.hero_image && (
             <div className="relative w-full flex-1">
-              <div className="aspect-[4/5] w-full overflow-hidden rounded-[40px] border-8 border-gray-50 bg-gray-100 shadow-2xl">
+              <div className={`${heroLandscape ? 'aspect-[4/3]' : 'aspect-[4/5]'} w-full overflow-hidden rounded-[40px] border-8 border-gray-50 bg-gray-100 shadow-2xl`}>
                 <ResponsiveImage
                   priority
                   sizes="(min-width: 768px) 50vw, 100vw"
