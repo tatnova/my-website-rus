@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next';
 
 export const dynamic = 'force-static';
-import { getCases } from '@/lib/content';
+import { getArticles, getCases } from '@/lib/content';
 
 import { LANDINGS_LIVE, SITE_URL } from '@/lib/site';
 
@@ -25,6 +25,6 @@ const pages = [
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const all = [...pages, ...getCases().map((c) => `/cases/${c.slug}`)];
+  const all = [...pages, ...getArticles().map((a) => `/blog/${a.slug}`), ...getCases().map((c) => `/cases/${c.slug}`)];
   return all.map((path) => ({ url: `${SITE_URL}${path === '/' ? '' : path}` }));
 }

@@ -16,6 +16,7 @@ hero_stat_label: ''
 stats:
 - value: 123 обращения
   label: клиника, Грузия, 7 дней
+  case: bystryj-start-novoj-kliniki-kosmetologii-123-guby-nedelya
 contact_message: Здравствуйте! Я по поводу рекламы для клиники. Что нужно для запуска?
 whatsapp_label: WhatsApp
 telegram_label: Telegram

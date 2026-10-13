@@ -7,9 +7,9 @@ import ResponsiveImage from '@/components/ResponsiveImage';
 const cases = [
   {
     niche: 'Массаж (Израиль)',
-    title: '740 заявок по $1.8',
-    result: '30 762 ₪ ($9 946) чистой прибыли',
-    desc: 'Запуск с нуля: от пустых стен до полной записи за 3 месяца.',
+    title: '740 заявок',
+    result: 'Мастер ручного массажа с нуля',
+    desc: 'Запуск с нуля: от пустых стен до полной записи.',
     image: '/beauty-client-acquisition-strategy-funnel.jpg',
     href: '/cases/massazh-israel-740-zayavok',
   },
@@ -59,7 +59,7 @@ const faqs = [
   },
   { 
     q: 'ПОЧЕМУ МНЕ ВЫГОДНО РАБОТАТЬ С ВАМИ, А НЕ С ОБЫЧНЫМ ТАРГЕТОЛОГОМ?', 
-    a: 'Обычный таргетолог настраивает кнопки. Мы внедряем систему именно для массажного бизнеса: знаем рабочие офферы, умеем снижать цену лида до $1.8 и понимаем, как превратить разового клиента в постоянного гостя студии.' 
+    a: 'Обычный таргетолог настраивает кнопки. Мы внедряем систему именно для массажного бизнеса: знаем рабочие офферы, умеем снижать цену заявки и понимаем, как превратить разового клиента в постоянного гостя студии.' 
   }
 ];
 
@@ -120,8 +120,8 @@ export default function MassagePage() {
           </div>
           {/* Плашка с результатом кейса */}
           <div className="absolute -bottom-8 -left-8 bg-white p-8 rounded-3xl shadow-2xl border hidden md:block">
-            <p className="text-4xl font-black text-[#e8a16b]">$9 946</p>
-            <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mt-2">Чистая прибыль нашего клиента</p>
+            <p className="text-4xl font-black text-[#e8a16b]">740 заявок</p>
+            <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mt-2">Мастер массажа с нуля, Израиль</p>
           </div>
         </div>
       </section>

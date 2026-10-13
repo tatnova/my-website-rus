@@ -1,5 +1,5 @@
 # Настройки визуального редактора Pages CMS (app.pagescms.org).
-# Редактор показывает разделы «Кейсы», «Отзывы», «Ниши», «Настройки» и сохраняет правки
+# Редактор показывает разделы «Кейсы», «Статьи», «Отзывы», «Ниши», «Настройки» и сохраняет правки
 # в папку site/content/. После сохранения сайт пересобирается сам.
 
 media:
@@ -148,6 +148,9 @@ content:
         type: string
         list: true
         description: "Например /2026/02/15/case-massage-israel-target/. С них будет переадресация на этот кейс."
+      - name: date
+        label: Дата публикации
+        type: date
       - name: show_on_home
         label: Показывать на главной
         type: boolean
@@ -159,6 +162,62 @@ content:
         type: rich-text
         options:
           format: markdown
+
+  - name: articles
+    label: Статьи
+    type: collection
+    path: site/content/articles
+    format: yaml-frontmatter
+    filename:
+      template: "{slug}.md"
+      field: create
+    view:
+      primary: title
+      fields: [title, date, draft]
+      sort: date
+      order: desc
+    fields:
+      - name: slug
+        label: Адрес страницы
+        type: string
+        required: true
+        pattern:
+          regex: "^[a-z0-9-]+$"
+          message: "Только латинские буквы, цифры и дефис, например kak-podgotovit-akkaunt"
+        description: "Станет адресом adsnew.org/blog/<адрес>. После публикации не меняйте."
+      - name: title
+        label: Заголовок
+        type: string
+        required: true
+      - name: seo_title
+        label: Заголовок для поиска (если отличается)
+        type: string
+      - name: description
+        label: Описание для поиска и карточки
+        type: text
+      - name: category
+        label: Рубрика
+        type: string
+      - name: cover
+        label: Картинка для карточки
+        type: image
+      - name: date
+        label: Дата публикации
+        type: date
+      - name: old_urls
+        label: Старые адреса (WordPress)
+        type: string
+        list: true
+        description: "Например /checklist-dlya-reklamy/. С них будет переадресация на эту статью."
+      - name: draft
+        label: Черновик (не показывать на сайте)
+        type: boolean
+      - name: body
+        label: Текст статьи (markdown)
+        type: code
+        description: "Картинка с подписью: отдельной строкой ![описание](/uploads/файл.png \"подпись\")"
+        options:
+          language: markdown
 
   - name: reviews
     label: Отзывы

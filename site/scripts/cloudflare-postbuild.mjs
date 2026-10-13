@@ -1,5 +1,6 @@
 // После статической сборки (out/) добавляет файлы для Cloudflare Pages:
 //   out/_data/routing.json   ниши и старые адреса WordPress для маршрутизатора (routing/router.mjs);
+//                            старые адреса берутся из old_urls кейсов и статей и из content/redirects.yml;
 //   out/_routes.json         картинки и скрипты отдаются напрямую, без маршрутизатора;
 //   out/l/<ниша>/robots.txt и sitemap.xml   отдельные для каждого поддомена.
 import { readdir, readFile, writeFile, mkdir } from 'node:fs/promises';
@@ -24,22 +25,37 @@ for (const file of (await readdir(path.join(CONTENT, 'niches'))).filter((f) => /
   nicheMeta.push({ id, sub, published: d.published === true });
 }
 
+// Старые адреса WordPress: из полей old_urls кейсов и статей и из content/redirects.yml.
 const redirects = {};
-for (const file of (await readdir(path.join(CONTENT, 'cases'))).filter((f) => f.endsWith('.md'))) {
-  const slug = file.replace(/\.md$/, '');
-  const d = frontmatter(await readFile(path.join(CONTENT, 'cases', file), 'utf8'));
-  if (d.draft === true) continue;
-  for (const old of d.old_urls ?? []) {
-    const from = normalize(new URL(String(old), 'https://adsnew.org').pathname);
-    if (redirects[from] && redirects[from] !== `/cases/${slug}`) {
-      throw new Error(`Старый адрес ${old} указан в двух кейсах: ${redirects[from]} и /cases/${slug}`);
-    }
-    redirects[from] = `/cases/${slug}`;
+const prefixes = [];
+const addRedirect = (old, to) => {
+  const from = normalize(new URL(String(old), 'https://adsnew.org').pathname);
+  if (redirects[from] && redirects[from] !== to) {
+    throw new Error(`Старый адрес ${old} ведёт сразу на ${redirects[from]} и на ${to}`);
+  }
+  redirects[from] = to;
+};
+for (const [dir, base] of [['cases', '/cases'], ['articles', '/blog']]) {
+  const files = await readdir(path.join(CONTENT, dir)).catch(() => []);
+  for (const file of files.filter((f) => f.endsWith('.md'))) {
+    const d = frontmatter(await readFile(path.join(CONTENT, dir, file), 'utf8'));
+    if (d.draft === true) continue;
+    for (const old of d.old_urls ?? []) addRedirect(old, `${base}/${file.replace(/\.md$/, '')}`);
   }
 }
+const extra = parse(await readFile(path.join(CONTENT, 'redirects.yml'), 'utf8').catch(() => '')) ?? {};
+for (const r of extra.redirects ?? []) {
+  const from = String(r.from ?? '');
+  const to = String(r.to ?? '');
+  if (!from.startsWith('/') || !to.startsWith('/')) throw new Error(`Неверная переадресация в content/redirects.yml: ${from} → ${to}`);
+  if (from.endsWith('/*')) prefixes.push([normalize(from.slice(0, -2)), to]);
+  else addRedirect(from, to);
+}
+// Более длинные префиксы проверяются первыми.
+prefixes.sort((a, b) => b[0].length - a[0].length);
 
 await mkdir(path.join(OUT, '_data'), { recursive: true });
-await writeFile(path.join(OUT, '_data/routing.json'), JSON.stringify({ niches, redirects }, null, 2));
+await writeFile(path.join(OUT, '_data/routing.json'), JSON.stringify({ niches, redirects, prefixes }, null, 2));
 
 await writeFile(
   path.join(OUT, '_routes.json'),
@@ -71,4 +87,4 @@ for (const n of nicheMeta) {
   );
 }
 
-console.log(`Ниши: ${Object.keys(niches).join(', ')}; переадресаций со старых адресов: ${Object.keys(redirects).length}`);
+console.log(`Ниши: ${Object.keys(niches).join(', ')}; переадресаций со старых адресов: ${Object.keys(redirects).length} (+ ${prefixes.length} по началу адреса)`);

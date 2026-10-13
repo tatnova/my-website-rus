@@ -16,6 +16,7 @@ hero_stat_label: ''
 stats:
 - value: 212 обращений
   label: мастер после переезда, Баку, месяц
+  case: privlech-klientov-posle-smeny-adresa
 contact_message: Здравствуйте! Я по поводу рекламы для маникюра. Что нужно для запуска?
 whatsapp_label: WhatsApp
 telegram_label: Telegram

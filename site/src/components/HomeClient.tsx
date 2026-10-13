@@ -448,7 +448,7 @@ export default function HomeClient({
               ))}
             </div>
             <div className="mt-12">
-              <a href="/blog" className="font-bold text-[#e8a16b] hover:text-[#d78d57]">Смотреть все статьи</a>
+              <Link href="/blog" className="font-bold text-[#e8a16b] hover:text-[#d78d57]">Смотреть все статьи</Link>
             </div>
           </div>
         </section>

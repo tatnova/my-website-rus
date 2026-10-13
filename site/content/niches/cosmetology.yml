@@ -16,6 +16,7 @@ hero_stat_label: ''
 stats:
 - value: 58 заявок
   label: косметолог, Канада, 2 недели
+  case: cases-kosmetolog-kanada
 contact_message: Здравствуйте! Я по поводу рекламы для косметологии. Что нужно для запуска?
 whatsapp_label: WhatsApp
 telegram_label: Telegram

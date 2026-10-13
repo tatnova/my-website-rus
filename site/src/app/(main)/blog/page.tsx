@@ -1,6 +1,7 @@
 import ResponsiveImage from '@/components/ResponsiveImage';
+import { getArticles } from '@/lib/content';
 
-const articles = [
+const pageArticles = [
   {
     title: 'Как заполнить запись в новом салоне красоты в США за 6 недель без демпинга',
     description:
@@ -34,6 +35,17 @@ export const metadata = {
 };
 
 export default function BlogPage() {
+  // Сначала статьи из content/articles/ (Pages CMS), затем статьи со своими страницами.
+  const articles = [
+    ...getArticles().map((a) => ({
+      title: a.title,
+      description: a.description,
+      href: `/blog/${a.slug}`,
+      image: a.cover,
+      category: a.category,
+    })),
+    ...pageArticles,
+  ];
   return (
     <div className="min-h-screen bg-white font-sans text-gray-900 selection:bg-[#fff1e4] selection:text-[#e8a16b]">
       <main>
@@ -65,14 +77,16 @@ export default function BlogPage() {
                   href={article.href}
                   className="group overflow-hidden rounded-[32px] border border-[#f6dcc5] bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl"
                 >
-                  <div className="aspect-[16/10] overflow-hidden bg-[#fff1e4]">
-                    <ResponsiveImage
-                      sizes="(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw"
-                      src={article.image}
-                      alt={article.title}
-                      className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
-                    />
-                  </div>
+                  {article.image && (
+                    <div className="aspect-[16/10] overflow-hidden bg-[#fff1e4]">
+                      <ResponsiveImage
+                        sizes="(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw"
+                        src={article.image}
+                        alt={article.title}
+                        className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                      />
+                    </div>
+                  )}
 
                   <div className="p-6">
                     <div className="mb-4 inline-flex rounded-full bg-[#fff1e4] px-3 py-2 text-xs font-bold uppercase tracking-widest text-[#e8a16b]">

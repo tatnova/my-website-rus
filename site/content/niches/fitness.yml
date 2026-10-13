@@ -16,6 +16,7 @@ hero_stat_label: ''
 stats:
 - value: 6 дней
   label: набор группы, Израиль
+  case: polnaya-gruppa-6-dney-fitness
 contact_message: Здравствуйте! Я по поводу рекламы для фитнеса. Что нужно для запуска?
 whatsapp_label: WhatsApp
 telegram_label: Telegram
