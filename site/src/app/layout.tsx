@@ -19,7 +19,7 @@ const geistMono = Geist_Mono({
 const SITE_URL = "https://beauty.adsnew.org";
 const SITE_NAME = "Татьяна Ричманн";
 const SITE_DESCRIPTION =
-  "Таргетированная реклама в Instagram, Facebook и TikTok для массажистов, косметологов и салонов красоты в Израиле, США и Канаде. Кейсы с цифрами, консультация в WhatsApp и Telegram.";
+  "Таргетированная реклама в Instagram, Facebook и TikTok для массажистов, косметологов и салонов красоты в Израиле, США и Канаде. Кейсы с цифрами.";
 const SOCIAL_PROFILES = [
   "https://www.instagram.com/ads_target_pr/",
   "https://www.facebook.com/newadstarget",
