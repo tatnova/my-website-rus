@@ -1,14 +1,15 @@
 'use client';
 
+import Link from 'next/link';
 import SiteNav from '@/components/SiteNav';
 
 const socialLinks = [
   { label: 'WhatsApp', href: 'https://wa.me/972537086545', icon: '💬' },
   { label: 'Telegram', href: 'https://t.me/mailovaja', icon: '✈️' },
-  { label: 'Instagram', href: '#instagram', icon: '◎' },
-  { label: 'YouTube', href: '#youtube', icon: '▶️' },
-  { label: 'Facebook', href: '#facebook', icon: 'f' },
-  { label: 'TikTok', href: '#tiktok', icon: '♪' },
+  { label: 'Instagram', href: 'https://www.instagram.com/ads_target_pr/', icon: '◎' },
+  { label: 'Facebook', href: 'https://www.facebook.com/newadstarget', icon: 'f' },
+  { label: 'TikTok', href: 'https://www.tiktok.com/@tatyana.ads', icon: '♪' },
+  { label: 'Threads', href: 'https://www.threads.net/@ads_target_pr', icon: '@' },
 ];
 
 const problems = [
@@ -54,25 +55,25 @@ const services = [
 
 const cases = [
   {
-    niche: 'салон красоты',
-    problem: 'нестабильные заявки и высокая стоимость клиента',
-    action: 'выстроили связку реклама + сайт + CRM, подключили автоматизацию',
-    result: 'стабильный поток заявок и рост дохода',
-    href: '/cases/salon-krasoty',
+    niche: 'массаж · Израиль',
+    problem: 'мастер после курсов: пустой Instagram, нет клиентской базы, ограниченный бюджет',
+    action: 'упаковали профиль, сделали локальный оффер, запустили рекламу и скрипты ответов',
+    result: '740 заявок по 5,7 ₪ за 3 месяца',
+    href: '/cases/massazh-israel-740-zayavok',
   },
   {
-    niche: 'мастер / бьюти-эксперт',
-    problem: 'нет системы, заявки приходили нерегулярно',
-    action: 'настроили рекламу и выстроили воронку',
-    result: 'стабильные записи и предсказуемый поток клиентов',
-    href: '/cases/master-byuti-ekspert',
+    niche: 'массаж · Канада',
+    problem: 'ограниченный бюджет, сложная аудитория, много спама, проблемы с записью',
+    action: 'проработали оффер, запустили рекламу, внедрили скрипты обработки заявок',
+    result: '183 заявки по 5,7$ и 40 клиентов',
+    href: '/cases/massage-canada-body',
   },
   {
-    niche: 'бьюти-бизнес',
-    problem: 'реклама не окупалась',
-    action: 'переработали стратегию и оптимизировали воронку',
-    result: 'рост прибыли и снижение стоимости клиента',
-    href: '/cases/byuti-biznes',
+    niche: 'спа-салон · США, Калифорния',
+    problem: 'нужно было масштабировать поток клиентов без перегрузки администратора',
+    action: 'онлайн-запись с CRM, реклама по сегментам аудитории, тесты макетов',
+    result: '256 клиентов и $17 920 выручки',
+    href: '/cases/spa-salon-california-256-clients',
   },
 ];
 
@@ -152,19 +153,16 @@ const reviews = [
     author: 'Салон красоты',
     text: '“До работы заявки приходили нестабильно. После запуска и настройки системы появился стабильный поток клиентов, стало проще планировать работу и доход.”',
     image: '/beauty-salon-client-review-results.jpg',
-    href: '/reviews/salon-krasoty',
   },
   {
     author: 'Бьюти-эксперт',
     text: '“Раньше не было понимания, как привлекать клиентов. Сейчас есть система, реклама работает, и записи идут регулярно.”',
     image: '/beauty-expert-client-attraction-review.jpg',
-    href: '/reviews/byuti-ekspert',
   },
   {
     author: 'Фитнес-тренер',
     text: '“Стало гораздо больше заявок, при этом снизилась стоимость клиента. Появилось ощущение контроля над ситуацией.”',
     image: '/fitness-master-more-clients-review.jpg',
-    href: '/reviews/master',
   },
 ];
 
@@ -175,11 +173,11 @@ const articles = [
   },
   {
     title: 'Почему реклама не даёт результата и как это исправить',
-    href: '/blog',
+    href: '/blog/pochemu-reklama-ne-daet-rezultata-i-kak-eto-ispravit',
   },
   {
     title: 'Ошибки в рекламе, из-за которых вы теряете клиентов',
-    href: '/blog',
+    href: '/blog/oshibki-v-reklame-iz-za-kotoryh-vy-teryaete-klientov',
   },
 ];
 
@@ -220,17 +218,6 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-white font-sans text-gray-900 selection:bg-[#fff1e4] selection:text-[#e8a16b]">
-      <head>
-        <title>Стабильный поток клиентов в бьюти-бизнес через рекламу и стратегию</title>
-        <meta
-          name="description"
-          content="Помогаю бьюти-бизнесу выстроить систему привлечения клиентов: реклама, стратегия, CRM, автоматизация, кейсы, отзывы и рост дохода."
-        />
-        <meta
-          name="keywords"
-          content="привлечение клиентов для салона красоты, реклама для бьюти-бизнеса, маркетинг для мастеров, CRM для салона красоты, продвижение бьюти-услуг"
-        />
-      </head>
 
       <SiteNav />
 
@@ -365,9 +352,6 @@ export default function Home() {
 
             <div className="mt-16 text-center">
               <PrimaryButton onClick={() => scrollToId('contact')}>👉 Обсудить задачу</PrimaryButton>
-              <div className="mt-6">
-                <a href="/services" className="font-bold text-[#e8a16b] hover:text-[#d78d57]">Подробнее об услугах</a>
-              </div>
             </div>
           </div>
         </section>
@@ -426,7 +410,9 @@ export default function Home() {
                 Telegram
               </a>
               <a
-                href="#instagram"
+                href="https://www.instagram.com/ads_target_pr/"
+                target="_blank"
+                rel="noreferrer"
                 className="rounded-full border border-gray-300 px-8 py-4 font-bold text-gray-900 transition hover:border-[#e8a16b] hover:text-[#e8a16b]"
               >
                 Instagram
@@ -526,13 +512,13 @@ export default function Home() {
             <h2 className="mb-16 text-4xl font-black">Что говорят клиенты</h2>
             <div className="grid gap-8 md:grid-cols-3">
               {reviews.map((t, i) => (
-                <a key={i} href={t.href} className="block rounded-[40px] bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
+                <div key={i} className="rounded-[40px] bg-white p-6 shadow-sm">
                   <div className="mb-6 aspect-[16/10] overflow-hidden rounded-[28px] bg-gray-100">
                     <img src={t.image} alt={t.author} className="h-full w-full object-cover" />
                   </div>
                   <p className="mb-6 text-2xl italic leading-relaxed text-gray-800">{t.text}</p>
                   <p className="text-sm font-black uppercase tracking-[0.3em] text-[#e8a16b]">— {t.author}</p>
-                </a>
+                </div>
               ))}
             </div>
             <div className="mt-20">
@@ -569,7 +555,9 @@ export default function Home() {
                 Telegram
               </a>
               <a
-                href="#instagram"
+                href="https://www.instagram.com/ads_target_pr/"
+                target="_blank"
+                rel="noreferrer"
                 className="rounded-full border border-gray-300 px-8 py-4 font-bold text-gray-900 transition hover:border-[#e8a16b] hover:text-[#e8a16b]"
               >
                 Instagram
@@ -591,8 +579,12 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="mt-32 text-[10px] uppercase tracking-[0.5em] text-gray-300">
-            © 2026 Beauty Strategy Marketing. Все права защищены. SEO-ready структура подготовлена для дальнейшей оптимизации мета-тегов, страниц услуг, кейсов и статей.
+          <Link href="/privacy-policy" className="mt-16 inline-block text-xs text-gray-400 underline hover:text-black">
+            Политика конфиденциальности
+          </Link>
+
+          <div className="mt-16 text-[10px] uppercase tracking-[0.5em] text-gray-300">
+            © 2026 Татьяна Ричманн. Реклама для бьюти-бизнеса.
           </div>
         </footer>
       </main>

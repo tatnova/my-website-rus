@@ -7,9 +7,9 @@ const socialLinks = [
   { label: 'WhatsApp', href: 'https://wa.me/972537086545' },
   { label: 'Telegram', href: 'https://t.me/mailovaja' },
   { label: 'Instagram', href: 'https://www.instagram.com/ads_target_pr/' },
-  { label: 'YouTube', href: '#youtube' },
   { label: 'Facebook', href: 'https://www.facebook.com/newadstarget' },
-  { label: 'TikTok', href: '#tiktok' },
+  { label: 'TikTok', href: 'https://www.tiktok.com/@tatyana.ads' },
+  { label: 'Threads', href: 'https://www.threads.net/@ads_target_pr' },
 ];
 
 export default function SiteShell({ children }: { children: React.ReactNode }) {
@@ -56,8 +56,12 @@ export default function SiteShell({ children }: { children: React.ReactNode }) {
             ))}
           </div>
 
+          <a href="/privacy-policy" className="mt-6 inline-block text-xs text-gray-400 underline hover:text-black">
+            Политика конфиденциальности
+          </a>
+
           <div className="mt-8 text-[10px] uppercase tracking-[0.3em] text-gray-300">
-            © 2026 Beauty Strategy Marketing
+            © 2026 Татьяна Ричманн
           </div>
         </div>
       </footer>

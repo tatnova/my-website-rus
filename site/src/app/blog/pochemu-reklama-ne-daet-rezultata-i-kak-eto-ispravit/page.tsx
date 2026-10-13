@@ -29,7 +29,7 @@ export default function BlogArticle() {
             <div className="flex items-center gap-4">
               <div className="h-10 w-10 rounded-full bg-[#e8a16b]/10 flex items-center justify-center text-[#e8a16b] text-xs font-bold">TN</div>
               <div className="text-[13px]">
-                <span className="block font-bold">Татьяна Новикова</span>
+                <span className="block font-bold">Татьяна Ричманн</span>
                 <span className="text-gray-400 font-medium tracking-tight">Author • 8 min read</span>
               </div>
             </div>
@@ -224,7 +224,7 @@ export default function BlogArticle() {
                 <div className="flex items-center gap-5 p-8 bg-white border border-gray-100 rounded-xl">
                    <div className="h-14 w-14 rounded-full bg-gray-50 flex items-center justify-center text-[#e8a16b] font-bold text-sm">TN</div>
                    <div>
-                      <p className="font-bold text-[#1f1a17]">Татьяна Новикова</p>
+                      <p className="font-bold text-[#1f1a17]">Татьяна Ричманн</p>
                       <p className="text-xs text-gray-400 font-medium">Стратег по системам привлечения клиентов для бьюти-бизнеса.</p>
                    </div>
                 </div>
