@@ -1,13 +1,14 @@
 
 import React from 'react';
 import type { Metadata } from 'next';
+import { SITE_URL } from '@/lib/site';
 import Script from 'next/script';
 import ResponsiveImage from '@/components/ResponsiveImage';
 
 // 7, 9. SEO & MASTER TEMPLATE CONSISTENCY
 
 const SLUG = 'blog/oshibki-v-reklame-iz-za-kotoryh-vy-teryaete-klientov';
-const URL = `https://beauty.adsnew.org/${SLUG}`;
+const URL = `${SITE_URL}/${SLUG}`;
 const WHATSAPP_LINK = "https://wa.me/972537086545?text=Здравствуйте!%20Хочу%20обсудить%20рекламу%20для%20салона";
 const TELEGRAM_LINK = "https://t.me/mailovaja?text=Здравствуйте!%20Хочу%20обсудить%20запуск%20рекламы";
 
@@ -35,7 +36,7 @@ export default function BlogArticle() {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     "headline": "Ошибки в рекламе, из-за которых вы теряете клиентов",
-    "image": `https://beauty.adsnew.org/beauty-marketing-traps.jpg`,
+    "image": `${SITE_URL}/beauty-marketing-traps.jpg`,
     "author": { "@type": "Person", "name": "Татьяна Ричманн" },
     "datePublished": "2026-05-14",
     "publisher": { "@type": "Organization", "name": "Adsnew.Beauty" }

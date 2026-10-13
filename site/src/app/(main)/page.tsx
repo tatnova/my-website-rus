@@ -1,5 +1,6 @@
 import HomeClient from '@/components/HomeClient';
-import { getCases, getFaq, getReviews, getServices } from '@/lib/content';
+import { getCases, getFaq, getNiches, getReviews, getServices } from '@/lib/content';
+import { LANDINGS_LIVE, nicheUrl } from '@/lib/site';
 
 export default function Home() {
   const cases = getCases()
@@ -15,5 +16,10 @@ export default function Home() {
   const reviews = getReviews()
     .filter((r) => r.show_on_home)
     .map((r) => ({ author: r.author, text: r.text, image: r.image }));
-  return <HomeClient cases={cases} reviews={reviews} faqs={getFaq().filter((f) => f.show_on_home)} services={getServices()} />;
+  const niches = LANDINGS_LIVE
+    ? getNiches()
+        .filter((n) => n.published)
+        .map((n) => ({ name: n.name, badge: n.badge, url: `${nicheUrl(n.subdomain)}/` }))
+    : [];
+  return <HomeClient cases={cases} reviews={reviews} faqs={getFaq().filter((f) => f.show_on_home)} services={getServices()} niches={niches} />;
 }

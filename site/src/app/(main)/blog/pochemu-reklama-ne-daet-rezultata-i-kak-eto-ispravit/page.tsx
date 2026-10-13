@@ -1,12 +1,13 @@
 import React from 'react';
 import type { Metadata } from 'next';
+import { SITE_URL } from '@/lib/site';
 import ResponsiveImage from '@/components/ResponsiveImage';
 
 export const metadata: Metadata = {
   title: 'Почему реклама салона красоты не даёт результата: 7 причин и что исправить',
   description: 'Почему реклама в Instagram, Meta Ads и TikTok не приносит стабильных клиентов салону красоты. Разбираем 7 причин и систему привлечения клиентов.',
   keywords: ['реклама салона красоты', 'маркетинг для бьюти бизнеса', 'система привлечения клиентов'],
-  alternates: { canonical: 'https://beauty.adsnew.org/blog/pochemu-reklama-ne-daet-rezultata-i-kak-eto-ispravit' },
+  alternates: { canonical: `${SITE_URL}/blog/pochemu-reklama-ne-daet-rezultata-i-kak-eto-ispravit` },
 };
 
 export default function BlogArticle() {

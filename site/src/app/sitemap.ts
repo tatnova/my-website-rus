@@ -3,12 +3,13 @@ import type { MetadataRoute } from 'next';
 export const dynamic = 'force-static';
 import { getCases } from '@/lib/content';
 
-import { SITE_URL } from '@/lib/site';
+import { LANDINGS_LIVE, SITE_URL } from '@/lib/site';
 
 // Только страницы с содержанием.
+// /massage — старая страница массажа. Когда лендинги опубликованы, её заменяет massage.adsnew.org.
 const pages = [
+  ...(LANDINGS_LIVE ? [] : ['/massage']),
   '/',
-  '/massage',
   '/cases',
   '/blog',
   '/blog/kak-zapolnit-zapis',

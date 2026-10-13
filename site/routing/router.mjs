@@ -1,6 +1,7 @@
 // Маршрутизатор доменов для Cloudflare Pages. Один проект отдаёт основной сайт и все лендинги:
 //
 //   adsnew.org/...               основной сайт (+ 301 со старых адресов WordPress на кейсы)
+//   adsnew.org/massage           301 на massage.adsnew.org/
 //   <ниша>.adsnew.org/           лендинг ниши (страница /l/<ниша>), свои robots.txt и sitemap.xml
 //   <ниша>.adsnew.org/другое     301 на adsnew.org/другое
 //   beauty.adsnew.org/massage    301 на massage.adsnew.org/
@@ -67,6 +68,11 @@ export async function route(request, data, serveAsset) {
   if (host === MAIN_HOST) {
     const target = data.redirects[normalize(path)];
     if (target) return redirect(main + target);
+    // Старая страница массажа на основном домене заменена лендингом massage.adsnew.org.
+    if ((path === '/massage' || path.startsWith('/massage/')) && Object.values(data.niches).includes('massage')) {
+      const sub = Object.keys(data.niches).find((k) => data.niches[k] === 'massage');
+      return redirect(`https://${sub}.${MAIN_HOST}/`);
+    }
     // Служебные копии лендингов на основном домене не нужны: ведём на поддомен.
     const landing = path.match(/^\/l\/([^/]+)\/?$/);
     if (landing) {
