@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { CookieSettingsLink } from '@/components/CookieConsent';
 import SiteNav from '@/components/SiteNav';
 import ResponsiveImage from '@/components/ResponsiveImage';
 
@@ -584,9 +585,12 @@ export default function Home() {
             </div>
           </div>
 
-          <Link href="/privacy-policy" className="mt-16 inline-block text-xs text-gray-400 underline hover:text-black">
-            Политика конфиденциальности
-          </Link>
+          <div className="mt-16 flex flex-wrap justify-center gap-4 text-xs text-gray-400">
+            <Link href="/privacy-policy" className="underline hover:text-black">
+              Политика конфиденциальности
+            </Link>
+            <CookieSettingsLink className="underline hover:text-black" />
+          </div>
 
           <div className="mt-16 text-[10px] uppercase tracking-[0.5em] text-gray-300">
             © 2026 Татьяна Ричманн. Реклама для бьюти-бизнеса.

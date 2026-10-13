@@ -3,8 +3,10 @@
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef } from 'react';
 
-// События Meta Pixel для сайта. Lead, QualifiedLead и Purchase здесь не отправляются:
-// они придут из n8n после квалификации лида. Клик в WhatsApp/Telegram = Contact, не заявка.
+// События Meta Pixel для сайта. Клик в WhatsApp/Telegram = Contact, не заявка.
+// Lead, QualifiedLead и Purchase сайт не отправляет; передачи этих событий из n8n
+// в Meta сейчас нет (проверено 13.10.2026).
+// Если посетитель не дал согласие на рекламные cookie, fbq не загружен и события не уходят.
 
 declare global {
   interface Window {
@@ -20,8 +22,7 @@ const CASE_NAMES: Record<string, string> = {
   'spa-salon-california-256-clients': 'Спа-салон, Калифорния: 256 клиентов',
 };
 
-// Пиксель грузится со strategy="afterInteractive" и может появиться чуть позже компонента,
-// поэтому событие ждёт fbq до 5 секунд.
+// Пиксель может появиться чуть позже компонента, поэтому событие ждёт fbq до 5 секунд.
 function track(...args: unknown[]) {
   let attempts = 0;
   const send = () => {
