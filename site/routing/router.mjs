@@ -12,6 +12,7 @@
 // Данные (какие есть ниши и старые адреса) лежат в /_data/routing.json, его создаёт
 // scripts/cloudflare-postbuild.mjs из папки content/. Любые другие домены (например *.pages.dev
 // для проверки) получают основной сайт без переадресаций.
+// Метки из рекламных ссылок (utm_*, fbclid и т. п.) при переадресации сохраняются.
 
 export const MAIN_HOST = 'adsnew.org';
 
@@ -50,11 +51,11 @@ export async function route(request, data, serveAsset) {
   if (host === `www.${MAIN_HOST}`) return redirect(main + path + url.search);
 
   if (host === `beauty.${MAIN_HOST}`) {
-    if (path === '/massage' || path.startsWith('/massage/')) return redirect(`https://massage.${MAIN_HOST}/`);
+    if (path === '/massage' || path.startsWith('/massage/')) return redirect(`https://massage.${MAIN_HOST}/${url.search}`);
     return redirect(main + path + url.search);
   }
 
-  if (host === `link.${MAIN_HOST}`) return redirect(`${main}/links`);
+  if (host === `link.${MAIN_HOST}`) return redirect(`${main}/links${url.search}`);
 
   if (host.endsWith(`.${MAIN_HOST}`)) {
     const sub = host.slice(0, -(MAIN_HOST.length + 1));
@@ -69,19 +70,19 @@ export async function route(request, data, serveAsset) {
   if (host === MAIN_HOST) {
     const old = normalize(path);
     const target = data.redirects[old];
-    if (target) return redirect(main + target);
+    if (target) return redirect(main + target + url.search);
     const prefix = (data.prefixes ?? []).find(([p]) => old === p || old.startsWith(`${p}/`));
-    if (prefix) return redirect(main + prefix[1]);
+    if (prefix) return redirect(main + prefix[1] + url.search);
     // Старая страница массажа на основном домене заменена лендингом massage.adsnew.org.
     if ((path === '/massage' || path.startsWith('/massage/')) && Object.values(data.niches).includes('massage')) {
       const sub = Object.keys(data.niches).find((k) => data.niches[k] === 'massage');
-      return redirect(`https://${sub}.${MAIN_HOST}/`);
+      return redirect(`https://${sub}.${MAIN_HOST}/${url.search}`);
     }
     // Служебные копии лендингов на основном домене не нужны: ведём на поддомен.
     const landing = path.match(/^\/l\/([^/]+)\/?$/);
     if (landing) {
       const sub = Object.keys(data.niches).find((k) => data.niches[k] === landing[1]);
-      if (sub) return redirect(`https://${sub}.${MAIN_HOST}/`);
+      if (sub) return redirect(`https://${sub}.${MAIN_HOST}/${url.search}`);
     }
   }
 
