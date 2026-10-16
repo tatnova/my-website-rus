@@ -11,7 +11,7 @@
 //   все остальные страны, включая ЕС, Великобританию, Швейцарию и Канаду, — до согласия выключено (opt-in).
 // Часовой пояс — приблизительный признак. Если он неизвестен, действует строгий вариант (opt-in).
 //
-// Выбор хранится в localStorage (ключ ниже) 12 месяцев. После отзыва согласия страница
+// Выбор хранится в localStorage (ключ ниже) и в cookie на .adsnew.org 12 месяцев. После отзыва согласия страница
 // перезагружается, чтобы уже загруженные скрипты перестали работать.
 export const CONSENT_STORAGE_KEY = 'adsnew-cookie-consent-v1';
 export const CONSENT_OPEN_EVENT = 'adsnew:open-cookie-settings';
@@ -34,9 +34,17 @@ export const consentScript = `
   var optOutRegion = US_ZONES.test(tz) || IL_ZONES.test(tz);
   var gpc = navigator.globalPrivacyControl === true;
 
+  // Выбор дублируется в cookie на .adsnew.org, чтобы посетителя не спрашивали заново
+  // при переходе между основным сайтом и лендингами ниш (у каждого поддомена свой localStorage).
+  var SHARED = /(^|\.)adsnew\.org$/.test(location.hostname);
+  function readCookie() {
+    var m = d.cookie.match(new RegExp('(?:^|; )' + KEY + '=([^;]*)'));
+    return m ? decodeURIComponent(m[1]) : null;
+  }
+
   var stored = null;
   try {
-    var raw = w.localStorage.getItem(KEY);
+    var raw = (SHARED ? readCookie() : null) || w.localStorage.getItem(KEY);
     if (raw) {
       var parsed = JSON.parse(raw);
       if (parsed && typeof parsed.ts === 'number' && Date.now() - parsed.ts < MAX_AGE) stored = parsed;
@@ -126,9 +134,11 @@ export const consentScript = `
         (state.marketing && !next.marketing && loaded.marketing);
       state = { analytics: !!next.analytics, marketing: !!next.marketing };
       this.decided = true;
-      try {
-        w.localStorage.setItem(KEY, JSON.stringify({ analytics: state.analytics, marketing: state.marketing, ts: Date.now() }));
-      } catch (e) {}
+      var value = JSON.stringify({ analytics: state.analytics, marketing: state.marketing, ts: Date.now() });
+      try { w.localStorage.setItem(KEY, value); } catch (e) {}
+      if (SHARED) {
+        d.cookie = KEY + '=' + encodeURIComponent(value) + '; domain=.adsnew.org; path=/; max-age=' + MAX_AGE / 1000 + '; SameSite=Lax' + (location.protocol === 'https:' ? '; Secure' : '');
+      }
       w.gtag('consent', 'update', {
         analytics_storage: g(state.analytics),
         ad_storage: g(state.marketing),

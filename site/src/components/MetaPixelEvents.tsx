@@ -3,7 +3,7 @@
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef } from 'react';
 
-// События Meta Pixel для сайта. Клик в WhatsApp/Telegram = Contact, не заявка.
+// События Meta Pixel (и клики по мессенджерам в GA4). Клик в WhatsApp/Telegram = Contact, не заявка.
 // Lead, QualifiedLead и Purchase сайт не отправляет; передачи этих событий из n8n
 // в Meta сейчас нет (проверено 13.10.2026).
 // Если посетитель не дал согласие на рекламные cookie, fbq не загружен и события не уходят.
@@ -11,6 +11,7 @@ import { useEffect, useRef } from 'react';
 declare global {
   interface Window {
     fbq?: (...args: unknown[]) => void;
+    gtag?: (...args: unknown[]) => void;
   }
 }
 
@@ -56,7 +57,7 @@ export default function MetaPixelEvents({ caseNames }: { caseNames: Record<strin
       const link = (e.target as Element | null)?.closest?.('a[href]');
       if (!link) return;
       const href = link.getAttribute('href') ?? '';
-      const channel = href.startsWith('https://wa.me/')
+      const channel = /^https:\/\/(wa\.me|api\.whatsapp\.com)\//.test(href)
         ? 'whatsapp'
         : href.startsWith('https://t.me/')
           ? 'telegram'
@@ -67,6 +68,9 @@ export default function MetaPixelEvents({ caseNames }: { caseNames: Record<strin
           // Адрес с доменом: так видно, с какого сайта клик (основной или лендинг ниши).
           content_category: window.location.hostname + window.location.pathname,
         });
+        // То же нажатие в Google Analytics 4 (whatsapp_click / telegram_click). Без согласия
+        // на аналитику gtag.js не загружен, и событие остаётся в очереди неотправленным.
+        window.gtag?.('event', `${channel}_click`, { link_domain: new URL(href).hostname });
       }
     };
     document.addEventListener('click', onClick, true);
