@@ -21,8 +21,6 @@ export default function CasesPage() {
     leads: c.leads,
     clients: c.clients,
     leadPrice: c.cpl,
-    revenue: c.revenue,
-    profit: c.profit,
     href: `/cases/${c.slug}`,
   }));
   const contacts = [

@@ -14,8 +14,6 @@ export type CaseItem = {
   leads: string;
   clients: string;
   leadPrice: string;
-  revenue: string;
-  profit: string;
   href: string;
 };
 
@@ -111,7 +109,7 @@ export default function CasesClient({
 
       <section className="px-5 py-12 md:px-10 lg:px-20">
         <div className="mx-auto max-w-7xl overflow-hidden rounded-[28px] bg-white shadow-sm">
-          <div className="hidden grid-cols-[1.6fr_0.7fr_0.7fr_0.8fr_0.6fr_0.6fr_0.7fr_0.8fr_0.8fr] gap-4 bg-[#1f1a17] px-6 py-4 text-sm font-semibold text-white lg:grid">
+          <div className="hidden grid-cols-[1.6fr_0.7fr_0.7fr_0.8fr_0.6fr_0.6fr_0.7fr] gap-4 bg-[#1f1a17] px-6 py-4 text-sm font-semibold text-white lg:grid">
             <div>Кейс</div>
             <div>Страна</div>
             <div>Ниша</div>
@@ -119,8 +117,6 @@ export default function CasesClient({
             <div>Заявки</div>
             <div>Клиенты</div>
             <div>Цена лида</div>
-            <div>Выручка</div>
-            <div>Прибыль</div>
           </div>
 
           <div className="divide-y divide-black/10">
@@ -128,7 +124,7 @@ export default function CasesClient({
               <article key={item.href}>
                 <Link
                   href={item.href}
-                  className="hidden grid-cols-[1.6fr_0.7fr_0.7fr_0.8fr_0.6fr_0.6fr_0.7fr_0.8fr_0.8fr] gap-4 px-6 py-5 text-sm transition hover:bg-[#f7f2ea] lg:grid"
+                  className="hidden grid-cols-[1.6fr_0.7fr_0.7fr_0.8fr_0.6fr_0.6fr_0.7fr] gap-4 px-6 py-5 text-sm transition hover:bg-[#f7f2ea] lg:grid"
                 >
                   <div>
                     <h2 className="font-semibold">{item.title}</h2>
@@ -142,8 +138,6 @@ export default function CasesClient({
                   <div>{item.leads || '—'}</div>
                   <div>{item.clients || '—'}</div>
                   <div>{item.leadPrice || '—'}</div>
-                  <div>{item.revenue || '—'}</div>
-                  <div>{item.profit || '—'}</div>
                 </Link>
 
                 <div className="p-5 lg:hidden">
@@ -160,8 +154,6 @@ export default function CasesClient({
                           ['Заявки', item.leads],
                           ['Клиенты', item.clients],
                           ['Цена лида', item.leadPrice],
-                          ['Выручка', item.revenue],
-                          ['Прибыль', item.profit],
                         ] as const
                       )
                         .filter(([, value]) => value)
