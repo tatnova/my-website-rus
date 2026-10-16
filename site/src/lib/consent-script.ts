@@ -17,7 +17,7 @@ export const CONSENT_STORAGE_KEY = 'adsnew-cookie-consent-v1';
 export const CONSENT_OPEN_EVENT = 'adsnew:open-cookie-settings';
 export const CONSENT_CHANGE_EVENT = 'adsnew:consent-change';
 
-const GA_ID = 'G-1KF8DCZKLR';
+const GA_ID = 'G-D7VB8VB5Z7';
 const META_PIXEL_ID = '1630705058143577';
 const TIKTOK_PIXEL_ID = 'D1CJDVJC77U8IVAAI6MG';
 
