@@ -1,7 +1,7 @@
 // Согласие на cookie. Этот код встраивается в каждую страницу и выполняется до всех счётчиков.
 //
 // Категории:
-//   analytics — Google Tag Manager и Google Analytics;
+//   analytics — Google Analytics 4;
 //   marketing — Meta Pixel и TikTok Pixel.
 // Без согласия скрипты этих сервисов не загружаются вовсе (не просто «молчат»).
 //
@@ -11,14 +11,13 @@
 //   все остальные страны, включая ЕС, Великобританию, Швейцарию и Канаду, — до согласия выключено (opt-in).
 // Часовой пояс — приблизительный признак. Если он неизвестен, действует строгий вариант (opt-in).
 //
-// Выбор хранится в localStorage (ключ ниже) 12 месяцев. После отзыва согласия страница
+// Выбор хранится в localStorage (ключ ниже) и в cookie на .adsnew.org 12 месяцев. После отзыва согласия страница
 // перезагружается, чтобы уже загруженные скрипты перестали работать.
 export const CONSENT_STORAGE_KEY = 'adsnew-cookie-consent-v1';
 export const CONSENT_OPEN_EVENT = 'adsnew:open-cookie-settings';
 export const CONSENT_CHANGE_EVENT = 'adsnew:consent-change';
 
-const GTM_ID = 'GTM-PLXVW2VV';
-const GA_ID = 'G-1KF8DCZKLR';
+const GA_ID = 'G-D7VB8VB5Z7';
 const META_PIXEL_ID = '1630705058143577';
 const TIKTOK_PIXEL_ID = 'D1CJDVJC77U8IVAAI6MG';
 
@@ -34,9 +33,17 @@ export const consentScript = `
   var optOutRegion = US_ZONES.test(tz) || IL_ZONES.test(tz);
   var gpc = navigator.globalPrivacyControl === true;
 
+  // Выбор дублируется в cookie на .adsnew.org, чтобы посетителя не спрашивали заново
+  // при переходе между основным сайтом и лендингами ниш (у каждого поддомена свой localStorage).
+  var SHARED = /(^|\.)adsnew\.org$/.test(location.hostname);
+  function readCookie() {
+    var m = d.cookie.match(new RegExp('(?:^|; )' + KEY + '=([^;]*)'));
+    return m ? decodeURIComponent(m[1]) : null;
+  }
+
   var stored = null;
   try {
-    var raw = w.localStorage.getItem(KEY);
+    var raw = (SHARED ? readCookie() : null) || w.localStorage.getItem(KEY);
     if (raw) {
       var parsed = JSON.parse(raw);
       if (parsed && typeof parsed.ts === 'number' && Date.now() - parsed.ts < MAX_AGE) stored = parsed;
@@ -72,8 +79,6 @@ export const consentScript = `
   function loadAnalytics() {
     if (loaded.analytics) return;
     loaded.analytics = true;
-    w.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
-    addScript('https://www.googletagmanager.com/gtm.js?id=${GTM_ID}');
     addScript('https://www.googletagmanager.com/gtag/js?id=${GA_ID}');
     w.gtag('js', new Date());
     w.gtag('config', '${GA_ID}');
@@ -126,9 +131,11 @@ export const consentScript = `
         (state.marketing && !next.marketing && loaded.marketing);
       state = { analytics: !!next.analytics, marketing: !!next.marketing };
       this.decided = true;
-      try {
-        w.localStorage.setItem(KEY, JSON.stringify({ analytics: state.analytics, marketing: state.marketing, ts: Date.now() }));
-      } catch (e) {}
+      var value = JSON.stringify({ analytics: state.analytics, marketing: state.marketing, ts: Date.now() });
+      try { w.localStorage.setItem(KEY, value); } catch (e) {}
+      if (SHARED) {
+        d.cookie = KEY + '=' + encodeURIComponent(value) + '; domain=.adsnew.org; path=/; max-age=' + MAX_AGE / 1000 + '; SameSite=Lax' + (location.protocol === 'https:' ? '; Secure' : '');
+      }
       w.gtag('consent', 'update', {
         analytics_storage: g(state.analytics),
         ad_storage: g(state.marketing),

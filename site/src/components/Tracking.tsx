@@ -8,7 +8,7 @@ export function TrackingHead() {
   const caseNames = Object.fromEntries(getCases().map((c) => [c.slug, c.card_title]));
   return (
     <>
-      {/* Согласие на cookie: решает, загружать ли GTM, Google Analytics, Meta Pixel и TikTok Pixel. */}
+      {/* Согласие на cookie: решает, загружать ли Google Analytics, Meta Pixel и TikTok Pixel. */}
       <script dangerouslySetInnerHTML={{ __html: consentScript }} />
       <MetaPixelEvents caseNames={caseNames} />
     </>
