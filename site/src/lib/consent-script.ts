@@ -97,6 +97,9 @@ export const consentScript = `
       t.src = v; s = b.getElementsByTagName(e)[0];
       s.parentNode.insertBefore(t, s);
     }(w, d, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+    // Пиксель сам шлёт PageView при смене адреса без перезагрузки (pushState), а переходы
+    // уже отправляет MetaPixelEvents. Без этого флага каждый переход считался бы дважды.
+    w.fbq.disablePushState = true;
     w.fbq('consent', 'grant');
     w.fbq('init', '${META_PIXEL_ID}');
     w.fbq('track', 'PageView');
