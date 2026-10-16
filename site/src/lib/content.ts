@@ -112,8 +112,6 @@ export const CASE_METRICS: [keyof CaseMeta, string][] = [
   ['conversion', 'Конверсия в запись'],
   ['clients', 'Клиенты'],
   ['avg_check', 'Средний чек'],
-  ['revenue', 'Выручка'],
-  ['profit', 'Чистая прибыль'],
 ];
 
 function files(dir: string, ext: RegExp) {
