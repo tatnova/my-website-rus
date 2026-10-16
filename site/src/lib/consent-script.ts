@@ -1,7 +1,7 @@
 // Согласие на cookie. Этот код встраивается в каждую страницу и выполняется до всех счётчиков.
 //
 // Категории:
-//   analytics — Google Tag Manager и Google Analytics;
+//   analytics — Google Analytics 4;
 //   marketing — Meta Pixel и TikTok Pixel.
 // Без согласия скрипты этих сервисов не загружаются вовсе (не просто «молчат»).
 //
@@ -17,7 +17,6 @@ export const CONSENT_STORAGE_KEY = 'adsnew-cookie-consent-v1';
 export const CONSENT_OPEN_EVENT = 'adsnew:open-cookie-settings';
 export const CONSENT_CHANGE_EVENT = 'adsnew:consent-change';
 
-const GTM_ID = 'GTM-PLXVW2VV';
 const GA_ID = 'G-1KF8DCZKLR';
 const META_PIXEL_ID = '1630705058143577';
 const TIKTOK_PIXEL_ID = 'D1CJDVJC77U8IVAAI6MG';
@@ -80,8 +79,6 @@ export const consentScript = `
   function loadAnalytics() {
     if (loaded.analytics) return;
     loaded.analytics = true;
-    w.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
-    addScript('https://www.googletagmanager.com/gtm.js?id=${GTM_ID}');
     addScript('https://www.googletagmanager.com/gtag/js?id=${GA_ID}');
     w.gtag('js', new Date());
     w.gtag('config', '${GA_ID}');
