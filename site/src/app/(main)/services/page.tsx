@@ -30,18 +30,6 @@ export default function ServicesPage() {
         image={{ src: '/tatyana-richmann-studiya-belyj.jpg', alt: 'Татьяна Ричманн, специалист по таргетированной рекламе' }}
       />
 
-      <div className="mx-auto max-w-6xl px-5 md:px-10">
-        <Link
-          href="/razbor"
-          className="mb-6 flex flex-col gap-2 rounded-[32px] border-2 border-[#e8a16b] bg-white p-6 transition hover:shadow-md md:flex-row md:items-center md:justify-between"
-        >
-          <span>
-            <span className="block text-xl font-black">Бесплатный разбор рекламы и профиля</span>
-            <span className="mt-1 block text-gray-600">Покажу, где теряются клиенты: в рекламе, профиле, переписке или на записи.</span>
-          </span>
-          <span className="font-bold text-[#a35f2c]">Подробнее →</span>
-        </Link>
-      </div>
 
       <div className="mx-auto grid max-w-6xl gap-6 px-5 md:grid-cols-2 md:px-10">
         {services.map((s) => (
