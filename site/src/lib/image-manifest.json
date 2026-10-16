@@ -75,6 +75,36 @@
       479
     ]
   },
+  "/tatyana-richmann-portret-chernyj.jpg": {
+    "base": "/img/tatyana-richmann-portret-chernyj",
+    "width": 1200,
+    "height": 1800,
+    "widths": [
+      480,
+      800,
+      1200
+    ]
+  },
+  "/tatyana-richmann-studiya-belyj.jpg": {
+    "base": "/img/tatyana-richmann-studiya-belyj",
+    "width": 1200,
+    "height": 1800,
+    "widths": [
+      480,
+      800,
+      1200
+    ]
+  },
+  "/tatyana-richmann-studiya-rubashka.jpg": {
+    "base": "/img/tatyana-richmann-studiya-rubashka",
+    "width": 1200,
+    "height": 1800,
+    "widths": [
+      480,
+      800,
+      1200
+    ]
+  },
   "/uploads/wp/2024/09/1190ed02-050a-4b79-b993-65e298214c1d.jpeg": {
     "base": "/img/uploads-wp-2024-09-1190ed02-050a-4b79-b993-65e298214c1d",
     "width": 1333,

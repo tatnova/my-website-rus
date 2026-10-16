@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import ContactCta from '@/components/ContactCta';
 import PageIntro from '@/components/PageIntro';
+import ResponsiveImage from '@/components/ResponsiveImage';
+import StepFlow from '@/components/StepFlow';
 
 export const metadata: Metadata = {
   title: 'Бесплатный разбор рекламы и профиля для салона красоты',
@@ -10,11 +12,11 @@ export const metadata: Metadata = {
 };
 
 const checks = [
-  { title: 'Оффер', text: 'Понятно ли из рекламы, что вы предлагаете, кому и почему стоит написать именно сейчас.' },
-  { title: 'Профиль', text: 'Что видит человек после клика: шапка, закреплённые посты, цены, отзывы, работы.' },
-  { title: 'Реклама', text: 'Цель кампании, аудитория, места показа, макеты и тексты, на что уходит бюджет.' },
-  { title: 'Переписка', text: 'Скорость и содержание ответов: где человек перестаёт отвечать и почему.' },
-  { title: 'Запись', text: 'Как обращение превращается в запись и сколько записей доходит до визита.' },
+  { title: 'Оффер', icon: 'ad', text: 'Понятно ли из рекламы, что вы предлагаете, кому и почему стоит написать именно сейчас.' },
+  { title: 'Профиль', icon: 'profile', text: 'Что видит человек после клика: шапка, закреплённые посты, цены, отзывы, работы.' },
+  { title: 'Реклама', icon: 'target', text: 'Цель кампании, аудитория, места показа, макеты и тексты, на что уходит бюджет.' },
+  { title: 'Переписка', icon: 'chat', text: 'Скорость и содержание ответов: где человек перестаёт отвечать и почему.' },
+  { title: 'Запись', icon: 'calendar', text: 'Как обращение превращается в запись и сколько записей доходит до визита.' },
 ];
 
 const results = [
@@ -30,23 +32,18 @@ export default function RazborPage() {
         eyebrow="Бесплатный разбор"
         title="Разбор рекламы и профиля: где теряются ваши клиенты"
         text="Для владелиц салонов и мастеров, которые уже пробовали рекламу. Бюджет списывается, сообщения приходят, а до записи доходят единицы. Проверю всю цепочку от объявления до записи и покажу, что мешает."
+        image={{ src: '/tatyana-richmann-portret-chernyj.jpg', alt: 'Татьяна Ричманн, специалист по таргетированной рекламе' }}
       />
 
       <section className="mx-auto max-w-6xl px-5 md:px-10">
-        <h2 className="text-3xl font-black md:text-4xl">Что я проверяю</h2>
-        <ol className="mt-8 grid gap-4 md:grid-cols-5">
-          {checks.map((c, i) => (
-            <li key={c.title} className="rounded-3xl bg-white p-6 shadow-sm">
-              <p className="text-3xl font-black text-[#e8a16b]">{i + 1}</p>
-              <p className="mt-3 font-bold">{c.title}</p>
-              <p className="mt-2 text-sm leading-relaxed text-gray-600">{c.text}</p>
-            </li>
-          ))}
-        </ol>
+        <h2 className="text-3xl font-black md:text-4xl">Что я проверяю: путь клиента от рекламы до записи</h2>
+        <p className="mt-3 max-w-3xl text-gray-600">Клиент может потеряться на любом шаге. Смотрю каждый и нахожу, где именно.</p>
+        <StepFlow steps={checks} />
       </section>
 
       <section className="mx-auto mt-16 grid max-w-6xl gap-6 px-5 md:grid-cols-2 md:px-10">
-        <div className="rounded-[32px] bg-black p-8 text-white">
+        <div className="flex flex-col overflow-hidden rounded-[32px] bg-black text-white">
+          <div className="p-8">
           <h2 className="text-2xl font-black">Что вы получите</h2>
           <ul className="mt-6 space-y-3">
             {results.map((r) => (
@@ -56,6 +53,13 @@ export default function RazborPage() {
               </li>
             ))}
           </ul>
+          </div>
+          <ResponsiveImage
+            sizes="(min-width: 768px) 50vw, 100vw"
+            src="/tatyana-richmann-studiya-rubashka.jpg"
+            alt="Татьяна Ричманн"
+            className="mt-auto aspect-[16/9] w-full object-cover object-[50%_22%]"
+          />
         </div>
         <div className="rounded-[32px] bg-white p-8 shadow-sm">
           <h2 className="text-2xl font-black">Как проходит</h2>

@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import ContactCta from '@/components/ContactCta';
 import PageIntro from '@/components/PageIntro';
+import ResponsiveImage from '@/components/ResponsiveImage';
+import StepFlow from '@/components/StepFlow';
 import { getCases, getServices } from '@/lib/content';
 
 export const metadata: Metadata = {
@@ -10,10 +12,10 @@ export const metadata: Metadata = {
 };
 
 const steps = [
-  { title: 'Вы пишете', text: 'Коротко о бизнесе: ниша, город, что уже пробовали и какая задача сейчас.' },
-  { title: 'Разбираем ситуацию', text: 'Смотрю рекламу, воронку и обработку заявок, задаю уточняющие вопросы.' },
-  { title: 'Предлагаю план', text: 'Говорю, с какой услуги разумно начать, что для этого нужно и какой бюджет заложить.' },
-  { title: 'Запуск и работа', text: 'Запускаем рекламу, следим за заявками и записями и улучшаем то, что даёт результат.' },
+  { title: 'Вы пишете', icon: 'chat', text: 'Коротко о бизнесе: ниша, город, что уже пробовали и какая задача сейчас.' },
+  { title: 'Разбираем ситуацию', icon: 'search', text: 'Смотрю рекламу, воронку и обработку заявок, задаю уточняющие вопросы.' },
+  { title: 'Предлагаю план', icon: 'plan', text: 'Говорю, с какой услуги разумно начать, что для этого нужно и какой бюджет заложить.' },
+  { title: 'Запуск и работа', icon: 'growth', text: 'Запускаем рекламу, следим за заявками и записями и улучшаем то, что даёт результат.' },
 ];
 
 export default function ServicesPage() {
@@ -25,6 +27,7 @@ export default function ServicesPage() {
         eyebrow="Услуги"
         title="Чем я помогаю бьюти-бизнесу"
         text="Можно начать с разбора текущей рекламы, с запуска с нуля или с ведения уже работающей рекламы."
+        image={{ src: '/tatyana-richmann-studiya-belyj.jpg', alt: 'Татьяна Ричманн, специалист по таргетированной рекламе' }}
       />
 
       <div className="mx-auto max-w-6xl px-5 md:px-10">
@@ -69,15 +72,7 @@ export default function ServicesPage() {
 
       <section className="mx-auto mt-20 max-w-6xl px-5 md:px-10">
         <h2 className="text-3xl font-black md:text-4xl">Как начинаем работу</h2>
-        <ol className="mt-8 grid gap-4 md:grid-cols-4">
-          {steps.map((st, i) => (
-            <li key={st.title} className="rounded-3xl bg-white p-6 shadow-sm">
-              <p className="text-3xl font-black text-[#e8a16b]">{i + 1}</p>
-              <p className="mt-3 font-bold">{st.title}</p>
-              <p className="mt-2 text-sm leading-relaxed text-gray-600">{st.text}</p>
-            </li>
-          ))}
-        </ol>
+        <StepFlow steps={steps} />
       </section>
 
       {cases.length > 0 && (
@@ -88,13 +83,22 @@ export default function ServicesPage() {
               <Link
                 key={c.slug}
                 href={`/cases/${c.slug}`}
-                className="flex flex-col rounded-3xl bg-white p-6 shadow-sm transition hover:shadow-md"
+                className="flex flex-col overflow-hidden rounded-3xl bg-white shadow-sm transition hover:shadow-md"
               >
+                {c.cover ? (
+                  <ResponsiveImage sizes="(min-width: 768px) 33vw, 100vw" src={c.cover} alt={c.card_title} className="aspect-[3/2] w-full object-cover" />
+                ) : (
+                  <span className="flex aspect-[3/2] w-full items-center justify-center bg-gradient-to-br from-[#fff1e4] to-[#e8a16b]/50 px-6 text-center text-2xl font-black text-[#a35f2c]">
+                    {[c.niche_label, c.country].filter(Boolean).join(' · ')}
+                  </span>
+                )}
+                <div className="flex flex-1 flex-col p-6">
                 <p className="text-xs font-bold uppercase tracking-widest text-[#a35f2c]">
                   {[c.niche_label, c.country].filter(Boolean).join(' · ')}
                 </p>
                 <p className="mt-3 text-xl font-black">{c.summary_result || c.card_title}</p>
                 <span className="mt-auto pt-4 text-sm font-bold text-[#a35f2c]">Читать кейс →</span>
+                </div>
               </Link>
             ))}
           </div>

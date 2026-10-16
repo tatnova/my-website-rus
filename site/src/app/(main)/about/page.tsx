@@ -30,7 +30,13 @@ const principles = [
 export default function AboutPage() {
   const s = getSettings();
   const niches = getNiches().map((n) => ({ name: n.name, url: LANDINGS_LIVE && n.published ? `${nicheUrl(n.subdomain)}/` : '' }));
-  const cases = getCases().slice(0, 3);
+  const allCases = getCases();
+  const cases = allCases.slice(0, 3);
+  const facts = [
+    { value: '2018', label: 'занимаюсь таргетированной рекламой' },
+    { value: '3', label: 'региона: Европа, Америка, Азия' },
+    { value: String(allCases.length), label: 'кейсов с цифрами на сайте' },
+  ];
   return (
     <main className="bg-white pb-24 text-gray-900">
       <section className="px-5 pb-12 pt-14 md:px-10">
@@ -64,16 +70,37 @@ export default function AboutPage() {
         </div>
       </section>
 
+      <section className="px-5 pb-12 md:px-10">
+        <dl className="mx-auto grid max-w-6xl gap-4 rounded-[32px] bg-black p-6 text-white md:grid-cols-3 md:p-10">
+          {facts.map((f) => (
+            <div key={f.label} className="border-b border-white/15 pb-4 last:border-0 md:border-b-0 md:border-r md:pb-0 md:last:border-r-0">
+              <dt className="text-5xl font-black text-[#e8a16b]">{f.value}</dt>
+              <dd className="mt-2 text-white/80">{f.label}</dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+
       <section className="bg-gray-50 px-5 py-16 md:px-10">
         <div className="mx-auto max-w-6xl">
+          <div className="grid items-center gap-8 md:grid-cols-[1fr_2fr]">
+            <ResponsiveImage
+              sizes="(min-width: 768px) 33vw, 100vw"
+              src="/tatyana-richmann-studiya-rubashka.jpg"
+              alt="Татьяна Ричманн за работой"
+              className="mx-auto aspect-[4/5] w-full max-w-xs rounded-[32px] object-cover object-top shadow-lg"
+            />
+            <div>
           <h2 className="text-3xl font-black md:text-4xl">Как я работаю</h2>
-          <div className="mt-8 grid gap-4 md:grid-cols-3">
+          <div className="mt-8 grid gap-4">
             {principles.map((p) => (
               <div key={p.title} className="rounded-3xl bg-white p-6 shadow-sm">
                 <p className="text-lg font-black">{p.title}</p>
                 <p className="mt-3 leading-relaxed text-gray-600">{p.text}</p>
               </div>
             ))}
+          </div>
+            </div>
           </div>
         </div>
       </section>
@@ -109,13 +136,22 @@ export default function AboutPage() {
               <Link
                 key={c.slug}
                 href={`/cases/${c.slug}`}
-                className="flex flex-col rounded-3xl border border-gray-100 bg-white p-6 shadow-sm transition hover:shadow-md"
+                className="flex flex-col overflow-hidden rounded-3xl border border-gray-100 bg-white shadow-sm transition hover:shadow-md"
               >
+                {c.cover ? (
+                  <ResponsiveImage sizes="(min-width: 768px) 33vw, 100vw" src={c.cover} alt={c.card_title} className="aspect-[3/2] w-full object-cover" />
+                ) : (
+                  <span className="flex aspect-[3/2] w-full items-center justify-center bg-gradient-to-br from-[#fff1e4] to-[#e8a16b]/50 px-6 text-center text-2xl font-black text-[#a35f2c]">
+                    {[c.niche_label, c.country].filter(Boolean).join(' · ')}
+                  </span>
+                )}
+                <div className="flex flex-1 flex-col p-6">
                 <p className="text-xs font-bold uppercase tracking-widest text-[#a35f2c]">
                   {[c.niche_label, c.country].filter(Boolean).join(' · ')}
                 </p>
                 <p className="mt-3 text-xl font-black">{c.summary_result || c.card_title}</p>
                 <span className="mt-auto pt-4 text-sm font-bold text-[#a35f2c]">Читать кейс →</span>
+                </div>
               </Link>
             ))}
           </div>
