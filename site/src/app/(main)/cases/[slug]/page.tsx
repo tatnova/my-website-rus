@@ -31,7 +31,7 @@ export default async function CasePage({ params }: Props) {
   const tg = `https://t.me/${s.telegram_username}`;
   const metrics = CASE_METRICS.filter(([key]) => c[key]);
   const place = [c.country, c.city].filter(Boolean).join(', ');
-  const eyebrow = ['Кейс', c.niche_label || c.niches.map(nicheName).join(', ').toLowerCase(), place]
+  const eyebrow = ['Кейс по рекламе', c.niche_label || c.niches.map(nicheName).join(', ').toLowerCase(), place]
     .filter(Boolean)
     .join(' · ');
 
@@ -45,6 +45,11 @@ export default async function CasePage({ params }: Props) {
         <p className="mt-8 text-xs font-black uppercase tracking-[0.25em] text-[#c97d45]">{eyebrow}</p>
 
         <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">{c.title}</h1>
+
+        <p className="mt-5 rounded-2xl bg-white px-5 py-4 text-sm leading-6 text-gray-700 shadow-sm">
+          Это кейс по таргетированной рекламе{c.niche_label ? ` в нише «${c.niche_label}»` : ''}. Я, Татьяна Ричманн, настраиваю
+          и веду рекламу в Facebook и Instagram для бизнеса. Сами услуги клиента я не оказываю.
+        </p>
 
         {c.lead && <p className="mt-5 text-lg leading-8 text-gray-600">{c.lead}</p>}
 
@@ -80,7 +85,7 @@ export default async function CasePage({ params }: Props) {
         <Gallery title="Скриншоты из рекламного кабинета" items={c.proof} />
 
         <section className="mt-12 rounded-3xl bg-black p-6 text-white">
-          <h2 className="text-2xl font-black">Хотите такой же разбор?</h2>
+          <h2 className="text-2xl font-black">Хотите обсудить продвижение своего бизнеса?</h2>
           <p className="mt-3 text-white/70">
             Напишите мне в WhatsApp или Telegram — разберём ваш проект, бюджет и точки роста.
           </p>

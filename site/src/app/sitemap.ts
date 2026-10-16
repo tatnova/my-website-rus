@@ -19,6 +19,7 @@ const pages = [
   '/links',
   '/about',
   '/services',
+  '/razbor',
   '/reviews',
   '/faq',
   '/contact',
