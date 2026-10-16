@@ -2,6 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef } from 'react';
+import { whatsappMessage } from '@/lib/whatsapp-message';
 
 // События Meta Pixel (и клики по мессенджерам в GA4). Клик в WhatsApp/Telegram = Contact, не заявка.
 // Lead, QualifiedLead и Purchase сайт не отправляет; передачи этих событий из n8n
@@ -52,6 +53,14 @@ export default function MetaPixelEvents({ caseNames }: { caseNames: Record<strin
     }
   }, [pathname, caseNames]);
 
+  // Метка объявления (utm_content) из первой страницы визита: по ней выбирается текст WhatsApp.
+  useEffect(() => {
+    try {
+      const ad = new URLSearchParams(window.location.search).get('utm_content');
+      if (ad) sessionStorage.setItem('ad_content', ad);
+    } catch {}
+  }, []);
+
   useEffect(() => {
     const onClick = (e: MouseEvent) => {
       const link = (e.target as Element | null)?.closest?.('a[href]');
@@ -62,11 +71,22 @@ export default function MetaPixelEvents({ caseNames }: { caseNames: Record<strin
         : href.startsWith('https://t.me/')
           ? 'telegram'
           : null;
+      let adContent: string | null = null;
+      try {
+        adContent = sessionStorage.getItem('ad_content');
+      } catch {}
+      // Ссылка WhatsApp без текста получает естественную первую фразу (на лендингах ниш текст уже задан).
+      if (channel === 'whatsapp' && !/[?&]text=/.test(href)) {
+        const sep = href.includes('?') ? '&' : '?';
+        // encodeURIComponent, а не URLSearchParams: WhatsApp показывает «+» вместо пробелов.
+        link.setAttribute('href', `${href}${sep}text=${encodeURIComponent(whatsappMessage(adContent, window.location.pathname))}`);
+      }
       if (channel) {
         track('track', 'Contact', {
           content_name: channel,
           // Адрес с доменом: так видно, с какого сайта клик (основной или лендинг ниши).
           content_category: window.location.hostname + window.location.pathname,
+          ...(adContent ? { ad_content: adContent } : {}),
         });
         // То же нажатие в Google Analytics 4 (whatsapp_click / telegram_click). Без согласия
         // на аналитику gtag.js не загружен, и событие остаётся в очереди неотправленным.
