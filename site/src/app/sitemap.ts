@@ -16,6 +16,7 @@ const pages = [
   '/blog/pochemu-reklama-ne-daet-rezultata-i-kak-eto-ispravit',
   '/blog/oshibki-v-reklame-iz-za-kotoryh-vy-teryaete-klientov',
   '/privacy-policy',
+  '/privacy-policy/ai-agent',
   '/links',
   '/about',
   '/services',
