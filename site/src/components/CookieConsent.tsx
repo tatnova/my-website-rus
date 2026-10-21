@@ -8,6 +8,37 @@ import { CONSENT_OPEN_EVENT } from '@/lib/consent-script';
 
 type Consent = { analytics: boolean; marketing: boolean };
 
+// Тексты баннера для русских и английских страниц.
+const TEXT = {
+  ru: {
+    label: 'Настройки cookie',
+    title: 'Cookie на этом сайте',
+    body: 'Я использую cookie, чтобы считать посещения (Google Analytics) и показывать рекламу тем, кто заходил на сайт (Meta Pixel, TikTok Pixel). Вы можете разрешить всё, отказаться или выбрать сами. Изменить решение можно в любой момент по ссылке «Настройки cookie» внизу страницы.',
+    more: 'Подробнее',
+    needed: ['Необходимые', 'запоминают ваш выбор по cookie. Всегда включены.'],
+    analytics: ['Статистика', 'Google Analytics и Google Tag Manager: сколько людей заходит и какие страницы читают.'],
+    marketing: ['Реклама', 'Meta Pixel и TikTok Pixel: оценка рекламы и показ объявлений тем, кто уже был на сайте.'],
+    all: 'Разрешить все',
+    none: 'Отклонить',
+    save: 'Сохранить выбор',
+    setup: 'Настроить',
+  },
+  en: {
+    label: 'Cookie settings',
+    title: 'Cookies on this site',
+    body: 'I use cookies to count visits (Google Analytics) and to show ads to people who have visited the site (Meta Pixel, TikTok Pixel). You can allow all, decline, or choose yourself. You can change your choice at any time with the “Cookie settings” link at the bottom of the page.',
+    more: 'Learn more',
+    needed: ['Necessary', 'remember your cookie choice. Always on.'],
+    analytics: ['Analytics', 'Google Analytics and Google Tag Manager: how many people visit and which pages they read.'],
+    marketing: ['Advertising', 'Meta Pixel and TikTok Pixel: measuring ads and showing ads to people who have already visited the site.'],
+    all: 'Allow all',
+    none: 'Decline',
+    save: 'Save choice',
+    setup: 'Customize',
+  },
+};
+type Lang = keyof typeof TEXT;
+
 declare global {
   interface Window {
     adsConsent?: {
@@ -23,7 +54,8 @@ export function openCookieSettings() {
   window.dispatchEvent(new Event(CONSENT_OPEN_EVENT));
 }
 
-export default function CookieConsent() {
+export default function CookieConsent({ lang = 'ru' }: { lang?: Lang }) {
+  const t = TEXT[lang];
   const [open, setOpen] = useState(false);
   const [details, setDetails] = useState(false);
   const [choice, setChoice] = useState<Consent>({ analytics: false, marketing: false });
@@ -61,17 +93,15 @@ export default function CookieConsent() {
     <div
       role="dialog"
       aria-live="polite"
-      aria-label="Настройки cookie"
+      aria-label={t.label}
       className="fixed inset-x-0 bottom-0 z-[100] p-3 md:p-5"
     >
       <div className="mx-auto max-w-3xl rounded-2xl border border-gray-200 bg-white p-5 text-sm text-gray-700 shadow-2xl md:p-6">
-        <p className="font-bold text-gray-900">Cookie на этом сайте</p>
+        <p className="font-bold text-gray-900">{t.title}</p>
         <p className="mt-2 leading-relaxed">
-          Я использую cookie, чтобы считать посещения (Google Analytics) и показывать рекламу тем, кто
-          заходил на сайт (Meta Pixel, TikTok Pixel). Вы можете разрешить всё, отказаться или выбрать
-          сами. Изменить решение можно в любой момент по ссылке «Настройки cookie» внизу страницы.{' '}
+          {t.body}{' '}
           <a href="/privacy-policy#cookies" className="underline hover:text-black">
-            Подробнее
+            {t.more}
           </a>
         </p>
 
@@ -80,7 +110,7 @@ export default function CookieConsent() {
             <label className="flex items-start gap-3">
               <input type="checkbox" checked disabled className="mt-1" />
               <span>
-                <b>Необходимые</b> — запоминают ваш выбор по cookie. Всегда включены.
+                <b>{t.needed[0]}</b> — {t.needed[1]}
               </span>
             </label>
             <label className="flex cursor-pointer items-start gap-3">
@@ -91,8 +121,7 @@ export default function CookieConsent() {
                 onChange={(e) => setChoice({ ...choice, analytics: e.target.checked })}
               />
               <span>
-                <b>Статистика</b> — Google Analytics и Google Tag Manager: сколько людей заходит и какие
-                страницы читают.
+                <b>{t.analytics[0]}</b> — {t.analytics[1]}
               </span>
             </label>
             <label className="flex cursor-pointer items-start gap-3">
@@ -103,8 +132,7 @@ export default function CookieConsent() {
                 onChange={(e) => setChoice({ ...choice, marketing: e.target.checked })}
               />
               <span>
-                <b>Реклама</b> — Meta Pixel и TikTok Pixel: оценка рекламы и показ объявлений тем, кто
-                уже был на сайте.
+                <b>{t.marketing[0]}</b> — {t.marketing[1]}
               </span>
             </label>
           </div>
@@ -116,14 +144,14 @@ export default function CookieConsent() {
             onClick={() => save({ analytics: true, marketing: true })}
             className="rounded-full bg-black px-5 py-2.5 font-bold text-white"
           >
-            Разрешить все
+            {t.all}
           </button>
           <button
             type="button"
             onClick={() => save({ analytics: false, marketing: false })}
             className="rounded-full bg-black px-5 py-2.5 font-bold text-white"
           >
-            Отклонить
+            {t.none}
           </button>
           {details ? (
             <button
@@ -131,7 +159,7 @@ export default function CookieConsent() {
               onClick={() => save(choice)}
               className="rounded-full border border-gray-300 px-5 py-2.5 font-bold"
             >
-              Сохранить выбор
+              {t.save}
             </button>
           ) : (
             <button
@@ -139,7 +167,7 @@ export default function CookieConsent() {
               onClick={() => setDetails(true)}
               className="rounded-full border border-gray-300 px-5 py-2.5 font-bold"
             >
-              Настроить
+              {t.setup}
             </button>
           )}
         </div>
@@ -148,10 +176,10 @@ export default function CookieConsent() {
   );
 }
 
-export function CookieSettingsLink({ className }: { className?: string }) {
+export function CookieSettingsLink({ className, lang = 'ru' }: { className?: string; lang?: Lang }) {
   return (
     <button type="button" onClick={openCookieSettings} className={className}>
-      Настройки cookie
+      {TEXT[lang].label}
     </button>
   );
 }

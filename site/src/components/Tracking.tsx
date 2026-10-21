@@ -15,6 +15,6 @@ export function TrackingHead() {
   );
 }
 
-export function TrackingBanner() {
-  return <CookieConsent />;
+export function TrackingBanner({ lang = 'ru' }: { lang?: 'ru' | 'en' }) {
+  return <CookieConsent lang={lang} />;
 }
