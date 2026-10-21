@@ -8,6 +8,11 @@ import manifest from '@/lib/image-manifest.json';
 
 const CONTENT = path.join(process.cwd(), 'content');
 
+// Язык страницы. Английские тексты лежат в content/en/ (cases/, niches/) с теми же именами файлов,
+// что и русские: content/en/cases/<адрес>.md, content/en/niches/<ниша>.yml.
+export type Lang = 'ru' | 'en';
+const inLang = (dir: string, lang: Lang) => (lang === 'en' ? `en/${dir}` : dir);
+
 export type CaseMeta = {
   slug: string;
   title: string;
@@ -169,14 +174,16 @@ function markdownToHtml(body: string) {
   return optimizeImages(bodyMarked.parse(body, { async: false }) as string);
 }
 
-let casesCache: Case[] | null = null;
+const casesCache: Partial<Record<Lang, Case[]>> = {};
 
 // Все опубликованные кейсы (черновики не попадают на сайт).
-export function getCases(): Case[] {
-  if (casesCache) return casesCache;
-  casesCache = files('cases', /\.md$/)
+export function getCases(lang: Lang = 'ru'): Case[] {
+  const cached = casesCache[lang];
+  if (cached) return cached;
+  const dir = inLang('cases', lang);
+  const list_ = files(dir, /\.md$/)
     .map((file) => {
-      const { data, body } = frontmatter(readFileSync(path.join(CONTENT, 'cases', file), 'utf8'));
+      const { data, body } = frontmatter(readFileSync(path.join(CONTENT, dir, file), 'utf8'));
       const c: Case = {
         slug: file.replace(/\.md$/, ''),
         title: str(data.title),
@@ -217,11 +224,12 @@ export function getCases(): Case[] {
     })
     .filter((c) => !c.draft && c.title)
     .sort((a, b) => a.order - b.order || a.slug.localeCompare(b.slug));
-  return casesCache;
+  casesCache[lang] = list_;
+  return list_;
 }
 
-export function getCase(slug: string) {
-  return getCases().find((c) => c.slug === slug);
+export function getCase(slug: string, lang: Lang = 'ru') {
+  return getCases(lang).find((c) => c.slug === slug);
 }
 
 export function getReviews(): Review[] {
@@ -247,49 +255,56 @@ export function getReviews(): Review[] {
     .sort((a, b) => a.order - b.order);
 }
 
-export function getNiches(): Niche[] {
-  return files('niches', /\.ya?ml$/).map((file) => {
-    const d = (parse(readFileSync(path.join(CONTENT, 'niches', file), 'utf8')) ?? {}) as Record<string, unknown>;
-    const arr = <T,>(v: unknown) => (Array.isArray(v) ? (v as T[]) : []);
-    return {
-      id: file.replace(/\.ya?ml$/, ''),
-      name: str(d.name),
-      published: d.published === true,
-      subdomain: str(d.subdomain) || file.replace(/\.ya?ml$/, ''),
-      seo_title: str(d.seo_title),
-      description: str(d.description),
-      accent: str(d.accent) || '#e8a16b',
-      badge: str(d.badge),
-      hero_title: str(d.hero_title),
-      hero_accent: str(d.hero_accent),
-      hero_text: str(d.hero_text),
-      hero_image: str(d.hero_image),
-      hero_image_alt: str(d.hero_image_alt),
-      hero_stat_value: str(d.hero_stat_value),
-      hero_stat_label: str(d.hero_stat_label),
-      stats: arr<{ value: unknown; label: unknown; case?: unknown }>(d.stats)
-        .map((s) => ({ value: str(s?.value), label: str(s?.label), case: str(s?.case) }))
-        .filter((s) => s.value),
-      contact_message: str(d.contact_message),
-      whatsapp_label: str(d.whatsapp_label) || 'WhatsApp',
-      telegram_label: str(d.telegram_label) || 'Telegram',
-      cases_title: str(d.cases_title) || 'Кейсы',
-      about_text: str(d.about_text),
-      reviews_title: str(d.reviews_title) || 'Отзывы',
-      faq: arr<{ q: unknown; a: unknown }>(d.faq)
-        .map((f) => ({ q: str(f?.q), a: str(f?.a) }))
-        .filter((f) => f.q && f.a),
-      prices: arr<{ service: unknown; price: unknown; note?: unknown }>(d.prices)
-        .map((p) => ({ service: str(p?.service), price: str(p?.price), note: str(p?.note) }))
-        .filter((p) => p.service && p.price),
-      final_title: str(d.final_title),
-      final_text: str(d.final_text),
-    };
-  });
+// Английский лендинг берёт тексты из content/en/niches/<ниша>.yml, а всё, чего там нет
+// (поддомен, цвет, фото, «опубликован»), из русского файла. Без английского файла ниши нет в /en.
+export function getNiches(lang: Lang = 'ru'): Niche[] {
+  const read = (dir: string, file: string) =>
+    (parse(readFileSync(path.join(CONTENT, dir, file), 'utf8')) ?? {}) as Record<string, unknown>;
+  const enFiles = lang === 'en' ? files(inLang('niches', 'en'), /\.ya?ml$/) : [];
+  return files('niches', /\.ya?ml$/)
+    .filter((file) => lang === 'ru' || enFiles.includes(file))
+    .map((file) => {
+      const d = lang === 'en' ? { ...read('niches', file), ...read(inLang('niches', 'en'), file) } : read('niches', file);
+      const arr = <T,>(v: unknown) => (Array.isArray(v) ? (v as T[]) : []);
+      return {
+        id: file.replace(/\.ya?ml$/, ''),
+        name: str(d.name),
+        published: d.published === true,
+        subdomain: str(d.subdomain) || file.replace(/\.ya?ml$/, ''),
+        seo_title: str(d.seo_title),
+        description: str(d.description),
+        accent: str(d.accent) || '#e8a16b',
+        badge: str(d.badge),
+        hero_title: str(d.hero_title),
+        hero_accent: str(d.hero_accent),
+        hero_text: str(d.hero_text),
+        hero_image: str(d.hero_image),
+        hero_image_alt: str(d.hero_image_alt),
+        hero_stat_value: str(d.hero_stat_value),
+        hero_stat_label: str(d.hero_stat_label),
+        stats: arr<{ value: unknown; label: unknown; case?: unknown }>(d.stats)
+          .map((s) => ({ value: str(s?.value), label: str(s?.label), case: str(s?.case) }))
+          .filter((s) => s.value),
+        contact_message: str(d.contact_message),
+        whatsapp_label: str(d.whatsapp_label) || 'WhatsApp',
+        telegram_label: str(d.telegram_label) || 'Telegram',
+        cases_title: str(d.cases_title) || (lang === 'en' ? 'Case studies' : 'Кейсы'),
+        about_text: str(d.about_text),
+        reviews_title: str(d.reviews_title) || (lang === 'en' ? 'Reviews' : 'Отзывы'),
+        faq: arr<{ q: unknown; a: unknown }>(d.faq)
+          .map((f) => ({ q: str(f?.q), a: str(f?.a) }))
+          .filter((f) => f.q && f.a),
+        prices: arr<{ service: unknown; price: unknown; note?: unknown }>(d.prices)
+          .map((p) => ({ service: str(p?.service), price: str(p?.price), note: str(p?.note) }))
+          .filter((p) => p.service && p.price),
+        final_title: str(d.final_title),
+        final_text: str(d.final_text),
+      };
+    });
 }
 
-export function getNiche(id: string) {
-  return getNiches().find((n) => n.id === id);
+export function getNiche(id: string, lang: Lang = 'ru') {
+  return getNiches(lang).find((n) => n.id === id);
 }
 
 export function getSettings(): Settings {

@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "./case-longread.css";
 
 :root {
   --background: #ffffff;

@@ -22,7 +22,9 @@ for (const file of (await readdir(path.join(CONTENT, 'niches'))).filter((f) => /
   const d = parse(await readFile(path.join(CONTENT, 'niches', file), 'utf8')) ?? {};
   const sub = String(d.subdomain || id);
   niches[sub] = id;
-  nicheMeta.push({ id, sub, published: d.published === true });
+  // Английская версия лендинга есть, если есть content/en/niches/<ниша>.yml.
+  const en = await readFile(path.join(CONTENT, 'en', 'niches', file), 'utf8').then(() => true, () => false);
+  nicheMeta.push({ id, sub, published: d.published === true, en });
 }
 
 // Старые адреса WordPress: из полей old_urls кейсов и статей и из content/redirects.yml.
@@ -83,6 +85,7 @@ for (const n of nicheMeta) {
     path.join(dir, 'sitemap.xml'),
     `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
       (open ? `<url><loc>${base}/</loc></url>\n` : '') +
+      (open && n.en ? `<url><loc>${base}/en/</loc></url>\n` : '') +
       `</urlset>\n`,
   );
 }

@@ -27,6 +27,9 @@ const pages = [
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const all = [...pages, ...getArticles().map((a) => `/blog/${a.slug}`), ...getCases().map((c) => `/cases/${c.slug}`)];
+  const all = [...pages, ...getArticles().map((a) => `/blog/${a.slug}`), ...getCases().map((c) => `/cases/${c.slug}`),
+    '/en/cases',
+    ...getCases('en').map((c) => `/en/cases/${c.slug}`),
+  ];
   return all.map((path) => ({ url: `${SITE_URL}${path === '/' ? '' : path}` }));
 }

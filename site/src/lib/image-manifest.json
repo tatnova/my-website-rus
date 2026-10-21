@@ -105,6 +105,219 @@
       1200
     ]
   },
+  "/uploads/cases/korrekciya-figury-izrail-101-perepiska-85-zayavok/1.jpg": {
+    "base": "/img/uploads-cases-korrekciya-figury-izrail-101-perepiska-85-zayavok-1",
+    "width": 1200,
+    "height": 1800,
+    "widths": [
+      480,
+      800,
+      1200
+    ]
+  },
+  "/uploads/cases/korrekciya-figury-izrail-101-perepiska-85-zayavok/2.jpg": {
+    "base": "/img/uploads-cases-korrekciya-figury-izrail-101-perepiska-85-zayavok-2",
+    "width": 1400,
+    "height": 935,
+    "widths": [
+      480,
+      800,
+      1200,
+      1200
+    ]
+  },
+  "/uploads/cases/korrekciya-figury-izrail-101-perepiska-85-zayavok/3.jpg": {
+    "base": "/img/uploads-cases-korrekciya-figury-izrail-101-perepiska-85-zayavok-3",
+    "width": 1400,
+    "height": 933,
+    "widths": [
+      480,
+      800,
+      1200,
+      1200
+    ]
+  },
+  "/uploads/cases/korrekciya-figury-izrail-101-perepiska-85-zayavok/4.jpg": {
+    "base": "/img/uploads-cases-korrekciya-figury-izrail-101-perepiska-85-zayavok-4",
+    "width": 1800,
+    "height": 1201,
+    "widths": [
+      480,
+      800,
+      1200,
+      1200
+    ]
+  },
+  "/uploads/cases/massazh-izrail-1949-perepisok-whatsapp/1.jpg": {
+    "base": "/img/uploads-cases-massazh-izrail-1949-perepisok-whatsapp-1",
+    "width": 1200,
+    "height": 740,
+    "widths": [
+      480,
+      800,
+      1200
+    ]
+  },
+  "/uploads/cases/massazh-izrail-1949-perepisok-whatsapp/2.jpg": {
+    "base": "/img/uploads-cases-massazh-izrail-1949-perepisok-whatsapp-2",
+    "width": 1200,
+    "height": 814,
+    "widths": [
+      480,
+      800,
+      1200
+    ]
+  },
+  "/uploads/cases/massazh-izrail-1949-perepisok-whatsapp/3.jpg": {
+    "base": "/img/uploads-cases-massazh-izrail-1949-perepisok-whatsapp-3",
+    "width": 1800,
+    "height": 1198,
+    "widths": [
+      480,
+      800,
+      1200,
+      1200
+    ]
+  },
+  "/uploads/cases/massazh-izrail-1949-perepisok-whatsapp/4.jpg": {
+    "base": "/img/uploads-cases-massazh-izrail-1949-perepisok-whatsapp-4",
+    "width": 1200,
+    "height": 400,
+    "widths": [
+      480,
+      800,
+      1200
+    ]
+  },
+  "/uploads/cases/massazh-ssha-675-zayavok/1.jpg": {
+    "base": "/img/uploads-cases-massazh-ssha-675-zayavok-1",
+    "width": 1800,
+    "height": 1200,
+    "widths": [
+      480,
+      800,
+      1200,
+      1200
+    ]
+  },
+  "/uploads/cases/massazh-ssha-675-zayavok/2.jpg": {
+    "base": "/img/uploads-cases-massazh-ssha-675-zayavok-2",
+    "width": 1400,
+    "height": 933,
+    "widths": [
+      480,
+      800,
+      1200,
+      1200
+    ]
+  },
+  "/uploads/cases/massazh-ssha-675-zayavok/3.jpg": {
+    "base": "/img/uploads-cases-massazh-ssha-675-zayavok-3",
+    "width": 1400,
+    "height": 934,
+    "widths": [
+      480,
+      800,
+      1200,
+      1200
+    ]
+  },
+  "/uploads/cases/massazh-ssha-675-zayavok/4.jpg": {
+    "base": "/img/uploads-cases-massazh-ssha-675-zayavok-4",
+    "width": 1800,
+    "height": 1200,
+    "widths": [
+      480,
+      800,
+      1200,
+      1200
+    ]
+  },
+  "/uploads/cases/osteopat-izrail-125-perepisok/1.jpg": {
+    "base": "/img/uploads-cases-osteopat-izrail-125-perepisok-1",
+    "width": 1800,
+    "height": 1200,
+    "widths": [
+      480,
+      800,
+      1200,
+      1200
+    ]
+  },
+  "/uploads/cases/osteopat-izrail-125-perepisok/2.jpg": {
+    "base": "/img/uploads-cases-osteopat-izrail-125-perepisok-2",
+    "width": 1800,
+    "height": 1198,
+    "widths": [
+      480,
+      800,
+      1200,
+      1200
+    ]
+  },
+  "/uploads/cases/osteopat-izrail-125-perepisok/3.jpg": {
+    "base": "/img/uploads-cases-osteopat-izrail-125-perepisok-3",
+    "width": 1800,
+    "height": 1201,
+    "widths": [
+      480,
+      800,
+      1200,
+      1200
+    ]
+  },
+  "/uploads/cases/tancevalnaya-studiya-izrail-368-perepisok/1.jpg": {
+    "base": "/img/uploads-cases-tancevalnaya-studiya-izrail-368-perepisok-1",
+    "width": 1800,
+    "height": 1009,
+    "widths": [
+      480,
+      800,
+      1200,
+      1200
+    ]
+  },
+  "/uploads/cases/tancevalnaya-studiya-izrail-368-perepisok/2.jpg": {
+    "base": "/img/uploads-cases-tancevalnaya-studiya-izrail-368-perepisok-2",
+    "width": 1400,
+    "height": 785,
+    "widths": [
+      480,
+      800,
+      1200,
+      1200
+    ]
+  },
+  "/uploads/cases/tancevalnaya-studiya-izrail-368-perepisok/3.jpg": {
+    "base": "/img/uploads-cases-tancevalnaya-studiya-izrail-368-perepisok-3",
+    "width": 1400,
+    "height": 800,
+    "widths": [
+      480,
+      800,
+      1200,
+      1200
+    ]
+  },
+  "/uploads/cases/tancevalnaya-studiya-izrail-368-perepisok/4.jpg": {
+    "base": "/img/uploads-cases-tancevalnaya-studiya-izrail-368-perepisok-4",
+    "width": 1400,
+    "height": 934,
+    "widths": [
+      480,
+      800,
+      1200,
+      1200
+    ]
+  },
+  "/uploads/cases/tatyana-richmann-avatar.jpg": {
+    "base": "/img/uploads-cases-tatyana-richmann-avatar",
+    "width": 160,
+    "height": 160,
+    "widths": [
+      160
+    ]
+  },
   "/uploads/wp/2024/09/1190ed02-050a-4b79-b993-65e298214c1d.jpeg": {
     "base": "/img/uploads-wp-2024-09-1190ed02-050a-4b79-b993-65e298214c1d",
     "width": 1333,

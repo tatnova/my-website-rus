@@ -3,6 +3,7 @@
 //   adsnew.org/...               основной сайт (+ 301 со старых адресов WordPress на кейсы и статьи)
 //   adsnew.org/massage           301 на massage.adsnew.org/
 //   <ниша>.adsnew.org/           лендинг ниши (страница /l/<ниша>), свои robots.txt и sitemap.xml
+//   <ниша>.adsnew.org/en/        английский лендинг ниши (страница /en/l/<ниша>)
 //   <ниша>.adsnew.org/другое     301 на adsnew.org/другое
 //   beauty.adsnew.org/massage    301 на massage.adsnew.org/
 //   beauty.adsnew.org/...        301 на adsnew.org/...
@@ -62,6 +63,7 @@ export async function route(request, data, serveAsset) {
     const niche = data.niches[sub];
     if (!niche) return redirect(main + path + url.search);
     if (path === '/' || path === '/index.html') return serveAsset(`/l/${niche}`, url.search);
+    if (path === '/en' || path === '/en/' || path === '/en/index.html') return serveAsset(`/en/l/${niche}`, url.search);
     if (path === '/robots.txt') return serveAsset(`/l/${niche}/robots.txt`);
     if (path === '/sitemap.xml') return serveAsset(`/l/${niche}/sitemap.xml`);
     return redirect(main + path + url.search);
@@ -79,10 +81,10 @@ export async function route(request, data, serveAsset) {
       return redirect(`https://${sub}.${MAIN_HOST}/${url.search}`);
     }
     // Служебные копии лендингов на основном домене не нужны: ведём на поддомен.
-    const landing = path.match(/^\/l\/([^/]+)\/?$/);
+    const landing = path.match(/^(\/en)?\/l\/([^/]+)\/?$/);
     if (landing) {
-      const sub = Object.keys(data.niches).find((k) => data.niches[k] === landing[1]);
-      if (sub) return redirect(`https://${sub}.${MAIN_HOST}/${url.search}`);
+      const sub = Object.keys(data.niches).find((k) => data.niches[k] === landing[2]);
+      if (sub) return redirect(`https://${sub}.${MAIN_HOST}/${landing[1] ? 'en/' : ''}${url.search}`);
     }
   }
 
