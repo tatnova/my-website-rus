@@ -6,7 +6,7 @@ import SiteNav from '@/components/SiteNav';
 import ResponsiveImage from '@/components/ResponsiveImage';
 
 const socialLinks = [
-  { label: 'WhatsApp', href: 'https://wa.me/972537086545', icon: '💬' },
+  { label: 'WhatsApp', href: 'https://wa.me/972552468903', icon: '💬' },
   { label: 'Telegram', href: 'https://t.me/mailovaja', icon: '✈️' },
   { label: 'Instagram', href: 'https://www.instagram.com/ads_target_pr/', icon: '◎' },
   { label: 'Facebook', href: 'https://www.facebook.com/newadstarget', icon: 'f' },
@@ -339,7 +339,7 @@ export default function HomeClient({
 
             <div className="flex flex-wrap justify-center gap-4">
               <a
-                href="https://wa.me/972537086545"
+                href="https://wa.me/972552468903"
                 target="_blank"
                 rel="noreferrer"
                 className="rounded-full bg-black px-8 py-4 font-bold text-white transition hover:bg-gray-800"
@@ -487,7 +487,7 @@ export default function HomeClient({
 
             <div className="flex flex-wrap justify-center gap-4">
               <a
-                href="https://wa.me/972537086545"
+                href="https://wa.me/972552468903"
                 target="_blank"
                 rel="noreferrer"
                 className="rounded-full bg-black px-8 py-4 font-bold text-white transition hover:bg-gray-800"

@@ -10,7 +10,7 @@ import ResponsiveImage from '@/components/ResponsiveImage';
 
 const SLUG = 'blog/oshibki-v-reklame-iz-za-kotoryh-vy-teryaete-klientov';
 const URL = `${SITE_URL}/${SLUG}`;
-const WHATSAPP_LINK = "https://wa.me/972537086545?text=Здравствуйте!%20Хочу%20обсудить%20рекламу%20для%20салона";
+const WHATSAPP_LINK = "https://wa.me/972552468903?text=Здравствуйте!%20Хочу%20обсудить%20рекламу%20для%20салона";
 const TELEGRAM_LINK = "https://t.me/mailovaja?text=Здравствуйте!%20Хочу%20обсудить%20запуск%20рекламы";
 
 export const metadata: Metadata = {

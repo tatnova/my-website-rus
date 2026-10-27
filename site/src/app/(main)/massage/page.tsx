@@ -72,7 +72,7 @@ const DualContactButtons = ({ className = "" }) => {
   return (
     <div className={`flex flex-col sm:flex-row gap-4 ${className}`}>
       <a
-        href={`https://wa.me/972537086545?text=${message}`}
+        href={`https://wa.me/972552468903?text=${message}`}
         target="_blank"
         rel="noreferrer"
         className="inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-8 py-4 font-bold text-white shadow-xl transition hover:scale-105"

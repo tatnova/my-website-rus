@@ -127,7 +127,7 @@ const sections: { id?: string; title: string; body: ReactNode }[] = [
       <>
         <p>
           Чтобы удалить данные, которые получил агент, напишите мне в{' '}
-          <a href="https://wa.me/972537086545">WhatsApp: +972 53-708-6545</a>, в{' '}
+          <a href="https://wa.me/972552468903">WhatsApp: +972 55-246-8903</a>, в{' '}
           <a href="https://t.me/mailovaja">Telegram: @mailovaja</a> или в тот мессенджер, где вы со мной
           переписывались, слова «удалить мои данные».
         </p>

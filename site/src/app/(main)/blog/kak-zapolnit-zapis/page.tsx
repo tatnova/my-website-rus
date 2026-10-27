@@ -234,7 +234,7 @@ export default function ArticlePage() {
                 </p>
                 <div className="mt-8 flex flex-wrap gap-4">
                   <a
-                    href="https://wa.me/972537086545"
+                    href="https://wa.me/972552468903"
                     className="inline-flex items-center justify-center rounded-full bg-[#e8a16b] px-8 py-4 font-bold text-white shadow-lg transition hover:bg-[#d78d57]"
                   >
                     Написать в WhatsApp 💬
@@ -268,7 +268,7 @@ export default function ArticlePage() {
                     Если хотите разобрать ваш салон, воронку и стратегию — напишите мне прямо сейчас.
                   </p>
                   <a
-                    href="https://wa.me/972537086545"
+                    href="https://wa.me/972552468903"
                     className="mt-5 inline-flex w-full items-center justify-center rounded-full bg-[#e8a16b] px-6 py-4 text-center font-bold text-white transition hover:bg-[#d78d57]"
                   >
                     WhatsApp 💬

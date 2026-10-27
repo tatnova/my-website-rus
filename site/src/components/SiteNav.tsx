@@ -11,7 +11,7 @@ const navLinks = [
   { label: 'Статьи', href: '/blog' },
 ];
 
-const WHATSAPP_URL = 'https://wa.me/972537086545';
+const WHATSAPP_URL = 'https://wa.me/972552468903';
 const TELEGRAM_URL = 'https://t.me/mailovaja';
 
 export default function SiteNav() {
