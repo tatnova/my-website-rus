@@ -54,7 +54,7 @@ const structuredData = {
       description: SITE_DESCRIPTION,
       url: SITE_URL,
       image: `${SITE_URL}/beauty-business-marketing-specialist.jpg`,
-      telephone: "+972537086545",
+      telephone: "+972552468903",
       founder: { "@id": `${SITE_URL}/#person` },
       areaServed: [
         { "@type": "Country", name: "Израиль" },

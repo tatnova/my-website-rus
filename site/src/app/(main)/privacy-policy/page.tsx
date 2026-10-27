@@ -20,7 +20,7 @@ const sections: { id?: string; title: string; body: ReactNode }[] = [
         </p>
         <p>
           По любым вопросам о ваших данных пишите в{' '}
-          <a href="https://wa.me/972537086545">WhatsApp: +972 53-708-6545</a> или в{' '}
+          <a href="https://wa.me/972552468903">WhatsApp: +972 55-246-8903</a> или в{' '}
           <a href="https://t.me/mailovaja">Telegram: @mailovaja</a>.
         </p>
       </>

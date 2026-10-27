@@ -261,7 +261,7 @@ export default function BlogArticle() {
 
               <div className="rounded-xl bg-[#1f1a17] p-8 text-white">
                 <h5 className="text-base font-bold mb-4 leading-tight">Разбор вашей ситуации</h5>
-                <a href="https://wa.me/972537086545?text=Здравствуйте!%20Хочу%20обсудить%20рекламу" className="text-[11px] font-bold uppercase text-[#e8a16b] hover:text-white transition-colors">
+                <a href="https://wa.me/972552468903?text=Здравствуйте!%20Хочу%20обсудить%20рекламу" className="text-[11px] font-bold uppercase text-[#e8a16b] hover:text-white transition-colors">
                   WhatsApp Direct →
                 </a>
               </div>
