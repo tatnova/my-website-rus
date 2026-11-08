@@ -2,7 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef } from 'react';
-import { whatsappMessage } from '@/lib/whatsapp-message';
+import { visitPlatform, whatsappMessage, withPlatform } from '@/lib/whatsapp-message';
 
 // События Meta Pixel (и клики по мессенджерам в GA4). Клик в WhatsApp/Telegram = Contact, не заявка.
 // Lead, QualifiedLead и Purchase сайт не отправляет; передачи этих событий из n8n
@@ -56,8 +56,12 @@ export default function MetaPixelEvents({ caseNames }: { caseNames: Record<strin
   // Метка объявления (utm_content) из первой страницы визита: по ней выбирается текст WhatsApp.
   useEffect(() => {
     try {
-      const ad = new URLSearchParams(window.location.search).get('utm_content');
+      const params = new URLSearchParams(window.location.search);
+      const ad = params.get('utm_content');
       if (ad) sessionStorage.setItem('ad_content', ad);
+      // Соцсеть, из которой пришёл человек (органика): запоминается один раз за визит.
+      const platform = ad ? null : visitPlatform(params.get('utm_source'), document.referrer);
+      if (platform && !sessionStorage.getItem('visit_platform')) sessionStorage.setItem('visit_platform', platform);
     } catch {}
   }, []);
 
@@ -72,14 +76,16 @@ export default function MetaPixelEvents({ caseNames }: { caseNames: Record<strin
           ? 'telegram'
           : null;
       let adContent: string | null = null;
+      let platform: string | null = null;
       try {
         adContent = sessionStorage.getItem('ad_content');
+        platform = adContent ? null : sessionStorage.getItem('visit_platform');
       } catch {}
       // Ссылка WhatsApp без текста получает естественную первую фразу (на лендингах ниш текст уже задан).
       if (channel === 'whatsapp' && !/[?&]text=/.test(href)) {
         const sep = href.includes('?') ? '&' : '?';
         // encodeURIComponent, а не URLSearchParams: WhatsApp показывает «+» вместо пробелов.
-        link.setAttribute('href', `${href}${sep}text=${encodeURIComponent(whatsappMessage(adContent, window.location.pathname))}`);
+        link.setAttribute('href', `${href}${sep}text=${encodeURIComponent(withPlatform(whatsappMessage(adContent, window.location.pathname), platform, window.location.pathname))}`);
       }
       if (channel) {
         track('track', 'Contact', {
@@ -87,6 +93,7 @@ export default function MetaPixelEvents({ caseNames }: { caseNames: Record<strin
           // Адрес с доменом: так видно, с какого сайта клик (основной или лендинг ниши).
           content_category: window.location.hostname + window.location.pathname,
           ...(adContent ? { ad_content: adContent } : {}),
+          ...(platform ? { visit_platform: platform } : {}),
         });
         // То же нажатие в Google Analytics 4 (whatsapp_click / telegram_click). Без согласия
         // на аналитику gtag.js не загружен, и событие остаётся в очереди неотправленным.
