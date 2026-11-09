@@ -43,8 +43,11 @@ export const metadata = {
 };
 
 export default function BlogPage() {
-  // Сначала статьи из content/articles/ (Pages CMS), затем статьи со своими страницами.
+  // Свежая статья со своей страницей (первая в pageArticles) идёт первой,
+  // затем статьи из content/articles/ (Pages CMS), затем остальные статьи со своими страницами.
+  const [latestPageArticle, ...otherPageArticles] = pageArticles;
   const articles = [
+    latestPageArticle,
     ...getArticles().map((a) => ({
       title: a.title,
       description: a.description,
@@ -52,7 +55,7 @@ export default function BlogPage() {
       image: a.cover,
       category: a.category,
     })),
-    ...pageArticles,
+    ...otherPageArticles,
   ];
   return (
     <div className="min-h-screen bg-white font-sans text-gray-900 selection:bg-[#fff1e4] selection:text-[#e8a16b]">
