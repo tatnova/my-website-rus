@@ -67,6 +67,16 @@
       1200
     ]
   },
+  "/kuda-propali-klienty-salon-krasoty.jpg": {
+    "base": "/img/kuda-propali-klienty-salon-krasoty",
+    "width": 1024,
+    "height": 572,
+    "widths": [
+      480,
+      800,
+      1024
+    ]
+  },
   "/luxury-salon-editorial.jpg": {
     "base": "/img/luxury-salon-editorial",
     "width": 479,
