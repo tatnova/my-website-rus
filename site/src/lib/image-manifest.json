@@ -158,6 +158,28 @@
       1200
     ]
   },
+  "/uploads/cases/massazh-israel-740-zayavok/a.jpg": {
+    "base": "/img/uploads-cases-massazh-israel-740-zayavok-a",
+    "width": 1600,
+    "height": 1067,
+    "widths": [
+      480,
+      800,
+      1200,
+      1200
+    ]
+  },
+  "/uploads/cases/massazh-israel-740-zayavok/b.jpg": {
+    "base": "/img/uploads-cases-massazh-israel-740-zayavok-b",
+    "width": 1600,
+    "height": 1075,
+    "widths": [
+      480,
+      800,
+      1200,
+      1200
+    ]
+  },
   "/uploads/cases/massazh-izrail-1949-perepisok-whatsapp/1.jpg": {
     "base": "/img/uploads-cases-massazh-izrail-1949-perepisok-whatsapp-1",
     "width": 1200,
