@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 import type { Metadata } from 'next';
 import { SITE_URL } from '@/lib/site';
@@ -168,6 +169,13 @@ export default function BlogArticle() {
                    <div className="space-y-4">
                       <h4 className="text-lg font-bold text-black">Быстрые ответы</h4>
                       <p>Чем быстрее человек получает ответ, тем выше вероятность записи. Особенно в нишах массажа, косметологии, спа и уходовых процедур.</p>
+                      <p>
+                        Если клиентки приходили и перестали, причина часто не в рекламе. Разбор 528 отзывов клиенток:{' '}
+                        <Link href="/blog/kuda-propali-klienty-salon-krasoty" className="font-bold text-black underline">
+                          как вернуть клиентов в салон красоты
+                        </Link>
+                        .
+                      </p>
                    </div>
                    <div className="space-y-4">
                       <h4 className="text-lg font-bold text-black">Скрипты для WhatsApp и Instagram</h4>

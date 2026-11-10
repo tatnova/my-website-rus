@@ -27,10 +27,18 @@ const pages = [
   '/contact',
 ];
 
+// Дата последнего обновления для страниц, где она известна точно.
+const lastModified: Record<string, string> = {
+  '/blog/kuda-propali-klienty-salon-krasoty': '2026-11-10',
+};
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const all = [...pages, ...getArticles().map((a) => `/blog/${a.slug}`), ...getCases().map((c) => `/cases/${c.slug}`),
     '/en/cases',
     ...getCases('en').map((c) => `/en/cases/${c.slug}`),
   ];
-  return all.map((path) => ({ url: `${SITE_URL}${path === '/' ? '' : path}` }));
+  return all.map((path) => ({
+    url: `${SITE_URL}${path === '/' ? '' : path}`,
+    ...(lastModified[path] ? { lastModified: lastModified[path] } : {}),
+  }));
 }

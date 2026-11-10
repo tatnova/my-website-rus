@@ -174,6 +174,19 @@ export default function CasesClient({
         </div>
       </section>
 
+      <section className="px-5 pb-12 md:px-10 lg:px-20">
+        <Link
+          href="/blog/kuda-propali-klienty-salon-krasoty"
+          className="block rounded-[28px] border border-black/10 bg-white p-6 transition hover:shadow-md md:p-8"
+        >
+          <span className="text-xs font-bold uppercase tracking-widest text-[#a35f2c]">Статья</span>
+          <span className="mt-2 block text-xl font-black md:text-2xl">
+            Почему клиенты перестали ходить в салон красоты и как их вернуть: 7 причин (2026) →
+          </span>
+          <span className="mt-2 block text-sm text-gray-600">Разбор 528 комментариев клиенток, примеры из Израиля и США, чек-лист на ноябрь.</span>
+        </Link>
+      </section>
+
       <section className="px-5 pb-24 md:px-10 lg:px-20">
         <div className="mx-auto max-w-7xl rounded-[36px] bg-[#1f1a17] p-8 text-white md:p-12">
           <p className="text-sm font-semibold uppercase tracking-[0.25em] text-[#d8b18a]">

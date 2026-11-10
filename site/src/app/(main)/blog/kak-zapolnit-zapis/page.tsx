@@ -189,6 +189,13 @@ export default function ArticlePage() {
                   <p>
                     Уже на старте важно внедрять напоминания о повторном визите, follow-up сообщения, CRM и работу с повторными касаниями.
                   </p>
+                  <p>
+                    Почему клиентки не приходят второй раз и как их вернуть, я разобрала на 528 комментариях:{' '}
+                    <Link href="/blog/kuda-propali-klienty-salon-krasoty" className="font-bold text-[#e8a16b] underline">
+                      почему клиенты перестали ходить в салон красоты
+                    </Link>
+                    .
+                  </p>
                 </section>
 
                 <div className="my-10 rounded-[32px] border border-[#f6dcc5] bg-white p-6 shadow-sm">

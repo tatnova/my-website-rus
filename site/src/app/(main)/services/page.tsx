@@ -96,6 +96,18 @@ export default function ServicesPage() {
         </section>
       )}
 
+      <section className="mx-auto mt-16 max-w-6xl px-5 md:px-10">
+        <Link
+          href="/blog/kuda-propali-klienty-salon-krasoty"
+          className="block rounded-3xl border border-[#f6dcc5] bg-[#fff8f1] p-6 transition hover:shadow-md md:p-8"
+        >
+          <span className="text-xs font-bold uppercase tracking-widest text-[#a35f2c]">Полезная статья</span>
+          <span className="mt-2 block text-xl font-black md:text-2xl">
+            Почему клиенты перестали ходить в салон красоты и как их вернуть: 7 причин (2026) →
+          </span>
+        </Link>
+      </section>
+
       <ContactCta
         title="Не знаете, с чего начать?"
         text="Опишите задачу в сообщении, и я подскажу, какая услуга подойдёт именно вам."
