@@ -46,3 +46,40 @@ body {
 .case-body .logo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(72px, 1fr)); gap: 1rem; align-items: center; }
 .case-body .logo-grid figure { margin: 0; }
 .case-body .logo-grid img { max-height: 48px; width: auto; border-radius: 0.5rem; box-shadow: none; }
+
+/* Блоки для «живых» кейсов: воронка, шаги, переписка, проблемы, шкала времени, WhatsApp в тексте. */
+.case-body .cs-label { font-size: 0.75rem; line-height: 1rem; font-weight: 900; letter-spacing: 0.15em; text-transform: uppercase; color: #9ca3af; }
+.case-body .cs-funnel { margin: 2rem 0; border-radius: 1.5rem; background: #fff; padding: 1.25rem; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+.case-body .cs-funnel > * + * { margin-top: 0.75rem; }
+.case-body .cs-bar { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.5rem; width: max(var(--w), 14rem); max-width: 100%; border-radius: 1rem; background: #f6dcc5; color: #7a4316; padding: 0.75rem 1rem; font-size: 1rem; line-height: 1.4; }
+.case-body .cs-bar-dark { background: #c97d45; color: #fff; }
+.case-body .cs-num { font-size: 1.875rem; line-height: 1; font-weight: 900; }
+.case-body .cs-step { font-size: 0.95rem; font-weight: 700; color: #a35f2c; }
+.case-body .cs-note { font-size: 0.95rem; line-height: 1.5; color: #4b5563; }
+.case-body ol.cs-steps { list-style: none; padding: 0; counter-reset: cs; }
+.case-body ol.cs-steps li { counter-increment: cs; position: relative; padding-left: 3rem; }
+.case-body ol.cs-steps li + li { margin-top: 1.25rem; }
+.case-body ol.cs-steps li::before { content: counter(cs); position: absolute; left: 0; top: 0.1rem; width: 2rem; height: 2rem; border-radius: 9999px; background: #c97d45; color: #fff; font-weight: 900; font-size: 1rem; line-height: 2rem; text-align: center; }
+.case-body .cs-chat { display: grid; gap: 1rem; margin: 1.5rem 0; }
+@media (min-width: 768px) { .case-body .cs-chat, .case-body .cs-cards { grid-template-columns: 1fr 1fr; } }
+.case-body .cs-chat-col { border-radius: 1.5rem; background: #efeae2; padding: 1rem; }
+.case-body .cs-chat-col > * + * { margin-top: 0.5rem; }
+.case-body .cs-bad { color: #b91c1c; }
+.case-body .cs-good { color: #15803d; }
+.case-body .cs-msg { max-width: 90%; border-radius: 1rem; padding: 0.5rem 0.75rem; font-size: 0.95rem; line-height: 1.45; box-shadow: 0 1px 1px rgba(0,0,0,0.06); }
+.case-body .cs-in { background: #fff; }
+.case-body .cs-out { margin-left: auto; background: #d9fdd3; }
+.case-body .cs-cards { display: grid; gap: 1rem; margin: 1rem 0; }
+.case-body .cs-card { border-radius: 1.5rem; background: #fff; padding: 1.25rem; font-size: 1rem; line-height: 1.6; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+.case-body .cs-card > * + * { margin-top: 0.5rem; }
+.case-body .cs-card-title { font-size: 1.25rem; font-weight: 900; color: #a35f2c; }
+.case-body ol.cs-timeline { list-style: none; padding: 0 0 0 1.5rem; border-left: 3px solid #f6dcc5; margin-left: 0.5rem; }
+.case-body ol.cs-timeline li { position: relative; }
+.case-body ol.cs-timeline li + li { margin-top: 1.25rem; }
+.case-body ol.cs-timeline li::before { content: ''; position: absolute; left: -2.05rem; top: 0.35rem; width: 1rem; height: 1rem; border-radius: 9999px; background: #c97d45; border: 3px solid #fff8f1; }
+.case-body .cs-date { display: block; font-size: 0.8rem; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; color: #c97d45; }
+.case-body .cs-wa { margin: 2rem 0; border-radius: 1.5rem; background: #fff; padding: 1.25rem; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+.case-body .cs-wa a { display: inline-block; margin-top: 0.75rem; border-radius: 9999px; background: #25D366; color: #fff; padding: 0.85rem 1.5rem; font-weight: 700; text-decoration: none; }
+.case-body table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 1rem; overflow: hidden; font-size: 1rem; }
+.case-body th, .case-body td { padding: 0.6rem 0.9rem; text-align: left; border-bottom: 1px solid #f3e8dc; vertical-align: top; }
+.case-body th { background: #fff1e4; font-weight: 900; }
