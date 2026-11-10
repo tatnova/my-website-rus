@@ -19,6 +19,9 @@ const TEXT = {
     landingLink: (name: string) => `${name}: реклама и кейсы →`,
     ctaTitle: 'Хотите обсудить продвижение своего бизнеса?',
     ctaText: 'Напишите мне в WhatsApp или Telegram — разберём ваш проект, бюджет и точки роста.',
+    waButton: 'Написать в WhatsApp',
+    cplLabel: 'за заявку',
+    leadsLabel: 'заявки и обращения',
     metrics: {} as Partial<Record<keyof CaseMeta, string>>,
   },
   en: {
@@ -35,6 +38,9 @@ const TEXT = {
     landingLink: (name: string) => `${name}: ads and case studies →`,
     ctaTitle: 'Want to talk about growing your business?',
     ctaText: "Message me on WhatsApp or Telegram and we'll go through your project, budget and growth points.",
+    waButton: 'Message me on WhatsApp',
+    cplLabel: 'per lead',
+    leadsLabel: 'leads',
     metrics: {
       period: 'Period',
       ad_budget: 'Ad budget',
@@ -62,13 +68,22 @@ export default function CaseArticle({ c, lang }: { c: Case; lang: Lang }) {
     .map((id) => getNiche(id, lang) ?? (lang === 'en' ? undefined : getNiche(id)))
     .filter((n): n is Niche => !!n && n.published);
   const place = [c.country, c.city].filter(Boolean).join(', ');
+  // Первый экран: та же цифра, что в объявлении (результат кейса), и сразу кнопка WhatsApp.
+  // Если в карточке нет готовой фразы результата, берём число заявок из цифр кейса.
+  const heroBig = c.summary_result || c.leads;
+  const cplInBig = !!c.summary_result && /\s(по|at)\s/.test(c.summary_result);
+  const heroFacts = [
+    !c.summary_result && c.leads && t.leadsLabel,
+    !cplInBig && c.cpl && `${c.cpl} ${t.cplLabel}`,
+    c.period,
+  ].filter(Boolean) as string[];
   const eyebrow = [t.eyebrow, c.niche_label || c.niches.map(nicheName).join(', ').toLowerCase(), place]
     .filter(Boolean)
     .join(' · ');
 
   return (
     <main className="bg-[#fff8f1] text-gray-900">
-      <article className="mx-auto max-w-3xl px-5 py-10 md:py-16">
+      <article className="mx-auto max-w-3xl px-5 pb-10 pt-5 md:py-16">
         <div className="flex items-center justify-between gap-4">
           <Link href={lang === 'en' ? '/en/cases' : '/cases'} className="text-sm font-bold text-[#c97d45]">
             {t.back}
@@ -80,22 +95,33 @@ export default function CaseArticle({ c, lang }: { c: Case; lang: Lang }) {
           )}
         </div>
 
-        <p className="mt-8 text-xs font-black uppercase tracking-[0.25em] text-[#c97d45]">{eyebrow}</p>
+        <p className="mt-5 text-xs font-black uppercase tracking-[0.25em] text-[#c97d45] md:mt-8">{eyebrow}</p>
 
-        <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">{c.title}</h1>
+        <h1 className="mt-3 text-[28px] font-black leading-tight md:mt-4 md:text-5xl">{c.title}</h1>
 
-        <p className="mt-5 rounded-2xl bg-white px-5 py-4 text-sm leading-6 text-gray-700 shadow-sm">{t.intro(c.niche_label)}</p>
+        {heroBig && (
+          <div className="mt-5 flex flex-wrap items-baseline gap-x-4 gap-y-1 rounded-2xl bg-white px-5 py-4 shadow-sm">
+            <span className="text-3xl font-black text-[#c97d45] md:text-4xl">{heroBig}</span>
+            {heroFacts.length > 0 && <span className="text-sm font-semibold text-gray-600">{heroFacts.join(' · ')}</span>}
+          </div>
+        )}
 
-        {c.lead && <p className="mt-5 text-lg leading-8 text-gray-600">{c.lead}</p>}
-
-        <div className="mt-7 flex flex-wrap gap-3">
-          <a href={wa} target="_blank" className="rounded-full bg-black px-6 py-3 text-sm font-bold text-white">
-            WhatsApp
+        <div className="mt-5 flex flex-wrap items-center gap-3">
+          <a
+            href={wa}
+            target="_blank"
+            className="inline-flex flex-1 items-center justify-center rounded-full bg-[#1a8f4c] px-6 py-3.5 text-base font-bold text-white shadow-lg sm:flex-none"
+          >
+            {t.waButton}
           </a>
-          <a href={tg} target="_blank" className="rounded-full border border-gray-300 bg-white px-6 py-3 text-sm font-bold">
+          <a href={tg} target="_blank" className="rounded-full border border-gray-300 bg-white px-6 py-3.5 text-sm font-bold">
             Telegram
           </a>
         </div>
+
+        {c.lead && <p className="mt-6 text-lg leading-8 text-gray-600">{c.lead}</p>}
+
+        <p className="mt-5 rounded-2xl bg-white px-5 py-4 text-sm leading-6 text-gray-700 shadow-sm">{t.intro(c.niche_label)}</p>
 
         {metrics.length > 0 && (
           <section className="mt-10 rounded-3xl bg-white p-5 shadow-sm md:p-7">
@@ -123,7 +149,7 @@ export default function CaseArticle({ c, lang }: { c: Case; lang: Lang }) {
           <section className="mt-12 rounded-3xl bg-white p-6 shadow-sm">
             <h2 className="text-2xl font-black">{t.landingsTitle}</h2>
             <p className="mt-3 text-gray-600">{t.landingsText}</p>
-            <div className="mt-5 flex flex-wrap gap-3">
+            <div className="mt-5 flex flex-wrap items-center gap-3">
               {landings.map((n) => (
                 <a
                   key={n.id}
@@ -140,7 +166,7 @@ export default function CaseArticle({ c, lang }: { c: Case; lang: Lang }) {
         <section className="mt-12 rounded-3xl bg-black p-6 text-white">
           <h2 className="text-2xl font-black">{t.ctaTitle}</h2>
           <p className="mt-3 text-white/70">{t.ctaText}</p>
-          <div className="mt-5 flex flex-wrap gap-3">
+          <div className="mt-5 flex flex-wrap items-center gap-3">
             <a href={wa} target="_blank" className="rounded-full bg-white px-6 py-3 text-sm font-bold text-black">
               WhatsApp
             </a>

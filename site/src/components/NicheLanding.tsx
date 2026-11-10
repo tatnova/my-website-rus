@@ -54,6 +54,11 @@ export default function NicheLanding({ n, lang }: { n: Niche; lang: Lang }) {
   const heroMeta = (manifest as Record<string, { width: number; height: number }>)[n.hero_image];
   const heroLandscape = heroMeta ? heroMeta.width > heroMeta.height : false;
 
+  // Цифра на первом экране (на телефоне тоже): своя из hero_stat_value или первая цифра из кейсов ниши.
+  const heroStat = n.hero_stat_value
+    ? { value: n.hero_stat_value, label: n.hero_stat_label }
+    : n.stats[0] ? { value: n.stats[0].value, label: n.stats[0].label } : null;
+
   const [beforeAccent, afterAccent] =
     n.hero_accent && n.hero_title.includes(n.hero_accent)
       ? n.hero_title.split(n.hero_accent, 2)
@@ -100,14 +105,14 @@ export default function NicheLanding({ n, lang }: { n: Niche; lang: Lang }) {
 
       <main>
         {/* 1. Оффер */}
-        <section className="mx-auto flex max-w-7xl flex-col items-center gap-16 px-6 pb-24 pt-12 md:flex-row md:pt-20">
+        <section className="mx-auto flex max-w-7xl flex-col items-center gap-12 px-6 pb-24 pt-4 md:flex-row md:gap-16 md:pt-20">
           <div className="flex-1">
             {n.badge && (
-              <div className="mb-6 inline-block rounded-lg bg-[#fff1e4] px-4 py-2 text-sm font-bold uppercase tracking-widest text-[#a35f2c]">
+              <div className="mb-4 inline-block rounded-lg bg-[#fff1e4] px-4 py-2 text-xs font-bold uppercase tracking-widest text-[#a35f2c] md:mb-6 md:text-sm">
                 {n.badge}
               </div>
             )}
-            <h1 className="mb-8 text-5xl font-black leading-none tracking-tighter md:text-7xl">
+            <h1 className="mb-5 text-[40px] font-black leading-none tracking-tighter md:mb-8 md:text-7xl">
               {beforeAccent}
               {afterAccent !== null && (
                 <>
@@ -116,13 +121,23 @@ export default function NicheLanding({ n, lang }: { n: Niche; lang: Lang }) {
                 </>
               )}
             </h1>
+            {/* На телефоне цифра и кнопки сразу под заголовком, чтобы их было видно без прокрутки. */}
+            <div className="md:hidden">
+              {heroStat && (
+                <p className="flex flex-wrap items-baseline gap-x-3">
+                  <span className="text-3xl font-black text-[var(--accent)]">{heroStat.value}</span>
+                  <span className="text-sm font-semibold text-gray-600">{heroStat.label}</span>
+                </p>
+              )}
+              {buttons('mt-5')}
+            </div>
             {n.hero_text && (
               <p
-                className="mb-10 max-w-xl text-xl font-medium text-gray-600 md:text-2xl"
+                className="mt-8 max-w-xl text-lg font-medium text-gray-600 md:mb-10 md:mt-0 md:text-2xl"
                 dangerouslySetInnerHTML={{ __html: inlineMarkdown(n.hero_text) }}
               />
             )}
-            {buttons('mt-6')}
+            <div className="hidden md:block">{buttons('mt-6')}</div>
           </div>
           {n.hero_image && (
             <div className="relative w-full flex-1">
