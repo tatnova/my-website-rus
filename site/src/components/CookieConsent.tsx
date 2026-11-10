@@ -13,6 +13,7 @@ const TEXT = {
   ru: {
     label: 'Настройки cookie',
     title: 'Cookie на этом сайте',
+    short: 'Я использую cookie для статистики (Google Analytics) и рекламы (Meta Pixel, TikTok Pixel).',
     body: 'Я использую cookie, чтобы считать посещения (Google Analytics) и показывать рекламу тем, кто заходил на сайт (Meta Pixel, TikTok Pixel). Вы можете разрешить всё, отказаться или выбрать сами. Изменить решение можно в любой момент по ссылке «Настройки cookie» внизу страницы.',
     more: 'Подробнее',
     needed: ['Необходимые', 'запоминают ваш выбор по cookie. Всегда включены.'],
@@ -26,6 +27,7 @@ const TEXT = {
   en: {
     label: 'Cookie settings',
     title: 'Cookies on this site',
+    short: 'I use cookies for analytics (Google Analytics) and ads (Meta Pixel, TikTok Pixel).',
     body: 'I use cookies to count visits (Google Analytics) and to show ads to people who have visited the site (Meta Pixel, TikTok Pixel). You can allow all, decline, or choose yourself. You can change your choice at any time with the “Cookie settings” link at the bottom of the page.',
     more: 'Learn more',
     needed: ['Necessary', 'remember your cookie choice. Always on.'],
@@ -94,12 +96,13 @@ export default function CookieConsent({ lang = 'ru' }: { lang?: Lang }) {
       role="dialog"
       aria-live="polite"
       aria-label={t.label}
-      className="fixed inset-x-0 bottom-0 z-[100] p-3 md:p-5"
+      className="fixed inset-x-0 bottom-0 z-[100] p-2 md:p-5"
     >
-      <div className="mx-auto max-w-3xl rounded-2xl border border-gray-200 bg-white p-5 text-sm text-gray-700 shadow-2xl md:p-6">
-        <p className="font-bold text-gray-900">{t.title}</p>
-        <p className="mt-2 leading-relaxed">
-          {t.body}{' '}
+      {/* Компактный баннер: на телефоне не закрывает первый экран. Полный текст и выбор — по кнопке «Настроить». */}
+      <div className="mx-auto max-w-3xl rounded-2xl border border-gray-200 bg-white p-3 text-xs text-gray-700 shadow-2xl md:p-6 md:text-sm">
+        {details && <p className="font-bold text-gray-900">{t.title}</p>}
+        <p className={`leading-relaxed ${details ? 'mt-2' : ''}`}>
+          {details ? t.body : t.short}{' '}
           <a href="/privacy-policy#cookies" className="underline hover:text-black">
             {t.more}
           </a>
@@ -138,18 +141,18 @@ export default function CookieConsent({ lang = 'ru' }: { lang?: Lang }) {
           </div>
         )}
 
-        <div className="mt-4 flex flex-wrap gap-2">
+        <div className="mt-2 flex flex-wrap gap-2 md:mt-4">
           <button
             type="button"
             onClick={() => save({ analytics: true, marketing: true })}
-            className="rounded-full bg-black px-5 py-2.5 font-bold text-white"
+            className="rounded-full bg-black px-4 py-2 font-bold text-white md:px-5 md:py-2.5"
           >
             {t.all}
           </button>
           <button
             type="button"
             onClick={() => save({ analytics: false, marketing: false })}
-            className="rounded-full bg-black px-5 py-2.5 font-bold text-white"
+            className="rounded-full bg-black px-4 py-2 font-bold text-white md:px-5 md:py-2.5"
           >
             {t.none}
           </button>
@@ -157,7 +160,7 @@ export default function CookieConsent({ lang = 'ru' }: { lang?: Lang }) {
             <button
               type="button"
               onClick={() => save(choice)}
-              className="rounded-full border border-gray-300 px-5 py-2.5 font-bold"
+              className="rounded-full border border-gray-300 px-4 py-2 font-bold md:px-5 md:py-2.5"
             >
               {t.save}
             </button>
@@ -165,7 +168,7 @@ export default function CookieConsent({ lang = 'ru' }: { lang?: Lang }) {
             <button
               type="button"
               onClick={() => setDetails(true)}
-              className="rounded-full border border-gray-300 px-5 py-2.5 font-bold"
+              className="rounded-full border border-gray-300 px-4 py-2 font-bold md:px-5 md:py-2.5"
             >
               {t.setup}
             </button>
