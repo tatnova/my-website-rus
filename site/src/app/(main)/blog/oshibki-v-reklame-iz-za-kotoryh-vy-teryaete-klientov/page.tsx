@@ -220,6 +220,13 @@ export default function BlogArticle() {
                 <p className="text-xl md:text-2xl font-medium leading-[1.6] text-[#1f1a17]">
                   Бьюти-бизнес — это система, а не лотерея. Рост вашего дохода требует синхронизации рекламы, удобного интерфейса записи и автоматических напоминаний, которые делают путь клиента бесшовным.
                 </p>
+                <p className="text-lg leading-[1.7] text-gray-600">
+                  Если клиенты уже были, но стали ходить реже, прочитайте разбор:{' '}
+                  <Link href="/blog/kuda-propali-klienty-salon-krasoty" className="font-bold text-[#e8a16b] underline">
+                    почему клиенты перестали ходить в салон красоты и как их вернуть
+                  </Link>
+                  .
+                </p>
                 
                 <div className="flex items-center gap-5 p-8 bg-white border border-gray-100 rounded-xl">
                    <div className="h-14 w-14 rounded-full bg-gray-50 flex items-center justify-center text-[#e8a16b] font-bold text-sm">TN</div>

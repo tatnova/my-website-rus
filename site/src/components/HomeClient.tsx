@@ -65,16 +65,16 @@ const steps = [
 
 const articles = [
   {
+    title: 'Почему клиенты перестали ходить в салон красоты и как их вернуть: 7 причин (2026)',
+    href: '/blog/kuda-propali-klienty-salon-krasoty',
+  },
+  {
     title: 'Как заполнить запись в новом салоне красоты в США за 6 недель без демпинга',
     href: '/blog/kak-zapolnit-zapis',
   },
   {
     title: 'Почему реклама не даёт результата и как это исправить',
     href: '/blog/pochemu-reklama-ne-daet-rezultata-i-kak-eto-ispravit',
-  },
-  {
-    title: 'Ошибки в рекламе, из-за которых вы теряете клиентов',
-    href: '/blog/oshibki-v-reklame-iz-za-kotoryh-vy-teryaete-klientov',
   },
 ];
 

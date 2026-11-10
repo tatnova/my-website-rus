@@ -6,13 +6,25 @@ import { SITE_URL } from '@/lib/site';
 
 const SLUG = 'kuda-propali-klienty-salon-krasoty';
 const HERO = '/kuda-propali-klienty-salon-krasoty.jpg';
+const TITLE = 'Почему клиенты перестали ходить в салон красоты и как их вернуть: 7 причин (2026)';
+const DESCRIPTION =
+  'Нет клиентов в салоне красоты: что делать? Разобрала 528 комментариев клиенток: 7 причин, почему клиенты перестали ходить в салон, как вернуть клиентов и чек-лист на ноябрь. Примеры из Израиля и США.';
+const PUBLISHED = '2026-11-09';
+const MODIFIED = '2026-11-10';
 
 export const metadata: Metadata = {
-  title: { absolute: 'Куда пропали клиенты в салоне красоты: 7 причин и что делать' },
-  description:
-    'Разобрала 528 комментариев клиенток: 7 причин, почему они перестали ходить в салон, что делать с каждой и чек-лист на ноябрь.',
+  title: { absolute: TITLE },
+  description: DESCRIPTION,
   alternates: { canonical: `${SITE_URL}/blog/${SLUG}` },
-  openGraph: { images: [HERO] },
+  openGraph: {
+    type: 'article',
+    title: TITLE,
+    description: DESCRIPTION,
+    images: [HERO],
+    publishedTime: PUBLISHED,
+    modifiedTime: MODIFIED,
+    authors: ['Татьяна Ричманн'],
+  },
 };
 
 const reasons = [
@@ -80,6 +92,10 @@ const checklist = [
 
 const faq = [
   {
+    q: 'Как вернуть клиентов в салон красоты в Израиле или США?',
+    a: 'Те же 7 причин работают и там. Отличие в канале: в Израиле клиентки пишут в WhatsApp и ждут ответа сразу, в США важны онлайн-запись и быстрый ответ в Instagram. Начните с напоминания о повторном визите и записи на следующий раз прямо при оплате.',
+  },
+  {
     q: 'Почему клиенты перестали ходить в салон красоты в 2026 году?',
     a: 'По ответам клиенток три главные причины: дорого (30%), надоел гель и хочется натуральности (23%), жалко времени на долгую процедуру и запись (18%). Уход к другому мастеру встречается реже.',
   },
@@ -102,6 +118,13 @@ const faq = [
 ];
 
 const cases = [
+  {
+    href: '/cases/massazh-israel-740-zayavok',
+    place: 'Массаж, Израиль',
+    big: '740',
+    unit: 'заявок за 3 месяца',
+    text: 'Мастер после курсов, без базы и с пустым профилем. Заявка в среднем 4,92 ₪.',
+  },
   {
     href: '/cases/keis-salon-krasoty-illinois-794-obrashcheniya-160-klientov',
     place: 'Салон красоты, Чикаго',
@@ -149,6 +172,20 @@ function Reason({ n, title, children }: { n: number; title: string; children: Re
   );
 }
 
+const articleJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: TITLE,
+  description: DESCRIPTION,
+  image: [`${SITE_URL}${HERO}`],
+  datePublished: PUBLISHED,
+  dateModified: MODIFIED,
+  inLanguage: 'ru',
+  mainEntityOfPage: `${SITE_URL}/blog/${SLUG}`,
+  author: { '@type': 'Person', name: 'Татьяна Ричманн', url: `${SITE_URL}/about` },
+  publisher: { '@type': 'Person', name: 'Татьяна Ричманн', url: SITE_URL },
+};
+
 const faqJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
@@ -158,6 +195,7 @@ const faqJsonLd = {
 export default function ArticlePage() {
   return (
     <div className="min-h-screen bg-white font-sans text-gray-900 selection:bg-[#fff1e4] selection:text-[#e8a16b]">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <style>{`
         @keyframes kp-grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
@@ -184,13 +222,14 @@ export default function ArticlePage() {
             </Link>
             <div className="kp-rise mt-10 max-w-3xl">
               <div className="inline-flex rounded-full bg-white/15 px-3 py-2 text-xs font-bold uppercase tracking-widest text-[#f2c29b] backdrop-blur">
-                Разбор · ноябрь 2026
+                Разбор · <time dateTime={PUBLISHED}>9 ноября 2026</time> · обновлено <time dateTime={MODIFIED}>10 ноября 2026</time>
               </div>
               <h1 className="mt-5 text-4xl font-extrabold leading-[1.08] md:text-6xl">
-                Куда пропали клиенты в салоне красоты: 7 причин и что делать с каждой
+                Почему клиенты перестали ходить в салон красоты и как их вернуть: 7 причин (2026)
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/80 md:text-xl">
-                Я прочитала 528 комментариев клиенток о том, почему они перестали ходить к мастеру, и посчитала ответы.
+                Нет клиентов в салоне красоты и непонятно, что делать? Я прочитала 528 комментариев клиенток о том, почему они перестали
+                ходить в салон, посчитала ответы и собрала, как вернуть клиентов в салон красоты по каждой причине.
               </p>
             </div>
             <div className="kp-rise mt-10 grid max-w-3xl grid-cols-3 gap-3 md:gap-4" style={{ animationDelay: '.2s' }}>
@@ -227,6 +266,7 @@ export default function ArticlePage() {
               <li><a href="#reasons" className="hover:text-[#c97d45]">7 причин в цифрах</a></li>
               <li><a href="#voices" className="hover:text-[#c97d45]">Что пишут клиентки</a></li>
               <li><a href="#what-to-do" className="hover:text-[#c97d45]">Что делать с каждой причиной</a></li>
+              <li><a href="#israel-usa" className="hover:text-[#c97d45]">Израиль и США</a></li>
               <li><a href="#diagnostics" className="hover:text-[#c97d45]">Где вы теряете клиенток</a></li>
               <li><a href="#checklist" className="hover:text-[#c97d45]">Чек-лист на ноябрь</a></li>
               <li><a href="#faq" className="hover:text-[#c97d45]">Частые вопросы</a></li>
@@ -235,7 +275,7 @@ export default function ArticlePage() {
 
           {/* Ситуация */}
           <Section id="situation">
-            <h2 className="mt-14 text-3xl font-black md:text-4xl">Что происходит с записями осенью 2026</h2>
+            <h2 className="mt-14 text-3xl font-black md:text-4xl">Что происходит с записями в салонах осенью 2026</h2>
             <p className="mt-4 text-[18px] leading-8 text-gray-700">
               Мастера и владелицы салонов пишут одно и то же: «Клиентов нет, новые не идут, старые уходят. Такого не было никогда».
               Мастера в Европе и США добавляют, что ноябрь пустой до середины декабря.
@@ -282,7 +322,7 @@ export default function ArticlePage() {
 
           {/* График причин */}
           <Section id="reasons">
-            <h2 className="mt-16 text-3xl font-black md:text-4xl">7 причин, почему клиентки перестали ходить</h2>
+            <h2 className="mt-16 text-3xl font-black md:text-4xl">7 причин, почему клиенты перестали ходить в салон красоты</h2>
             <p className="mt-4 text-[18px] leading-8 text-gray-700">
               Так распределились ответы 528 клиенток. Один комментарий иногда называет две причины, поэтому сумма больше 100%.
             </p>
@@ -332,7 +372,7 @@ export default function ArticlePage() {
 
           {/* Что делать */}
           <Section id="what-to-do">
-            <h2 className="mt-16 text-3xl font-black md:text-4xl">Что делать с каждой причиной</h2>
+            <h2 className="mt-16 text-3xl font-black md:text-4xl">Как вернуть клиентов в салон красоты: что делать с каждой причиной</h2>
 
             <Reason n={1} title="«Дорого» (30%)">
               <p>
@@ -409,9 +449,35 @@ export default function ArticlePage() {
             </Reason>
           </Section>
 
+          {/* Израиль и США */}
+          <Section id="israel-usa">
+            <h2 className="mt-16 text-3xl font-black md:text-4xl">Как вернуть клиентов в салон в Израиле и США</h2>
+            <p className="mt-4 text-[18px] leading-8 text-gray-700">
+              Причины одни и те же, но каналы разные. От этого зависит, где салон теряет клиентку.
+            </p>
+            <div className="mt-6 grid gap-4 md:grid-cols-2">
+              <div className="rounded-[28px] border border-[#f6dcc5] bg-white p-6">
+                <div className="text-xs font-bold uppercase tracking-widest text-[#c97d45]">Израиль</div>
+                <p className="mt-3 text-[16px] leading-7 text-gray-700">
+                  Клиентки пишут в WhatsApp и ждут ответа сразу. Ответ через час часто означает потерянную запись. В кейсе с массажем
+                  в Петах-Тикве мы получили <Link href="/cases/massazh-israel-740-zayavok" className="font-bold text-[#c97d45] underline">740 заявок за 3 месяца</Link>,
+                  и запись держалась на быстрых ответах по скрипту.
+                </p>
+              </div>
+              <div className="rounded-[28px] border border-[#f6dcc5] bg-white p-6">
+                <div className="text-xs font-bold uppercase tracking-widest text-[#c97d45]">США</div>
+                <p className="mt-3 text-[16px] leading-7 text-gray-700">
+                  Клиентка спрашивает цену и уходит, если в ответ получает только прайс. В
+                  <Link href="/cases/keys-prodvizhenie-parikmaherskoj-v-ssha-meta-ads" className="font-bold text-[#c97d45] underline"> кейсе парикмахерской в США</Link>{' '}
+                  доработка переписки дала 78 новых клиентов за 3 месяца и $15 450 выручки с первых визитов.
+                </p>
+              </div>
+            </div>
+          </Section>
+
           {/* Диагностика */}
           <Section id="diagnostics">
-            <h2 className="mt-16 text-3xl font-black md:text-4xl">Как понять, где именно вы теряете клиенток</h2>
+            <h2 className="mt-16 text-3xl font-black md:text-4xl">Нет клиентов в салоне красоты: как понять, где вы их теряете</h2>
             <p className="mt-4 text-[18px] leading-8 text-gray-700">
               Ответьте на три вопроса по цифрам за октябрь и за тот же месяц прошлого года.
             </p>
@@ -492,7 +558,7 @@ export default function ArticlePage() {
 
           <section className="mt-12">
             <h2 className="text-2xl font-black md:text-3xl">Как это выглядит в цифрах: кейсы</h2>
-            <div className="mt-6 grid gap-4 md:grid-cols-3">
+            <div className="mt-6 grid gap-4 md:grid-cols-2">
               {cases.map((c) => (
                 <Link
                   key={c.href}
