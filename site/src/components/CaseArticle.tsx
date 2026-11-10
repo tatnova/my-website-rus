@@ -18,7 +18,9 @@ const TEXT = {
     landingsText: 'Как я работаю с проектами в этой нише, другие кейсы и ответы на частые вопросы:',
     landingLink: (name: string) => `${name}: реклама и кейсы →`,
     waButton: 'Написать в WhatsApp',
-    resultSub: (period: string, cpl: string) => [period && `за ${period}`, cpl && `заявка ${cpl}`].filter(Boolean).join(' · '),
+    waText: (title: string) => `Здравствуйте! Прочитала кейс «${title}». Моя ниша и город: `,
+    summary: { niche: 'Ниша', place: 'Где', period: 'Срок', result: 'Результат' },
+    resultSub: (cpl: string) => (cpl ? `цена заявки ${cpl}` : ''),
     ctaTitle: 'Хотите обсудить продвижение своего бизнеса?',
     ctaText: 'Напишите мне в WhatsApp или Telegram — разберём ваш проект, бюджет и точки роста.',
     metrics: {} as Partial<Record<keyof CaseMeta, string>>,
@@ -36,7 +38,9 @@ const TEXT = {
     landingsText: 'How I work with businesses in this niche, more case studies and answers to common questions:',
     landingLink: (name: string) => `${name}: ads and case studies →`,
     waButton: 'Message me on WhatsApp',
-    resultSub: (period: string, cpl: string) => [period && `in ${period}`, cpl && `cost per lead ${cpl}`].filter(Boolean).join(' · '),
+    waText: (title: string) => `Hi! I read your case study "${title}". My business and city: `,
+    summary: { niche: 'Niche', place: 'Location', period: 'Period', result: 'Result' },
+    resultSub: (cpl: string) => (cpl ? `cost per lead ${cpl}` : ''),
     ctaTitle: 'Want to talk about growing your business?',
     ctaText: "Message me on WhatsApp or Telegram and we'll go through your project, budget and growth points.",
     metrics: {
@@ -56,7 +60,8 @@ const TEXT = {
 export default function CaseArticle({ c, lang }: { c: Case; lang: Lang }) {
   const t = TEXT[lang];
   const s = getSettings();
-  const wa = `https://wa.me/${s.whatsapp_phone}`;
+  // Готовый текст: человеку проще начать, а в переписке сразу видно, с какого кейса он пришёл.
+  const wa = `https://wa.me/${s.whatsapp_phone}?text=${encodeURIComponent(t.waText(c.card_title || c.title))}`;
   const tg = `https://t.me/${s.telegram_username}`;
   const metrics = CASE_METRICS.filter(([key]) => c[key]).map(([key, label]) => [key, t.metrics[key] ?? label] as const);
   const other: Lang = lang === 'ru' ? 'en' : 'ru';
@@ -65,7 +70,7 @@ export default function CaseArticle({ c, lang }: { c: Case; lang: Lang }) {
   const landings = c.niches
     .map((id) => getNiche(id, lang) ?? (lang === 'en' ? undefined : getNiche(id)))
     .filter((n): n is Niche => !!n && n.published);
-  const resultSub = t.resultSub(c.period, c.cpl);
+  const resultSub = t.resultSub(c.cpl);
   const place = [c.country, c.city].filter(Boolean).join(', ');
   const eyebrow = [t.eyebrow, c.niche_label || c.niches.map(nicheName).join(', ').toLowerCase(), place]
     .filter(Boolean)
@@ -91,9 +96,27 @@ export default function CaseArticle({ c, lang }: { c: Case; lang: Lang }) {
 
         {/* Первый экран: та же цифра, что в объявлении, и сразу кнопка WhatsApp */}
         {c.summary_result && (
-          <div className="mt-5 rounded-2xl bg-white px-5 py-4 shadow-sm">
-            <div className="text-3xl font-black text-[#c97d45] md:text-4xl">{c.summary_result}</div>
-            {resultSub && <div className="mt-1 text-sm font-semibold text-gray-600">{resultSub}</div>}
+          <div className="mt-5 rounded-2xl bg-white px-5 py-3 shadow-sm">
+            <div className="flex flex-wrap items-baseline gap-x-3">
+              <span className="text-3xl font-black text-[#c97d45] md:text-4xl">{c.summary_result}</span>
+              {resultSub && <span className="text-sm font-semibold text-gray-600">{resultSub}</span>}
+            </div>
+            <dl className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-sm text-gray-700">
+              {(
+                [
+                  [t.summary.niche, c.niche_label || c.niches.map(nicheName).join(', ').toLowerCase()],
+                  [t.summary.place, place],
+                  [t.summary.period, c.period],
+                ] as const
+              )
+                .filter(([, v]) => v)
+                .map(([k, v]) => (
+                  <div key={k} className="flex gap-1">
+                    <dt className="text-gray-400">{k}:</dt>
+                    <dd className="font-semibold">{v}</dd>
+                  </div>
+                ))}
+            </dl>
           </div>
         )}
 
