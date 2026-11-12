@@ -9,8 +9,6 @@ const TEXT = {
     eyebrow: 'Кейс по рекламе',
     back: '← Все кейсы',
     switch: 'English version',
-    intro: (niche: string) =>
-      `Это кейс по таргетированной рекламе${niche ? ` в нише «${niche}»` : ''}. Я, Татьяна Ричманн, настраиваю и веду рекламу в Facebook и Instagram для бизнеса. Сами услуги клиента я не оказываю.`,
     result: 'Результат в цифрах',
     creatives: 'Рекламные макеты',
     proof: 'Скриншоты из рекламного кабинета',
@@ -29,8 +27,6 @@ const TEXT = {
     eyebrow: 'Ad case study',
     back: '← All case studies',
     switch: 'Русская версия',
-    intro: (niche: string) =>
-      `This is a paid social case study${niche ? ` in ${niche}` : ''}. I'm Tatyana Richmann: I set up and run Facebook and Instagram ads for businesses. I don't provide the client's services myself.`,
     result: 'Results in numbers',
     creatives: 'Ad creatives',
     proof: 'Ads Manager screenshots',
@@ -130,8 +126,6 @@ export default function CaseArticle({ c, lang }: { c: Case; lang: Lang }) {
         </div>
 
         {c.lead && <p className="mt-6 text-lg leading-8 text-gray-600">{c.lead}</p>}
-
-        <p className="mt-5 rounded-2xl bg-white px-5 py-4 text-sm leading-6 text-gray-700 shadow-sm">{t.intro(c.niche_label)}</p>
 
         {metrics.length > 0 && (
           <section className="mt-10 rounded-3xl bg-white p-5 shadow-sm md:p-7">
