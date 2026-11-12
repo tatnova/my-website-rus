@@ -57,7 +57,7 @@ export default function RazborPage() {
           <ResponsiveImage
             sizes="(min-width: 768px) 50vw, 100vw"
             src="/tatyana-richmann-studiya-rubashka.jpg"
-            alt="Татьяна Ричманн"
+            alt="Татьяна Ричманн, реклама и ИИ-сотрудники для салонов красоты"
             className="mt-auto aspect-[16/9] w-full object-cover object-[50%_22%]"
           />
         </div>

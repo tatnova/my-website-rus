@@ -35,7 +35,7 @@ show_on_home: false
 draft: false
 order: 50
 ---
-<div class="tr-case"><figure class="ph hero-ph"><img src="/uploads/cases/korrekciya-figury-izrail-101-perepiska-85-zayavok/1.jpg" alt="A specialist giving a client an LPG massage" style="object-position:center 40%"><span class="cap">Illustrative photo</span></figure><div class="col"><div class="stats"><div class="stat key"><b>101</b><span>WhatsApp conversations at ₪16.01</span></div><div class="stat key"><b>85</b><span>instant form leads at ₪29.80</span></div><div class="stat"><b>₪4,149.91</b><span>spent on the conversations and leads campaigns</span></div><div class="stat"><b>₪10.48</b><span>cheapest conversation: the creative showing the first-session price</span></div></div></div>
+<div class="tr-case"><figure class="ph hero-ph"><img src="/uploads/cases/korrekciya-figury-izrail-101-perepiska-85-zayavok/1.jpg" alt="LPG massage at a body contouring studio in Israel: 101 conversations and 85 leads in 6 months" style="object-position:center 40%"><span class="cap">LPG massage: 101 conversations and 85 leads for a body contouring studio</span></figure><div class="col"><div class="stats"><div class="stat key"><b>101</b><span>WhatsApp conversations at ₪16.01</span></div><div class="stat key"><b>85</b><span>instant form leads at ₪29.80</span></div><div class="stat"><b>₪4,149.91</b><span>spent on the conversations and leads campaigns</span></div><div class="stat"><b>₪10.48</b><span>cheapest conversation: the creative showing the first-session price</span></div></div></div>
 <div class="col">
 <h2>About the project</h2>
 <p>The studio offers machine-based body contouring: vacuum-roller anti-cellulite massage, cavitation and RF lifting. Its clients are mostly women. I joined the project in April 2026, when ads were already running in the account, so this case study covers only my period: 21 April to 20 October.</p>
@@ -57,8 +57,8 @@ order: 50
 <p><b>Placements.</b> Feed, Stories and Reels on Instagram and Facebook.</p>
 </div>
 <div class="wide"><div class="gal">
-<figure class="ph "><img src="/uploads/cases/korrekciya-figury-izrail-101-perepiska-85-zayavok/2.jpg" alt="Machine massage for body contouring" style="object-position:center"><span class="cap">Illustrative photo</span></figure>
-<figure class="ph "><img src="/uploads/cases/korrekciya-figury-izrail-101-perepiska-85-zayavok/3.jpg" alt="A vacuum-roller device in use" style="object-position:center"><span class="cap">Illustrative photo</span></figure>
+<figure class="ph "><img src="/uploads/cases/korrekciya-figury-izrail-101-perepiska-85-zayavok/2.jpg" alt="Machine massage for body contouring: advertising a studio in Israel" style="object-position:center"><span class="cap">Machine massage: advertising a body contouring studio in Israel</span></figure>
+<figure class="ph "><img src="/uploads/cases/korrekciya-figury-izrail-101-perepiska-85-zayavok/3.jpg" alt="Vacuum-roller massage: how a body contouring studio gets leads from ads" style="object-position:center"><span class="cap">Vacuum-roller massage: leads from ads</span></figure>
 </div></div>
 <div class="col">
 <h2>Offers and ad creatives</h2>
@@ -103,7 +103,7 @@ order: 50
 <li><b>The cheapest leads came from Instagram Reels</b>, at ₪19.93. In Facebook Reels a lead cost twice as much, ₪42.77.</li>
 </ul>
 </div>
-<div class="wide"><figure class="ph band"><img src="/uploads/cases/korrekciya-figury-izrail-101-perepiska-85-zayavok/4.jpg" alt="An RF lifting treatment" style="object-position:center 45%"><span class="cap">Illustrative photo</span></figure></div>
+<div class="wide"><figure class="ph band"><img src="/uploads/cases/korrekciya-figury-izrail-101-perepiska-85-zayavok/4.jpg" alt="Body RF lifting: promoting a body contouring studio in Israel" style="object-position:center 45%"><span class="cap">RF lifting: promoting a body contouring studio</span></figure></div>
 <div class="col">
 <h2>Summary</h2>
 <ul>

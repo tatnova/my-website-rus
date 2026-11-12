@@ -34,7 +34,7 @@ show_on_home: false
 draft: false
 order: 50
 ---
-<div class="tr-case"><figure class="ph hero-ph"><img src="/uploads/cases/osteopat-izrail-125-perepisok/1.jpg" alt="Остеопат проводит приём пациентки" style="object-position:center 15%"><span class="cap">Фото иллюстративное</span></figure><div class="col"><div class="stats"><div class="stat key"><b>125</b><span>переписок с новыми пациентками</span></div><div class="stat key"><b>14,60&nbsp;шек</b><span>средняя цена переписки</span></div><div class="stat"><b>−37%</b><span>цена переписки после обновления макетов</span></div><div class="stat"><b>1&nbsp;825,62&nbsp;шек</b><span>расход на кампанию с перепиской</span></div></div></div>
+<div class="tr-case"><figure class="ph hero-ph"><img src="/uploads/cases/osteopat-izrail-125-perepisok/1.jpg" alt="Приём у остеопата в Израиле: 125 переписок с новыми пациентками за 9,5 недели" style="object-position:center 15%"><span class="cap">Остеопат в Израиле: 125 переписок с новыми пациентками</span></figure><div class="col"><div class="stats"><div class="stat key"><b>125</b><span>переписок с новыми пациентками</span></div><div class="stat key"><b>14,60&nbsp;шек</b><span>средняя цена переписки</span></div><div class="stat"><b>−37%</b><span>цена переписки после обновления макетов</span></div><div class="stat"><b>1&nbsp;825,62&nbsp;шек</b><span>расход на кампанию с перепиской</span></div></div></div>
 <div class="col">
 <h2>Информация о проекте</h2>
 <p>Частный специалист-остеопат в Израиле. Реклама на русском языке и от лица самой специалистки: о последствиях травм копчика, об осанке у детей, о связи живота и самочувствия. Рекламу показывали женщинам от 25 лет в своём городе и ближайших районах. Работа идёт с 14 августа 2026 года.</p>
@@ -53,8 +53,8 @@ order: 50
 <p><b>Аудитория.</b> Женщины от 25 лет, город и ближайшие районы.</p>
 </div>
 <div class="wide"><div class="gal">
-<figure class="ph "><img src="/uploads/cases/osteopat-izrail-125-perepisok/2.jpg" alt="Остеопат проверяет подвижность шеи пациентки" style="object-position:center 30%"><span class="cap">Фото иллюстративное</span></figure>
-<figure class="ph "><img src="/uploads/cases/osteopat-izrail-125-perepisok/3.jpg" alt="Остеопат работает со спиной пациентки" style="object-position:center 40%"><span class="cap">Фото иллюстративное</span></figure>
+<figure class="ph "><img src="/uploads/cases/osteopat-izrail-125-perepisok/2.jpg" alt="Остеопат проверяет подвижность шеи: продвижение частного остеопата в Израиле" style="object-position:center 30%"><span class="cap">Продвижение частного остеопата в Израиле</span></figure>
+<figure class="ph "><img src="/uploads/cases/osteopat-izrail-125-perepisok/3.jpg" alt="Остеопат работает со спиной пациентки: реклама остеопатии в Instagram и Facebook" style="object-position:center 40%"><span class="cap">Реклама остеопатии в Instagram и Facebook</span></figure>
 </div></div>
 <div class="col">
 <h2>Рекламные макеты</h2>

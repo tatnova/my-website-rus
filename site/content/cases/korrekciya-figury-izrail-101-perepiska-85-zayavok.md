@@ -35,7 +35,7 @@ show_on_home: false
 draft: false
 order: 50
 ---
-<div class="tr-case"><figure class="ph hero-ph"><img src="/uploads/cases/korrekciya-figury-izrail-101-perepiska-85-zayavok/1.jpg" alt="Мастер проводит LPG-массаж клиентке" style="object-position:center 40%"><span class="cap">Фото иллюстративное</span></figure><div class="col"><div class="stats"><div class="stat key"><b>101</b><span>переписка в WhatsApp по 16,01 шек</span></div><div class="stat key"><b>85</b><span>заявок через форму по 29,80 шек</span></div><div class="stat"><b>4&nbsp;149,91&nbsp;шек</b><span>расход на кампании с перепиской и заявками</span></div><div class="stat"><b>10,48&nbsp;шек</b><span>самая дешёвая переписка: макет с ценой первой процедуры</span></div></div></div>
+<div class="tr-case"><figure class="ph hero-ph"><img src="/uploads/cases/korrekciya-figury-izrail-101-perepiska-85-zayavok/1.jpg" alt="LPG-массаж в студии коррекции фигуры в Израиле: 101 переписка и 85 заявок за 6 месяцев" style="object-position:center 40%"><span class="cap">LPG-массаж: 101 переписка и 85 заявок для студии коррекции фигуры</span></figure><div class="col"><div class="stats"><div class="stat key"><b>101</b><span>переписка в WhatsApp по 16,01 шек</span></div><div class="stat key"><b>85</b><span>заявок через форму по 29,80 шек</span></div><div class="stat"><b>4&nbsp;149,91&nbsp;шек</b><span>расход на кампании с перепиской и заявками</span></div><div class="stat"><b>10,48&nbsp;шек</b><span>самая дешёвая переписка: макет с ценой первой процедуры</span></div></div></div>
 <div class="col">
 <h2>Информация о проекте</h2>
 <p>Студия делает аппаратную коррекцию фигуры: вакуумно-роликовый массаж против целлюлита, кавитацию и RF-лифтинг. Клиентки студии в основном женщины. Я подключилась к проекту в апреле 2026 года, когда реклама в кабинете уже шла, поэтому в кейсе только период моей работы: с 21 апреля по 20 октября.</p>
@@ -57,8 +57,8 @@ order: 50
 <p><b>Где показывали.</b> Лента, сторис и рилс в Instagram и Facebook.</p>
 </div>
 <div class="wide"><div class="gal">
-<figure class="ph "><img src="/uploads/cases/korrekciya-figury-izrail-101-perepiska-85-zayavok/2.jpg" alt="Аппаратный массаж для коррекции фигуры" style="object-position:center"><span class="cap">Фото иллюстративное</span></figure>
-<figure class="ph "><img src="/uploads/cases/korrekciya-figury-izrail-101-perepiska-85-zayavok/3.jpg" alt="Вакуумно-роликовый аппарат в работе" style="object-position:center"><span class="cap">Фото иллюстративное</span></figure>
+<figure class="ph "><img src="/uploads/cases/korrekciya-figury-izrail-101-perepiska-85-zayavok/2.jpg" alt="Аппаратный массаж для коррекции фигуры: реклама студии в Израиле" style="object-position:center"><span class="cap">Аппаратный массаж: реклама студии коррекции фигуры в Израиле</span></figure>
+<figure class="ph "><img src="/uploads/cases/korrekciya-figury-izrail-101-perepiska-85-zayavok/3.jpg" alt="Вакуумно-роликовый массаж: как студии коррекции фигуры получать заявки из рекламы" style="object-position:center"><span class="cap">Вакуумно-роликовый массаж: заявки из рекламы</span></figure>
 </div></div>
 <div class="col">
 <h2>Офферы и рекламные макеты</h2>
@@ -103,7 +103,7 @@ order: 50
 <li><b>Дешевле всего заявки приходили из рилс Instagram</b>, по 19,93 шек. В рилс Facebook заявка стоила вдвое дороже, 42,77 шек.</li>
 </ul>
 </div>
-<div class="wide"><figure class="ph band"><img src="/uploads/cases/korrekciya-figury-izrail-101-perepiska-85-zayavok/4.jpg" alt="Процедура RF-лифтинга" style="object-position:center 45%"><span class="cap">Фото иллюстративное</span></figure></div>
+<div class="wide"><figure class="ph band"><img src="/uploads/cases/korrekciya-figury-izrail-101-perepiska-85-zayavok/4.jpg" alt="RF-лифтинг тела: продвижение студии коррекции фигуры в Израиле" style="object-position:center 45%"><span class="cap">RF-лифтинг: продвижение студии коррекции фигуры</span></figure></div>
 <div class="col">
 <h2>Итоги</h2>
 <ul>

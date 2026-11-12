@@ -34,7 +34,7 @@ show_on_home: false
 draft: false
 order: 50
 ---
-<div class="tr-case"><figure class="ph hero-ph"><img src="/uploads/cases/massazh-ssha-675-zayavok/1.jpg" alt="A massage therapist giving a client a back massage" style="object-position:center 45%"><span class="cap">Illustrative photo</span></figure><div class="col"><div class="stats"><div class="stat key"><b>675</b><span>instant form leads</span></div><div class="stat key"><b>$4.08</b><span>average cost per lead</span></div><div class="stat"><b>$2,754.85</b><span>spent on the leads campaign</span></div><div class="stat"><b>$2.61</b><span>cost per lead in the best month, July</span></div></div></div>
+<div class="tr-case"><figure class="ph hero-ph"><img src="/uploads/cases/massazh-ssha-675-zayavok/1.jpg" alt="Back massage at a massage studio in the USA: ads brought 675 leads in 4 months" style="object-position:center 45%"><span class="cap">Back massage: 675 leads for a massage studio in the USA</span></figure><div class="col"><div class="stats"><div class="stat key"><b>675</b><span>instant form leads</span></div><div class="stat key"><b>$4.08</b><span>average cost per lead</span></div><div class="stat"><b>$2,754.85</b><span>spent on the leads campaign</span></div><div class="stat"><b>$2.61</b><span>cost per lead in the best month, July</span></div></div></div>
 <div class="col">
 <h2>About the project</h2>
 <p>A small massage studio in the US: deep tissue massage, lymphatic drainage and foot massage. The ads were in English, for people in the studio's city and surrounding area. Before me, other specialists ran the ads, optimised for Instagram conversations. I joined on 19 June 2026, and this case study covers only my period.</p>
@@ -54,8 +54,8 @@ order: 50
 <p><b>Audience.</b> Adults in the city and surrounding area, within about 30 km (20 miles).</p>
 </div>
 <div class="wide"><div class="gal">
-<figure class="ph "><img src="/uploads/cases/massazh-ssha-675-zayavok/2.jpg" alt="A therapist massaging a client's legs" style="object-position:center"><span class="cap">Illustrative photo</span></figure>
-<figure class="ph "><img src="/uploads/cases/massazh-ssha-675-zayavok/3.jpg" alt="Foot massage" style="object-position:center"><span class="cap">Illustrative photo</span></figure>
+<figure class="ph "><img src="/uploads/cases/massazh-ssha-675-zayavok/2.jpg" alt="Leg massage at a massage studio: promoting massage in the USA on Instagram and Facebook" style="object-position:center"><span class="cap">Leg massage: promoting a massage studio in the USA</span></figure>
+<figure class="ph "><img src="/uploads/cases/massazh-ssha-675-zayavok/3.jpg" alt="Foot massage: advertising massage studio services in the USA" style="object-position:center"><span class="cap">Foot massage: advertising massage services</span></figure>
 </div></div>
 <div class="col">
 <h2>Offers and ad creatives</h2>
@@ -90,7 +90,7 @@ order: 50
 <li><b>No placement stood out sharply:</b> Feed, Stories and Reels brought leads at similar costs. This means the creatives worked in every format.</li>
 </ul>
 </div>
-<div class="wide"><figure class="ph band"><img src="/uploads/cases/massazh-ssha-675-zayavok/4.jpg" alt="A massage therapist working on a client's back" style="object-position:center 40%"><span class="cap">Illustrative photo</span></figure></div>
+<div class="wide"><figure class="ph band"><img src="/uploads/cases/massazh-ssha-675-zayavok/4.jpg" alt="Massage therapist working on a client's back: how a US massage studio gets leads from ads" style="object-position:center 40%"><span class="cap">How a US massage studio gets leads from ads</span></figure></div>
 <div class="col">
 <h2>Summary</h2>
 <ul>

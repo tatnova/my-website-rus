@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import ResponsiveImage from '@/components/ResponsiveImage';
+import MidCta, { splitInMiddle } from '@/components/MidCta';
 import { CASE_METRICS, getCase, getNiche, getSettings, nicheName, type Case, type CaseMeta, type Lang, type Niche } from '@/lib/content';
 import { landingUrl } from '@/lib/site';
 
@@ -19,8 +20,7 @@ const TEXT = {
     waText: (title: string) => `Здравствуйте! Прочитала кейс «${title}». Моя ниша и город: `,
     summary: { niche: 'Ниша', place: 'Где', period: 'Срок', result: 'Результат' },
     resultSub: (cpl: string) => (cpl ? `цена заявки ${cpl}` : ''),
-    ctaTitle: 'Хотите обсудить продвижение своего бизнеса?',
-    ctaText: 'Напишите мне в WhatsApp или Telegram — разберём ваш проект, бюджет и точки роста.',
+    ctaText: 'Похожая задача? Напишите нишу и город, и я скажу, с чего начать именно вам.',
     metrics: {} as Partial<Record<keyof CaseMeta, string>>,
   },
   en: {
@@ -37,8 +37,7 @@ const TEXT = {
     waText: (title: string) => `Hi! I read your case study "${title}". My business and city: `,
     summary: { niche: 'Niche', place: 'Location', period: 'Period', result: 'Result' },
     resultSub: (cpl: string) => (cpl ? `cost per lead ${cpl}` : ''),
-    ctaTitle: 'Want to talk about growing your business?',
-    ctaText: "Message me on WhatsApp or Telegram and we'll go through your project, budget and growth points.",
+    ctaText: "Similar situation? Tell me your business and city, and I'll suggest where to start.",
     metrics: {
       period: 'Period',
       ad_budget: 'Ad budget',
@@ -58,7 +57,6 @@ export default function CaseArticle({ c, lang }: { c: Case; lang: Lang }) {
   const s = getSettings();
   // Готовый текст: человеку проще начать, а в переписке сразу видно, с какого кейса он пришёл.
   const wa = `https://wa.me/${s.whatsapp_phone}?text=${encodeURIComponent(t.waText(c.card_title || c.title))}`;
-  const tg = `https://t.me/${s.telegram_username}`;
   const metrics = CASE_METRICS.filter(([key]) => c[key]).map(([key, label]) => [key, t.metrics[key] ?? label] as const);
   const other: Lang = lang === 'ru' ? 'en' : 'ru';
   const otherVersion = getCase(c.slug, other);
@@ -67,6 +65,7 @@ export default function CaseArticle({ c, lang }: { c: Case; lang: Lang }) {
     .map((id) => getNiche(id, lang) ?? (lang === 'en' ? undefined : getNiche(id)))
     .filter((n): n is Niche => !!n && n.published);
   const resultSub = t.resultSub(c.cpl);
+  const [bodyTop, bodyBottom] = splitInMiddle(c.html);
   const place = [c.country, c.city].filter(Boolean).join(', ');
   const eyebrow = [t.eyebrow, c.niche_label || c.niches.map(nicheName).join(', ').toLowerCase(), place]
     .filter(Boolean)
@@ -116,14 +115,6 @@ export default function CaseArticle({ c, lang }: { c: Case; lang: Lang }) {
           </div>
         )}
 
-        <div className="mt-5 flex flex-wrap gap-3">
-          <a href={wa} target="_blank" className="rounded-full bg-[#25D366] px-6 py-3.5 text-base font-bold text-white shadow-sm">
-            {t.waButton}
-          </a>
-          <a href={tg} target="_blank" className="rounded-full border border-gray-300 bg-white px-6 py-3.5 text-base font-bold">
-            Telegram
-          </a>
-        </div>
 
         {c.lead && <p className="mt-6 text-lg leading-8 text-gray-600">{c.lead}</p>}
 
@@ -141,10 +132,11 @@ export default function CaseArticle({ c, lang }: { c: Case; lang: Lang }) {
           </section>
         )}
 
-        <div
-          className="case-body mt-10 text-[18px] leading-8 text-gray-800"
-          dangerouslySetInnerHTML={{ __html: c.html }}
-        />
+        <div className="case-body mt-10 text-[18px] leading-8 text-gray-800" dangerouslySetInnerHTML={{ __html: bodyTop }} />
+
+        <MidCta text={t.ctaText} message={t.waText(c.card_title || c.title)} button={t.waButton} />
+
+        {bodyBottom && <div className="case-body text-[18px] leading-8 text-gray-800" dangerouslySetInnerHTML={{ __html: bodyBottom }} />}
 
         <Gallery title={t.creatives} items={c.creatives} />
         <Gallery title={t.proof} items={c.proof} />
@@ -167,18 +159,6 @@ export default function CaseArticle({ c, lang }: { c: Case; lang: Lang }) {
           </section>
         )}
 
-        <section className="mt-12 rounded-3xl bg-black p-6 text-white">
-          <h2 className="text-2xl font-black">{t.ctaTitle}</h2>
-          <p className="mt-3 text-white/70">{t.ctaText}</p>
-          <div className="mt-5 flex flex-wrap gap-3">
-            <a href={wa} target="_blank" className="rounded-full bg-white px-6 py-3 text-sm font-bold text-black">
-              WhatsApp
-            </a>
-            <a href={tg} target="_blank" className="rounded-full border border-white/30 px-6 py-3 text-sm font-bold text-white">
-              Telegram
-            </a>
-          </div>
-        </section>
       </article>
 
       {/* На телефоне кнопка WhatsApp всегда видна */}
@@ -215,3 +195,4 @@ function Gallery({ title, items }: { title: string; items: { image: string; capt
     </section>
   );
 }
+

@@ -34,7 +34,7 @@ show_on_home: false
 draft: false
 order: 50
 ---
-<div class="tr-case"><figure class="ph hero-ph"><img src="/uploads/cases/tancevalnaya-studiya-izrail-368-perepisok/1.jpg" alt="A teacher leading a dance class" style="object-position:center 35%"><span class="cap">Illustrative photo</span></figure><div class="col"><div class="stats"><div class="stat key"><b>368</b><span>WhatsApp conversations</span></div><div class="stat key"><b>₪12.25</b><span>average cost per conversation</span></div><div class="stat"><b>−36%</b><span>cost per conversation in autumn compared with spring</span></div><div class="stat"><b>₪4,508.36</b><span>spent on the conversations campaign</span></div></div></div>
+<div class="tr-case"><figure class="ph hero-ph"><img src="/uploads/cases/tancevalnaya-studiya-izrail-368-perepisok/1.jpg" alt="Dance class at a studio in Israel: 368 conversations in 6 months of ads" style="object-position:center 35%"><span class="cap">Dance studio in Israel: 368 conversations from ads</span></figure><div class="col"><div class="stats"><div class="stat key"><b>368</b><span>WhatsApp conversations</span></div><div class="stat key"><b>₪12.25</b><span>average cost per conversation</span></div><div class="stat"><b>−36%</b><span>cost per conversation in autumn compared with spring</span></div><div class="stat"><b>₪4,508.36</b><span>spent on the conversations campaign</span></div></div></div>
 <div class="col">
 <h2>About the project</h2>
 <p>A private dance teacher in Israel runs classes in several styles: Zumba for adults, High Heels and Jazz-Funk for young women, and hip-hop and modern dance groups for kids. Before me, the owner boosted posts herself. I have run her ads since 8 April 2026: in spring, then after a summer break from late August to 12 October.</p>
@@ -54,8 +54,8 @@ order: 50
 </ul>
 </div>
 <div class="wide"><div class="gal">
-<figure class="ph "><img src="/uploads/cases/tancevalnaya-studiya-izrail-368-perepisok/2.jpg" alt="A women's group dancing in a studio" style="object-position:center"><span class="cap">Illustrative photo</span></figure>
-<figure class="ph "><img src="/uploads/cases/tancevalnaya-studiya-izrail-368-perepisok/3.jpg" alt="Group dance fitness" style="object-position:center"><span class="cap">Illustrative photo</span></figure>
+<figure class="ph "><img src="/uploads/cases/tancevalnaya-studiya-izrail-368-perepisok/2.jpg" alt="Women's group at a dance studio: advertising dance classes for women in Israel" style="object-position:center"><span class="cap">Advertising dance classes for women in Israel</span></figure>
+<figure class="ph "><img src="/uploads/cases/tancevalnaya-studiya-izrail-368-perepisok/3.jpg" alt="Group dance fitness: filling a group with Instagram ads" style="object-position:center"><span class="cap">Dance fitness: filling a group with ads</span></figure>
 </div></div>
 <div class="col">
 <h2>Ad creatives</h2>
@@ -99,7 +99,7 @@ order: 50
 <li><b>Facebook Feed brought almost half of all conversations</b>, at ₪9.83. In the Instagram Feed a conversation cost twice as much, ₪19.34.</li>
 </ul>
 </div>
-<div class="wide"><figure class="ph band"><img src="/uploads/cases/tancevalnaya-studiya-izrail-368-perepisok/4.jpg" alt="A dance class in a studio" style="object-position:center 35%"><span class="cap">Illustrative photo</span></figure></div>
+<div class="wide"><figure class="ph band"><img src="/uploads/cases/tancevalnaya-studiya-izrail-368-perepisok/4.jpg" alt="Class at a dance studio: promoting a dance studio in Israel" style="object-position:center 35%"><span class="cap">Promoting a dance studio in Israel</span></figure></div>
 <div class="col">
 <h2>Summary</h2>
 <ul>
