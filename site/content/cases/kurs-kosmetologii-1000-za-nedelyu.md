@@ -26,7 +26,7 @@ conversion: ""
 avg_check: ""
 revenue: "$1000"
 profit: ""
-cover: "/uploads/cases/kurs-kosmetologii-1000-za-nedelyu/cover-clean.jpg"
+cover: "/uploads/cases/kurs-kosmetologii-1000-za-nedelyu/cover-new.jpg"
 proof: []
 creatives: []
 old_urls:
@@ -35,7 +35,7 @@ date: "2024-09-22"
 show_on_home: false
 draft: false
 order: 9
-cover_alt: "Курс процедур у косметолога: массаж тела"
+cover_alt: "Косметолог консультирует клиентку перед курсом процедур"
 ---
 
 ### О проекте

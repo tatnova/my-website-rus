@@ -25,7 +25,7 @@ conversion: ""
 avg_check: ""
 revenue: "$1100"
 profit: ""
-cover: "/uploads/cases/polnaya-gruppa-6-dney-fitness/cover-clean.jpg"
+cover: "/uploads/cases/polnaya-gruppa-6-dney-fitness/cover-new.jpg"
 proof: []
 creatives: []
 old_urls:
@@ -35,7 +35,7 @@ date: "2024-10-27"
 show_on_home: false
 draft: false
 order: 42
-cover_alt: "Фитнес-тренер занимается с клиенткой в зале"
+cover_alt: "Женская группа на занятии у фитнес-тренера"
 ---
 
 Наш клиент — фитнес-тренер из Израиля. Задача была проста, но чёткая: набрать группу из 5 человек для занятий. При хорошей конверсии для этой цели хватило бы всего около 15 заявок, поэтому продуманная и эффективная недельная реклама была идеальным решением. Долгосрочная реклама на месяц с высоким бюджетом в этом случае не требовалась.

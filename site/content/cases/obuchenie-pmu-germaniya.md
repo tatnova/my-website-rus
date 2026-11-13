@@ -26,7 +26,7 @@ conversion: ""
 avg_check: ""
 revenue: ""
 profit: ""
-cover: "/uploads/cases/obuchenie-pmu-germaniya/cover-clean.jpg"
+cover: "/uploads/cases/obuchenie-pmu-germaniya/cover-new.jpg"
 proof: []
 creatives: []
 old_urls:
@@ -35,7 +35,7 @@ date: "2024-10-27"
 show_on_home: false
 draft: false
 order: 19
-cover_alt: "Перманентный макияж губ на обучении мастеров в Германии"
+cover_alt: "Ученицы на обучении у мастера в Германии"
 ---
 
 ### Введение

@@ -25,7 +25,7 @@ conversion: ""
 avg_check: "55$"
 revenue: ""
 profit: ""
-cover: "/uploads/cases/sold-out-manikyurnyj-salon-nuljovaja-baza/cover-clean.jpg"
+cover: "/uploads/cases/sold-out-manikyurnyj-salon-nuljovaja-baza/cover-new.jpg"
 proof: []
 creatives: []
 old_urls:
@@ -36,7 +36,7 @@ date: "2024-11-10"
 show_on_home: false
 draft: false
 order: 30
-cover_alt: "Маникюр в маникюрном салоне в Хайфе"
+cover_alt: "Мастер и клиентка в маникюрном салоне в Хайфе"
 ---
 
 **Кто клиент: какие цели и запросы?**

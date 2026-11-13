@@ -25,7 +25,8 @@ conversion: ""
 avg_check: ""
 revenue: ""
 profit: ""
-cover: "/uploads/cases/massazh-ssha-675-zayavok/1.jpg"
+cover: "/uploads/cases/massazh-ssha-675-zayavok/cover-new.jpg"
+cover_alt: "Happy client at a massage studio in the USA"
 proof: []
 creatives: []
 old_urls: []

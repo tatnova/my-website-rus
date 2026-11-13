@@ -25,7 +25,7 @@ conversion: ""
 avg_check: ""
 revenue: ""
 profit: ""
-cover: "/uploads/cases/boyalas-otkryt-salon/cover-clean.jpg"
+cover: "/uploads/cases/boyalas-otkryt-salon/cover-new.jpg"
 proof: []
 creatives: []
 old_urls:
@@ -35,7 +35,7 @@ date: "2025-07-29"
 show_on_home: false
 draft: false
 order: 32
-cover_alt: "Мастер делает маникюр в своём кабинете в Абу-Даби"
+cover_alt: "Молочный маникюр, сделанный в кабинете маникюра в Абу-Даби"
 ---
 
 Когда ты решаешь уйти из салона и открыть свою студию — в первый момент кажется, что всё будет хорошо. Есть опыт, навыки, знакомые, Instagram-страница, где тебя знают. Но как только ты остаёшься один на один с реальностью — приходит тишина. Записей нет. И даже лояльные клиенты не всегда спешат за тобой.

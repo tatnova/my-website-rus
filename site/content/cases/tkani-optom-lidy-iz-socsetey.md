@@ -25,7 +25,7 @@ conversion: ""
 avg_check: ""
 revenue: ""
 profit: ""
-cover: "/uploads/cases/tkani-optom-lidy-iz-socsetey/cover-clean.jpg"
+cover: "/uploads/cases/tkani-optom-lidy-iz-socsetey/cover-new.jpg"
 proof: []
 creatives: []
 old_urls:
@@ -35,7 +35,7 @@ date: "2024-10-27"
 show_on_home: false
 draft: false
 order: 44
-cover_alt: "Манекен с тканью в магазине тканей оптом"
+cover_alt: "Владелица магазина тканей оптом среди рулонов ткани"
 ---
 
 ### Задачи проекта

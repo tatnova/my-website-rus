@@ -25,7 +25,7 @@ conversion: ""
 avg_check: ""
 revenue: ""
 profit: ""
-cover: "/uploads/cases/112-klientov-za-mesyac-permanent-makiyaz-izrael/cover-clean.jpg"
+cover: "/uploads/cases/112-klientov-za-mesyac-permanent-makiyaz-izrael/cover-new.jpg"
 proof: []
 creatives: []
 old_urls:
@@ -35,7 +35,7 @@ date: "2025-01-28"
 show_on_home: false
 draft: false
 order: 18
-cover_alt: "Мастер делает перманентный макияж губ в Израиле"
+cover_alt: "Мастер перманентного макияжа работает с бровями клиентки в Израиле"
 ---
 
 **О клиентке**:   

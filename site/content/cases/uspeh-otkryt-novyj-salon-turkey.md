@@ -26,7 +26,7 @@ conversion: ""
 avg_check: ""
 revenue: ""
 profit: ""
-cover: "/uploads/cases/uspeh-otkryt-novyj-salon-turkey/cover-clean.jpg"
+cover: "/uploads/cases/uspeh-otkryt-novyj-salon-turkey/cover-new.jpg"
 proof: []
 creatives: []
 old_urls:
@@ -36,7 +36,7 @@ date: "2025-04-26"
 show_on_home: false
 draft: false
 order: 6
-cover_alt: "Косметолог проводит процедуру в новом салоне красоты в Стамбуле"
+cover_alt: "Мастер и довольная клиентка у зеркала в новом салоне красоты в Стамбуле"
 ---
 
 ## Как открыть салон красоты с нуля и сразу выйти в плюс — реальный опыт запуска

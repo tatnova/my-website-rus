@@ -25,7 +25,7 @@ conversion: ""
 avg_check: "около $150"
 revenue: ""
 profit: ""
-cover: "/uploads/cases/keis-salon-krasoty-illinois-794-obrashcheniya-160-klientov/cover-clean.jpg"
+cover: "/uploads/cases/keis-salon-krasoty-illinois-794-obrashcheniya-160-klientov/cover-new.jpg"
 proof: []
 creatives: []
 old_urls:
@@ -34,7 +34,7 @@ date: "2026-01-06"
 show_on_home: false
 draft: false
 order: 2
-cover_alt: "Владелица салона красоты в Иллинойсе в своём салоне"
+cover_alt: "Стилист наносит уход на волосы клиентки в салоне красоты в США"
 ---
 
 Этот кейс — про салон красоты в Чикаго, который работал с весны 2025 года, имел сайт и оформленные социальные сети, но при этом не имел стабильных записей и постепенно уходил в минус.
