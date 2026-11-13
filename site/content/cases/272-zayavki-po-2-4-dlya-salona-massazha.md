@@ -25,7 +25,7 @@ conversion: ""
 avg_check: ""
 revenue: ""
 profit: ""
-cover: "/uploads/cases/272-zayavki-po-2-4-dlya-salona-massazha/cover-clean.jpg"
+cover: "/uploads/cases/272-zayavki-po-2-4-dlya-salona-massazha/cover-new.jpg"
 proof: []
 creatives: []
 old_urls:
@@ -35,7 +35,7 @@ date: "2024-09-22"
 show_on_home: false
 draft: false
 order: 16
-cover_alt: "Массаж спины в массажном салоне в Израиле"
+cover_alt: "Клиентка массажного салона в Израиле после массажа"
 ---
 
 ### Исходные данные:

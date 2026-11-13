@@ -25,7 +25,7 @@ conversion: ""
 avg_check: ""
 revenue: ""
 profit: ""
-cover: "/uploads/cases/12-zapisey-fotosessii-7-dney/cover-clean.jpg"
+cover: "/uploads/cases/12-zapisey-fotosessii-7-dney/cover-new.jpg"
 proof: []
 creatives: []
 old_urls:
@@ -35,7 +35,7 @@ date: "2024-11-09"
 show_on_home: false
 draft: false
 order: 41
-cover_alt: "Фотостудия со светом для фотосессии"
+cover_alt: "Фотограф смотрит снимки после фотосессии в студии"
 ---
 
 ### Введение

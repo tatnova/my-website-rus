@@ -25,7 +25,7 @@ conversion: ""
 avg_check: ""
 revenue: ""
 profit: ""
-cover: "/uploads/cases/privlech-klientov-posle-smeny-adresa/cover-clean.jpg"
+cover: "/uploads/cases/privlech-klientov-posle-smeny-adresa/cover-new.jpg"
 proof: []
 creatives: []
 old_urls:
@@ -35,7 +35,7 @@ date: "2025-04-26"
 show_on_home: false
 draft: false
 order: 31
-cover_alt: "Мастер делает педикюр в салоне маникюра в Баку"
+cover_alt: "Нюдовый маникюр клиентки салона маникюра в Баку"
 ---
 
 Хочу рассказать о проекте, который наглядно показывает, как важно правильно построить рекламную стратегию при смене адреса салона. Клиентка Сабина обратилась ко мне после переезда своего салона маникюра в Баку: на новом месте не было постоянной базы, а задача стояла двойная — вернуть старых клиентов и привлечь новых.

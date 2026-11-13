@@ -25,8 +25,8 @@ conversion: "46% (18 из 39)"
 avg_check: ""
 revenue: ""
 profit: ""
-cover: "/uploads/cases/18-klientov-za-nedelyu-kosmetolog/cover.jpg"
-cover_alt: "Косметолог делает чистку лица клиентке"
+cover: "/uploads/cases/18-klientov-za-nedelyu-kosmetolog/cover-new.jpg"
+cover_alt: "Клиентка на консультации у косметолога в Израиле"
 proof: []
 creatives: []
 old_urls:

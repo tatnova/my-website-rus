@@ -26,7 +26,7 @@ conversion: ""
 avg_check: ""
 revenue: ""
 profit: ""
-cover: "/uploads/cases/bystryj-start-novoj-kliniki-kosmetologii-123-guby-nedelya/cover-clean.jpg"
+cover: "/uploads/cases/bystryj-start-novoj-kliniki-kosmetologii-123-guby-nedelya/cover-new.jpg"
 proof: []
 creatives: []
 old_urls:
@@ -37,7 +37,7 @@ date: "2024-11-10"
 show_on_home: true
 draft: false
 order: 7
-cover_alt: "Увеличение губ в клинике косметологии"
+cover_alt: "Клиентка клиники косметологии перед процедурой увеличения губ"
 ---
 
 ### О проекте
