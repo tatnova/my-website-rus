@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import MidCta from '@/components/MidCta';
 
 import React from 'react';
 import type { Metadata } from 'next';
@@ -10,8 +11,6 @@ import ResponsiveImage from '@/components/ResponsiveImage';
 
 const SLUG = 'blog/oshibki-v-reklame-iz-za-kotoryh-vy-teryaete-klientov';
 const URL = `${SITE_URL}/${SLUG}`;
-const WHATSAPP_LINK = "https://wa.me/972552468903?text=Здравствуйте!%20Хочу%20обсудить%20рекламу%20для%20салона";
-const TELEGRAM_LINK = "https://t.me/mailovaja?text=Здравствуйте!%20Хочу%20обсудить%20запуск%20рекламы";
 
 export const metadata: Metadata = {
   title: 'Ошибки в рекламе, из-за которых вы теряете клиентов: главные ловушки бьюти-бизнеса',
@@ -104,7 +103,7 @@ export default function BlogArticle() {
         <div className="relative aspect-[21/9] overflow-hidden rounded-xl bg-gray-50">
           <ResponsiveImage
             src="/beauty-marketing-traps.jpg"
-            alt="Ошибки в рекламе салона красоты"
+            alt="Ошибки в рекламе салона красоты, из-за которых вы теряете клиентов"
             sizes="(min-width: 1024px) 1024px, 100vw"
             className="absolute inset-0 h-full w-full object-cover object-center grayscale-[15%] transition-all duration-1000"
             priority
@@ -172,15 +171,11 @@ export default function BlogArticle() {
                     <p>Направлять весь рекламный трафик на главную страницу или в общий профиль — это способ «сжечь» бюджет. Пользователь кликает на рекламу «сложного окрашивания», а попадает в общий прайс-лист. Каждое объявление должно вести на <strong>персонализированную страницу</strong> конкретной услуги.</p>
                   </div>
 
-                  {/* 1. MINIMAL CTA */}
-                  <div className="p-10 border border-gray-100 rounded-xl bg-white text-center space-y-6 shadow-sm">
-                    <h4 className="text-lg font-bold text-black tracking-tight">Хотите разобрать ошибки вашей воронки?</h4>
-                    <p className="text-sm font-medium">Проведу аудит вашей системы и найду точки потери прибыли.</p>
-                    <div className="flex flex-wrap justify-center gap-4">
-                       <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="text-[11px] font-bold uppercase tracking-widest text-black border-b border-black pb-1 hover:text-[#e8a16b] hover:border-[#e8a16b] transition-all">WhatsApp →</a>
-                       <a href={TELEGRAM_LINK} target="_blank" rel="noopener noreferrer" className="text-[11px] font-bold uppercase tracking-widest text-black border-b border-black pb-1 hover:text-[#e8a16b] hover:border-[#e8a16b] transition-all">Telegram →</a>
-                    </div>
-                  </div>
+                  {/* Одна кнопка связи в середине статьи: в шапке и футере кнопки уже есть */}
+                  <MidCta
+                    text="Хотите найти, где ваша реклама теряет клиентов? Напишите нишу и город, и я скажу, что проверить первым."
+                    message="Здравствуйте! Прочитала статью про ошибки в рекламе. Моя ниша и город: "
+                  />
 
                   <div className="space-y-6">
                     <h3 className="text-xl font-bold tracking-tight text-[#1f1a17]">4. Эпидемия No-shows (неявок)</h3>
@@ -268,24 +263,10 @@ export default function BlogArticle() {
                 </div>
               </div>
 
-              <div className="rounded-xl bg-[#1f1a17] p-8 text-white shadow-xl">
-                <h5 className="text-base font-bold mb-4 leading-tight tracking-tight">Обсудить ваш запуск рекламы</h5>
-                <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="text-[11px] font-bold uppercase text-[#e8a16b] hover:text-white transition-colors tracking-widest">
-                  WhatsApp Direct →
-                </a>
-              </div>
             </div>
           </aside>
         </div>
       </main>
-
-      {/* 2. COMPACT MOBILE FLOATING CTA */}
-      <div className="fixed bottom-5 right-5 z-50 md:hidden">
-        <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 rounded-full bg-[#1f1a17] p-3 pr-6 shadow-xl text-white">
-           <div className="bg-[#e8a16b] h-10 w-10 rounded-full flex items-center justify-center text-xl">💬</div>
-           <span className="text-[11px] font-bold uppercase tracking-widest">Обсудить проект</span>
-        </a>
-      </div>
 
     </div>
   );

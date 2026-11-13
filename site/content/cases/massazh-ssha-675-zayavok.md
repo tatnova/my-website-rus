@@ -1,8 +1,8 @@
 ---
 slug: "massazh-ssha-675-zayavok"
-title: "675 заявок для массажной студии в США"
-card_title: "675 заявок для массажной студии в США"
-seo_title: "675 заявок для массажной студии в США"
+title: "Продвижение массажной студии в США: кейс, 675 заявок по $4,08 за 4 месяца"
+card_title: "Продвижение массажной студии в США: кейс, 675 заявок по $4,08 за 4 месяца"
+seo_title: "Продвижение массажной студии в США: кейс, 675 заявок по $4,08 за 4 месяца"
 description: "Кейс таргетированной рекламы: 675 заявок по $4,08 для массажной студии в США за 4 месяца."
 lead: "Заявки от новых клиентов на первый визит со специальной ценой"
 niche_label: "массаж"
@@ -32,9 +32,9 @@ old_urls: []
 date: "2026-10-21"
 show_on_home: false
 draft: false
-order: 50
+order: 15
 ---
-<div class="tr-case"><figure class="ph hero-ph"><img src="/uploads/cases/massazh-ssha-675-zayavok/1.jpg" alt="Массажист делает массаж спины клиентке" style="object-position:center 45%"><span class="cap">Фото иллюстративное</span></figure><div class="col"><div class="stats"><div class="stat key"><b>675</b><span>заявок через форму</span></div><div class="stat key"><b>$4,08</b><span>средняя цена заявки</span></div><div class="stat"><b>$2&nbsp;754,85</b><span>расход на кампанию с заявками</span></div><div class="stat"><b>$2,61</b><span>цена заявки в лучший месяц, июль</span></div></div></div>
+<div class="tr-case"><figure class="ph hero-ph"><img src="/uploads/cases/massazh-ssha-675-zayavok/1.jpg" alt="Массаж спины в массажной студии в США: реклама принесла 675 заявок за 4 месяца" style="object-position:center 45%"><span class="cap">Массаж спины: 675 заявок для массажной студии в США</span></figure><div class="col"><div class="stats"><div class="stat key"><b>675</b><span>заявок через форму</span></div><div class="stat key"><b>$4,08</b><span>средняя цена заявки</span></div><div class="stat"><b>$2&nbsp;754,85</b><span>расход на кампанию с заявками</span></div><div class="stat"><b>$2,61</b><span>цена заявки в лучший месяц, июль</span></div></div></div>
 <div class="col">
 <h2>Информация о проекте</h2>
 <p>Небольшая массажная студия в США: глубокий массаж, лимфодренаж и массаж стоп. Реклама на английском языке, для жителей своего города и окрестностей. До меня рекламу вели другие специалисты, на переписки в Instagram. Я подключилась 19 июня 2026 года, и в кейсе только период моей работы.</p>
@@ -54,8 +54,8 @@ order: 50
 <p><b>Аудитория.</b> Взрослые жители города и окрестностей в радиусе около 30 км.</p>
 </div>
 <div class="wide"><div class="gal">
-<figure class="ph "><img src="/uploads/cases/massazh-ssha-675-zayavok/2.jpg" alt="Мастер делает массаж ног клиентке" style="object-position:center"><span class="cap">Фото иллюстративное</span></figure>
-<figure class="ph "><img src="/uploads/cases/massazh-ssha-675-zayavok/3.jpg" alt="Массаж стоп" style="object-position:center"><span class="cap">Фото иллюстративное</span></figure>
+<figure class="ph "><img src="/uploads/cases/massazh-ssha-675-zayavok/2.jpg" alt="Массаж ног в массажной студии: продвижение массажа в США через Instagram и Facebook" style="object-position:center"><span class="cap">Массаж ног: продвижение массажной студии в США</span></figure>
+<figure class="ph "><img src="/uploads/cases/massazh-ssha-675-zayavok/3.jpg" alt="Массаж стоп: реклама услуг массажной студии в США" style="object-position:center"><span class="cap">Массаж стоп: реклама услуг массажной студии</span></figure>
 </div></div>
 <div class="col">
 <h2>Офферы и рекламные макеты</h2>
@@ -90,7 +90,7 @@ order: 50
 <li><b>Сильного перекоса по площадкам не было:</b> лента, сторис и рилс давали заявки по близкой цене. Это значит, что макеты подходили для любого формата.</li>
 </ul>
 </div>
-<div class="wide"><figure class="ph band"><img src="/uploads/cases/massazh-ssha-675-zayavok/4.jpg" alt="Массажист работает со спиной клиентки" style="object-position:center 40%"><span class="cap">Фото иллюстративное</span></figure></div>
+<div class="wide"><figure class="ph band"><img src="/uploads/cases/massazh-ssha-675-zayavok/4.jpg" alt="Массажист делает массаж спины: как массажной студии в США получать заявки из рекламы" style="object-position:center 40%"><span class="cap">Как массажной студии в США получать заявки из рекламы</span></figure></div>
 <div class="col">
 <h2>Итоги</h2>
 <ul>

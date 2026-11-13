@@ -1,8 +1,8 @@
 ---
 slug: "massazh-izrail-1949-perepisok-whatsapp"
-title: "1 949 обращений в WhatsApp для массажного кабинета в Израиле"
-card_title: "1 949 обращений в WhatsApp для массажного кабинета в Израиле"
-seo_title: "1 949 обращений в WhatsApp для массажного кабинета в Израиле"
+title: "Продвижение массажного кабинета в Израиле: 1 949 обращений в WhatsApp за 3,5 месяца"
+card_title: "Продвижение массажного кабинета в Израиле: 1 949 обращений в WhatsApp за 3,5 месяца"
+seo_title: "Продвижение массажного кабинета в Израиле: 1 949 обращений в WhatsApp за 3,5 месяца"
 description: "Кейс таргетированной рекламы: 1 949 переписок в WhatsApp по 1,82 шек для массажного кабинета в Израиле за 3,5 месяца."
 lead: "Привести новых клиентов, которые сами напишут или оставят заявку, и держать понятную стоимость обращения"
 niche_label: "массаж"
@@ -32,9 +32,9 @@ old_urls: []
 date: "2026-10-21"
 show_on_home: false
 draft: false
-order: 50
+order: 14
 ---
-<div class="tr-case"><figure class="ph hero-ph"><img src="/uploads/cases/massazh-izrail-1949-perepisok-whatsapp/1.jpg" alt="Массажистка делает массаж спины клиентке" style="object-position:40% center"><span class="cap">Фото иллюстративное</span></figure><div class="col"><div class="stats">
+<div class="tr-case"><figure class="ph hero-ph"><img src="/uploads/cases/massazh-izrail-1949-perepisok-whatsapp/1.jpg" alt="Массаж спины в массажном кабинете в Израиле: 1 949 обращений в WhatsApp за 3,5 месяца" style="object-position:40% center"><span class="cap">Массаж спины: 1 949 обращений в WhatsApp для массажного кабинета в Израиле</span></figure><div class="col"><div class="stats">
 <div class="stat key"><b>1 949</b><span>переписок в WhatsApp</span></div>
 <div class="stat key"><b>1,82&nbsp;шек</b><span>средняя цена переписки</span></div>
 <div class="stat"><b>3&nbsp;538,71&nbsp;шек</b><span>расход на кампанию с перепиской</span></div>
@@ -68,8 +68,8 @@ order: 50
 </div>
 <div class="wide">
 <div class="gal">
-<figure class="ph"><img src="/uploads/cases/massazh-izrail-1949-perepisok-whatsapp/2.jpg" alt="Массаж плеч и спины"><span class="cap">Фото иллюстративное</span></figure>
-<figure class="ph"><img src="/uploads/cases/massazh-izrail-1949-perepisok-whatsapp/3.jpg" alt="Массажист работает со спиной клиентки"><span class="cap">Фото иллюстративное</span></figure>
+<figure class="ph"><img src="/uploads/cases/massazh-izrail-1949-perepisok-whatsapp/2.jpg" alt="Массаж плеч и спины: реклама массажного кабинета в Израиле"><span class="cap">Массаж плеч и спины: реклама массажного кабинета в Израиле</span></figure>
+<figure class="ph"><img src="/uploads/cases/massazh-izrail-1949-perepisok-whatsapp/3.jpg" alt="Массажист работает со спиной клиентки: заявки в WhatsApp из рекламы в Instagram"><span class="cap">Заявки на массаж приходят в WhatsApp из рекламы</span></figure>
 </div>
 </div>
 <div class="col">
@@ -175,7 +175,7 @@ order: 50
 </ul>
 </div>
 <div class="wide">
-<figure class="ph band"><img src="/uploads/cases/massazh-izrail-1949-perepisok-whatsapp/4.jpg" alt="Расслабленная клиентка на массажном столе" style="object-position:center 40%"><span class="cap">Фото иллюстративное</span></figure>
+<figure class="ph band"><img src="/uploads/cases/massazh-izrail-1949-perepisok-whatsapp/4.jpg" alt="Клиентка на массажном столе: как массажному кабинету в Израиле заполнить запись" style="object-position:center 40%"><span class="cap">Как массажному кабинету в Израиле заполнить запись</span></figure>
 </div>
 <div class="col">
 <h2>Итоги</h2>

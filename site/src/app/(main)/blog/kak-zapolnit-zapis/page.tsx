@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import MidCta from '@/components/MidCta';
 import ResponsiveImage from '@/components/ResponsiveImage';
 
 export const metadata = {
@@ -151,6 +152,12 @@ export default function ArticlePage() {
                   </p>
                 </section>
 
+                {/* Одна кнопка связи в середине статьи: в шапке и футере кнопки уже есть */}
+                <MidCta
+                  text="Открываете салон в США? Напишите нишу и город, и я скажу, с чего начать, чтобы заполнить запись."
+                  message="Здравствуйте! Прочитала статью «Как заполнить запись в новом салоне». Моя ниша и город: "
+                />
+
                 <section id="ai">
                   <h2>4. AI-автоматизация и снижение no-shows</h2>
                   <p>
@@ -230,30 +237,6 @@ export default function ArticlePage() {
                 </section>
               </div>
 
-              <div className="mt-12 rounded-[32px] bg-[#111111] p-8 text-white shadow-2xl">
-                <div className="text-xs font-bold uppercase tracking-widest text-[#f3c7a0]">Связаться со мной</div>
-                <h2 className="mt-4 text-3xl font-black leading-tight">
-                  Хотите выстроить такую систему для вашего салона?
-                </h2>
-                <p className="mt-4 max-w-2xl text-lg leading-relaxed text-white/80">
-                  Помогу настроить стратегию привлечения клиентов для нового салона красоты в США: локальный таргет,
-                  связку с Local SEO, high-ticket услуги, автоматизацию записи и систему удержания.
-                </p>
-                <div className="mt-8 flex flex-wrap gap-4">
-                  <a
-                    href="https://wa.me/972552468903"
-                    className="inline-flex items-center justify-center rounded-full bg-[#e8a16b] px-8 py-4 font-bold text-white shadow-lg transition hover:bg-[#d78d57]"
-                  >
-                    Написать в WhatsApp 💬
-                  </a>
-                  <Link
-                    href="/cases"
-                    className="inline-flex items-center justify-center rounded-full border border-white/20 px-8 py-4 font-bold text-white transition hover:border-[#e8a16b] hover:text-[#f3c7a0]"
-                  >
-                    Смотреть кейсы
-                  </Link>
-                </div>
-              </div>
             </article>
 
             <aside className="hidden lg:block">
@@ -269,18 +252,6 @@ export default function ArticlePage() {
                   </div>
                 </div>
 
-                <div className="rounded-[28px] border border-[#f6dcc5] bg-white p-6 shadow-sm">
-                  <div className="text-xs font-bold uppercase tracking-widest text-[#e8a16b]">Быстрая связь</div>
-                  <p className="mt-4 text-base leading-7 text-gray-600">
-                    Если хотите разобрать ваш салон, воронку и стратегию — напишите мне прямо сейчас.
-                  </p>
-                  <a
-                    href="https://wa.me/972552468903"
-                    className="mt-5 inline-flex w-full items-center justify-center rounded-full bg-[#e8a16b] px-6 py-4 text-center font-bold text-white transition hover:bg-[#d78d57]"
-                  >
-                    WhatsApp 💬
-                  </a>
-                </div>
               </div>
             </aside>
           </div>

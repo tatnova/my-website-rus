@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import ResponsiveImage from '@/components/ResponsiveImage';
+import MidCta, { splitInMiddle } from '@/components/MidCta';
 import { CASE_METRICS, getCase, getNiche, getSettings, nicheName, type Case, type CaseMeta, type Lang, type Niche } from '@/lib/content';
 import { landingUrl } from '@/lib/site';
 
@@ -9,8 +10,6 @@ const TEXT = {
     eyebrow: 'Кейс по рекламе',
     back: '← Все кейсы',
     switch: 'English version',
-    intro: (niche: string) =>
-      `Это кейс по таргетированной рекламе${niche ? ` в нише «${niche}»` : ''}. Я, Татьяна Ричманн, настраиваю и веду рекламу в Facebook и Instagram для бизнеса. Сами услуги клиента я не оказываю.`,
     result: 'Результат в цифрах',
     creatives: 'Рекламные макеты',
     proof: 'Скриншоты из рекламного кабинета',
@@ -21,16 +20,13 @@ const TEXT = {
     waText: (title: string) => `Здравствуйте! Прочитала кейс «${title}». Моя ниша и город: `,
     summary: { niche: 'Ниша', place: 'Где', period: 'Срок', result: 'Результат' },
     resultSub: (cpl: string) => (cpl ? `цена заявки ${cpl}` : ''),
-    ctaTitle: 'Хотите обсудить продвижение своего бизнеса?',
-    ctaText: 'Напишите мне в WhatsApp или Telegram — разберём ваш проект, бюджет и точки роста.',
+    ctaText: 'Похожая задача? Напишите нишу и город, и я скажу, с чего начать именно вам.',
     metrics: {} as Partial<Record<keyof CaseMeta, string>>,
   },
   en: {
     eyebrow: 'Ad case study',
     back: '← All case studies',
     switch: 'Русская версия',
-    intro: (niche: string) =>
-      `This is a paid social case study${niche ? ` in ${niche}` : ''}. I'm Tatyana Richmann: I set up and run Facebook and Instagram ads for businesses. I don't provide the client's services myself.`,
     result: 'Results in numbers',
     creatives: 'Ad creatives',
     proof: 'Ads Manager screenshots',
@@ -41,13 +37,10 @@ const TEXT = {
     waText: (title: string) => `Hi! I read your case study "${title}". My business and city: `,
     summary: { niche: 'Niche', place: 'Location', period: 'Period', result: 'Result' },
     resultSub: (cpl: string) => (cpl ? `cost per lead ${cpl}` : ''),
-    ctaTitle: 'Want to talk about growing your business?',
-    ctaText: "Message me on WhatsApp or Telegram and we'll go through your project, budget and growth points.",
+    ctaText: "Similar situation? Tell me your business and city, and I'll suggest where to start.",
     metrics: {
       period: 'Period',
       ad_budget: 'Ad budget',
-      fee: 'Fee',
-      total_spend: 'Total investment',
       leads: 'Leads',
       cpl: 'Cost per lead',
       conversion: 'Conversion to booking',
@@ -62,15 +55,21 @@ export default function CaseArticle({ c, lang }: { c: Case; lang: Lang }) {
   const s = getSettings();
   // Готовый текст: человеку проще начать, а в переписке сразу видно, с какого кейса он пришёл.
   const wa = `https://wa.me/${s.whatsapp_phone}?text=${encodeURIComponent(t.waText(c.card_title || c.title))}`;
-  const tg = `https://t.me/${s.telegram_username}`;
-  const metrics = CASE_METRICS.filter(([key]) => c[key]).map(([key, label]) => [key, t.metrics[key] ?? label] as const);
+  // Сверху — до 4 главных цифр кейса, в порядке важности для читателя.
+  const TOP: (keyof CaseMeta)[] = ['leads', 'clients', 'cpl', 'ad_budget', 'conversion', 'period'];
+  const labels = new Map(CASE_METRICS);
+  const metrics: { key: string; label: string; value: string }[] = TOP.filter((key) => c[key] && labels.has(key))
+    .slice(0, 4)
+    .map((key) => ({ key, label: t.metrics[key] ?? labels.get(key) ?? key, value: c[key] as string }));
+  // Если цифр в карточке кейса нет, показываем хотя бы главный результат.
+  if (!metrics.length && c.summary_result) metrics.push({ key: 'summary_result', label: t.summary.result, value: c.summary_result });
+  const [bodyTop, bodyBottom] = splitInMiddle(c.html);
   const other: Lang = lang === 'ru' ? 'en' : 'ru';
   const otherVersion = getCase(c.slug, other);
   // Перелинковка: лендинги ниш этого кейса на том же языке (если есть), иначе русские.
   const landings = c.niches
     .map((id) => getNiche(id, lang) ?? (lang === 'en' ? undefined : getNiche(id)))
     .filter((n): n is Niche => !!n && n.published);
-  const resultSub = t.resultSub(c.cpl);
   const place = [c.country, c.city].filter(Boolean).join(', ');
   const eyebrow = [t.eyebrow, c.niche_label || c.niches.map(nicheName).join(', ').toLowerCase(), place]
     .filter(Boolean)
@@ -94,63 +93,50 @@ export default function CaseArticle({ c, lang }: { c: Case; lang: Lang }) {
 
         <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">{c.title}</h1>
 
-        {/* Первый экран: та же цифра, что в объявлении, и сразу кнопка WhatsApp */}
-        {c.summary_result && (
-          <div className="mt-5 rounded-2xl bg-white px-5 py-3 shadow-sm">
-            <div className="flex flex-wrap items-baseline gap-x-3">
-              <span className="text-3xl font-black text-[#c97d45] md:text-4xl">{c.summary_result}</span>
-              {resultSub && <span className="text-sm font-semibold text-gray-600">{resultSub}</span>}
-            </div>
-            <dl className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-sm text-gray-700">
-              {(
-                [
-                  [t.summary.niche, c.niche_label || c.niches.map(nicheName).join(', ').toLowerCase()],
-                  [t.summary.place, place],
-                  [t.summary.period, c.period],
-                ] as const
-              )
-                .filter(([, v]) => v)
-                .map(([k, v]) => (
-                  <div key={k} className="flex gap-1">
-                    <dt className="text-gray-400">{k}:</dt>
-                    <dd className="font-semibold">{v}</dd>
-                  </div>
-                ))}
-            </dl>
-          </div>
+        {c.lead && <p className="mt-5 text-lg leading-8 text-gray-600">{c.lead}</p>}
+
+        {/* Обложка: живое фото клиента или подходящее фото ниши */}
+        {c.cover && !c.html.includes(c.cover) && (
+          <figure className="mt-8 overflow-hidden rounded-3xl bg-white shadow-sm">
+            <ResponsiveImage
+              src={c.cover}
+              alt={c.cover_alt || c.card_title || c.title}
+              sizes="(min-width: 768px) 768px, 100vw"
+              priority
+              className="aspect-[2/1] h-auto w-full object-cover"
+            />
+          </figure>
         )}
 
-        <div className="mt-5 flex flex-wrap gap-3">
-          <a href={wa} target="_blank" className="rounded-full bg-[#25D366] px-6 py-3.5 text-base font-bold text-white shadow-sm">
-            {t.waButton}
-          </a>
-          <a href={tg} target="_blank" className="rounded-full border border-gray-300 bg-white px-6 py-3.5 text-base font-bold">
-            Telegram
-          </a>
-        </div>
-
-        {c.lead && <p className="mt-6 text-lg leading-8 text-gray-600">{c.lead}</p>}
-
-        <p className="mt-5 rounded-2xl bg-white px-5 py-4 text-sm leading-6 text-gray-700 shadow-sm">{t.intro(c.niche_label)}</p>
-
+        {/* Итог в цифрах сразу под обложкой: человек видит результат, не прокручивая */}
         {metrics.length > 0 && (
-          <section className="mt-10 rounded-3xl bg-white p-5 shadow-sm md:p-7">
-            <h2 className="text-2xl font-black">{t.result}</h2>
-            <dl className="mt-5 grid grid-cols-2 gap-3">
-              {metrics.map(([key, label]) => (
-                <div key={key} className="border-b border-gray-100 pb-3">
-                  <dt className="text-xs font-bold uppercase tracking-widest text-gray-400">{label}</dt>
-                  <dd className="mt-1 text-xl font-black text-[#c97d45]">{c[key] as string}</dd>
+          <section className="mt-6 rounded-3xl bg-white p-5 shadow-sm md:p-6">
+            <h2 className="text-xs font-black uppercase tracking-[0.2em] text-gray-400">{t.result}</h2>
+            <dl className="mt-4 grid grid-cols-2 gap-x-4 gap-y-5 md:grid-cols-4">
+              {metrics.map(({ key, label, value }) => (
+                <div key={key} className="flex flex-col-reverse">
+                  <dt className="mt-1 text-sm font-semibold text-gray-500">{label}</dt>
+                  <dd className="text-2xl font-black leading-tight text-[#c97d45] md:text-3xl">{value}</dd>
                 </div>
               ))}
             </dl>
+            <p className="mt-5 border-t border-gray-100 pt-4 text-sm text-gray-600">
+              {[
+                [t.summary.niche, c.niche_label || c.niches.map(nicheName).join(', ').toLowerCase()],
+                [t.summary.place, place],
+              ]
+                .filter(([, v]) => v)
+                .map(([k, v]) => `${k}: ${v}`)
+                .join(' · ')}
+            </p>
           </section>
         )}
 
-        <div
-          className="case-body mt-10 text-[18px] leading-8 text-gray-800"
-          dangerouslySetInnerHTML={{ __html: c.html }}
-        />
+        <div className="case-body mt-10 text-[18px] leading-8 text-gray-800" dangerouslySetInnerHTML={{ __html: bodyTop }} />
+
+        <MidCta text={t.ctaText} message={t.waText(c.card_title || c.title)} button={t.waButton} />
+
+        {bodyBottom && <div className="case-body text-[18px] leading-8 text-gray-800" dangerouslySetInnerHTML={{ __html: bodyBottom }} />}
 
         <Gallery title={t.creatives} items={c.creatives} />
         <Gallery title={t.proof} items={c.proof} />
@@ -173,18 +159,6 @@ export default function CaseArticle({ c, lang }: { c: Case; lang: Lang }) {
           </section>
         )}
 
-        <section className="mt-12 rounded-3xl bg-black p-6 text-white">
-          <h2 className="text-2xl font-black">{t.ctaTitle}</h2>
-          <p className="mt-3 text-white/70">{t.ctaText}</p>
-          <div className="mt-5 flex flex-wrap gap-3">
-            <a href={wa} target="_blank" className="rounded-full bg-white px-6 py-3 text-sm font-bold text-black">
-              WhatsApp
-            </a>
-            <a href={tg} target="_blank" className="rounded-full border border-white/30 px-6 py-3 text-sm font-bold text-white">
-              Telegram
-            </a>
-          </div>
-        </section>
       </article>
 
       {/* На телефоне кнопка WhatsApp всегда видна */}

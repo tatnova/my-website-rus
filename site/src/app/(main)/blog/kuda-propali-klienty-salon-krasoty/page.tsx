@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import ContactCta from '@/components/ContactCta';
+import MidCta from '@/components/MidCta';
 import ResponsiveImage from '@/components/ResponsiveImage';
 import { SITE_URL } from '@/lib/site';
 
@@ -449,6 +449,12 @@ export default function ArticlePage() {
             </Reason>
           </Section>
 
+          {/* Одна кнопка связи в середине статьи: в шапке и футере кнопки уже есть */}
+          <MidCta
+            text="Записей стало меньше? Напишите нишу и город, и я посмотрю, где вы теряете клиенток: в рекламе, в профиле или в переписке."
+            message="Здравствуйте! Прочитала статью «Почему клиенты перестали ходить в салон». Моя ниша и город: "
+          />
+
           {/* Израиль и США */}
           <Section id="israel-usa">
             <h2 className="mt-16 text-3xl font-black md:text-4xl">Как вернуть клиентов в салон в Израиле и США</h2>
@@ -538,7 +544,7 @@ export default function ArticlePage() {
             <div className="grid md:grid-cols-[220px_1fr]">
               <ResponsiveImage
                 src="/tatyana-richmann-portret-chernyj.jpg"
-                alt="Татьяна Ричманн"
+                alt="Татьяна Ричманн, реклама и ИИ-сотрудники для салонов красоты"
                 sizes="(min-width: 768px) 220px, 100vw"
                 className="h-64 w-full object-cover object-top md:h-full"
               />
@@ -579,10 +585,6 @@ export default function ArticlePage() {
           </section>
         </div>
 
-        <ContactCta
-          title="Записей стало меньше?"
-          text="Напишите мне в WhatsApp или Telegram. Посмотрю, где вы теряете клиенток: в рекламе, в профиле или в переписке."
-        />
         <div className="h-16" />
       </main>
     </div>

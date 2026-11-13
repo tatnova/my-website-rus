@@ -34,7 +34,7 @@ show_on_home: false
 draft: false
 order: 50
 ---
-<div class="tr-case"><figure class="ph hero-ph"><img src="/uploads/cases/osteopat-izrail-125-perepisok/1.jpg" alt="An osteopath treating a female patient" style="object-position:center 15%"><span class="cap">Illustrative photo</span></figure><div class="col"><div class="stats"><div class="stat key"><b>125</b><span>conversations with new patients</span></div><div class="stat key"><b>₪14.60</b><span>average cost per conversation</span></div><div class="stat"><b>−37%</b><span>cost per conversation after the creatives were refreshed</span></div><div class="stat"><b>₪1,825.62</b><span>spent on the conversations campaign</span></div></div></div>
+<div class="tr-case"><figure class="ph hero-ph"><img src="/uploads/cases/osteopat-izrail-125-perepisok/1.jpg" alt="Osteopath appointment in Israel: 125 conversations with new patients in 9.5 weeks" style="object-position:center 15%"><span class="cap">Osteopath in Israel: 125 conversations with new patients</span></figure><div class="col"><div class="stats"><div class="stat key"><b>125</b><span>conversations with new patients</span></div><div class="stat key"><b>₪14.60</b><span>average cost per conversation</span></div><div class="stat"><b>−37%</b><span>cost per conversation after the creatives were refreshed</span></div><div class="stat"><b>₪1,825.62</b><span>spent on the conversations campaign</span></div></div></div>
 <div class="col">
 <h2>About the project</h2>
 <p>A private osteopath in Israel. The ads were in Russian and spoken by the osteopath herself: about the effects of tailbone injuries, children's posture, and how the abdomen affects overall wellbeing. They were shown to women aged 25+ in her city and nearby areas. The work started on 14 August 2026 and is ongoing.</p>
@@ -53,8 +53,8 @@ order: 50
 <p><b>Audience.</b> Women aged 25+, the city and nearby areas.</p>
 </div>
 <div class="wide"><div class="gal">
-<figure class="ph "><img src="/uploads/cases/osteopat-izrail-125-perepisok/2.jpg" alt="An osteopath checking a patient's neck mobility" style="object-position:center 30%"><span class="cap">Illustrative photo</span></figure>
-<figure class="ph "><img src="/uploads/cases/osteopat-izrail-125-perepisok/3.jpg" alt="An osteopath working on a patient's back" style="object-position:center 40%"><span class="cap">Illustrative photo</span></figure>
+<figure class="ph "><img src="/uploads/cases/osteopat-izrail-125-perepisok/2.jpg" alt="Osteopath checking neck mobility: promoting a private osteopath in Israel" style="object-position:center 30%"><span class="cap">Promoting a private osteopath in Israel</span></figure>
+<figure class="ph "><img src="/uploads/cases/osteopat-izrail-125-perepisok/3.jpg" alt="Osteopath working on a patient's back: advertising osteopathy on Instagram and Facebook" style="object-position:center 40%"><span class="cap">Advertising osteopathy on Instagram and Facebook</span></figure>
 </div></div>
 <div class="col">
 <h2>Ad creatives</h2>

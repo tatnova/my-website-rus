@@ -40,6 +40,7 @@ export type CaseMeta = {
   revenue: string;
   profit: string;
   cover: string;
+  cover_alt: string;
   proof: { image: string; caption?: string }[];
   creatives: { image: string; caption?: string }[];
   old_urls: string[];
@@ -110,8 +111,7 @@ export type Settings = {
 export const CASE_METRICS: [keyof CaseMeta, string][] = [
   ['period', 'Срок'],
   ['ad_budget', 'Рекламный бюджет'],
-  ['fee', 'Гонорар'],
-  ['total_spend', 'Вложения всего'],
+  // Гонорар и «вложения всего» на сайте не показываем: цены услуг — только в личной переписке.
   ['leads', 'Заявки'],
   ['cpl', 'Цена заявки'],
   ['conversion', 'Конверсия в запись'],
@@ -211,6 +211,7 @@ export function getCases(lang: Lang = 'ru'): Case[] {
         revenue: str(data.revenue),
         profit: str(data.profit),
         cover: str(data.cover),
+        cover_alt: str(data.cover_alt),
         proof: images(data.proof),
         creatives: images(data.creatives),
         old_urls: list(data.old_urls),

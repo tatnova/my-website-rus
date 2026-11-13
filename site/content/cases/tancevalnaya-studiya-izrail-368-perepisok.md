@@ -1,8 +1,8 @@
 ---
 slug: "tancevalnaya-studiya-izrail-368-perepisok"
-title: "368 переписок для танцевальной студии в Израиле"
-card_title: "368 переписок для танцевальной студии в Израиле"
-seo_title: "368 переписок для танцевальной студии в Израиле"
+title: "Продвижение танцевальной студии в Израиле: 368 переписок за 6 месяцев"
+card_title: "Продвижение танцевальной студии в Израиле: 368 переписок за 6 месяцев"
+seo_title: "Продвижение танцевальной студии в Израиле: 368 переписок за 6 месяцев"
 description: "Кейс таргетированной рекламы: 368 переписок по 12,25 шек для танцевальной студии в Израиле; после разделения направлений переписка подешевела на 36%."
 lead: "Набор в группы через пробное занятие"
 niche_label: "танцевальная студия"
@@ -32,9 +32,9 @@ old_urls: []
 date: "2026-10-21"
 show_on_home: false
 draft: false
-order: 50
+order: 40
 ---
-<div class="tr-case"><figure class="ph hero-ph"><img src="/uploads/cases/tancevalnaya-studiya-izrail-368-perepisok/1.jpg" alt="Педагог ведёт танцевальное занятие" style="object-position:center 35%"><span class="cap">Фото иллюстративное</span></figure><div class="col"><div class="stats"><div class="stat key"><b>368</b><span>переписок в WhatsApp</span></div><div class="stat key"><b>12,25&nbsp;шек</b><span>средняя цена переписки</span></div><div class="stat"><b>−36%</b><span>цена переписки осенью по сравнению с весной</span></div><div class="stat"><b>4&nbsp;508,36&nbsp;шек</b><span>расход на кампанию с перепиской</span></div></div></div>
+<div class="tr-case"><figure class="ph hero-ph"><img src="/uploads/cases/tancevalnaya-studiya-izrail-368-perepisok/1.jpg" alt="Танцевальное занятие в студии в Израиле: 368 переписок за 6 месяцев рекламы" style="object-position:center 35%"><span class="cap">Танцевальная студия в Израиле: 368 переписок из рекламы</span></figure><div class="col"><div class="stats"><div class="stat key"><b>368</b><span>переписок в WhatsApp</span></div><div class="stat key"><b>12,25&nbsp;шек</b><span>средняя цена переписки</span></div><div class="stat"><b>−36%</b><span>цена переписки осенью по сравнению с весной</span></div><div class="stat"><b>4&nbsp;508,36&nbsp;шек</b><span>расход на кампанию с перепиской</span></div></div></div>
 <div class="col">
 <h2>Информация о проекте</h2>
 <p>Частный педагог-хореограф в Израиле ведёт группы по нескольким направлениям: зумба для взрослых, High Heels и Jazz-Funk для девушек, детские группы хип-хопа и модерна. До меня владелица продвигала публикации сама. Я веду рекламу с 8 апреля 2026 года: весной, потом после летней паузы с конца августа по 12 октября.</p>
@@ -54,8 +54,8 @@ order: 50
 </ul>
 </div>
 <div class="wide"><div class="gal">
-<figure class="ph "><img src="/uploads/cases/tancevalnaya-studiya-izrail-368-perepisok/2.jpg" alt="Женская группа танцует в студии" style="object-position:center"><span class="cap">Фото иллюстративное</span></figure>
-<figure class="ph "><img src="/uploads/cases/tancevalnaya-studiya-izrail-368-perepisok/3.jpg" alt="Танцевальный фитнес в группе" style="object-position:center"><span class="cap">Фото иллюстративное</span></figure>
+<figure class="ph "><img src="/uploads/cases/tancevalnaya-studiya-izrail-368-perepisok/2.jpg" alt="Женская группа в танцевальной студии: реклама танцев для женщин в Израиле" style="object-position:center"><span class="cap">Реклама танцев для женщин в Израиле</span></figure>
+<figure class="ph "><img src="/uploads/cases/tancevalnaya-studiya-izrail-368-perepisok/3.jpg" alt="Танцевальный фитнес в группе: как набрать группу через рекламу в Instagram" style="object-position:center"><span class="cap">Танцевальный фитнес: набор группы через рекламу</span></figure>
 </div></div>
 <div class="col">
 <h2>Рекламные макеты</h2>
@@ -99,7 +99,7 @@ order: 50
 <li><b>Лента Facebook дала почти половину всех переписок</b>, по 9,83 шек. В ленте Instagram переписка стоила вдвое дороже, 19,34 шек.</li>
 </ul>
 </div>
-<div class="wide"><figure class="ph band"><img src="/uploads/cases/tancevalnaya-studiya-izrail-368-perepisok/4.jpg" alt="Танцевальное занятие в студии" style="object-position:center 35%"><span class="cap">Фото иллюстративное</span></figure></div>
+<div class="wide"><figure class="ph band"><img src="/uploads/cases/tancevalnaya-studiya-izrail-368-perepisok/4.jpg" alt="Занятие в танцевальной студии: продвижение танцевальной студии в Израиле" style="object-position:center 35%"><span class="cap">Продвижение танцевальной студии в Израиле</span></figure></div>
 <div class="col">
 <h2>Итоги</h2>
 <ul>
