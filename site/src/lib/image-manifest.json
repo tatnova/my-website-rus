@@ -57,6 +57,16 @@
       1200
     ]
   },
+  "/chto-podarit-klientam-salona-krasoty-na-novyj-god.jpg": {
+    "base": "/img/chto-podarit-klientam-salona-krasoty-na-novyj-god",
+    "width": 960,
+    "height": 540,
+    "widths": [
+      480,
+      800,
+      960
+    ]
+  },
   "/fitness-master-more-clients-review.jpg": {
     "base": "/img/fitness-master-more-clients-review",
     "width": 1200,
