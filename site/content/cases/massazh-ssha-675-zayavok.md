@@ -1,8 +1,8 @@
 ---
 slug: "massazh-ssha-675-zayavok"
-title: "675 заявок для массажной студии в США"
-card_title: "675 заявок для массажной студии в США"
-seo_title: "675 заявок для массажной студии в США"
+title: "Продвижение массажной студии в США: кейс, 675 заявок по $4,08 за 4 месяца"
+card_title: "Продвижение массажной студии в США: кейс, 675 заявок по $4,08 за 4 месяца"
+seo_title: "Продвижение массажной студии в США: кейс, 675 заявок по $4,08 за 4 месяца"
 description: "Кейс таргетированной рекламы: 675 заявок по $4,08 для массажной студии в США за 4 месяца."
 lead: "Заявки от новых клиентов на первый визит со специальной ценой"
 niche_label: "массаж"
@@ -32,7 +32,7 @@ old_urls: []
 date: "2026-10-21"
 show_on_home: false
 draft: false
-order: 50
+order: 15
 ---
 <div class="tr-case"><figure class="ph hero-ph"><img src="/uploads/cases/massazh-ssha-675-zayavok/1.jpg" alt="Массаж спины в массажной студии в США: реклама принесла 675 заявок за 4 месяца" style="object-position:center 45%"><span class="cap">Массаж спины: 675 заявок для массажной студии в США</span></figure><div class="col"><div class="stats"><div class="stat key"><b>675</b><span>заявок через форму</span></div><div class="stat key"><b>$4,08</b><span>средняя цена заявки</span></div><div class="stat"><b>$2&nbsp;754,85</b><span>расход на кампанию с заявками</span></div><div class="stat"><b>$2,61</b><span>цена заявки в лучший месяц, июль</span></div></div></div>
 <div class="col">

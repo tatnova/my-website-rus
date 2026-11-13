@@ -1,8 +1,8 @@
 ---
 slug: "massazh-izrail-1949-perepisok-whatsapp"
-title: "1 949 обращений в WhatsApp для массажного кабинета в Израиле"
-card_title: "1 949 обращений в WhatsApp для массажного кабинета в Израиле"
-seo_title: "1 949 обращений в WhatsApp для массажного кабинета в Израиле"
+title: "Продвижение массажного кабинета в Израиле: 1 949 обращений в WhatsApp за 3,5 месяца"
+card_title: "Продвижение массажного кабинета в Израиле: 1 949 обращений в WhatsApp за 3,5 месяца"
+seo_title: "Продвижение массажного кабинета в Израиле: 1 949 обращений в WhatsApp за 3,5 месяца"
 description: "Кейс таргетированной рекламы: 1 949 переписок в WhatsApp по 1,82 шек для массажного кабинета в Израиле за 3,5 месяца."
 lead: "Привести новых клиентов, которые сами напишут или оставят заявку, и держать понятную стоимость обращения"
 niche_label: "массаж"
@@ -32,7 +32,7 @@ old_urls: []
 date: "2026-10-21"
 show_on_home: false
 draft: false
-order: 50
+order: 14
 ---
 <div class="tr-case"><figure class="ph hero-ph"><img src="/uploads/cases/massazh-izrail-1949-perepisok-whatsapp/1.jpg" alt="Массаж спины в массажном кабинете в Израиле: 1 949 обращений в WhatsApp за 3,5 месяца" style="object-position:40% center"><span class="cap">Массаж спины: 1 949 обращений в WhatsApp для массажного кабинета в Израиле</span></figure><div class="col"><div class="stats">
 <div class="stat key"><b>1 949</b><span>переписок в WhatsApp</span></div>

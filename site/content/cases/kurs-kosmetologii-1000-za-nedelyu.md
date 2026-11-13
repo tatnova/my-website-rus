@@ -1,8 +1,8 @@
 ---
 slug: "kurs-kosmetologii-1000-za-nedelyu"
-title: "Как реклама в Instagram помогла клинике косметологии продать курс на $1000 за неделю"
-card_title: "Как реклама в Instagram помогла клинике косметологии продать курс на $1000 за неделю"
-seo_title: "Как реклама в Instagram помогла клинике косметологии продать курс на $1000 за неделю"
+title: "Продвижение косметолога в Instagram: кейс, курс процедур на $1 000 за неделю"
+card_title: "Продвижение косметолога в Instagram: кейс, курс процедур на $1 000 за неделю"
+seo_title: "Продвижение косметолога в Instagram: кейс, курс процедур на $1 000 за неделю"
 description: "Перед запуском рекламы мы тщательно изучили, как аналогичные клиники в Израиле привлекают клиентов и продают косметологические курсы. Анализ включал исследование следующих параметров:"
 lead: ""
 niche_label: "клиника косметологии"
@@ -26,7 +26,7 @@ conversion: ""
 avg_check: ""
 revenue: "$1000"
 profit: ""
-cover: "/uploads/wp/2024/09/httpsadsnew.org-2.png"
+cover: "/uploads/cases/kurs-kosmetologii-1000-za-nedelyu/cover-clean.jpg"
 proof: []
 creatives: []
 old_urls:
@@ -34,7 +34,8 @@ old_urls:
 date: "2024-09-22"
 show_on_home: false
 draft: false
-order: 26
+order: 9
+cover_alt: "Курс процедур у косметолога: массаж тела"
 ---
 
 ### О проекте

@@ -1,8 +1,8 @@
 ---
 slug: "16-klientov-za-nedelyu-dlya-kliniki-kosmetologii"
-title: "16 обращений для косметологической клиники в Израиле: реклама в Instagram и Facebook"
-card_title: "16 обращений для косметологической клиники в Израиле"
-seo_title: "16 обращений для косметологической клиники в Израиле: реклама в Instagram и Facebook"
+title: "Продвижение косметологии в Израиле: кейс клиники, 16 обращений за первую неделю"
+card_title: "Продвижение косметологии в Израиле: кейс клиники, 16 обращений за первую неделю"
+seo_title: "Продвижение косметологии в Израиле: кейс клиники, 16 обращений за первую неделю"
 description: "Для каждого плейсмента (Facebook лента, Instagram лента, сторис) созданы уникальные рекламные макеты, чтобы учесть специфику каждой платформы и максимально адаптировать объявления. В итоге было разработано 18…"
 lead: ""
 niche_label: "клиника косметологии"
@@ -26,7 +26,7 @@ conversion: ""
 avg_check: ""
 revenue: ""
 profit: ""
-cover: "/uploads/wp/2024/09/httpsadsnew.org-1.png"
+cover: "/uploads/cases/16-klientov-za-nedelyu-dlya-kliniki-kosmetologii/cover-clean.jpg"
 proof: []
 creatives: []
 old_urls:
@@ -35,7 +35,8 @@ old_urls:
 date: "2024-09-22"
 show_on_home: false
 draft: false
-order: 27
+order: 8
+cover_alt: "Косметолог делает процедуру для лица в клинике в Израиле"
 ---
 
 ### О проекте

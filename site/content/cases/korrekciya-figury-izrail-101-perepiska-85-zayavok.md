@@ -1,8 +1,8 @@
 ---
 slug: "korrekciya-figury-izrail-101-perepiska-85-zayavok"
-title: "101 переписка и 85 заявок для студии коррекции фигуры в Израиле"
-card_title: "101 переписка и 85 заявок для студии коррекции фигуры в Израиле"
-seo_title: "101 переписка и 85 заявок для студии коррекции фигуры в Израиле"
+title: "Продвижение студии коррекции фигуры в Израиле: кейс, 101 переписка и 85 заявок"
+card_title: "Продвижение студии коррекции фигуры в Израиле: кейс, 101 переписка и 85 заявок"
+seo_title: "Продвижение студии коррекции фигуры в Израиле: кейс, 101 переписка и 85 заявок"
 description: "Кейс таргетированной рекламы: 101 переписка и 85 заявок для студии аппаратной коррекции фигуры в Израиле за полгода."
 lead: "Привлекать новых клиенток на пробные процедуры при небольшом рекламном бюджете"
 niche_label: "аппаратная коррекция фигуры"
@@ -33,7 +33,7 @@ old_urls: []
 date: "2026-10-21"
 show_on_home: false
 draft: false
-order: 50
+order: 13
 ---
 <div class="tr-case"><figure class="ph hero-ph"><img src="/uploads/cases/korrekciya-figury-izrail-101-perepiska-85-zayavok/1.jpg" alt="LPG-массаж в студии коррекции фигуры в Израиле: 101 переписка и 85 заявок за 6 месяцев" style="object-position:center 40%"><span class="cap">LPG-массаж: 101 переписка и 85 заявок для студии коррекции фигуры</span></figure><div class="col"><div class="stats"><div class="stat key"><b>101</b><span>переписка в WhatsApp по 16,01 шек</span></div><div class="stat key"><b>85</b><span>заявок через форму по 29,80 шек</span></div><div class="stat"><b>4&nbsp;149,91&nbsp;шек</b><span>расход на кампании с перепиской и заявками</span></div><div class="stat"><b>10,48&nbsp;шек</b><span>самая дешёвая переписка: макет с ценой первой процедуры</span></div></div></div>
 <div class="col">

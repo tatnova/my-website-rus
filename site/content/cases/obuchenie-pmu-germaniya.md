@@ -1,8 +1,8 @@
 ---
 slug: "obuchenie-pmu-germaniya"
-title: "Продвижение обучения мастера перманентного макияжа (PMU) в Instagram"
-card_title: "Продвижение обучения мастера перманентного макияжа (PMU) в Instagram"
-seo_title: "Продвижение обучения мастера перманентного макияжа (PMU) в Instagram"
+title: "Продвижение курсов перманентного макияжа: 25 заявок и 18 записей на обучение за месяц (Германия)"
+card_title: "Продвижение курсов перманентного макияжа: 25 заявок и 18 записей на обучение за месяц (Германия)"
+seo_title: "Продвижение курсов перманентного макияжа: 25 заявок и 18 записей на обучение за месяц (Германия)"
 description: "Кейс: продвижение курсов перманентного макияжа (PMU) мастера из Германии в Instagram. За 1 месяц рекламы 25 заявок на обучение, 18 из них стали продажами."
 lead: ""
 niche_label: "обучение ПМУ"
@@ -26,7 +26,7 @@ conversion: ""
 avg_check: ""
 revenue: ""
 profit: ""
-cover: "/uploads/wp/2024/10/httpsadsnew.org-7.png"
+cover: "/uploads/cases/obuchenie-pmu-germaniya/cover-clean.jpg"
 proof: []
 creatives: []
 old_urls:
@@ -34,7 +34,8 @@ old_urls:
 date: "2024-10-27"
 show_on_home: false
 draft: false
-order: 24
+order: 19
+cover_alt: "Перманентный макияж губ на обучении мастеров в Германии"
 ---
 
 ### Введение

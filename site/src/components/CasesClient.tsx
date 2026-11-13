@@ -36,7 +36,6 @@ export default function CasesClient({
   const niches = ['Все ниши', ...unique(cases.flatMap((c) => c.nicheNames))];
   const goals = ['Все цели', ...unique(cases.map((c) => c.goal))];
   const wa = contacts.find((c) => c.label === 'WhatsApp')?.href ?? '';
-  const tg = contacts.find((c) => c.label === 'Telegram')?.href ?? '';
   const [country, setCountry] = useState('Все страны');
   const [niche, setNiche] = useState('Все ниши');
   const [goal, setGoal] = useState('Все цели');
@@ -53,64 +52,29 @@ export default function CasesClient({
 
   return (
     <main className="min-h-screen bg-[#f7f2ea] pb-24 text-[#1f1a17]">
-      <section className="px-5 py-14 md:px-10 lg:px-20">
+      <section className="px-5 pt-8 pb-6 md:px-10 md:pt-14 md:pb-8 lg:px-20">
         <div className="mx-auto max-w-7xl">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-[#9b6b43]">
-            Кейсы
-          </p>
-
-          <h1 className="max-w-5xl text-4xl font-semibold leading-tight md:text-6xl">
+                    <h1 className="max-w-5xl text-3xl font-semibold leading-tight md:text-6xl">
             Кейсы продвижения бьюти-бизнеса: заявки, стоимость лида и прибыль
           </h1>
 
-          <p className="mt-6 max-w-3xl text-lg leading-8 text-[#5f5148]">
+          <p className="mt-4 max-w-3xl text-base leading-7 text-[#5f5148] md:mt-6 md:text-lg md:leading-8">
             Реальные кейсы продвижения салонов, мастеров и студий. В каждом
             кейсе показано: сколько вложили, сколько заявок получили, какая
             была цена лида, выручка и прибыль.
           </p>
-
-          <div className="mt-8 flex flex-wrap gap-3">
-            <a
-              href={wa}
-              target="_blank"
-              className="rounded-full bg-[#1f1a17] px-6 py-3 text-sm font-semibold text-white transition hover:opacity-80"
-            >
-              Получить разбор в WhatsApp
-            </a>
-
-            <a
-              href={tg}
-              target="_blank"
-              className="rounded-full border border-[#1f1a17] px-6 py-3 text-sm font-semibold transition hover:bg-[#1f1a17] hover:text-white"
-            >
-              Написать в Telegram
-            </a>
-          </div>
         </div>
       </section>
 
-      <section className="px-5 pb-10 md:px-10 lg:px-20">
-        <div className="mx-auto grid max-w-7xl gap-4 rounded-[32px] bg-white p-6 shadow-sm md:grid-cols-4 md:p-8">
-          <div>
-            <p className="text-sm text-[#5f5148]">Формат</p>
-            <h2 className="mt-2 text-2xl font-semibold">База кейсов</h2>
-          </div>
-
-          <Stat title="В кейсах" value="вложения" />
-          <Stat title="Показатели" value="заявки и лиды" />
-          <Stat title="Главное" value="прибыль" />
-        </div>
-      </section>
-
-      <section className="sticky top-0 z-20 border-y border-black/10 bg-[#f7f2ea]/95 px-5 py-4 backdrop-blur md:px-10 lg:px-20">
-        <div className="mx-auto grid max-w-7xl gap-3 md:grid-cols-3">
+      <section className="z-20 border-y md:sticky md:top-0 border-black/10 bg-[#f7f2ea]/95 px-3 py-3 md:px-5 md:py-4 backdrop-blur md:px-10 lg:px-20">
+        <div className="mx-auto grid max-w-7xl grid-cols-3 gap-2 md:gap-3">
           <Select value={country} onChange={setCountry} options={countries} />
           <Select value={niche} onChange={setNiche} options={niches} />
           <Select value={goal} onChange={setGoal} options={goals} />
         </div>
       </section>
 
-      <section className="px-5 py-12 md:px-10 lg:px-20">
+      <section className="px-5 py-6 md:px-10 md:py-12 lg:px-20">
         {/* Карточки с обложкой: фото ниши, сфера и страна, 3 главные цифры */}
         <div className="mx-auto grid max-w-7xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {filteredCases.map((item) => (
@@ -163,7 +127,7 @@ export default function CasesClient({
         </div>
       </section>
 
-      <section className="px-5 pb-12 md:px-10 lg:px-20">
+      <section className="px-5 pb-24 md:px-10 lg:px-20">
         <Link
           href="/blog/kuda-propali-klienty-salon-krasoty"
           className="block rounded-[28px] border border-black/10 bg-white p-6 transition hover:shadow-md md:p-8"
@@ -172,38 +136,8 @@ export default function CasesClient({
           <span className="mt-2 block text-xl font-black md:text-2xl">
             Почему клиенты перестали ходить в салон красоты и как их вернуть: 7 причин (2026) →
           </span>
-          <span className="mt-2 block text-sm text-gray-600">Разбор 528 комментариев клиенток, примеры из Израиля и США, чек-лист на ноябрь.</span>
+          <span className="mt-2 block text-sm text-gray-600">528 комментариев клиенток о том, почему они уходят, примеры из Израиля и США и чек-лист.</span>
         </Link>
-      </section>
-
-      <section className="px-5 pb-24 md:px-10 lg:px-20">
-        <div className="mx-auto max-w-7xl rounded-[36px] bg-[#1f1a17] p-8 text-white md:p-12">
-          <p className="text-sm font-semibold uppercase tracking-[0.25em] text-[#d8b18a]">
-            Связаться
-          </p>
-
-          <h2 className="mt-4 max-w-4xl text-3xl font-semibold md:text-5xl">
-            Хотите понять, сколько заявок может дать реклама вашему проекту?
-          </h2>
-
-          <p className="mt-5 max-w-2xl leading-7 text-white/70">
-            Напишите мне удобным способом — разберём нишу, бюджет, упаковку и
-            точки роста.
-          </p>
-
-          <div className="mt-8 flex flex-wrap gap-3">
-            {contacts.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                target="_blank"
-                className="rounded-full bg-white px-5 py-3 text-sm font-semibold text-[#1f1a17] transition hover:opacity-80"
-              >
-                {link.label}
-              </a>
-            ))}
-          </div>
-        </div>
       </section>
 
       <a
@@ -211,7 +145,7 @@ export default function CasesClient({
         target="_blank"
         className="fixed bottom-4 left-4 right-4 z-50 rounded-full bg-[#1f1a17] px-5 py-4 text-center text-sm font-semibold text-white shadow-xl md:left-auto md:right-6 md:w-auto"
       >
-        Получить разбор в WhatsApp
+        Написать в WhatsApp
       </a>
     </main>
   );
@@ -230,7 +164,7 @@ function Select({
     <select
       value={value}
       onChange={(event) => onChange(event.target.value)}
-      className="rounded-full border border-black/10 bg-white px-5 py-3 text-sm outline-none"
+      className="w-full min-w-0 truncate rounded-full border border-black/10 bg-white px-3 py-2 text-xs outline-none md:px-5 md:py-3 md:text-sm"
     >
       {options.map((item) => (
         <option key={item} value={item}>
@@ -238,15 +172,6 @@ function Select({
         </option>
       ))}
     </select>
-  );
-}
-
-function Stat({ title, value }: { title: string; value: string }) {
-  return (
-    <div className="rounded-2xl bg-[#f7f2ea] p-4">
-      <p className="text-sm text-[#5f5148]">{title}</p>
-      <p className="text-xl font-semibold">{value}</p>
-    </div>
   );
 }
 

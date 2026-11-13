@@ -1,8 +1,8 @@
 ---
 slug: "tkani-optom-lidy-iz-socsetey"
-title: "Продвижение магазина тканей оптом в Instagram"
-card_title: "Продвижение магазина тканей оптом в Instagram"
-seo_title: "Продвижение магазина тканей оптом в Instagram"
+title: "Продвижение магазина тканей оптом в Instagram: кейс, цена клика ниже почти в 2 раза за месяц"
+card_title: "Продвижение магазина тканей оптом в Instagram: кейс, цена клика ниже почти в 2 раза за месяц"
+seo_title: "Продвижение магазина тканей оптом в Instagram: кейс, цена клика ниже почти в 2 раза за месяц"
 description: "1. Потребность в таргетологе. Из-за расширения бизнеса клиентке требовался специалист, который бы мог управлять рекламой на профессиональном уровне."
 lead: ""
 niche_label: "магазин тканей"
@@ -25,7 +25,7 @@ conversion: ""
 avg_check: ""
 revenue: ""
 profit: ""
-cover: "/uploads/wp/2024/10/httpsadsnew.org-8.png"
+cover: "/uploads/cases/tkani-optom-lidy-iz-socsetey/cover-clean.jpg"
 proof: []
 creatives: []
 old_urls:
@@ -34,7 +34,8 @@ old_urls:
 date: "2024-10-27"
 show_on_home: false
 draft: false
-order: 23
+order: 44
+cover_alt: "Манекен с тканью в магазине тканей оптом"
 ---
 
 ### Задачи проекта
