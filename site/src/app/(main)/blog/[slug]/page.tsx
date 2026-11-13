@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import ContactCta from '@/components/ContactCta';
+import MidCta, { splitInMiddle } from '@/components/MidCta';
 import { getArticle, getArticles } from '@/lib/content';
 import { SITE_URL } from '@/lib/site';
 
@@ -30,6 +30,7 @@ const dateFormat = new Intl.DateTimeFormat('ru-RU', { day: 'numeric', month: 'lo
 export default async function MarkdownArticlePage({ params }: Props) {
   const a = getArticle((await params).slug);
   if (!a) notFound();
+  const [top, bottom] = splitInMiddle(a.html);
 
   return (
     <main className="bg-[#fff8f1] text-gray-900">
@@ -44,9 +45,15 @@ export default async function MarkdownArticlePage({ params }: Props) {
 
         <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">{a.title}</h1>
 
-        <div className="case-body mt-10 text-[18px] leading-8 text-gray-800" dangerouslySetInnerHTML={{ __html: a.html }} />
+        <div className="case-body mt-10 text-[18px] leading-8 text-gray-800" dangerouslySetInnerHTML={{ __html: top }} />
 
-        <ContactCta title="Обсудим ваш проект?" text="Напишите мне в WhatsApp или Telegram — задам несколько вопросов и предложу первый шаг." />
+        {/* Одна кнопка связи в середине статьи: в шапке и футере кнопки уже есть */}
+        <MidCta
+          text="Хотите так же для своего бизнеса? Напишите нишу и город, и я скажу, с чего начать."
+          message={`Здравствуйте! Прочитала статью «${a.title}». Моя ниша и город: `}
+        />
+
+        {bottom && <div className="case-body text-[18px] leading-8 text-gray-800" dangerouslySetInnerHTML={{ __html: bottom }} />}
       </article>
     </main>
   );

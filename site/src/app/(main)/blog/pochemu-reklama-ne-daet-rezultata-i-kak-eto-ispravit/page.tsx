@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import MidCta from '@/components/MidCta';
 import React from 'react';
 import type { Metadata } from 'next';
 import { SITE_URL } from '@/lib/site';
@@ -50,7 +51,7 @@ export default function BlogArticle() {
       priority
       sizes="(min-width: 1024px) 1024px, 100vw"
       src="/luxury-salon-editorial.jpg"
-      alt="Beauty Industry System"
+      alt="Почему реклама салона красоты не даёт результата и как это исправить"
       className="w-full h-auto object-cover"
     />
   </div>
@@ -163,6 +164,12 @@ export default function BlogArticle() {
               </section>
 
               {/* WHAT TO DO SECTION — Functional Whitespace Design */}
+              {/* Одна кнопка связи в середине статьи: в шапке и футере кнопки уже есть */}
+              <MidCta
+                text="Узнали свою ситуацию? Напишите нишу и город, и я скажу, что исправить в рекламе первым."
+                message="Здравствуйте! Прочитала статью «Почему реклама не даёт результата». Моя ниша и город: "
+              />
+
               <section id="solutions" className="pt-20 border-t border-gray-100 space-y-12">
                 <h2 className="text-2xl md:text-3xl font-bold tracking-tight">Что делать, если заявки есть, но нет записей</h2>
                 <div className="space-y-12 text-lg leading-[1.85] md:leading-[1.78] text-gray-600">
@@ -267,12 +274,6 @@ export default function BlogArticle() {
                 </div>
               </div>
 
-              <div className="rounded-xl bg-[#1f1a17] p-8 text-white">
-                <h5 className="text-base font-bold mb-4 leading-tight">Разбор вашей ситуации</h5>
-                <a href="https://wa.me/972552468903?text=Здравствуйте!%20Хочу%20обсудить%20рекламу" className="text-[11px] font-bold uppercase text-[#e8a16b] hover:text-white transition-colors">
-                  WhatsApp Direct →
-                </a>
-              </div>
             </div>
           </aside>
         </div>

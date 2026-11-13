@@ -34,7 +34,7 @@ show_on_home: false
 draft: false
 order: 50
 ---
-<div class="tr-case"><figure class="ph hero-ph"><img src="/uploads/cases/massazh-izrail-1949-perepisok-whatsapp/1.jpg" alt="A massage therapist giving a client a back massage" style="object-position:40% center"><span class="cap">Illustrative photo</span></figure><div class="col"><div class="stats">
+<div class="tr-case"><figure class="ph hero-ph"><img src="/uploads/cases/massazh-izrail-1949-perepisok-whatsapp/1.jpg" alt="Back massage at a massage practice in Israel: 1,949 WhatsApp inquiries in 3.5 months" style="object-position:40% center"><span class="cap">Back massage: 1,949 WhatsApp inquiries for a massage practice in Israel</span></figure><div class="col"><div class="stats">
 <div class="stat key"><b>1,949</b><span>WhatsApp conversations</span></div>
 <div class="stat key"><b>₪1.82</b><span>average cost per conversation</span></div>
 <div class="stat"><b>₪3,538.71</b><span>spent on the conversations campaign</span></div>
@@ -68,8 +68,8 @@ order: 50
 </div>
 <div class="wide">
 <div class="gal">
-<figure class="ph"><img src="/uploads/cases/massazh-izrail-1949-perepisok-whatsapp/2.jpg" alt="Shoulder and back massage"><span class="cap">Illustrative photo</span></figure>
-<figure class="ph"><img src="/uploads/cases/massazh-izrail-1949-perepisok-whatsapp/3.jpg" alt="A massage therapist working on a client's back"><span class="cap">Illustrative photo</span></figure>
+<figure class="ph"><img src="/uploads/cases/massazh-izrail-1949-perepisok-whatsapp/2.jpg" alt="Shoulder and back massage: advertising a massage practice in Israel"><span class="cap">Shoulder and back massage: advertising a massage practice in Israel</span></figure>
+<figure class="ph"><img src="/uploads/cases/massazh-izrail-1949-perepisok-whatsapp/3.jpg" alt="Massage therapist working on a client's back: WhatsApp leads from Instagram ads"><span class="cap">Massage leads come to WhatsApp from ads</span></figure>
 </div>
 </div>
 <div class="col">
@@ -175,7 +175,7 @@ order: 50
 </ul>
 </div>
 <div class="wide">
-<figure class="ph band"><img src="/uploads/cases/massazh-izrail-1949-perepisok-whatsapp/4.jpg" alt="A relaxed client on a massage table" style="object-position:center 40%"><span class="cap">Illustrative photo</span></figure>
+<figure class="ph band"><img src="/uploads/cases/massazh-izrail-1949-perepisok-whatsapp/4.jpg" alt="Client on a massage table: how a massage practice in Israel fills its schedule" style="object-position:center 40%"><span class="cap">How a massage practice in Israel fills its schedule</span></figure>
 </div>
 <div class="col">
 <h2>Summary</h2>
