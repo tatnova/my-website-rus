@@ -22,7 +22,7 @@ const TEXT = {
     summary: { niche: 'Ниша', place: 'Где', period: 'Срок', result: 'Результат' },
     resultSub: (cpl: string) => (cpl ? `цена заявки ${cpl}` : ''),
     ctaTitle: 'Хотите такой же результат для своего бизнеса?',
-    ctaText: 'Запишитесь на бесплатную консультацию: напишите в WhatsApp или Telegram свою нишу и город, и я скажу, с чего начать и какой бюджет нужен.',
+    ctaText: 'Запишитесь на консультацию: напишите в WhatsApp или Telegram свою нишу и город, и я скажу, с чего начать и какой бюджет нужен.',
     ctaConsult: 'Записаться на консультацию',
     metrics: {} as Partial<Record<keyof CaseMeta, string>>,
   },
