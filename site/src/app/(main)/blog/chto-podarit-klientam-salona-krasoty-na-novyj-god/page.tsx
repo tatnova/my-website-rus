@@ -214,7 +214,7 @@ export default function ArticlePage() {
             priority
             sizes="100vw"
             src={HERO}
-            alt="Новогодний подарок клиентке салона красоты: сыворотки для ухода за кожей в подарочной коробке"
+            alt="Клиентка салона красоты радуется новогоднему подарку в золотой упаковке"
             className="absolute inset-0 -z-10 h-full w-full object-cover"
           />
           <div className="absolute inset-0 -z-10 bg-gradient-to-r from-black/85 via-black/65 to-black/25" />
