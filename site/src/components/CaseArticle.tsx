@@ -41,8 +41,6 @@ const TEXT = {
     metrics: {
       period: 'Period',
       ad_budget: 'Ad budget',
-      fee: 'Fee',
-      total_spend: 'Total investment',
       leads: 'Leads',
       cpl: 'Cost per lead',
       conversion: 'Conversion to booking',
@@ -57,15 +55,21 @@ export default function CaseArticle({ c, lang }: { c: Case; lang: Lang }) {
   const s = getSettings();
   // Готовый текст: человеку проще начать, а в переписке сразу видно, с какого кейса он пришёл.
   const wa = `https://wa.me/${s.whatsapp_phone}?text=${encodeURIComponent(t.waText(c.card_title || c.title))}`;
-  const metrics = CASE_METRICS.filter(([key]) => c[key]).map(([key, label]) => [key, t.metrics[key] ?? label] as const);
+  // Сверху — до 4 главных цифр кейса, в порядке важности для читателя.
+  const TOP: (keyof CaseMeta)[] = ['leads', 'clients', 'cpl', 'ad_budget', 'conversion', 'period'];
+  const labels = new Map(CASE_METRICS);
+  const metrics: { key: string; label: string; value: string }[] = TOP.filter((key) => c[key] && labels.has(key))
+    .slice(0, 4)
+    .map((key) => ({ key, label: t.metrics[key] ?? labels.get(key) ?? key, value: c[key] as string }));
+  // Если цифр в карточке кейса нет, показываем хотя бы главный результат.
+  if (!metrics.length && c.summary_result) metrics.push({ key: 'summary_result', label: t.summary.result, value: c.summary_result });
+  const [bodyTop, bodyBottom] = splitInMiddle(c.html);
   const other: Lang = lang === 'ru' ? 'en' : 'ru';
   const otherVersion = getCase(c.slug, other);
   // Перелинковка: лендинги ниш этого кейса на том же языке (если есть), иначе русские.
   const landings = c.niches
     .map((id) => getNiche(id, lang) ?? (lang === 'en' ? undefined : getNiche(id)))
     .filter((n): n is Niche => !!n && n.published);
-  const resultSub = t.resultSub(c.cpl);
-  const [bodyTop, bodyBottom] = splitInMiddle(c.html);
   const place = [c.country, c.city].filter(Boolean).join(', ');
   const eyebrow = [t.eyebrow, c.niche_label || c.niches.map(nicheName).join(', ').toLowerCase(), place]
     .filter(Boolean)
@@ -89,46 +93,42 @@ export default function CaseArticle({ c, lang }: { c: Case; lang: Lang }) {
 
         <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">{c.title}</h1>
 
-        {/* Первый экран: та же цифра, что в объявлении, и сразу кнопка WhatsApp */}
-        {c.summary_result && (
-          <div className="mt-5 rounded-2xl bg-white px-5 py-3 shadow-sm">
-            <div className="flex flex-wrap items-baseline gap-x-3">
-              <span className="text-3xl font-black text-[#c97d45] md:text-4xl">{c.summary_result}</span>
-              {resultSub && <span className="text-sm font-semibold text-gray-600">{resultSub}</span>}
-            </div>
-            <dl className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-sm text-gray-700">
-              {(
-                [
-                  [t.summary.niche, c.niche_label || c.niches.map(nicheName).join(', ').toLowerCase()],
-                  [t.summary.place, place],
-                  [t.summary.period, c.period],
-                ] as const
-              )
-                .filter(([, v]) => v)
-                .map(([k, v]) => (
-                  <div key={k} className="flex gap-1">
-                    <dt className="text-gray-400">{k}:</dt>
-                    <dd className="font-semibold">{v}</dd>
-                  </div>
-                ))}
-            </dl>
-          </div>
+        {c.lead && <p className="mt-5 text-lg leading-8 text-gray-600">{c.lead}</p>}
+
+        {/* Обложка: живое фото клиента или подходящее фото ниши */}
+        {c.cover && !c.html.includes(c.cover) && (
+          <figure className="mt-8 overflow-hidden rounded-3xl bg-white shadow-sm">
+            <ResponsiveImage
+              src={c.cover}
+              alt={c.cover_alt || c.card_title || c.title}
+              sizes="(min-width: 768px) 768px, 100vw"
+              priority
+              className="aspect-[2/1] h-auto w-full object-cover"
+            />
+          </figure>
         )}
 
-
-        {c.lead && <p className="mt-6 text-lg leading-8 text-gray-600">{c.lead}</p>}
-
+        {/* Итог в цифрах сразу под обложкой: человек видит результат, не прокручивая */}
         {metrics.length > 0 && (
-          <section className="mt-10 rounded-3xl bg-white p-5 shadow-sm md:p-7">
-            <h2 className="text-2xl font-black">{t.result}</h2>
-            <dl className="mt-5 grid grid-cols-2 gap-3">
-              {metrics.map(([key, label]) => (
-                <div key={key} className="border-b border-gray-100 pb-3">
-                  <dt className="text-xs font-bold uppercase tracking-widest text-gray-400">{label}</dt>
-                  <dd className="mt-1 text-xl font-black text-[#c97d45]">{c[key] as string}</dd>
+          <section className="mt-6 rounded-3xl bg-white p-5 shadow-sm md:p-6">
+            <h2 className="text-xs font-black uppercase tracking-[0.2em] text-gray-400">{t.result}</h2>
+            <dl className="mt-4 grid grid-cols-2 gap-x-4 gap-y-5 md:grid-cols-4">
+              {metrics.map(({ key, label, value }) => (
+                <div key={key} className="flex flex-col-reverse">
+                  <dt className="mt-1 text-sm font-semibold text-gray-500">{label}</dt>
+                  <dd className="text-2xl font-black leading-tight text-[#c97d45] md:text-3xl">{value}</dd>
                 </div>
               ))}
             </dl>
+            <p className="mt-5 border-t border-gray-100 pt-4 text-sm text-gray-600">
+              {[
+                [t.summary.niche, c.niche_label || c.niches.map(nicheName).join(', ').toLowerCase()],
+                [t.summary.place, place],
+              ]
+                .filter(([, v]) => v)
+                .map(([k, v]) => `${k}: ${v}`)
+                .join(' · ')}
+            </p>
           </section>
         )}
 
@@ -195,4 +195,3 @@ function Gallery({ title, items }: { title: string; items: { image: string; capt
     </section>
   );
 }
-

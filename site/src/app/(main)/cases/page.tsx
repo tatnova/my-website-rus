@@ -17,7 +17,10 @@ export default function CasesPage() {
     nicheNames: c.niches.map(nicheName),
     goal: c.goal,
     title: c.card_title,
-    investment: c.total_spend || c.ad_budget,
+    // Только рекламный бюджет: стоимость моих услуг в каталоге не показываем.
+    investment: c.ad_budget,
+    cover: c.cover,
+    coverAlt: c.cover_alt || c.card_title,
     leads: c.leads,
     clients: c.clients,
     leadPrice: c.cpl,
