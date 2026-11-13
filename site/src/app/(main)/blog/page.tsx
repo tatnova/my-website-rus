@@ -3,9 +3,17 @@ import { getArticles } from '@/lib/content';
 
 const pageArticles = [
   {
+    title: 'Что подарить клиентам салона красоты на Новый год: идеи и мини-подарки, которые не выбросят',
+    description:
+      'Идеи для косметологии, парикмахерской и спа, мини-подарки недорого, что не дарить и какой подарок вернёт клиентку в январе.',
+    href: '/blog/chto-podarit-klientam-salona-krasoty-na-novyj-god',
+    image: '/chto-podarit-klientam-salona-krasoty-na-novyj-god.jpg',
+    category: 'Идеи',
+  },
+  {
     title: 'Почему клиенты перестали ходить в салон красоты и как их вернуть: 7 причин (2026)',
     description:
-      'Разобрала 528 комментариев клиенток: почему они перестали ходить в салон, как вернуть клиентов по каждой причине и чек-лист на ноябрь.',
+      '528 комментариев клиенток: почему они перестали ходить в салон, как вернуть клиентов по каждой причине и чек-лист на ноябрь.',
     href: '/blog/kuda-propali-klienty-salon-krasoty',
     image: '/kuda-propali-klienty-salon-krasoty.jpg',
     category: 'Разбор',
