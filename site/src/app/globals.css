@@ -83,3 +83,12 @@ body {
 .case-body table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 1rem; overflow: hidden; font-size: 1rem; }
 .case-body th, .case-body td { padding: 0.6rem 0.9rem; text-align: left; border-bottom: 1px solid #f3e8dc; vertical-align: top; }
 .case-body th { background: #fff1e4; font-weight: 900; }
+
+/* Шаблон кейса: галерея макетов и скриншотов (3 в ряд для квадратных макетов, 2 — для скриншотов) */
+.case-body .cs-gallery { display: grid; gap: 0.75rem; margin: 1.5rem 0; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (min-width: 768px) { .case-body .cs-gallery-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.case-body .cs-gallery figure { margin: 0; overflow: hidden; border-radius: 1rem; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+.case-body .cs-gallery img { display: block; width: 100%; height: auto; margin: 0; border-radius: 0; box-shadow: none; }
+.case-body .cs-gallery figcaption { padding: 0.5rem 0.75rem; font-size: 0.8rem; line-height: 1.35; color: #6b7280; }
+.case-body .cs-task { margin: 1.5rem 0; border-left: 4px solid #c97d45; border-radius: 0 1.5rem 1.5rem 0; background: #fff; padding: 1.25rem 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+.case-body .cs-task > * + * { margin-top: 0.5rem; }

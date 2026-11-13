@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useMemo, useState } from 'react';
+import ResponsiveImage from '@/components/ResponsiveImage';
 
 export type CaseItem = {
   country: string;
@@ -14,6 +15,8 @@ export type CaseItem = {
   leads: string;
   clients: string;
   leadPrice: string;
+  cover: string;
+  coverAlt: string;
   href: string;
 };
 
@@ -108,69 +111,55 @@ export default function CasesClient({
       </section>
 
       <section className="px-5 py-12 md:px-10 lg:px-20">
-        <div className="mx-auto max-w-7xl overflow-hidden rounded-[28px] bg-white shadow-sm">
-          <div className="hidden grid-cols-[1.6fr_0.7fr_0.7fr_0.8fr_0.6fr_0.6fr_0.7fr] gap-4 bg-[#1f1a17] px-6 py-4 text-sm font-semibold text-white lg:grid">
-            <div>Кейс</div>
-            <div>Страна</div>
-            <div>Ниша</div>
-            <div>Вложили</div>
-            <div>Заявки</div>
-            <div>Клиенты</div>
-            <div>Цена лида</div>
-          </div>
-
-          <div className="divide-y divide-black/10">
-            {filteredCases.map((item) => (
-              <article key={item.href}>
-                <Link
-                  href={item.href}
-                  className="hidden grid-cols-[1.6fr_0.7fr_0.7fr_0.8fr_0.6fr_0.6fr_0.7fr] gap-4 px-6 py-5 text-sm transition hover:bg-[#f7f2ea] lg:grid"
-                >
-                  <div>
-                    <h2 className="font-semibold">{item.title}</h2>
-                    <p className="mt-1 text-xs text-[#5f5148]">
-                      {[item.city, item.goal].filter(Boolean).join(' · ')} · читать кейс →
-                    </p>
+        {/* Карточки с обложкой: фото ниши, сфера и страна, 3 главные цифры */}
+        <div className="mx-auto grid max-w-7xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {filteredCases.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="group flex flex-col overflow-hidden rounded-[28px] bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+            >
+              <div className="relative aspect-[3/2] overflow-hidden bg-[#efe6da]">
+                {item.cover ? (
+                  <ResponsiveImage
+                    src={item.cover}
+                    alt={item.coverAlt}
+                    sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"
+                    className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                  />
+                ) : (
+                  <div className="flex h-full items-center justify-center p-6 text-center text-lg font-semibold text-[#9b6b43]">
+                    {item.niche}
                   </div>
-                  <div>{item.country}</div>
-                  <div>{item.niche}</div>
-                  <div>{item.investment || '—'}</div>
-                  <div>{item.leads || '—'}</div>
-                  <div>{item.clients || '—'}</div>
-                  <div>{item.leadPrice || '—'}</div>
-                </Link>
+                )}
+                <span className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-[#1f1a17] backdrop-blur">
+                  {[item.niche, item.country].filter(Boolean).join(' · ')}
+                </span>
+              </div>
 
-                <div className="p-5 lg:hidden">
-                  <Link href={item.href} className="block">
-                    <h2 className="text-lg font-semibold">{item.title}</h2>
-                    <p className="mt-1 text-sm text-[#5f5148]">
-                      {[item.country, item.city, item.niche].filter(Boolean).join(' · ')}
-                    </p>
+              <div className="flex flex-1 flex-col p-5">
+                <h2 className="text-lg font-semibold leading-snug">{item.title}</h2>
 
-                    <div className="mt-4 grid grid-cols-2 gap-3 text-sm">
-                      {(
-                        [
-                          ['Вложили', item.investment],
-                          ['Заявки', item.leads],
-                          ['Клиенты', item.clients],
-                          ['Цена лида', item.leadPrice],
-                        ] as const
-                      )
-                        .filter(([, value]) => value)
-                        .slice(0, 4)
-                        .map(([label, value]) => (
-                          <Info key={label} label={label} value={value} />
-                        ))}
-                    </div>
-
-                    <p className="mt-4 text-sm font-semibold text-[#9b6b43]">
-                      Читать полный кейс →
-                    </p>
-                  </Link>
+                <div className="mt-4 grid grid-cols-3 gap-2 text-sm">
+                  {(
+                    [
+                      ['Заявки', item.leads],
+                      ['Клиенты', item.clients],
+                      ['Цена заявки', item.leadPrice],
+                      ['Бюджет', item.investment],
+                    ] as const
+                  )
+                    .filter(([, value]) => value)
+                    .slice(0, 3)
+                    .map(([label, value]) => (
+                      <Info key={label} label={label} value={value} />
+                    ))}
                 </div>
-              </article>
-            ))}
-          </div>
+
+                <p className="mt-auto pt-4 text-sm font-semibold text-[#9b6b43]">Читать кейс →</p>
+              </div>
+            </Link>
+          ))}
         </div>
       </section>
 
