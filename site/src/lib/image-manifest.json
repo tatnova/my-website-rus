@@ -67,6 +67,17 @@
       1200
     ]
   },
+  "/klientka-zimoj-v-shapke-ukhod-za-volosami.jpg": {
+    "base": "/img/klientka-zimoj-v-shapke-ukhod-za-volosami",
+    "width": 1512,
+    "height": 804,
+    "widths": [
+      480,
+      800,
+      1200,
+      1200
+    ]
+  },
   "/kuda-propali-klienty-salon-krasoty.jpg": {
     "base": "/img/kuda-propali-klienty-salon-krasoty",
     "width": 1024,
@@ -83,6 +94,17 @@
     "height": 267,
     "widths": [
       479
+    ]
+  },
+  "/mertvyj-yanvar-v-salone-krasoty.jpg": {
+    "base": "/img/mertvyj-yanvar-v-salone-krasoty",
+    "width": 1568,
+    "height": 784,
+    "widths": [
+      480,
+      800,
+      1200,
+      1200
     ]
   },
   "/tatyana-richmann-portret-chernyj.jpg": {
