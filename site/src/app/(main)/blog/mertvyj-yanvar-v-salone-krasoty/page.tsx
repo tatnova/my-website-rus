@@ -1,7 +1,6 @@
 /* eslint-disable @next/next/no-img-element -- маленькие аватары 192px, готовые webp */
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import ContactCta from '@/components/ContactCta';
 import ResponsiveImage from '@/components/ResponsiveImage';
 import { Checklist, DiscountCalculator, ReasonPicker } from '@/components/JanuaryWidgets';
 import { SITE_URL } from '@/lib/site';
@@ -552,10 +551,6 @@ export default function ArticlePage() {
           </section>
         </div>
 
-        <ContactCta
-          title="Чтобы январь не был мёртвым"
-          text="Напишите мне нишу и город в WhatsApp или Telegram, и я скажу, какое январское предложение подойдёт вашему салону вместо скидки."
-        />
         <div className="h-16" />
       </main>
     </div>
