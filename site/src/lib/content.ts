@@ -53,9 +53,9 @@ export type CaseMeta = {
 };
 
 // Вопрос и ответ из раздела «Частые вопросы» текста кейса (для разметки FAQPage).
-export type FaqItem = { q: string; a: string };
+export type CaseFaq = { q: string; a: string };
 
-export type Case = CaseMeta & { html: string; faq: FaqItem[] };
+export type Case = CaseMeta & { html: string; faq: CaseFaq[] };
 
 export type Review = {
   slug: string;
@@ -151,7 +151,7 @@ const plain = (md: string) =>
 
 // Раздел «## Частые вопросы» (или «## FAQ») в тексте кейса: каждый абзац, который начинается
 // с жирного вопроса, это пара «вопрос — ответ». Например: **Нужен ли сайт?** Нет, хватает Instagram.
-export function extractFaq(body: string): FaqItem[] {
+export function extractFaq(body: string): CaseFaq[] {
   const m = body.match(/^##\s+(?:Частые вопросы|FAQ)\s*$([\s\S]*?)(?=^##\s|(?![\s\S]))/im);
   if (!m) return [];
   return m[1]
