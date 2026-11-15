@@ -8,10 +8,9 @@ import { SITE_URL } from '@/lib/site';
 
 const SLUG = 'rabotat-li-salonu-krasoty-31-dekabrya';
 const HERO = '/rabotat-li-salonu-krasoty-31-dekabrya.jpg';
-const TITLE =
-  'Нужно ли салону красоты работать 31 декабря и поднимать цены перед Новым годом: что решают владельцы, у которых клиентки не обижаются';
+const TITLE = 'Работать ли салону красоты 31 декабря и поднимать ли цены';
 const DESCRIPTION =
-  'Нужно ли салону красоты работать 31 декабря и поднимать цены перед Новым годом. Что пишут мастера и клиентки, цифры по декабрю и план на последнюю неделю года.';
+  'Работать ли салону красоты 31 декабря, как составить график на новогодние праздники и где граница праздничной наценки. Что решают владельцы, у которых клиентки не обижаются: цифры по декабрю и план.';
 const PUBLISHED = '2026-11-24';
 const MODIFIED = '2026-11-24';
 
@@ -132,6 +131,10 @@ const checklist = [
 
 const faq = [
   {
+    q: 'Как составить график салона на новогодние праздники?',
+    a: 'До 1 декабря спросите мастеров, кто готов работать 29–31 декабря и до какого часа. Парикмахерам и визажистам оставьте 29–31 декабря и вечерние слоты, клинике косметологии поставьте процедуры с восстановлением на 1–20 декабря, спа отдайте последние дни продаже сертификатов. Тем, кто выходит в праздники, доплачивает салон, а не клиентки.',
+  },
+  {
     q: 'Нужно ли салону красоты работать 31 декабря?',
     a: 'Парикмахерской и визажисту да: 31-го спрашивают укладки и вечерний макияж. Клинике косметологии не обязательно, её деньги в первых трёх неделях декабря. Массажу и спа последние дни года лучше отдать продаже сертификатов.',
   },
@@ -222,9 +225,10 @@ export default function ArticlePage() {
               <div className="inline-flex rounded-full bg-white/15 px-3 py-2 text-xs font-bold uppercase tracking-widest text-[#f2c29b] backdrop-blur">
                 Декабрь · <time dateTime={PUBLISHED}>24 ноября 2026</time>
               </div>
-              <h1 className="mt-5 text-4xl font-extrabold leading-[1.08] md:text-5xl">{TITLE}</h1>
+              <h1 className="mt-5 text-4xl font-extrabold leading-[1.08] md:text-6xl">{TITLE}</h1>
+              <p className="mt-4 text-xl font-bold text-[#f2c29b] md:text-2xl">Что решают владельцы, у которых клиентки не обижаются</p>
               <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/80 md:text-xl">
-                Нужно ли салону красоты работать 31 декабря и поднимать цены перед Новым годом? Этот вопрос каждый ноябрь всплывает
+                Работать ли салону красоты 31 декабря, какой поставить график на новогодние праздники и нужна ли праздничная наценка? Этот вопрос каждый ноябрь всплывает
                 в соцсетях и в разговорах мастеров и владельцев. Ответ зависит от того, что у вас за салон: для парикмахерской и
                 визажиста 31 декабря один из самых денежных дней года, для клиники косметологии пик проходит раньше.
               </p>
@@ -262,8 +266,8 @@ export default function ArticlePage() {
             <div className="text-sm font-black uppercase tracking-widest text-gray-500">Содержание</div>
             <ol className="mt-4 grid gap-2 text-[16px] font-semibold text-gray-700 md:grid-cols-2">
               <li><a href="#dekabr-v-cifrah" className="hover:text-[#c97d45]">Сколько салон зарабатывает в декабре</a></li>
-              <li><a href="#komu-rabotat" className="hover:text-[#c97d45]">Кому работать 31 декабря</a></li>
-              <li><a href="#nacenka" className="hover:text-[#c97d45]">Праздничная наценка: где граница</a></li>
+              <li><a href="#komu-rabotat" className="hover:text-[#c97d45]">График салона на новогодние праздники</a></li>
+              <li><a href="#nacenka" className="hover:text-[#c97d45]">Праздничная наценка в салоне</a></li>
               <li><a href="#plan" className="hover:text-[#c97d45]">План на последние две недели</a></li>
               <li><a href="#chek-list" className="hover:text-[#c97d45]">Чек-лист на 1 декабря</a></li>
               <li><a href="#faq" className="hover:text-[#c97d45]">Частые вопросы</a></li>
@@ -347,9 +351,10 @@ export default function ArticlePage() {
           </Section>
 
           <Section id="komu-rabotat">
-            <h2 className="mt-16 text-3xl font-black md:text-4xl">Кому работать 31 декабря, а кому нет</h2>
+            <h2 className="mt-16 text-3xl font-black md:text-4xl">График салона на новогодние праздники: кому работать 31 декабря</h2>
             <p className="mt-4 text-[18px] leading-8 text-gray-700">
-              Нажмите на свою нишу: календарь покажет, на какие дни декабря приходятся деньги.
+              Для салонов в Израиле и США вопрос особенно острый: 31 декабря там обычный рабочий день, а клиентки всё равно
+              празднуют Новый год и хотят укладку и макияж к вечеру. Нажмите на свою нишу: календарь покажет, на какие дни декабря приходятся деньги.
             </p>
             <NicheCalendar />
             <VoiceBubble v={voices.hair} />
@@ -371,7 +376,7 @@ export default function ArticlePage() {
           </Section>
 
           <Section id="nacenka">
-            <h2 className="mt-16 text-3xl font-black md:text-4xl">Праздничная наценка: где граница</h2>
+            <h2 className="mt-16 text-3xl font-black md:text-4xl">Праздничная наценка в салоне: где граница</h2>
             <p className="mt-4 text-[18px] leading-8 text-gray-700">В обсуждениях мастера разделились на три лагеря.</p>
             <VoiceBubble v={voices.makeup} />
             <MarkupPoll />
@@ -397,6 +402,17 @@ export default function ArticlePage() {
               Если салон отвечает на сообщения вручную, в последнюю неделю декабря часть заявок теряется просто потому, что
               администратор занят. Здесь помогает ИИ-сотрудник, который отвечает клиенткам в мессенджере круглосуточно, показывает
               свободные окна на 29–31 декабря и записывает в лист ожидания.
+            </p>
+            <p className="mt-6 text-[17px] leading-8 text-gray-700">
+              Почему клиентки, которые пришли в декабре, потом не возвращаются, я разбирала в статье{' '}
+              <Link href="/blog/kuda-propali-klienty-salon-krasoty" className="font-bold text-[#c97d45] underline">
+                «Почему клиенты перестали ходить в салон красоты»
+              </Link>
+              . А как салон массажа в Израиле заполнял запись через рекламу и WhatsApp, видно в кейсе{' '}
+              <Link href="/cases/massazh-israel-740-zayavok" className="font-bold text-[#c97d45] underline">
+                «740 заявок для массажа в Израиле»
+              </Link>
+              .
             </p>
           </Section>
 
