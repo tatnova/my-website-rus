@@ -11,8 +11,8 @@ const HERO = '/rabotat-li-salonu-krasoty-31-dekabrya.jpg';
 const TITLE = 'Работать ли салону красоты 31 декабря и поднимать ли цены';
 const DESCRIPTION =
   'Работать ли салону красоты 31 декабря, как составить график на новогодние праздники и где граница праздничной наценки. Что решают владельцы, у которых клиентки не обижаются: цифры по декабрю и план.';
-const PUBLISHED = '2026-11-24';
-const MODIFIED = '2026-11-24';
+const PUBLISHED = '2026-11-19';
+const MODIFIED = '2026-11-19';
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
@@ -223,7 +223,7 @@ export default function ArticlePage() {
             </Link>
             <div className="mt-10 max-w-3xl">
               <div className="inline-flex rounded-full bg-white/15 px-3 py-2 text-xs font-bold uppercase tracking-widest text-[#f2c29b] backdrop-blur">
-                Декабрь · <time dateTime={PUBLISHED}>24 ноября 2026</time>
+                Декабрь · <time dateTime={PUBLISHED}>19 ноября 2026</time>
               </div>
               <h1 className="mt-5 text-4xl font-extrabold leading-[1.08] md:text-6xl">{TITLE}</h1>
               <p className="mt-4 text-xl font-bold text-[#f2c29b] md:text-2xl">Что решают владельцы, у которых клиентки не обижаются</p>
