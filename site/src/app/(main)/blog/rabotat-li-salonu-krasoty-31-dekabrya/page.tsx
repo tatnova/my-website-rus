@@ -211,7 +211,7 @@ export default function ArticlePage() {
             sizes="100vw"
             src={HERO}
             alt="Парикмахер делает праздничную укладку клиентке 31 декабря, на фоне новогодняя ёлка"
-            className="absolute inset-0 -z-10 h-full w-full object-cover object-right"
+            className="absolute inset-0 -z-10 h-full w-full object-cover object-[65%_center]"
           />
           <div className="absolute inset-0 -z-10 bg-gradient-to-r from-black/85 via-black/65 to-black/25" />
           <div className="mx-auto max-w-6xl px-6 pb-14 pt-10 text-white md:pb-24 md:pt-14">

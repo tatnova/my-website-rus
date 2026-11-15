@@ -129,7 +129,7 @@ export function NicheCalendar() {
             return (
               <div
                 key={d}
-                className={`flex aspect-square items-center justify-center rounded-lg text-sm font-bold transition-colors duration-300 md:text-base ${KIND_STYLE[kind]} ${
+                className={`flex h-9 md:h-11 items-center justify-center rounded-lg text-sm font-bold transition-colors duration-300 md:text-base ${KIND_STYLE[kind]} ${
                   d === 31 ? 'ring-2 ring-[#1f1712] ring-offset-1' : ''
                 }`}
               >
