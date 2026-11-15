@@ -30,7 +30,7 @@ const pages = [
 
 // Дата последнего обновления для страниц, где она известна точно.
 const lastModified: Record<string, string> = {
-  '/blog/chto-podarit-klientam-salona-krasoty-na-novyj-god': '2026-11-24',
+  '/blog/chto-podarit-klientam-salona-krasoty-na-novyj-god': '2026-11-17',
   '/blog/kuda-propali-klienty-salon-krasoty': '2026-11-10',
   '/cases/massazh-israel-740-zayavok': '2026-11-10',
 };

@@ -10,8 +10,8 @@ const HERO = '/chto-podarit-klientam-salona-krasoty-na-novyj-god.jpg';
 const TITLE = 'Что подарить клиентам салона красоты на Новый год: идеи и мини-подарки, которые не выбросят';
 const DESCRIPTION =
   'Что подарить клиентам салона красоты на Новый год: идеи для косметологии, парикмахерской и спа, мини-подарки недорого, что не дарить и какой подарок вернёт клиентку в январе.';
-const PUBLISHED = '2026-11-24';
-const MODIFIED = '2026-11-24';
+const PUBLISHED = '2026-11-17';
+const MODIFIED = '2026-11-17';
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
@@ -224,7 +224,7 @@ export default function ArticlePage() {
             </Link>
             <div className="mt-10 max-w-3xl">
               <div className="inline-flex rounded-full bg-white/15 px-3 py-2 text-xs font-bold uppercase tracking-widest text-[#f2c29b] backdrop-blur">
-                Идеи · <time dateTime={PUBLISHED}>24 ноября 2026</time>
+                Идеи · <time dateTime={PUBLISHED}>17 ноября 2026</time>
               </div>
               <h1 className="mt-5 text-4xl font-extrabold leading-[1.08] md:text-6xl">{TITLE}</h1>
               <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/80 md:text-xl">
