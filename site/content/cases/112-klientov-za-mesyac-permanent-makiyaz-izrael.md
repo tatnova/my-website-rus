@@ -32,6 +32,7 @@ old_urls:
   - "/2025/01/28/112-klientov-za-mesyac-permanent-makiyaz-izrael/"
   - "/2025/01/28/112-новых-клиентов-за-месяц-для-мастера-п/"
 date: "2025-01-28"
+updated: "2026-11-13"
 show_on_home: false
 draft: false
 order: 18

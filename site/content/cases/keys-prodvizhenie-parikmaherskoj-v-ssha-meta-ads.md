@@ -29,6 +29,7 @@ creatives: []
 old_urls:
   - "/2026/03/04/keys-prodvizhenie-parikmaherskoj-v-ssha-meta-ads/"
 date: "2026-03-04"
+updated: "2026-11-13"
 show_on_home: false
 draft: false
 order: 3

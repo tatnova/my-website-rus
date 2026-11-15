@@ -31,6 +31,7 @@ creatives: []
 old_urls:
   - "/2023/10/27/рекламная-компания-для-магазина-одеж/"
 date: "2023-10-27"
+updated: "2026-11-13"
 show_on_home: false
 draft: false
 order: 43

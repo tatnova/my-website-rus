@@ -33,6 +33,7 @@ old_urls:
   - "/2025/04/26/kurs-pilingov-3000-los-angeles/"
   - "/2025/04/26/как-продать-дорогой-3000-курс-пилингов-в-л/"
 date: "2025-04-26"
+updated: "2026-11-13"
 show_on_home: false
 draft: false
 order: 10

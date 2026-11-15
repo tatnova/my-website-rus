@@ -32,6 +32,7 @@ creatives: []
 old_urls:
   - "/2024/09/22/поверх-барьеров/"
 date: "2024-09-22"
+updated: "2026-11-13"
 show_on_home: false
 draft: false
 order: 9

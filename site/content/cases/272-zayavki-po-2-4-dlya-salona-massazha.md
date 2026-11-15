@@ -32,6 +32,7 @@ old_urls:
   - "/2024/09/22/272-zayavki-po-2-4-dlya-salona-massazha/"
   - "/2024/09/22/магия-сотрудничества/"
 date: "2024-09-22"
+updated: "2026-11-13"
 show_on_home: false
 draft: false
 order: 16

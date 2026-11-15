@@ -30,6 +30,7 @@ proof: []
 creatives: []
 old_urls: []
 date: "2026-10-21"
+updated: "2026-11-13"
 show_on_home: false
 draft: false
 order: 20

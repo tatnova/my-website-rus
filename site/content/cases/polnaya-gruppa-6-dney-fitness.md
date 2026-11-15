@@ -32,6 +32,7 @@ old_urls:
   - "/2024/10/27/polnaya-gruppa-6-dney-fitness/"
   - "/2024/10/27/полная-группа-за-6-дней-рекламы-для-фитн/"
 date: "2024-10-27"
+updated: "2026-11-13"
 show_on_home: false
 draft: false
 order: 42

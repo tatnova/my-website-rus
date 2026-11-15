@@ -33,6 +33,7 @@ show_on_home: false
 draft: false
 order: 17
 cover_alt: "Массаж спины для женщин в Канаде"
+updated: "2026-11-13"
 ---
 
 ## Точка А: ситуация до запуска

@@ -31,6 +31,7 @@ creatives: []
 old_urls:
   - "/2026/01/06/keis-salon-krasoty-illinois-794-obrashcheniya-160-klientov/"
 date: "2026-01-06"
+updated: "2026-11-13"
 show_on_home: false
 draft: false
 order: 2

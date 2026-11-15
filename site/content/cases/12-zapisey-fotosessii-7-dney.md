@@ -32,6 +32,7 @@ old_urls:
   - "/2024/11/09/12-zapisey-fotosessii-7-dney/"
   - "/2024/11/09/12-записей-на-фотосессию-за-7-дней-реклам/"
 date: "2024-11-09"
+updated: "2026-11-13"
 show_on_home: false
 draft: false
 order: 41

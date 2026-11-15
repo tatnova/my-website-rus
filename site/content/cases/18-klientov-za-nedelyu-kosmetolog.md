@@ -33,6 +33,7 @@ old_urls:
   - "/2024/11/10/18-klientov-za-nedelyu-kosmetolog/"
   - "/2024/11/10/15-клиентов-за-неделю-рекламы-для-космет/"
 date: "2024-11-10"
+updated: "2026-11-13"
 show_on_home: false
 draft: false
 order: 12

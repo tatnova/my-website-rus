@@ -33,6 +33,7 @@ old_urls:
   - "/2025/07/29/cases-kosmetolog-kanada/"
   - "/2025/07/29/555/"
 date: "2025-07-29"
+updated: "2026-11-13"
 show_on_home: false
 draft: false
 order: 11
