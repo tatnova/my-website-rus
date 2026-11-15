@@ -5,6 +5,7 @@ description: "Перед запуском рекламы пользовател�
 category: "Чек-лист"
 cover: "/uploads/wp/2025/08/1.png"
 date: "2025-02-23"
+updated: "2026-11-13"
 old_urls:
   - "/checklist-dlya-reklamy/"
 draft: false

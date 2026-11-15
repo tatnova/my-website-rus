@@ -2,7 +2,7 @@ import Link from 'next/link';
 import ResponsiveImage from '@/components/ResponsiveImage';
 import MidCta, { splitInMiddle } from '@/components/MidCta';
 import { CASE_METRICS, getCase, getNiche, getSettings, nicheName, type Case, type CaseMeta, type Lang, type Niche } from '@/lib/content';
-import { landingUrl } from '@/lib/site';
+import { landingUrl, SITE_URL } from '@/lib/site';
 
 // Страница кейса на русском (/cases/<адрес>) и английском (/en/cases/<адрес>).
 const TEXT = {
@@ -75,8 +75,22 @@ export default function CaseArticle({ c, lang }: { c: Case; lang: Lang }) {
     .filter(Boolean)
     .join(' · ');
 
+  // Разметка FAQPage из раздела «Частые вопросы»: вопросы и ответы те же, что видит читатель.
+  const faqJsonLd = c.faq.length
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        url: `${SITE_URL}${lang === 'en' ? '/en' : ''}/cases/${c.slug}`,
+        inLanguage: lang,
+        mainEntity: c.faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+      }
+    : null;
+
   return (
     <main className="bg-[#fff8f1] text-gray-900">
+      {faqJsonLd && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd).replace(/</g, '\\u003c') }} />
+      )}
       <article className="mx-auto max-w-3xl px-5 py-10 md:py-16">
         <div className="flex items-center justify-between gap-4">
           <Link href={lang === 'en' ? '/en/cases' : '/cases'} className="text-sm font-bold text-[#c97d45]">

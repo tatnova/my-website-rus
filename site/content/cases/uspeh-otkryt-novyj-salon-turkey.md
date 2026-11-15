@@ -33,6 +33,7 @@ old_urls:
   - "/2025/04/26/uspeh-otkryt-novyj-salon-turkey/"
   - "/2025/04/26/🇹🇷как-успешно-открыть-новый-салон-к/"
 date: "2025-04-26"
+updated: "2026-11-13"
 show_on_home: false
 draft: false
 order: 6

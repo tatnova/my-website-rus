@@ -154,6 +154,10 @@ content:
       - name: date
         label: Дата публикации
         type: date
+      - name: updated
+        label: Дата обновления
+        type: date
+        description: "Поставьте сегодняшнюю дату, когда заметно меняете текст. Попадает в карту сайта (lastmod)."
       - name: show_on_home
         label: Показывать на главной
         type: boolean
@@ -207,6 +211,10 @@ content:
       - name: date
         label: Дата публикации
         type: date
+      - name: updated
+        label: Дата обновления
+        type: date
+        description: "Поставьте сегодняшнюю дату, когда заметно меняете текст. Попадает в карту сайта (lastmod)."
       - name: old_urls
         label: Старые адреса (WordPress)
         type: string
