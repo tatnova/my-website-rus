@@ -1,7 +1,6 @@
 /* eslint-disable @next/next/no-img-element -- маленькие аватары 192px, готовые webp */
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import ContactCta from '@/components/ContactCta';
 import ResponsiveImage from '@/components/ResponsiveImage';
 import { Checklist, MarkupPoll, NicheCalendar } from '@/components/Dec31Widgets';
 import { SITE_URL } from '@/lib/site';
@@ -479,10 +478,6 @@ export default function ArticlePage() {
           </section>
         </div>
 
-        <ContactCta
-          title="Чтобы декабрь принёс деньги, а январь не провалился"
-          text="Напишите мне нишу и город в WhatsApp или Telegram, и я скажу, с чего начать именно вам."
-        />
         <div className="h-16" />
       </main>
     </div>
