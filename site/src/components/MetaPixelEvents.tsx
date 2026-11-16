@@ -2,7 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef } from 'react';
-import { whatsappMessage } from '@/lib/whatsapp-message';
+import { pageWhatsappText, whatsappMessage } from '@/lib/whatsapp-message';
 
 // События Meta Pixel (и клики по мессенджерам в GA4). Клик в WhatsApp/Telegram = Contact, не заявка.
 // Lead, QualifiedLead и Purchase сайт не отправляет; передачи этих событий из n8n
@@ -29,6 +29,19 @@ function track(...args: unknown[]) {
   send();
 }
 
+// Заголовок текущей страницы: её H1, а если его нет, title без хвоста « | Татьяна Ричманн».
+function pageTitle(): string {
+  const h1 = document.querySelector('main h1') ?? document.querySelector('h1');
+  const text = h1?.textContent?.trim();
+  return text || document.title.split(/\s[|—–]\s/)[0];
+}
+
+// Ссылка wa.me с готовым текстом для кнопок с data-wa="page" (номер берётся из самой ссылки).
+function withPageText(href: string): string {
+  const base = href.split('?')[0];
+  return `${base}?text=${encodeURIComponent(pageWhatsappText(window.location.pathname, pageTitle()))}`;
+}
+
 // caseNames: адрес кейса → название, строится из content/cases/ в layout.tsx.
 // ViewContent уходит только для адресов из этого списка, чтобы 404 не давали ложный просмотр.
 export default function MetaPixelEvents({ caseNames }: { caseNames: Record<string, string> }) {
@@ -53,6 +66,17 @@ export default function MetaPixelEvents({ caseNames }: { caseNames: Record<strin
     }
   }, [pathname, caseNames]);
 
+  // Кнопкам с data-wa="page" сразу подставляем текст со страницы, чтобы он был виден в ссылке.
+  // Шапка и футер не перерисовываются при переходах, поэтому обновляем после каждой смены адреса.
+  useEffect(() => {
+    const t = setTimeout(() => {
+      document.querySelectorAll<HTMLAnchorElement>('a[data-wa="page"]').forEach((a) => {
+        a.setAttribute('href', withPageText(a.getAttribute('href') ?? ''));
+      });
+    }, 50);
+    return () => clearTimeout(t);
+  }, [pathname]);
+
   // Метка объявления (utm_content) из первой страницы визита: по ней выбирается текст WhatsApp.
   useEffect(() => {
     try {
@@ -75,8 +99,12 @@ export default function MetaPixelEvents({ caseNames }: { caseNames: Record<strin
       try {
         adContent = sessionStorage.getItem('ad_content');
       } catch {}
+      // Кнопки шапки, главной и футера: текст пересчитываем при нажатии, на случай если заголовок сменился.
+      if (channel === 'whatsapp' && link.getAttribute('data-wa') === 'page') {
+        link.setAttribute('href', withPageText(href));
+      }
       // Ссылка WhatsApp без текста получает естественную первую фразу (на лендингах ниш текст уже задан).
-      if (channel === 'whatsapp' && !/[?&]text=/.test(href)) {
+      else if (channel === 'whatsapp' && !/[?&]text=/.test(href)) {
         const sep = href.includes('?') ? '&' : '?';
         // encodeURIComponent, а не URLSearchParams: WhatsApp показывает «+» вместо пробелов.
         link.setAttribute('href', `${href}${sep}text=${encodeURIComponent(whatsappMessage(adContent, window.location.pathname))}`);

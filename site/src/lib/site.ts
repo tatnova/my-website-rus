@@ -1,6 +1,6 @@
-// Адрес основного сайта. Сейчас это beauty.adsnew.org (Vercel).
-// После переезда на Cloudflare в настройках сборки задаётся SITE_URL=https://adsnew.org.
-export const SITE_URL = (process.env.SITE_URL || 'https://beauty.adsnew.org').replace(/\/$/, '');
+// Адрес основного сайта: adsnew.org (beauty.adsnew.org перенаправляет сюда).
+// Можно переопределить через SITE_URL в настройках сборки.
+export const SITE_URL = (process.env.SITE_URL || 'https://adsnew.org').replace(/\/$/, '');
 
 // Адрес нишевого лендинга, например https://massage.adsnew.org.
 // До переезда лендинги доступны только для проверки по адресу /l/<ниша> и закрыты от индексации.

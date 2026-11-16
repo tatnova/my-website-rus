@@ -28,3 +28,13 @@ export function whatsappMessage(adContent: string | null, pathname: string): str
   if (pathname.startsWith('/services')) return 'Здравствуйте, Татьяна! Хочу узнать про ваши услуги по рекламе.';
   return DEFAULT;
 }
+
+// Кнопки WhatsApp в шапке, на главной и в футере (у ссылки атрибут data-wa="page").
+// Текст зависит от страницы: на главной один, на остальных с заголовком страницы (её H1).
+export const HOME_WHATSAPP_TEXT = 'Здравствуйте! Я с сайта adsnew.org. Моя ниша и город: ';
+
+export function pageWhatsappText(pathname: string, pageTitle: string): string {
+  const title = pageTitle.replace(/\s+/g, ' ').trim();
+  if (pathname === '/' || !title) return HOME_WHATSAPP_TEXT;
+  return `Здравствуйте! Я с сайта, прочитала «${title}». Моя ниша и город: `;
+}
