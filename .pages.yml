@@ -125,8 +125,11 @@ content:
         type: string
         description: "Показывается крупно в карточке на главной и на лендинге."
       - name: cover
-        label: Обложка (для соцсетей)
+        label: Обложка (сверху кейса, в каталоге и для соцсетей; горизонтальное фото от 1200 px)
         type: image
+      - name: cover_alt
+        label: Что на обложке (подпись для Google и незрячих)
+        type: string
       - name: creatives
         label: Рекламные макеты
         type: object
@@ -151,6 +154,10 @@ content:
       - name: date
         label: Дата публикации
         type: date
+      - name: updated
+        label: Дата обновления
+        type: date
+        description: "Поставьте сегодняшнюю дату, когда заметно меняете текст. Попадает в карту сайта (lastmod)."
       - name: show_on_home
         label: Показывать на главной
         type: boolean
@@ -204,6 +211,10 @@ content:
       - name: date
         label: Дата публикации
         type: date
+      - name: updated
+        label: Дата обновления
+        type: date
+        description: "Поставьте сегодняшнюю дату, когда заметно меняете текст. Попадает в карту сайта (lastmod)."
       - name: old_urls
         label: Старые адреса (WordPress)
         type: string

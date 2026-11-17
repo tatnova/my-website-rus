@@ -11,6 +11,10 @@
 //   все остальные страны, включая ЕС, Великобританию, Швейцарию и Канаду, — до согласия выключено (opt-in).
 // Часовой пояс — приблизительный признак. Если он неизвестен, действует строгий вариант (opt-in).
 //
+// Счётчики работают только на adsnew.org и его поддоменах. На тестовых копиях (*.pages.dev, *.vercel.app,
+// localhost, 127.0.0.1) GA4, Meta Pixel и TikTok Pixel не загружаются, чтобы не портить статистику;
+// баннер cookie при этом виден, его можно проверять.
+//
 // Выбор хранится в localStorage (ключ ниже) и в cookie на .adsnew.org 12 месяцев. После отзыва согласия страница
 // перезагружается, чтобы уже загруженные скрипты перестали работать.
 export const CONSENT_STORAGE_KEY = 'adsnew-cookie-consent-v1';
@@ -35,6 +39,7 @@ export const consentScript = `
 
   // Выбор дублируется в cookie на .adsnew.org, чтобы посетителя не спрашивали заново
   // при переходе между основным сайтом и лендингами ниш (у каждого поддомена свой localStorage).
+  // Этот же признак включает счётчики: они работают только на adsnew.org и поддоменах.
   var SHARED = /(^|\.)adsnew\.org$/.test(location.hostname);
   function readCookie() {
     var m = d.cookie.match(new RegExp('(?:^|; )' + KEY + '=([^;]*)'));
@@ -120,6 +125,10 @@ export const consentScript = `
   }
 
   function apply() {
+    if (!SHARED) {
+      if (w.console) w.console.info('[adsnew] Тестовая копия (' + location.hostname + '): GA4 и пиксели отключены.');
+      return;
+    }
     if (state.analytics) loadAnalytics();
     if (state.marketing) loadMarketing();
   }

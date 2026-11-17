@@ -391,7 +391,7 @@ export default function HomeClient({
               <ResponsiveImage
                 sizes="(min-width: 1024px) 33vw, 100vw"
                 src="/beauty-business-marketing-specialist.jpg"
-                alt="Фото специалиста по маркетингу и продвижению в бьюти-сфере"
+                alt="Татьяна Ричманн, реклама для салонов красоты и бьюти-мастеров"
                 className="h-full w-full object-cover"
               />
             </div>

@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useMemo, useState } from 'react';
+import ResponsiveImage from '@/components/ResponsiveImage';
 
 export type CaseItem = {
   country: string;
@@ -14,6 +15,8 @@ export type CaseItem = {
   leads: string;
   clients: string;
   leadPrice: string;
+  cover: string;
+  coverAlt: string;
   href: string;
 };
 
@@ -33,7 +36,6 @@ export default function CasesClient({
   const niches = ['Все ниши', ...unique(cases.flatMap((c) => c.nicheNames))];
   const goals = ['Все цели', ...unique(cases.map((c) => c.goal))];
   const wa = contacts.find((c) => c.label === 'WhatsApp')?.href ?? '';
-  const tg = contacts.find((c) => c.label === 'Telegram')?.href ?? '';
   const [country, setCountry] = useState('Все страны');
   const [niche, setNiche] = useState('Все ниши');
   const [goal, setGoal] = useState('Все цели');
@@ -50,131 +52,82 @@ export default function CasesClient({
 
   return (
     <main className="min-h-screen bg-[#f7f2ea] pb-24 text-[#1f1a17]">
-      <section className="px-5 py-14 md:px-10 lg:px-20">
+      <section className="px-5 pt-8 pb-6 md:px-10 md:pt-14 md:pb-8 lg:px-20">
         <div className="mx-auto max-w-7xl">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-[#9b6b43]">
-            Кейсы
-          </p>
-
-          <h1 className="max-w-5xl text-4xl font-semibold leading-tight md:text-6xl">
+                    <h1 className="max-w-5xl text-3xl font-semibold leading-tight md:text-6xl">
             Кейсы продвижения бьюти-бизнеса: заявки, стоимость лида и прибыль
           </h1>
 
-          <p className="mt-6 max-w-3xl text-lg leading-8 text-[#5f5148]">
+          <p className="mt-4 max-w-3xl text-base leading-7 text-[#5f5148] md:mt-6 md:text-lg md:leading-8">
             Реальные кейсы продвижения салонов, мастеров и студий. В каждом
             кейсе показано: сколько вложили, сколько заявок получили, какая
             была цена лида, выручка и прибыль.
           </p>
-
-          <div className="mt-8 flex flex-wrap gap-3">
-            <a
-              href={wa}
-              target="_blank"
-              className="rounded-full bg-[#1f1a17] px-6 py-3 text-sm font-semibold text-white transition hover:opacity-80"
-            >
-              Получить разбор в WhatsApp
-            </a>
-
-            <a
-              href={tg}
-              target="_blank"
-              className="rounded-full border border-[#1f1a17] px-6 py-3 text-sm font-semibold transition hover:bg-[#1f1a17] hover:text-white"
-            >
-              Написать в Telegram
-            </a>
-          </div>
         </div>
       </section>
 
-      <section className="px-5 pb-10 md:px-10 lg:px-20">
-        <div className="mx-auto grid max-w-7xl gap-4 rounded-[32px] bg-white p-6 shadow-sm md:grid-cols-4 md:p-8">
-          <div>
-            <p className="text-sm text-[#5f5148]">Формат</p>
-            <h2 className="mt-2 text-2xl font-semibold">База кейсов</h2>
-          </div>
-
-          <Stat title="В кейсах" value="вложения" />
-          <Stat title="Показатели" value="заявки и лиды" />
-          <Stat title="Главное" value="прибыль" />
-        </div>
-      </section>
-
-      <section className="sticky top-0 z-20 border-y border-black/10 bg-[#f7f2ea]/95 px-5 py-4 backdrop-blur md:px-10 lg:px-20">
-        <div className="mx-auto grid max-w-7xl gap-3 md:grid-cols-3">
+      <section className="z-20 border-y md:sticky md:top-0 border-black/10 bg-[#f7f2ea]/95 px-3 py-3 md:px-5 md:py-4 backdrop-blur md:px-10 lg:px-20">
+        <div className="mx-auto grid max-w-7xl grid-cols-3 gap-2 md:gap-3">
           <Select value={country} onChange={setCountry} options={countries} />
           <Select value={niche} onChange={setNiche} options={niches} />
           <Select value={goal} onChange={setGoal} options={goals} />
         </div>
       </section>
 
-      <section className="px-5 py-12 md:px-10 lg:px-20">
-        <div className="mx-auto max-w-7xl overflow-hidden rounded-[28px] bg-white shadow-sm">
-          <div className="hidden grid-cols-[1.6fr_0.7fr_0.7fr_0.8fr_0.6fr_0.6fr_0.7fr] gap-4 bg-[#1f1a17] px-6 py-4 text-sm font-semibold text-white lg:grid">
-            <div>Кейс</div>
-            <div>Страна</div>
-            <div>Ниша</div>
-            <div>Вложили</div>
-            <div>Заявки</div>
-            <div>Клиенты</div>
-            <div>Цена лида</div>
-          </div>
-
-          <div className="divide-y divide-black/10">
-            {filteredCases.map((item) => (
-              <article key={item.href}>
-                <Link
-                  href={item.href}
-                  className="hidden grid-cols-[1.6fr_0.7fr_0.7fr_0.8fr_0.6fr_0.6fr_0.7fr] gap-4 px-6 py-5 text-sm transition hover:bg-[#f7f2ea] lg:grid"
-                >
-                  <div>
-                    <h2 className="font-semibold">{item.title}</h2>
-                    <p className="mt-1 text-xs text-[#5f5148]">
-                      {[item.city, item.goal].filter(Boolean).join(' · ')} · читать кейс →
-                    </p>
+      <section className="px-5 py-6 md:px-10 md:py-12 lg:px-20">
+        {/* Карточки с обложкой: фото ниши, сфера и страна, 3 главные цифры */}
+        <div className="mx-auto grid max-w-7xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {filteredCases.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="group flex flex-col overflow-hidden rounded-[28px] bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+            >
+              <div className="relative aspect-[3/2] overflow-hidden bg-[#efe6da]">
+                {item.cover ? (
+                  <ResponsiveImage
+                    src={item.cover}
+                    alt={item.coverAlt}
+                    sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"
+                    className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                  />
+                ) : (
+                  <div className="flex h-full items-center justify-center p-6 text-center text-lg font-semibold text-[#9b6b43]">
+                    {item.niche}
                   </div>
-                  <div>{item.country}</div>
-                  <div>{item.niche}</div>
-                  <div>{item.investment || '—'}</div>
-                  <div>{item.leads || '—'}</div>
-                  <div>{item.clients || '—'}</div>
-                  <div>{item.leadPrice || '—'}</div>
-                </Link>
+                )}
+                <span className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-[#1f1a17] backdrop-blur">
+                  {[item.niche, item.country].filter(Boolean).join(' · ')}
+                </span>
+              </div>
 
-                <div className="p-5 lg:hidden">
-                  <Link href={item.href} className="block">
-                    <h2 className="text-lg font-semibold">{item.title}</h2>
-                    <p className="mt-1 text-sm text-[#5f5148]">
-                      {[item.country, item.city, item.niche].filter(Boolean).join(' · ')}
-                    </p>
+              <div className="flex flex-1 flex-col p-5">
+                <h2 className="text-lg font-semibold leading-snug">{item.title}</h2>
 
-                    <div className="mt-4 grid grid-cols-2 gap-3 text-sm">
-                      {(
-                        [
-                          ['Вложили', item.investment],
-                          ['Заявки', item.leads],
-                          ['Клиенты', item.clients],
-                          ['Цена лида', item.leadPrice],
-                        ] as const
-                      )
-                        .filter(([, value]) => value)
-                        .slice(0, 4)
-                        .map(([label, value]) => (
-                          <Info key={label} label={label} value={value} />
-                        ))}
-                    </div>
-
-                    <p className="mt-4 text-sm font-semibold text-[#9b6b43]">
-                      Читать полный кейс →
-                    </p>
-                  </Link>
+                <div className="mt-4 grid grid-cols-3 gap-2 text-sm">
+                  {(
+                    [
+                      ['Заявки', item.leads],
+                      ['Клиенты', item.clients],
+                      ['Цена заявки', item.leadPrice],
+                      ['Бюджет', item.investment],
+                    ] as const
+                  )
+                    .filter(([, value]) => value)
+                    .slice(0, 3)
+                    .map(([label, value]) => (
+                      <Info key={label} label={label} value={value} />
+                    ))}
                 </div>
-              </article>
-            ))}
-          </div>
+
+                <p className="mt-auto pt-4 text-sm font-semibold text-[#9b6b43]">Читать кейс →</p>
+              </div>
+            </Link>
+          ))}
         </div>
       </section>
 
-      <section className="px-5 pb-12 md:px-10 lg:px-20">
+      <section className="px-5 pb-24 md:px-10 lg:px-20">
         <Link
           href="/blog/kuda-propali-klienty-salon-krasoty"
           className="block rounded-[28px] border border-black/10 bg-white p-6 transition hover:shadow-md md:p-8"
@@ -183,38 +136,8 @@ export default function CasesClient({
           <span className="mt-2 block text-xl font-black md:text-2xl">
             Почему клиенты перестали ходить в салон красоты и как их вернуть: 7 причин (2026) →
           </span>
-          <span className="mt-2 block text-sm text-gray-600">Разбор 528 комментариев клиенток, примеры из Израиля и США, чек-лист на ноябрь.</span>
+          <span className="mt-2 block text-sm text-gray-600">528 комментариев клиенток о том, почему они уходят, примеры из Израиля и США и чек-лист.</span>
         </Link>
-      </section>
-
-      <section className="px-5 pb-24 md:px-10 lg:px-20">
-        <div className="mx-auto max-w-7xl rounded-[36px] bg-[#1f1a17] p-8 text-white md:p-12">
-          <p className="text-sm font-semibold uppercase tracking-[0.25em] text-[#d8b18a]">
-            Связаться
-          </p>
-
-          <h2 className="mt-4 max-w-4xl text-3xl font-semibold md:text-5xl">
-            Хотите понять, сколько заявок может дать реклама вашему проекту?
-          </h2>
-
-          <p className="mt-5 max-w-2xl leading-7 text-white/70">
-            Напишите мне удобным способом — разберём нишу, бюджет, упаковку и
-            точки роста.
-          </p>
-
-          <div className="mt-8 flex flex-wrap gap-3">
-            {contacts.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                target="_blank"
-                className="rounded-full bg-white px-5 py-3 text-sm font-semibold text-[#1f1a17] transition hover:opacity-80"
-              >
-                {link.label}
-              </a>
-            ))}
-          </div>
-        </div>
       </section>
 
       <a
@@ -222,7 +145,7 @@ export default function CasesClient({
         target="_blank"
         className="fixed bottom-4 left-4 right-4 z-50 rounded-full bg-[#1f1a17] px-5 py-4 text-center text-sm font-semibold text-white shadow-xl md:left-auto md:right-6 md:w-auto"
       >
-        Получить разбор в WhatsApp
+        Написать в WhatsApp
       </a>
     </main>
   );
@@ -241,7 +164,7 @@ function Select({
     <select
       value={value}
       onChange={(event) => onChange(event.target.value)}
-      className="rounded-full border border-black/10 bg-white px-5 py-3 text-sm outline-none"
+      className="w-full min-w-0 truncate rounded-full border border-black/10 bg-white px-3 py-2 text-xs outline-none md:px-5 md:py-3 md:text-sm"
     >
       {options.map((item) => (
         <option key={item} value={item}>
@@ -249,15 +172,6 @@ function Select({
         </option>
       ))}
     </select>
-  );
-}
-
-function Stat({ title, value }: { title: string; value: string }) {
-  return (
-    <div className="rounded-2xl bg-[#f7f2ea] p-4">
-      <p className="text-sm text-[#5f5148]">{title}</p>
-      <p className="text-xl font-semibold">{value}</p>
-    </div>
   );
 }
 
