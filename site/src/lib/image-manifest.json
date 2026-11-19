@@ -96,6 +96,17 @@
       479
     ]
   },
+  "/rabotat-li-salonu-krasoty-31-dekabrya.jpg": {
+    "base": "/img/rabotat-li-salonu-krasoty-31-dekabrya",
+    "width": 1568,
+    "height": 784,
+    "widths": [
+      480,
+      800,
+      1200,
+      1200
+    ]
+  },
   "/tatyana-richmann-portret-chernyj.jpg": {
     "base": "/img/tatyana-richmann-portret-chernyj",
     "width": 1200,
@@ -1946,6 +1957,17 @@
       480,
       800,
       1080
+    ]
+  },
+  "/vecher-31-dekabrya-makiyazh-ukladka.jpg": {
+    "base": "/img/vecher-31-dekabrya-makiyazh-ukladka",
+    "width": 1456,
+    "height": 813,
+    "widths": [
+      480,
+      800,
+      1200,
+      1200
     ]
   }
 }

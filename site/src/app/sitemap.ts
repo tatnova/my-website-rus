@@ -12,6 +12,7 @@ const pages = [
   '/',
   '/cases',
   '/blog',
+  '/blog/rabotat-li-salonu-krasoty-31-dekabrya',
   '/blog/chto-podarit-klientam-salona-krasoty-na-novyj-god',
   '/blog/kuda-propali-klienty-salon-krasoty',
   '/blog/kak-zapolnit-zapis',
@@ -32,11 +33,12 @@ const pages = [
 // Меняя такую страницу, обновите дату здесь. У кейсов и статей дата берётся из поля «Дата обновления»
 // (updated), а если его нет — из даты публикации.
 const lastModified: Record<string, string> = {
+  '/blog/rabotat-li-salonu-krasoty-31-dekabrya': '2026-11-19',
   '/blog/chto-podarit-klientam-salona-krasoty-na-novyj-god': '2026-11-17',
   '/massage': '2026-11-13',
   '/': '2026-11-13',
   '/cases': '2026-11-13',
-  '/blog': '2026-11-17',
+  '/blog': '2026-11-19',
   '/blog/kuda-propali-klienty-salon-krasoty': '2026-11-13',
   '/blog/kak-zapolnit-zapis': '2026-11-13',
   '/blog/pochemu-reklama-ne-daet-rezultata-i-kak-eto-ispravit': '2026-11-13',
