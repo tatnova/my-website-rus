@@ -5,6 +5,7 @@ description: "Как проходит работа с новыми мастер�
 category: "Как я работаю"
 cover: "/uploads/wp/2025/08/d0a1d0bdd0b8d0bcd0bed0ba-d18dd0bad180d0b0d0bdd0b0-2025-08-18-d0b2-10.58.51.png"
 date: "2025-08-19"
+updated: "2026-11-13"
 old_urls:
   - "/kak-eto-rabotaet/"
 draft: false

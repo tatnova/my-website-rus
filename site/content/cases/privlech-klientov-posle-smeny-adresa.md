@@ -32,6 +32,7 @@ old_urls:
   - "/2025/04/26/privlech-klientov-posle-smeny-adresa/"
   - "/2025/04/26/как-привлечь-клиентов-после-смены-адр/"
 date: "2025-04-26"
+updated: "2026-11-13"
 show_on_home: false
 draft: false
 order: 31

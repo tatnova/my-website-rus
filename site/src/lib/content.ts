@@ -45,12 +45,17 @@ export type CaseMeta = {
   creatives: { image: string; caption?: string }[];
   old_urls: string[];
   date: string;
+  // Дата последнего заметного изменения (для lastmod в карте сайта). Если пусто — дата публикации.
+  updated: string;
   show_on_home: boolean;
   draft: boolean;
   order: number;
 };
 
-export type Case = CaseMeta & { html: string };
+// Вопрос и ответ из раздела «Частые вопросы» текста кейса (для разметки FAQPage).
+export type CaseFaq = { q: string; a: string };
+
+export type Case = CaseMeta & { html: string; faq: CaseFaq[] };
 
 export type Review = {
   slug: string;
@@ -132,6 +137,30 @@ function frontmatter(raw: string): { data: Record<string, unknown>; body: string
 }
 
 const str = (v: unknown) => (v === null || v === undefined ? '' : String(v).trim());
+// Дата в виде ГГГГ-ММ-ДД. YAML без кавычек превращает дату в объект Date, а не в строку.
+const day = (v: unknown) => (v instanceof Date ? v.toISOString().slice(0, 10) : str(v).slice(0, 10));
+
+// Простой текст без markdown: для разметки Schema.org.
+const plain = (md: string) =>
+  md
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, '')
+    .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
+    .replace(/\*\*|__|`/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+
+// Раздел «## Частые вопросы» (или «## FAQ») в тексте кейса: каждый абзац, который начинается
+// с жирного вопроса, это пара «вопрос — ответ». Например: **Нужен ли сайт?** Нет, хватает Instagram.
+export function extractFaq(body: string): CaseFaq[] {
+  const m = body.match(/^##\s+(?:Частые вопросы|FAQ)\s*$([\s\S]*?)(?=^##\s|(?![\s\S]))/im);
+  if (!m) return [];
+  return m[1]
+    .split(/\n\s*\n/)
+    .map((para) => para.trim().match(/^\*\*(.+?)\*\*([\s\S]+)$/))
+    .filter((x): x is RegExpMatchArray => !!x)
+    .map((x) => ({ q: plain(x[1]), a: plain(x[2]) }))
+    .filter((f) => f.q && f.a);
+}
 const list = (v: unknown) => (Array.isArray(v) ? v.map(str).filter(Boolean) : []);
 const images = (v: unknown) =>
   (Array.isArray(v) ? v : [])
@@ -215,11 +244,13 @@ export function getCases(lang: Lang = 'ru'): Case[] {
         proof: images(data.proof),
         creatives: images(data.creatives),
         old_urls: list(data.old_urls),
-        date: str(data.date),
+        date: day(data.date),
+        updated: day(data.updated),
         show_on_home: data.show_on_home === true,
         draft: data.draft === true,
         order: Number(data.order) || 999,
         html: markdownToHtml(body),
+        faq: extractFaq(body),
       };
       return c;
     })
@@ -387,6 +418,7 @@ export type Article = {
   category: string;
   cover: string;
   date: string;
+  updated: string;
   old_urls: string[];
   html: string;
 };
@@ -406,7 +438,8 @@ export function getArticles(): Article[] {
         description: str(data.description),
         category: str(data.category) || 'Статья',
         cover: str(data.cover),
-        date: str(data.date),
+        date: day(data.date),
+        updated: day(data.updated),
         old_urls: list(data.old_urls),
         html: markdownToHtml(body),
       };

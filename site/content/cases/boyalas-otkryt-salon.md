@@ -32,6 +32,7 @@ old_urls:
   - "/2025/07/29/boyalas-otkryt-salon/"
   - "/2025/07/29/боялась-уйти-из-салона-и-открыть-свой/"
 date: "2025-07-29"
+updated: "2026-11-13"
 show_on_home: false
 draft: false
 order: 32

@@ -33,6 +33,7 @@ show_on_home: false
 draft: false
 order: 4
 cover_alt: "Массаж в спа-салоне в Калифорнии"
+updated: "2026-11-13"
 ---
 
 ## Точка А: ситуация до запуска
