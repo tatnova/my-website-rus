@@ -15,9 +15,8 @@ const sectionLinks = [
   { label: 'Контакты', href: '/contact' },
 ];
 
+// WhatsApp и Telegram здесь нет: они уже есть кнопками в блоке «Готовы обсудить проект?» выше.
 const socialLinks = [
-  { label: 'WhatsApp', href: 'https://wa.me/972552468903' },
-  { label: 'Telegram', href: 'https://t.me/mailovaja' },
   { label: 'Instagram', href: 'https://www.instagram.com/ads_target_pr/' },
   { label: 'Facebook', href: 'https://www.facebook.com/newadstarget' },
   { label: 'TikTok', href: 'https://www.tiktok.com/@tatyana.ads' },
@@ -46,6 +45,7 @@ export default function SiteShell({ children }: { children: React.ReactNode }) {
           <div className="mt-6 flex flex-wrap justify-center gap-3">
             <a
               href="https://wa.me/972552468903"
+              data-wa="page"
               target="_blank"
               className="rounded-full bg-black px-6 py-3 text-sm font-bold text-white"
             >

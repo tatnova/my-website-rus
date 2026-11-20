@@ -33,6 +33,7 @@ export default function SiteNav() {
           ))}
           <a
             href={WHATSAPP_URL}
+            data-wa="page"
             target="_blank"
             rel="noreferrer"
             className="rounded-full bg-black px-5 py-2 text-white transition hover:bg-gray-800"
@@ -66,6 +67,7 @@ export default function SiteNav() {
           <div className="flex gap-3 pt-2">
             <a
               href={WHATSAPP_URL}
+              data-wa="page"
               target="_blank"
               rel="noreferrer"
               className="flex-1 rounded-full bg-[#e8a16b] py-4 text-center font-bold text-white"
