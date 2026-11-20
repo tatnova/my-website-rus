@@ -134,7 +134,7 @@ export default function CasesClient({
         >
           <span className="text-xs font-bold uppercase tracking-widest text-[#a35f2c]">Статья</span>
           <span className="mt-2 block text-xl font-black md:text-2xl">
-            Почему клиенты перестали ходить в салон красоты и как их вернуть: 7 причин (2026) →
+            Почему клиенты перестали ходить в салон: 7 причин и как их вернуть (2026) →
           </span>
           <span className="mt-2 block text-sm text-gray-600">528 комментариев клиенток о том, почему они уходят, примеры из Израиля и США и чек-лист.</span>
         </Link>
