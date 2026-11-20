@@ -10,7 +10,7 @@ const TITLE = 'Что подарить клиентам салона красо�
 const DESCRIPTION =
   'Что подарить клиентам салона красоты на Новый год: идеи для косметологии, парикмахерской и спа, мини-подарки недорого, что не дарить и какой подарок вернёт клиентку в январе.';
 const PUBLISHED = '2026-11-17';
-const MODIFIED = '2026-11-17';
+const MODIFIED = '2026-11-20';
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
@@ -346,6 +346,13 @@ export default function ArticlePage() {
               </div>
               <p className="mt-5 text-xs text-white/60">Источник: Kitomba/Zenoti</p>
             </div>
+            <p className="mt-6 text-[17px] leading-8 text-gray-700">
+              Если после праздников запись всё равно пустеет, посмотрите разбор,{' '}
+              <Link href="/blog/kuda-propali-klienty-salon-krasoty" className="font-bold text-[#c97d45] underline">
+                почему клиенты перестали ходить в салон
+              </Link>
+              , и что делать с каждой из 7 причин.
+            </p>
           </Section>
 
           <Section id="skolko-stoit">
@@ -446,8 +453,12 @@ export default function ArticlePage() {
             </div>
           </section>
 
-          <section className="mt-10">
-            <div className="grid gap-4 md:grid-cols-2">
+          <section className="mt-12">
+            <h2 className="text-2xl font-black md:text-3xl">Как салоны возвращают и находят клиентов: кейсы</h2>
+            <p className="mt-3 text-[17px] leading-8 text-gray-700">
+              Подарок удерживает тех, кто уже ходит. Новых клиенток приводит реклама: вот два примера с цифрами.
+            </p>
+            <div className="mt-6 grid gap-4 md:grid-cols-2">
               {cases.map((c) => (
                 <Link
                   key={c.href}

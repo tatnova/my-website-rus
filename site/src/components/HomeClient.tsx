@@ -4,6 +4,9 @@ import Link from 'next/link';
 import { CookieSettingsLink } from '@/components/CookieConsent';
 import SiteNav from '@/components/SiteNav';
 import ResponsiveImage from '@/components/ResponsiveImage';
+import { HOME_WHATSAPP_TEXT } from '@/lib/whatsapp-message';
+
+const HOME_WHATSAPP_URL = `https://wa.me/972552468903?text=${encodeURIComponent(HOME_WHATSAPP_TEXT)}`;
 
 const socialLinks = [
   { label: 'WhatsApp', href: 'https://wa.me/972552468903', icon: '💬' },
@@ -13,6 +16,9 @@ const socialLinks = [
   { label: 'TikTok', href: 'https://www.tiktok.com/@tatyana.ads', icon: '♪' },
   { label: 'Threads', href: 'https://www.threads.net/@ads_target_pr', icon: '@' },
 ];
+
+// В футере WhatsApp и Telegram уже есть большими кнопками, поэтому в строке соцсетей их не повторяем.
+const footerSocialLinks = socialLinks.filter((item) => item.label !== 'WhatsApp' && item.label !== 'Telegram');
 
 const problems = [
   'заявки приходят нестабильно: сегодня есть, завтра нет',
@@ -65,7 +71,7 @@ const steps = [
 
 const articles = [
   {
-    title: 'Почему клиенты перестали ходить в салон красоты и как их вернуть: 7 причин (2026)',
+    title: 'Почему клиенты перестали ходить в салон: 7 причин и как их вернуть (2026)',
     href: '/blog/kuda-propali-klienty-salon-krasoty',
   },
   {
@@ -339,7 +345,8 @@ export default function HomeClient({
 
             <div className="flex flex-wrap justify-center gap-4">
               <a
-                href="https://wa.me/972552468903"
+                href={HOME_WHATSAPP_URL}
+                data-wa="page"
                 target="_blank"
                 rel="noreferrer"
                 className="rounded-full bg-black px-8 py-4 font-bold text-white transition hover:bg-gray-800"
@@ -487,7 +494,8 @@ export default function HomeClient({
 
             <div className="flex flex-wrap justify-center gap-4">
               <a
-                href="https://wa.me/972552468903"
+                href={HOME_WHATSAPP_URL}
+                data-wa="page"
                 target="_blank"
                 rel="noreferrer"
                 className="rounded-full bg-black px-8 py-4 font-bold text-white transition hover:bg-gray-800"
@@ -513,7 +521,7 @@ export default function HomeClient({
             </div>
 
             <div className="mt-10 flex flex-wrap justify-center gap-4 text-sm font-bold uppercase tracking-widest text-gray-400">
-              {socialLinks.map((item) => (
+              {footerSocialLinks.map((item) => (
                 <a
                   key={item.label}
                   href={item.href}
